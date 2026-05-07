@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://duogth2i1fmrf"]
+
+[ext_resource type="Texture2D" uid="uid://dorqpsujcuf71" path="res://backgrounds/main_menu_background.png" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://crysq2vt1huvk" path="res://buttons/play_button.png" id="2_8ln24"]
+[ext_resource type="Script" uid="uid://g38ghibrcydq" path="res://scenes/main_menu.gd" id="2_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://dgms7fordq37c" path="res://buttons/play_button_hovered.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://dmnearlm67egk" path="res://buttons/shop_button.png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://cd8mshchubt0p" path="res://buttons/shop_button_hovered.png" id="5_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://b3yg68encyyy4" path="res://buttons/settings_button.png" id="5_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://5h8qpaitdirm" path="res://buttons/settings_button_hovered.png" id="7_oa1go"]
+[ext_resource type="Texture2D" uid="uid://cbi40sq2seqn" path="res://logo/reckless_logo.png" id="8_tbmy8"]
+
+[node name="MainMenu" type="TextureRect" unique_id=311017489]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_l6cm7")
+script = ExtResource("2_jk1qb")
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=1347030637]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 358.0
+offset_right = 1191.0
+offset_bottom = 560.0
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_8ln24")
+texture_hover = ExtResource("3_rtw2f")
+stretch_mode = 4
+
+[node name="ShopButton" type="TextureButton" parent="." unique_id=2024617283]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 472.0
+offset_right = 1194.0
+offset_bottom = 674.0
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_oa1go")
+texture_hover = ExtResource("5_rtw2f")
+stretch_mode = 4
+
+[node name="SettingsButton" type="TextureButton" parent="." unique_id=49510251]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 586.00006
+offset_right = 1197.0
+offset_bottom = 788.00006
+scale = Vector2(0.51, 0.51)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_tbmy8")
+texture_hover = ExtResource("7_oa1go")
+stretch_mode = 4
+
+[node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 102.0
+offset_right = 973.0
+offset_bottom = 870.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_tbmy8")
+stretch_mode = 4
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

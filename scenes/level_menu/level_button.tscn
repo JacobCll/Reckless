@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bh5whn5f6bwwh"]
+
+[ext_resource type="Script" uid="uid://boha18cs22ifl" path="res://scenes/level_menu/level_button.gd" id="1_i82w3"]
+
+[node name="LevelButton" type="Button" unique_id=1704980035]
+custom_minimum_size = Vector2(120, 120)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 32
+text = "1"
+script = ExtResource("1_i82w3")

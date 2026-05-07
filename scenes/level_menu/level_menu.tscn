@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://mevuta02i13c"]
+
+[ext_resource type="Texture2D" uid="uid://cmd57qnn61sda" path="res://backgrounds/levels_menu_background.png" id="1_yl4fo"]
+[ext_resource type="Script" uid="uid://kh73i6r688f0" path="res://scenes/level_menu/level_menu.gd" id="2_8xmkv"]
+[ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="2_jqwib"]
+[ext_resource type="Texture2D" uid="uid://ctkkbptbg7kif" path="res://logo/levels_text.png" id="3_7obll"]
+[ext_resource type="PackedScene" uid="uid://bh5whn5f6bwwh" path="res://scenes/level_menu/level_button.tscn" id="3_bvllw"]
+
+[node name="LevelMenu" type="TextureRect" unique_id=1450082209]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_yl4fo")
+script = ExtResource("2_8xmkv")
+level_button = ExtResource("3_bvllw")
+metadata/_edit_lock_ = true
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=612589866]
+layout_mode = 0
+offset_left = 62.999996
+offset_top = 62.0
+offset_right = 613.0
+offset_bottom = 264.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_jqwib")
+stretch_mode = 4
+
+[node name="LevelsText" type="TextureRect" parent="." unique_id=1342054559]
+layout_mode = 0
+offset_left = 296.0
+offset_top = -68.99999
+offset_right = 1320.0
+offset_bottom = 699.0
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("3_7obll")
+
+[node name="LevelGrid" type="GridContainer" parent="." unique_id=760875452]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 287.0
+offset_right = 912.0
+offset_bottom = 567.0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 40
+columns = 5
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
