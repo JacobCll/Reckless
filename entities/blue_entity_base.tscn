@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://m0ewq7oi2ajw"]
+
+[ext_resource type="Script" uid="uid://1uiqcrtcu4l5" path="res://entities/blue_entity_base.gd" id="1_qt7vd"]
+
+[node name="BlueEntityBase" type="RigidBody2D" unique_id=1198263616]
+script = ExtResource("1_qt7vd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=226567958]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1735354089]
+polygon = PackedVector2Array(4, 0, 3, 3, 0, 3)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dg43nwdxa3q0k"]
+
+[ext_resource type="Script" uid="uid://cuxnltw4uv4mk" path="res://scenes/levels/level_1/level_1.gd" id="1_yh288"]
+[ext_resource type="Texture2D" uid="uid://cq22nlaa40umh" path="res://backgrounds/level_background.png" id="2_ltc67"]
+[ext_resource type="PackedScene" uid="uid://bmi1qepd3a7go" path="res://entities/spawners/blue_spawner.tscn" id="3_l7db3"]
+
+[node name="Level1" type="Node" unique_id=923573846]
+script = ExtResource("1_yh288")
+
+[node name="Background" type="TextureRect" parent="." unique_id=319669751]
+z_index = -1
+offset_right = 1024.0
+offset_bottom = 768.0
+texture = ExtResource("2_ltc67")
+metadata/_edit_lock_ = true
+
+[node name="BlueSpawner" parent="." unique_id=112515382 instance=ExtResource("3_l7db3")]
+position = Vector2(503, 650)
+
+[node name="BlueSpawnerTimer" type="Timer" parent="." unique_id=64466920]
+autostart = true
+
+[connection signal="timeout" from="BlueSpawnerTimer" to="." method="_on_blue_spawner_timer_timeout"]
