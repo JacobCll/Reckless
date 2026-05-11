@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c7bqxtbw6hdyv" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="3_fr1um"]
 [ext_resource type="Script" uid="uid://dip4au1ybwkxc" path="res://scenes/levels/test_level/slash_count.gd" id="4_48ne7"]
 [ext_resource type="PackedScene" uid="uid://bmi1qepd3a7go" path="res://entities/spawners/blue_spawner.tscn" id="5_qv4mi"]
+[ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_hocnj"]
 
 [node name="TestLevel" type="Node" unique_id=39712665]
 script = ExtResource("1_yautc")
-entity_scene = ExtResource("3_fr1um")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=47054750]
 z_index = -1
@@ -37,7 +37,12 @@ script = ExtResource("4_48ne7")
 wait_time = 0.1
 one_shot = true
 
-[node name="BlueSpawner" parent="." unique_id=112515382 instance=ExtResource("5_qv4mi")]
-position = Vector2(506, 827)
+[node name="ExamSpriteSpawner" parent="." unique_id=112515382 instance=ExtResource("5_qv4mi")]
+position = Vector2(298, 718)
+blue_scene = ExtResource("3_fr1um")
+
+[node name="BroomSpriteSpawner" parent="." unique_id=1419948877 instance=ExtResource("5_qv4mi")]
+position = Vector2(731, 707)
+blue_scene = ExtResource("6_hocnj")
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

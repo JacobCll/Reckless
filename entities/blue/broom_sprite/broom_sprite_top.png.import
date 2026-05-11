@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6y1v0emc7vge"
-path="res://.godot/imported/broom_sprite.png-45a0d5234af6d07fd548d2d29625a3e2.ctex"
+uid="uid://cxqqbhddwiqen"
+path="res://.godot/imported/broom_sprite_top.png-cfd25456a54d63331f3b104795d7bca2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/blue/broom_sprite/broom_sprite.png"
-dest_files=["res://.godot/imported/broom_sprite.png-45a0d5234af6d07fd548d2d29625a3e2.ctex"]
+source_file="res://entities/blue/broom_sprite/broom_sprite_top.png"
+dest_files=["res://.godot/imported/broom_sprite_top.png-cfd25456a54d63331f3b104795d7bca2.ctex"]
 
 [params]
 

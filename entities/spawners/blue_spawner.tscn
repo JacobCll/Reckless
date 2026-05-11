@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bmi1qepd3a7go"]
 
 [ext_resource type="Script" uid="uid://bw2l4dlggb862" path="res://entities/spawners/blue_spawner.gd" id="1_mqwcq"]
-[ext_resource type="PackedScene" uid="uid://c7bqxtbw6hdyv" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="2_8tgk3"]
 
 [node name="BlueSpawner" type="Node2D" unique_id=112515382]
 script = ExtResource("1_mqwcq")
-blue_scene = ExtResource("2_8tgk3")
