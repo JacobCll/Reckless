@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c7bqxtbw6hdyv"]
+
+[ext_resource type="PackedScene" uid="uid://m0ewq7oi2ajw" path="res://entities/blue_entity_base.tscn" id="1_rc6rq"]
+[ext_resource type="Texture2D" uid="uid://105tkhsj1wuk" path="res://entities/blue/exam_sprite/exam_sprite.png" id="2_8heef"]
+[ext_resource type="Script" uid="uid://dmj5jvrokydch" path="res://entities/blue/exam_sprite/exam_sprite.gd" id="2_e1bbf"]
+[ext_resource type="Texture2D" uid="uid://cprfheit2kiqa" path="res://entities/blue/exam_sprite/exam_sprite_bottom.png" id="3_rbnx4"]
+[ext_resource type="Texture2D" uid="uid://cqphewyunkjxx" path="res://entities/blue/exam_sprite/exam_sprite_top.png" id="4_lc41f"]
+
+[node name="ExamSprite" unique_id=1198263616 instance=ExtResource("1_rc6rq")]
+script = ExtResource("2_e1bbf")
+left_half_texture = ExtResource("3_rbnx4")
+right_half_texture = ExtResource("4_lc41f")
+
+[node name="Sprite2D" parent="." index="0" unique_id=226567958]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_8heef")
+
+[node name="CollisionPolygon2D" parent="." index="1" unique_id=1735354089]
+position = Vector2(-3.070732, -254.62544)
+scale = Vector2(105.78283, 203.75009)
+polygon = PackedVector2Array(-0.07495799, 0.9993882, 0.7380284, 0.9552164, 0.45442852, 1.5441732, -0.4625445, 1.4852775, -0.43418452, 1.4312898, -0.63270444, 1.3920261, -0.2640246, 1.220247)

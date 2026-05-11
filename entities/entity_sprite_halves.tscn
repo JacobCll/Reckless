@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cuvq6iixtky20"]
+
+[ext_resource type="Script" uid="uid://c2pn1jq2qkhn6" path="res://entities/entity_sprite_halves.gd" id="1_gdktp"]
+[ext_resource type="PackedScene" uid="uid://c1d3xv1xv4rdp" path="res://entities/entity_half.tscn" id="2_f73o2"]
+
+[node name="EntitySpriteHalves" type="Node2D" unique_id=719152555]
+script = ExtResource("1_gdktp")
+entity_half_scene = ExtResource("2_f73o2")

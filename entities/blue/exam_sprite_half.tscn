@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://cuvq6iixtky20"]
-
-[ext_resource type="Script" uid="uid://c2pn1jq2qkhn6" path="res://entities/blue/exam_sprite_half.gd" id="1_m2v30"]
-
-[node name="ExamSpriteHalf" type="Node2D" unique_id=719152555]
-script = ExtResource("1_m2v30")
-
-[node name="Half" type="Sprite2D" parent="." unique_id=1058945143]
