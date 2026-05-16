@@ -1,37 +1,37 @@
 extends Node2D
 
-signal entity_slashed
+signal entity_smashed
 
 @export var path: Path2D # entities will spawn here
-@export var blue_entity_scenes: Array[PackedScene]
+@export var red_entity_scenes: Array[PackedScene]
 @export var throw_force := 900.0
-@export var respawn_delay := 1.0
+@export var respawn_delay := 1
 
 func _ready() -> void:
 	randomize()
 	spawn_entity()
 
 func spawn_entity():
-	if blue_entity_scenes.is_empty():
+	if red_entity_scenes.is_empty():
 		return
-		
-	var random_scene = blue_entity_scenes.pick_random()
-	var blue_entity = random_scene.instantiate()
 	
-	add_child(blue_entity)
+	var random_scene = red_entity_scenes.pick_random()
+	var red_entity = random_scene.instantiate()
+	
+	add_child(red_entity)
 	
 	var curve = path.curve
 	var length = curve.get_baked_length()
 	var offset = randf_range(0.0, length)
 	var spawn_pos = to_global(curve.sample_baked(offset))
 
-	blue_entity.global_position = spawn_pos
-	blue_entity.gravity_scale = randf_range(0.7, 1) 
+	red_entity.global_position = spawn_pos 
+	red_entity.gravity_scale = randf_range(0.7, 1)
 	
-	blue_entity.slashed.connect(_on_entity_slashed)
-	blue_entity.despawned.connect(_on_entity_removed)
+	red_entity.smashed.connect(_on_entity_smashed)
+	red_entity.despawned.connect(_on_entity_removed)
 	
-	throw_up(blue_entity)
+	throw_up(red_entity)
 	
 func throw_up(entity):
 	# Random horizontal angle
@@ -41,14 +41,14 @@ func throw_up(entity):
 	# throw force
 	entity.apply_central_impulse(direction * throw_force)
 	# random spin
-	entity.angular_velocity = randf_range(-5.0,5)
+	entity.angular_velocity = randf_range(-4.0, 4.0)
 	
 func _on_entity_removed():
 	await get_tree().create_timer(respawn_delay).timeout
 	spawn_entity()
 	
-func _on_entity_slashed():
-	entity_slashed.emit()
+func _on_entity_smashed():
+	entity_smashed.emit()
 	await get_tree().create_timer(respawn_delay).timeout
 	spawn_entity()
 	

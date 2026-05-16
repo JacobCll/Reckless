@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b5r2s1tdnubjs"]
+
+[ext_resource type="Script" uid="uid://by3uqxs4c3u5k" path="res://effects/entity_slash_particles/slash_particles.gd" id="1_35a5v"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b0a2k"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+direction = Vector3(1, -10, 5)
+spread = 90.0
+initial_velocity_max = 109.549995
+gravity = Vector3(0, 101.81, 0)
+linear_accel_min = 28.489998
+linear_accel_max = 61.629997
+scale_min = 2.0
+scale_max = 7.0
+color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+
+[node name="SlashParticles" type="GPUParticles2D" unique_id=1104455548]
+emitting = false
+amount = 10
+lifetime = 1.5
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_b0a2k")
+script = ExtResource("1_35a5v")

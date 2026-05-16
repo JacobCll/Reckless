@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c2ucqu6xq2vro"]
+
+[ext_resource type="Script" uid="uid://dly2wgdvs433f" path="res://entities/spawners/red_spawner.gd" id="1_w138u"]
+[ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="2_4yvrq"]
+
+[node name="RedSpawner" type="Node2D" unique_id=1536977859]
+script = ExtResource("1_w138u")
+red_scene = ExtResource("2_4yvrq")

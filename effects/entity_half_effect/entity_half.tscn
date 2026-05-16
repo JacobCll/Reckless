@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1d3xv1xv4rdp"]
 
-[ext_resource type="Script" uid="uid://dsndks4h5amkd" path="res://entities/entity_half.gd" id="1_dmg6r"]
+[ext_resource type="Script" uid="uid://dsndks4h5amkd" path="res://effects/entity_half_effect/entity_half.gd" id="1_dmg6r"]
 
 [node name="EntityHalf" type="Sprite2D" unique_id=1661325207]
 script = ExtResource("1_dmg6r")

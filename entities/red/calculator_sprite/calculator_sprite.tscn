@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://crvvtldlh0rbp"]
+
+[ext_resource type="PackedScene" uid="uid://ce4vdrqxwqa5n" path="res://entities/base_entities/red_entity_base.tscn" id="1_tay75"]
+[ext_resource type="Script" uid="uid://r3clxfyaakxt" path="res://entities/red/calculator_sprite/calculator_sprite.gd" id="2_30n6b"]
+[ext_resource type="Texture2D" uid="uid://lo40j8xbqpkj" path="res://entities/red/calculator_sprite/calculator_sprite.png" id="2_123ak"]
+[ext_resource type="Texture2D" uid="uid://1q2p5g88nnec" path="res://entities/red/calculator_sprite/calculator_sprite_bottom_left.png" id="3_feou7"]
+[ext_resource type="Texture2D" uid="uid://vbxtcc40km" path="res://entities/red/calculator_sprite/calculator_sprite_top_left.png" id="3_y2vly"]
+[ext_resource type="Texture2D" uid="uid://by7jeu4e5snuw" path="res://entities/red/calculator_sprite/calculator_sprite_top_right.png" id="4_ullyk"]
+[ext_resource type="Texture2D" uid="uid://dijpyfycve7c1" path="res://entities/red/calculator_sprite/calculator_sprite_bottom_right.png" id="6_ix15i"]
+
+[node name="CalculatorSprite" unique_id=735652724 instance=ExtResource("1_tay75")]
+script = ExtResource("2_30n6b")
+top_left_piece = ExtResource("3_y2vly")
+top_right_piece = ExtResource("4_ullyk")
+bottom_left_piece = ExtResource("3_feou7")
+bottom_right_piece = ExtResource("6_ix15i")
+
+[node name="GlowCircle" parent="." index="0" unique_id=2087975921]
+scale = Vector2(0.33703762, 0.46418917)
+
+[node name="Sprite2D" parent="." index="1" unique_id=495998550]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_123ak")
+
+[node name="CollisionPolygon2D" parent="." index="2" unique_id=2029557851]
+polygon = PackedVector2Array(-44, -76, 46, -76, 45, 78, -45, 78)

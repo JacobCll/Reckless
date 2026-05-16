@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cnkwr80c76bnp"]
-
-[ext_resource type="Script" uid="uid://dwiqho3m24con" path="res://scenes/levels/level_1/slash_manager.gd" id="1_vhwqu"]
-
-[node name="SlashManager" type="Node2D" unique_id=1038297961]
-script = ExtResource("1_vhwqu")
