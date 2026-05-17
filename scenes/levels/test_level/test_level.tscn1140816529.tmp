@@ -5,9 +5,7 @@
 [ext_resource type="Script" uid="uid://dip4au1ybwkxc" path="res://scenes/levels/test_level/slash_count.gd" id="4_48ne7"]
 [ext_resource type="PackedScene" uid="uid://bmi1qepd3a7go" path="res://entities/spawners/blue_spawner.tscn" id="5_qv4mi"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="6_hocnj"]
-[ext_resource type="PackedScene" uid="uid://dxuehjhxi0ski" path="res://entities/spawners/green_spawner.tscn" id="7_6eemo"]
 [ext_resource type="PackedScene" uid="uid://c2ucqu6xq2vro" path="res://entities/spawners/red_spawner.tscn" id="7_lbjl6"]
-[ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="8_6eemo"]
 
 [sub_resource type="Curve2D" id="Curve2D_hocnj"]
 _data = {
@@ -61,15 +59,8 @@ path = NodePath("../RedEntitySpawnerPath")
 red_entity_scenes = Array[PackedScene]([ExtResource("6_hocnj")])
 throw_force = 1000.0
 
-[node name="GreenEntitySpawner" parent="." unique_id=1334889382 node_paths=PackedStringArray("path") instance=ExtResource("7_6eemo")]
-path = NodePath("../GreenEntitySpawnerPath")
-green_entity_scenes = Array[PackedScene]([ExtResource("8_6eemo")])
-
 [node name="RedEntitySpawnerPath" type="Path2D" parent="." unique_id=1324047485]
 curve = SubResource("Curve2D_hocnj")
-
-[node name="GreenEntitySpawnerPath" type="Path2D" parent="." unique_id=2140683268]
-curve = SubResource("Curve2D_qv4mi")
 
 [node name="BlueEntitySpawnerPath" type="Path2D" parent="." unique_id=1822137802]
 curve = SubResource("Curve2D_qv4mi")

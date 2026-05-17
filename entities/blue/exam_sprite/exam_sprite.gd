@@ -8,7 +8,6 @@ func spawn_halves():
 		randf_range(-300, -150),
 		randf_range(-500, -300)
 	)
-
 	var right_impulse = Vector2(
 		randf_range(150, 300),
 		randf_range(-500, -300)

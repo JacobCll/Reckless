@@ -1,4 +1,4 @@
-extends GPUParticles2D	
+extends GPUParticles2D
 
 func spawn_particles(pos: Vector2, color: Color):
 	global_position = pos

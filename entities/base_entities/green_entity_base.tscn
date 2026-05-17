@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://craodccs2qt3l"]
+
+[ext_resource type="Texture2D" uid="uid://b0lhwkxocc4y8" path="res://effects/entity_glow/blue_glow.png" id="1_57rf5"]
+[ext_resource type="Script" uid="uid://cxvmq0y3bxufr" path="res://entities/base_entities/green_entity_base.gd" id="1_xfh22"]
+[ext_resource type="PackedScene" uid="uid://b5r2s1tdnubjs" path="res://effects/entity_particles/slash_particles.tscn" id="2_a4xyk"]
+[ext_resource type="PackedScene" uid="uid://cuvq6iixtky20" path="res://effects/entity_half_effect/entity_sprite_halves.tscn" id="4_rvl3p"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xfh22"]
+blend_mode = 1
+
+[node name="GreenEntityBase" type="RigidBody2D" unique_id=1331156639]
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_xfh22")
+particles_scene = ExtResource("2_a4xyk")
+
+[node name="GlowCircle" type="Sprite2D" parent="." unique_id=1100081190]
+modulate = Color(2.0455568e-06, 0.5818609, 0.059796207, 1)
+z_index = -1
+material = SubResource("CanvasItemMaterial_xfh22")
+texture = ExtResource("1_57rf5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=789523869]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1239123806]
+polygon = PackedVector2Array(1, 0, 0, 1, 0, 0)
+
+[node name="EntitySmashedSpriteHalves" parent="." unique_id=719152555 instance=ExtResource("4_rvl3p")]
+
+[node name="EntitySlashedSpriteHalves" parent="." unique_id=330102812 instance=ExtResource("4_rvl3p")]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
