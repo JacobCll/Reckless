@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c7bqxtbw6hdyv"]
+[gd_scene format=3 uid="uid://b4mk3uqqpa5ix"]
 
 [ext_resource type="PackedScene" uid="uid://m0ewq7oi2ajw" path="res://entities/base_entities/blue_entity_base.tscn" id="1_rc6rq"]
 [ext_resource type="Texture2D" uid="uid://105tkhsj1wuk" path="res://entities/blue/exam_sprite/exam_sprite.png" id="2_8heef"]
@@ -13,14 +13,15 @@ right_half_texture = ExtResource("4_lc41f")
 
 [node name="GlowCircle" parent="." index="0" unique_id=1188814709]
 z_index = 0
-position = Vector2(10, 3.000001)
-scale = Vector2(0.24482398, 0.24167454)
+position = Vector2(12, 6.999996)
+scale = Vector2(0.27, 0.28)
 
 [node name="Sprite2D" parent="." index="1" unique_id=226567958]
-scale = Vector2(0.13107647, 0.14729962)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_8heef")
 
 [node name="CollisionPolygon2D" parent="." index="2" unique_id=1735354089]
 visible = false
-scale = Vector2(102.91339, 88.020905)
-polygon = PackedVector2Array(-0.12631981, -0.6702953, 0.6996174, -0.73846096, 0.4566947, 0.78390473, -0.5635807, 0.5566859, -0.52471304, 0.4203547, -0.65103287, 0.27266252, -0.29150724, -0.20449688)
+position = Vector2(3.9999998, -1.0000005)
+scale = Vector2(1.1568772, 1.0361714)
+polygon = PackedVector2Array(-19.881107, -57.90547, 69.15168, -67.55638, 42.355404, 81.06766, -76.06684, 42.464016)

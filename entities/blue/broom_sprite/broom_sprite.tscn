@@ -10,6 +10,7 @@
 script = ExtResource("2_cysdy")
 left_half_texture = ExtResource("3_ye0mt")
 right_half_texture = ExtResource("4_q865p")
+particle_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 
 [node name="GlowCircle" parent="." index="0" unique_id=1188814709]
 z_index = 0

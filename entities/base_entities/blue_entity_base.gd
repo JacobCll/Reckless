@@ -12,10 +12,16 @@ func _process(_delta):
 	if global_position.x < -200 or global_position.x > 1224 or global_position.y < -200 or global_position.y > 968:
 		despawned.emit()
 		queue_free()
-
-func _on_mouse_entered():
+		return
+	
+	# Catch fast swipes that skipped _on_mouse_entered
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		slash()
+		if _is_mouse_over(get_viewport().get_mouse_position()):
+			slash()
+
+func _is_mouse_over(mouse_pos: Vector2) -> bool:
+	var local = to_local(mouse_pos)
+	return Geometry2D.is_point_in_polygon(local, $CollisionPolygon2D.polygon)
 
 # modify this in individual entities
 func spawn_halves():

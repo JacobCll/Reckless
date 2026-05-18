@@ -8,18 +8,27 @@ signal despawned
 signal slashed
 signal smashed
 
+var was_interacted := false
 var was_slashed := false
 var was_smashed := false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if was_interacted: return
+	
 	if global_position.x < -200 or global_position.x > 1224 or global_position.y < -200 or global_position.y > 968:
 		despawned.emit()
 		queue_free()
-
-func _on_mouse_entered():
+		return
+		
+	# Catch fast swipes that skipped _on_mouse_entered
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		slash()
+		if _is_mouse_over(get_viewport().get_mouse_position()):
+			slash()
+
+func _is_mouse_over(mouse_pos: Vector2) -> bool:
+	var local := to_local(mouse_pos)
+	return Geometry2D.is_point_in_polygon(local, $CollisionPolygon2D.polygon)
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed: 
@@ -30,23 +39,24 @@ func spawn_halves():
 	pass
 
 func slash():
-	slashed.emit()
+	if was_interacted: return
+	was_interacted = true
 	was_slashed = true
 	
-	# show slash particle effects
-	var particles = particles_scene.instantiate()
-	get_parent().add_child(particles)
-	particles.spawn_particles(global_position, particle_color)
+	slashed.emit()
 	
-	# spawn two halves of the sprite for the slashing visual effect
-	spawn_halves()
-
-	queue_free()
+	destroy_entity()
 
 func smash():
-	smashed.emit()
+	if was_interacted: return
+	was_interacted = true
 	was_smashed = true
+		
+	smashed.emit()
 	
+	destroy_entity()
+	
+func destroy_entity():
 	# show smash particle effects
 	var particles = particles_scene.instantiate()
 	get_parent().add_child(particles)

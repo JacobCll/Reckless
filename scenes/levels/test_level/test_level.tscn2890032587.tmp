@@ -47,6 +47,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_48ne7")
 
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1902311942]
+wait_time = 0.1
+one_shot = true
+
 [node name="BlueEntitySpawner" parent="." unique_id=302014494 node_paths=PackedStringArray("path") instance=ExtResource("5_qv4mi")]
 scale = Vector2(0.96236557, 0.9721578)
 path = NodePath("../BlueEntitySpawnerPath")
@@ -69,5 +73,7 @@ curve = SubResource("Curve2D_qv4mi")
 
 [node name="BlueEntitySpawnerPath" type="Path2D" parent="." unique_id=1822137802]
 curve = SubResource("Curve2D_qv4mi")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 
 [editable path="BlueEntitySpawner"]

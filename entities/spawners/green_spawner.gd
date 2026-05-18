@@ -9,7 +9,6 @@ signal entity_smashed
 @export var respawn_delay := 1.0
 
 func _ready() -> void:
-	randomize()
 	spawn_entity()
 
 func spawn_entity():
