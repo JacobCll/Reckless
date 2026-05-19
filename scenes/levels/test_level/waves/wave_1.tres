@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://okvyiigq3lb3"]
+
+[ext_resource type="Script" uid="uid://ii4c0mwd3eq8" path="res://entities/spawners/waves/wave_data.gd" id="1_371rc"]
+
+[resource]
+script = ExtResource("1_371rc")
+metadata/_custom_type_script = "uid://ii4c0mwd3eq8"

@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://dip4au1ybwkxc" path="res://scenes/levels/test_level/slash_count.gd" id="4_48ne7"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_uxvkn"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="6_hocnj"]
+[ext_resource type="Script" uid="uid://ii4c0mwd3eq8" path="res://entities/spawners/waves/wave_data.gd" id="7_6eemo"]
+[ext_resource type="Resource" uid="uid://okvyiigq3lb3" path="res://scenes/levels/test_level/waves/wave_1.tres" id="8_2wufs"]
 [ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="8_6eemo"]
 
 [sub_resource type="Curve2D" id="Curve2D_uxvkn"]
@@ -39,10 +41,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_48ne7")
 
-[node name="EntitySpawner" parent="." unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_uxvkn")]
-path = NodePath("../EntitySpawnerPath")
+[node name="TotalActiveEntities" type="Label" parent="." unique_id=1109482713]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -245.0
+offset_top = 42.0
+offset_right = -19.0
+offset_bottom = 87.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
+
+[node name="EntitySpawner1" parent="." unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_uxvkn")]
+path = NodePath("../EntitySpawner1Path")
 red_scenes = Array[PackedScene]([ExtResource("6_hocnj")])
 green_scenes = Array[PackedScene]([ExtResource("8_6eemo")])
+waves = Array[ExtResource("7_6eemo")]([ExtResource("8_2wufs")])
 
-[node name="EntitySpawnerPath" type="Path2D" parent="." unique_id=290536839]
+[node name="EntitySpawner1Path" type="Path2D" parent="." unique_id=290536839]
 curve = SubResource("Curve2D_uxvkn")
