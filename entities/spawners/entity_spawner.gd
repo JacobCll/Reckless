@@ -45,8 +45,7 @@ class SpawnEntry:
 
 func _ready() -> void:
 	_build_entries()
-	if not _entries.is_empty():
-		_start_spawn_loop()
+	_start_next_wave()
 
 # Build the weighted pool from inspector data
 func _build_entries() -> void:
@@ -71,8 +70,8 @@ func _add_group(scenes, type, weight, max_alive):
 # ─── wave logic ──────────────────────────────────────────────────────────────
 
 func _start_next_wave() -> void:
+	# proceed to next wave index
 	_current_wave_index += 1
-
 	if _current_wave_index >= waves.size():
 		all_waves_completed.emit()
 		return
@@ -99,6 +98,11 @@ func _on_wave_entity_killed() -> void:
 
 func _advance_wave() -> void:
 	wave_completed.emit(_current_wave_index)
+	
+	if _current_wave_index >= waves.size() - 1:
+		all_waves_completed.emit()
+		return
+		
 	await get_tree().create_timer(delay_between_waves).timeout
 	_start_next_wave()
 
@@ -108,7 +112,7 @@ func _advance_wave() -> void:
 func _start_spawn_loop() -> void:
 	while true:
 		# stop spawning once we've thrown out enough entities for this wave
-		if _total_spawned_this_wave >= _current_wave.total_to_spawn:
+		if _is_wave_complete():
 			break
 		var delay := randf_range(_current_wave.respawn_delay_min, _current_wave.respawn_delay_max)
 		await get_tree().create_timer(delay).timeout
@@ -124,7 +128,7 @@ func _schedule_spawn() -> void:
 func _trigger_spawn() -> void:
 	var count := randi_range(_current_wave.spawn_count_min, _current_wave.spawn_count_max)
 	for i in count:
-		if _total_spawned_this_wave >= _current_wave.total_to_spawn:
+		if _is_wave_complete():
 			break
 		var entry := _pick_entry()
 		if entry == null:
@@ -163,15 +167,15 @@ func _spawn_from_entry(entry: SpawnEntry) -> void:
 
 	entry.alive_count += 1
 	
+	_total_spawned_this_wave += 1
+
 	entity.despawned.connect(_on_despawned.bind(entry))
 
 	match entry.entity_type:
 		"blue":
 			entity.slashed.connect(_on_slashed.bind(entry))
-			_total_spawned_this_wave += 1
 		"red":
 			entity.smashed.connect(_on_smashed.bind(entry))
-			_total_spawned_this_wave += 1
 		"green":
 			entity.slashed.connect(_on_slashed.bind(entry))
 			entity.smashed.connect(_on_smashed.bind(entry))

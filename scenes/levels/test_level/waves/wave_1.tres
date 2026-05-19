@@ -4,4 +4,8 @@
 
 [resource]
 script = ExtResource("1_371rc")
+total_to_kill = 1
+red_weight = 0.0
+throw_force_min = 800.0
+throw_force_max = 900.0
 metadata/_custom_type_script = "uid://ii4c0mwd3eq8"
