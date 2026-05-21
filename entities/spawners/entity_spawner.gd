@@ -83,7 +83,7 @@ func _start_next_wave() -> void:
 	_total_killed_this_wave  = 0
 	_build_entries()
 
-	wave_started.emit(_current_wave_index)
+	wave_started.emit.call_deferred(_current_wave_index)
 	spawning_enabled = true
 	_start_spawn_loop()
 
@@ -102,7 +102,6 @@ func _advance_wave() -> void:
 	_clear_all_entities()
 	
 	if _current_wave_index >= waves.size() - 1:
-		print("All waves completed")
 		all_waves_completed.emit()
 		return
 		
@@ -135,17 +134,12 @@ func _clear_all_entities():
 func _trigger_spawn() -> void:
 	var count := randi_range(_current_wave.spawn_count_min, _current_wave.spawn_count_max)
 	for i in count:
-		print(i)
-		if not spawning_enabled:
-			break
-		if _is_wave_complete():
+		if not spawning_enabled or _is_wave_complete():
 			break
 			
 		var entry := _pick_entry()
 		if entry == null: 
-			break
-		
-		print("a")
+			continue
 		
 		if _current_wave.burst_spread > 0.0:
 			await get_tree().create_timer(_current_wave.burst_spread * i).timeout

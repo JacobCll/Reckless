@@ -17,6 +17,7 @@ func _ready() -> void:
 	$HUD/WinLabel.visible = false
 	$HUD/WaveWinLabel.visible = false
 	$HUD/RetryButton.visible = false
+	$HUD/CurrentWaveLabel.visible = true
 
 func _process(delta: float) -> void:
 	$HUD/TotalActiveEntitiesLabel.text = "Blue: %d  Red: %d  Green: %d" % [
@@ -38,6 +39,7 @@ func _on_entity_smashed(entity_type: String) -> void:
 	$HUD/ScoreLabel.set_new_text(str(score))
 
 func _on_wave_started(wave_index: int) -> void:
+	print("Wave started")
 	$HUD/WaveWinLabel.visible = false
 	$HUD/RetryButton.visible = false
 	$HUD/CurrentWaveLabel.text = "Wave %d" % (wave_index + 1)

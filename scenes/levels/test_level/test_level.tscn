@@ -31,9 +31,38 @@ green_scenes = Array[PackedScene]([ExtResource("8_6eemo")])
 waves = Array[ExtResource("7_6eemo")]([ExtResource("8_2wufs")])
 
 [node name="EntitySpawner1Path" type="Path2D" parent="." unique_id=290536839]
+position = Vector2(16, 80)
 curve = SubResource("Curve2D_uxvkn")
 
 [node name="HUD" type="Node" parent="." unique_id=234840150]
+
+[node name="CurrentWaveLabel" type="Label" parent="HUD" unique_id=234466887]
+anchors_preset = -1
+anchor_left = 0.83900005
+anchor_top = 0.123
+anchor_right = 0.83900005
+anchor_bottom = 0.123
+offset_left = -91.13605
+offset_top = -14.4640045
+offset_right = 90.86395
+offset_bottom = 14.5359955
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="TotalActiveEntitiesLabel" type="Label" parent="HUD" unique_id=1109482713]
+anchors_preset = -1
+anchor_left = 0.86
+anchor_top = 0.078
+anchor_right = 0.86
+anchor_bottom = 0.078
+offset_left = -112.640015
+offset_top = -11.903999
+offset_right = 113.359985
+offset_bottom = 12.096001
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
 
 [node name="ScoreLabel" type="Label" parent="HUD" unique_id=110549339]
 anchors_preset = -1
@@ -51,29 +80,6 @@ theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_48ne7")
-
-[node name="TotalActiveEntitiesLabel" type="Label" parent="HUD" unique_id=1109482713]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -245.0
-offset_top = 42.0
-offset_right = -19.0
-offset_bottom = 87.0
-grow_horizontal = 0
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 16
-
-[node name="CurrentWaveLabel" type="Label" parent="HUD" unique_id=784527132]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -244.0
-offset_top = 82.0
-offset_right = -32.0
-offset_bottom = 127.0
-grow_horizontal = 0
-vertical_alignment = 1
 
 [node name="WaveWinLabel" type="Label" parent="HUD" unique_id=359742298]
 anchors_preset = 8
@@ -98,9 +104,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -96.0
 offset_right = 20.0
-offset_bottom = 11.5
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
