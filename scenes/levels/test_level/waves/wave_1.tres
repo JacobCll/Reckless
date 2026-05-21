@@ -5,6 +5,11 @@
 [resource]
 script = ExtResource("1_371rc")
 total_to_kill = 1
+spawn_count_min = 2
+spawn_count_max = 2
+burst_spread = 1.0
+respawn_delay_min = 1.0
+respawn_delay_max = 1.0
 red_weight = 0.0
 throw_force_min = 800.0
 throw_force_max = 900.0

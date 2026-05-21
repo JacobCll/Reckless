@@ -18,23 +18,22 @@ point_count = 2
 [node name="TestLevel" type="Node" unique_id=39712665]
 script = ExtResource("1_yautc")
 
-[node name="HUD" type="Node" parent="." unique_id=234840150]
+[node name="Background" type="TextureRect" parent="." unique_id=47054750]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_jbqir")
 
-[node name="RetryButton" type="Button" parent="HUD" unique_id=1712533563]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = 154.0
-offset_right = 171.86499
-offset_bottom = 229.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 48
-text = "Play again?"
+[node name="EntitySpawner1" parent="." unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_uxvkn")]
+path = NodePath("../EntitySpawner1Path")
+red_scenes = Array[PackedScene]([ExtResource("6_hocnj")])
+green_scenes = Array[PackedScene]([ExtResource("8_6eemo")])
+waves = Array[ExtResource("7_6eemo")]([ExtResource("8_2wufs")])
+
+[node name="EntitySpawner1Path" type="Path2D" parent="." unique_id=290536839]
+curve = SubResource("Curve2D_uxvkn")
+
+[node name="HUD" type="Node" parent="." unique_id=234840150]
 
 [node name="ScoreLabel" type="Label" parent="HUD" unique_id=110549339]
 anchors_preset = -1
@@ -108,19 +107,20 @@ theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Background" type="TextureRect" parent="." unique_id=47054750]
-z_index = -1
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_jbqir")
-
-[node name="EntitySpawner1" parent="." unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_uxvkn")]
-path = NodePath("../EntitySpawner1Path")
-red_scenes = Array[PackedScene]([ExtResource("6_hocnj")])
-green_scenes = Array[PackedScene]([ExtResource("8_6eemo")])
-waves = Array[ExtResource("7_6eemo")]([ExtResource("8_2wufs")])
-
-[node name="EntitySpawner1Path" type="Path2D" parent="." unique_id=290536839]
-curve = SubResource("Curve2D_uxvkn")
+[node name="RetryButton" type="Button" parent="HUD" unique_id=1712533563]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = 154.0
+offset_right = 171.86499
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+text = "Play again?"
 
 [connection signal="pressed" from="HUD/RetryButton" to="." method="_on_retry_button_pressed"]

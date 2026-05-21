@@ -54,9 +54,4 @@ func _on_all_waves_completed() -> void:
 	$HUD/WinLabel.text = "You win!"
 
 func _on_retry_button_pressed() -> void:
-	print("retry pressed")
 	get_tree().reload_current_scene()
-	
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		print("Click at: ", event.position)
