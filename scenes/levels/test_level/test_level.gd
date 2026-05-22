@@ -2,6 +2,7 @@ class_name TestLevel
 extends Node
 
 var score := 0
+@export var countdown_value := 3
 
 @onready var spawner1: EntitySpawner = $EntitySpawner1
 
@@ -14,10 +15,11 @@ func _ready() -> void:
 	spawner1.wave_completed.connect(_on_wave_completed)
 	spawner1.all_waves_completed.connect(_on_all_waves_completed)
 	
-	$HUD/WinLabel.visible = false
-	$HUD/WaveWinLabel.visible = false
-	$HUD/RetryButton.visible = false
-	$HUD/CurrentWaveLabel.visible = true
+	$HUD/WinLabel.hide() 
+	$HUD/WaveWinLabel.hide() 
+	$HUD/RetryButton.hide() 
+	$HUD/CurrentWaveLabel.show()
+	
 
 func _process(delta: float) -> void:
 	$HUD/TotalActiveEntitiesLabel.text = "Blue: %d  Red: %d  Green: %d" % [
@@ -40,20 +42,38 @@ func _on_entity_smashed(entity_type: String) -> void:
 
 func _on_wave_started(wave_index: int) -> void:
 	print("Wave started")
-	$HUD/WaveWinLabel.visible = false
-	$HUD/RetryButton.visible = false
+	$HUD/WaveWinLabel.hide() 
+	$HUD/RetryButton.hide() 
 	$HUD/CurrentWaveLabel.text = "Wave %d" % (wave_index + 1)
-
+	  
 func _on_wave_completed(wave_index: int) -> void:
-	$HUD/WaveWinLabel.visible = true
+	$HUD/WaveWinLabel.show()
 	$HUD/WaveWinLabel.text = "Wave %d complete!" % (wave_index + 1)
 
 func _on_all_waves_completed() -> void:
 	# only show level win message
-	$HUD/WaveWinLabel.visible = false
-	$HUD/WinLabel.visible = true
-	$HUD/RetryButton.visible = true
+	$HUD/WaveWinLabel.hide()
+	$HUD/WinLabel.show()
+	$HUD/RetryButton.show()
 	$HUD/WinLabel.text = "You win!"
 
 func _on_retry_button_pressed() -> void:
 	get_tree().reload_current_scene()
+
+func _on_start_button_pressed() -> void:
+	$HUD/StartButton.hide()
+	start_countdown()
+
+func start_countdown() -> void:
+	countdown_value = 3
+	$HUD/CountdownLabel.text = str(countdown_value)
+	$HUD/CountdownLabel.show()
+	$CountdownTimer.start()
+
+func _on_countdown_timer_timeout() -> void:
+	countdown_value -= 1
+	if countdown_value > 0:
+		$HUD/CountdownLabel.text = str(countdown_value)
+	else:
+		$HUD/CountdownLabel.hide()
+		spawner1.start()

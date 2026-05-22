@@ -44,7 +44,7 @@ class SpawnEntry:
 	var max_alive: int        # 0 = unlimited
 	var alive_count: int = 0
 
-func _ready() -> void:
+func start() -> void:
 	_start_next_wave()
 
 # Build the weighted pool from inspector data
@@ -70,12 +70,16 @@ func _add_group(scenes, type, weight, max_alive):
 # ─── wave logic ──────────────────────────────────────────────────────────────
 
 func _start_next_wave() -> void:
-	if waves.is_empty(): return
+	print("start next wave function ran")
+	if waves.is_empty():
+		push_warning("EntitySpawner: no waves configured!")
+		return
 	
 	# proceed to next wave index
 	_current_wave_index += 1
 	if _current_wave_index >= waves.size():
 		all_waves_completed.emit()
+		print(_current_wave_index, waves.size())
 		return
 
 	_current_wave = waves[_current_wave_index]
@@ -83,7 +87,7 @@ func _start_next_wave() -> void:
 	_total_killed_this_wave  = 0
 	_build_entries()
 
-	wave_started.emit.call_deferred(_current_wave_index)
+	wave_started.emit(_current_wave_index)
 	spawning_enabled = true
 	_start_spawn_loop()
 
@@ -113,6 +117,7 @@ func _advance_wave() -> void:
 # automatic spawn loop
 func _start_spawn_loop() -> void:
 	while spawning_enabled:
+		print("spawn loop started")
 		if _is_wave_complete(): 
 			return
 			
@@ -139,14 +144,13 @@ func _trigger_spawn() -> void:
 			
 		var entry := _pick_entry()
 		if entry == null: 
-			continue
+			break
 		
 		if _current_wave.burst_spread > 0.0:
 			await get_tree().create_timer(_current_wave.burst_spread * i).timeout
 			if not spawning_enabled or _is_wave_complete():
 				return
 		_spawn_from_entry(entry)
-		print("spawned entity ", i)
 
 # Weighted random color pick
 # Selects an array to get an entity
