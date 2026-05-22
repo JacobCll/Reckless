@@ -68,6 +68,7 @@ func start_countdown() -> void:
 	countdown_value = 3
 	$HUD/CountdownLabel.text = str(countdown_value)
 	$HUD/CountdownLabel.show()
+	$CountdownTimer.wait_time = 1.0
 	$CountdownTimer.start()
 
 func _on_countdown_timer_timeout() -> void:
@@ -75,5 +76,6 @@ func _on_countdown_timer_timeout() -> void:
 	if countdown_value > 0:
 		$HUD/CountdownLabel.text = str(countdown_value)
 	else:
+		$CountdownTimer.stop() 
 		$HUD/CountdownLabel.hide()
 		spawner1.start()

@@ -70,7 +70,7 @@ func _add_group(scenes, type, weight, max_alive):
 # ─── wave logic ──────────────────────────────────────────────────────────────
 
 func _start_next_wave() -> void:
-	print("start next wave function ran")
+	print("_start_next_wave called, index: ", _current_wave_index)
 	if waves.is_empty():
 		push_warning("EntitySpawner: no waves configured!")
 		return
@@ -100,7 +100,9 @@ func _on_wave_entity_killed():
 	if _is_wave_complete():
 		_advance_wave()
 
+
 func _advance_wave() -> void:
+	print("_advance_wave called")
 	wave_completed.emit(_current_wave_index)
 	spawning_enabled = false
 	_clear_all_entities()
@@ -116,11 +118,8 @@ func _advance_wave() -> void:
 
 # automatic spawn loop
 func _start_spawn_loop() -> void:
-	while spawning_enabled:
+	while spawning_enabled and not _is_wave_complete():
 		print("spawn loop started")
-		if _is_wave_complete(): 
-			return
-			
 		var delay := randf_range(_current_wave.respawn_delay_min, _current_wave.respawn_delay_max)
 		await get_tree().create_timer(delay).timeout
 		if not spawning_enabled or _is_wave_complete():
@@ -194,7 +193,8 @@ func _spawn_from_entry(entry: SpawnEntry) -> void:
 		"green":
 			entity.slashed.connect(_on_slashed.bind(entry))
 			entity.smashed.connect(_on_smashed.bind(entry))
-
+	
+	print("Entity spawned")
 	throw_entity(entity)
 
 # Throw UP
