@@ -13,18 +13,6 @@ signal all_waves_completed
 
 @export var path: Path2D
 
-## Blue entities
-@export_group("Blue Entity")
-@export var blue_scenes:    Array[PackedScene]
-
-## Red entities
-@export_group("Red Entity")
-@export var red_scenes:    Array[PackedScene]
-
-## Green entities
-@export_group("Green Entity")
-@export var green_scenes:    Array[PackedScene]
-
 ## Waves
 @export_group("Waves")
 @export var waves: Array[WaveData]
@@ -52,9 +40,9 @@ func _build_entries() -> void:
 	_entries.clear()
 	if _current_wave == null: 
 		return
-	_add_group(blue_scenes,  "blue",  _current_wave.blue_weight,  _current_wave.blue_max_alive)
-	_add_group(red_scenes,   "red",   _current_wave.red_weight,   _current_wave.red_max_alive)
-	_add_group(green_scenes, "green", _current_wave.green_weight, _current_wave.green_max_alive)
+	_add_group(_current_wave.blue_scenes,  "blue",  _current_wave.blue_weight,  _current_wave.blue_max_alive)
+	_add_group(_current_wave.red_scenes,   "red",   _current_wave.red_weight,   _current_wave.red_max_alive)
+	_add_group(_current_wave.green_scenes, "green", _current_wave.green_weight, _current_wave.green_max_alive)
 
 func _add_group(scenes, type, weight, max_alive):
 	if scenes.is_empty() or weight <= 0.0:
@@ -190,6 +178,7 @@ func _spawn_from_entry(entry: SpawnEntry) -> void:
 			entity.slashed.connect(_on_slashed.bind(entry))
 			entity.smashed.connect(_on_smashed.bind(entry))
 	
+	# throw up
 	throw_entity(entity)
 
 # Throw UP

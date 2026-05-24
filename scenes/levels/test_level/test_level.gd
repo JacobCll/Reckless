@@ -61,6 +61,7 @@ func _on_start_button_pressed() -> void:
 	$HUD/PreGame/WelcomeLabel.hide()
 	
 	$HUD/InGame.show()
+	$HUD/InGame/CurrentWaveLabel.text = "Wave: 1"
 	
 	start_countdown()
 
@@ -87,7 +88,6 @@ func play_level():
 
 func retry_level():
 	score = 0
-	$HUD/InGame/ScoreLabel.text = str(score)
 	spawner1.reset()
 	
 	$HUD/PostGame.hide()
@@ -95,6 +95,7 @@ func retry_level():
 	$HUD/PreGame/WelcomeLabel.hide()
 	$HUD/PreGame/StartButton.hide()
 	$HUD/InGame.show()
+	$HUD/InGame/CurrentWaveLabel.text = "Wave: 1"
 	
 	start_countdown()
 

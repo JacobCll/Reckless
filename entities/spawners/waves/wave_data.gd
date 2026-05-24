@@ -3,8 +3,19 @@ extends Resource
 
 # modifies an entity spawner
 
+## Blue entities
+@export_group("Blue Entity")
+@export var blue_scenes: Array[PackedScene]
+
+## Red entities
+@export_group("Red Entity")
+@export var red_scenes: Array[PackedScene]
+
+## Green entities
+@export_group("Green Entity")
+@export var green_scenes: Array[PackedScene]
+
 @export_group("Spawn Count")
-@export var total_to_spawn: int   = 10   ## total entities thrown this wave
 @export var total_to_kill:  int   = 10   ## kill count needed to end the wave
 @export var spawn_count_min: int  = 1
 @export var spawn_count_max: int  = 1
