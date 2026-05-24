@@ -4,7 +4,7 @@ extends Node2D
 # entity signals
 signal entity_slashed(entity_type: String)
 signal entity_smashed(entity_type: String)
-signal entity_despawned(entity_type: String)
+signal entity_despawned(entity_type: String) # falls off map
 
 # wave signals
 signal wave_started(wave_index: int)
