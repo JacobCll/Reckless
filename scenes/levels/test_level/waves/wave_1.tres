@@ -1,16 +1,13 @@
 [gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://okvyiigq3lb3"]
 
 [ext_resource type="Script" uid="uid://ii4c0mwd3eq8" path="res://entities/spawners/waves/wave_data.gd" id="1_371rc"]
+[ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="1_bex1s"]
+[ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="2_u0u5o"]
 
 [resource]
 script = ExtResource("1_371rc")
-total_to_kill = 3
-spawn_count_min = 2
-spawn_count_max = 2
-burst_spread = 0.2
-respawn_delay_min = 1.0
-respawn_delay_max = 1.0
+blue_scenes = Array[PackedScene]([ExtResource("1_bex1s"), ExtResource("2_u0u5o")])
+total_to_kill = 5
 red_weight = 0.0
-throw_force_min = 800.0
-throw_force_max = 900.0
+green_weight = 0.0
 metadata/_custom_type_script = "uid://ii4c0mwd3eq8"

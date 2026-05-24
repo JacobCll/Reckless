@@ -30,12 +30,12 @@ extends Resource
 @export var blue_max_alive: int   = 0
 @export var red_weight:     float = 1.0
 @export var red_max_alive:  int   = 0
-@export var green_weight:   float = 0.0
+@export var green_weight:   float = 1.0
 @export var green_max_alive: int  = 0
 
 @export_group("Throw Settings")
-@export var throw_force_min: float = 700.0
-@export var throw_force_max: float = 1100.0
+@export var throw_force_min: float = 800.0
+@export var throw_force_max: float = 900.0
 @export var spread_min:      float = -0.3
 @export var spread_max:      float =  0.3
 @export var gravity_min:     float =  0.7

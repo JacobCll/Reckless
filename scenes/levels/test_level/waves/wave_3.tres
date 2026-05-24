@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://booylrbhbd52g"]
+
+[ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="1_o0cnc"]
+[ext_resource type="Script" uid="uid://ii4c0mwd3eq8" path="res://entities/spawners/waves/wave_data.gd" id="1_xfnrn"]
+[ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="1_ywt5j"]
+[ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="2_m6veg"]
+[ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="2_ps7sf"]
+
+[resource]
+script = ExtResource("1_xfnrn")
+blue_scenes = Array[PackedScene]([ExtResource("1_ywt5j"), ExtResource("2_ps7sf")])
+red_scenes = Array[PackedScene]([ExtResource("2_m6veg")])
+green_scenes = Array[PackedScene]([ExtResource("1_o0cnc")])
+respawn_delay_min = 0.7
+green_weight = 0.3
+metadata/_custom_type_script = "uid://ii4c0mwd3eq8"

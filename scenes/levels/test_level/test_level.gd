@@ -4,6 +4,7 @@ extends Node
 var score := 0 : set = _set_score
 
 @export var countdown_value := 3
+@export var delay_between_waves: float = 2.0
 
 @onready var spawner1: EntitySpawner = $EntitySpawner1
 
@@ -29,29 +30,44 @@ func _process(_delta: float) -> void:
 
 func _on_entity_slashed(entity_type: String) -> void:
 	match entity_type:
-		"blue":  score += 1
+		"blue":  score += 5
 		"green": score -= 5
 
 func _on_entity_smashed(entity_type: String) -> void:
 	match entity_type:
-		"red":   score += 1
+		"red":   score += 5
 		"green": score -= 5
 
 func _on_wave_started(wave_index: int) -> void:
 	$HUD/PostGame.hide()
-	
+	$HUD/InGame.show()
 	$HUD/InGame/CurrentWaveLabel.text = "Wave: %d" % (wave_index + 1)
 
 func _on_wave_completed(wave_index: int) -> void:
-	$HUD/PostGame/WaveWinLabel.text = "Wave %d complete!" % (wave_index + 1)
+	# only show wave win message
+	$HUD/PostGame.show()
+	$HUD/PostGame/WinLabel.hide()
+	$HUD/PostGame/RetryButton.hide()
 	$HUD/PostGame/WaveWinLabel.show()
+	$HUD/PostGame/WaveWinLabel.text = "Wave %d complete!" % (wave_index + 1)
+	
+	# delay before next wave
+	if wave_index < spawner1.waves.size() - 1:
+		await get_tree().create_timer(delay_between_waves).timeout
+		$HUD/PostGame.hide()
+		spawner1.start_next_wave()
+	else:
+		print("All levels completed")
 
 func _on_all_waves_completed() -> void:
 	# only show level win message
 	$HUD/PostGame.show()
 	$HUD/PostGame/WaveWinLabel.hide()
-	
+	$HUD/PostGame/WinLabel.show()
+	$HUD/PostGame/RetryButton.show()
+
 	$HUD/InGame.hide()
+	$HUD/PreGame.hide()
 
 func _on_retry_button_pressed() -> void:
 	retry_level()
@@ -69,7 +85,6 @@ func start_countdown() -> void:
 	countdown_value = 3
 	$HUD/PreGame/CountdownLabel.text = str(countdown_value)
 	$HUD/PreGame/CountdownLabel.show()
-	$CountdownTimer.wait_time = 1.0
 	$CountdownTimer.start()
 
 func _on_countdown_timer_timeout() -> void:
@@ -91,9 +106,10 @@ func retry_level():
 	spawner1.reset()
 	
 	$HUD/PostGame.hide()
-	# Only show the countdown 
+	$HUD/PreGame.show()
 	$HUD/PreGame/WelcomeLabel.hide()
 	$HUD/PreGame/StartButton.hide()
+	$HUD/PreGame/CountdownLabel.show() # Only show the countdown 
 	$HUD/InGame.show()
 	$HUD/InGame/CurrentWaveLabel.text = "Wave: 1"
 	
