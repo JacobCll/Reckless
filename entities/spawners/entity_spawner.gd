@@ -239,4 +239,4 @@ func reset() -> void:
 	_total_killed_this_wave = 0
 	
 	# Clear the entry pool
-	_entries.clear()
+	_entries.clear()           
