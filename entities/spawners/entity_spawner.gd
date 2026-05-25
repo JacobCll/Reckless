@@ -34,6 +34,10 @@ class EntityType:
 func start() -> void:
 	start_next_wave()
 
+# stop everything and reset
+func stop():
+	reset()
+
 # Build the weighted pool from inspector data
 func _build_entity_types() -> void:
 	_entity_types.clear()

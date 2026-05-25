@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://7ofwgny6u651"]
+
+[ext_resource type="Texture2D" uid="uid://bea1ehkjlucaf" path="res://hud_elements/hearts/heart.png" id="1_b5qce"]
+[ext_resource type="Script" uid="uid://2gpu3yb0h77s" path="res://hud_elements/hearts/heart.gd" id="1_j1t7o"]
+
+[node name="Heart" type="Sprite2D" unique_id=629322751]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_b5qce")
+script = ExtResource("1_j1t7o")
