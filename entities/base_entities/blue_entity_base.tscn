@@ -9,6 +9,7 @@
 blend_mode = 1
 
 [node name="BlueEntityBase" type="RigidBody2D" unique_id=1198263616]
+process_mode = 1
 collision_mask = 0
 input_pickable = true
 script = ExtResource("1_qt7vd")

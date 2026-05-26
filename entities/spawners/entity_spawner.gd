@@ -126,7 +126,7 @@ func _start_spawn_loop() -> void:
 	while active and not _is_wave_complete():
 		print("Start spawn loop")
 		var delay := randf_range(_current_wave.respawn_delay_min, _current_wave.respawn_delay_max)
-		await get_tree().create_timer(delay).timeout
+		await get_tree().create_timer(delay, false).timeout
 		if not active or _is_wave_complete():
 			return
 		_trigger_spawn()
@@ -151,7 +151,7 @@ func _trigger_spawn() -> void:
 			break
 		
 		if _current_wave.burst_spread > 0.0:
-			await get_tree().create_timer(_current_wave.burst_spread * i).timeout
+			await get_tree().create_timer(_current_wave.burst_spread * i, false).timeout
 			if not active or _is_wave_complete():
 				return
 		_spawn_from_type(type)

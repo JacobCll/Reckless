@@ -31,6 +31,7 @@ func _ready() -> void:
 	spawner1.wave_completed.connect(_on_wave_completed)
 	spawner1.all_waves_completed.connect(_on_all_waves_completed)
 	
+	$CanvasLayer/PauseScreen.hide()
 	$CanvasLayer/GameoverScreen.hide()
 	$CanvasLayer/WinLevelScreen.hide()
 	$CanvasLayer/HUD.hide()
@@ -79,7 +80,7 @@ func _on_wave_completed(wave_index: int) -> void:
 	# if wave is not last
 	if wave_index < spawner1.waves.size() - 1:
 		# delay before next wave
-		await get_tree().create_timer(delay_between_waves).timeout
+		await get_tree().create_timer(delay_between_waves, false).timeout
 		$CanvasLayer/WaveWinLabel.hide()
 		spawner1.start_next_wave()
 
@@ -156,3 +157,16 @@ func game_over():
 	$CanvasLayer/GameoverScreen.show()
 	
 	spawner1.stop()
+
+# show paused menu, pause everything except button input and sfx
+func _on_pause_button_pressed() -> void:
+	get_tree().paused = true
+	$CanvasLayer/PauseScreen.show()
+
+func _on_resume_button_pressed() -> void:
+	get_tree().paused = false
+	$CanvasLayer/PauseScreen.hide()
+
+
+func _on_main_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

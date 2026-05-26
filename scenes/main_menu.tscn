@@ -17,16 +17,14 @@ offset_bottom = 40.0
 texture = ExtResource("1_l6cm7")
 script = ExtResource("2_jk1qb")
 
-[node name="PlayButton" type="TextureButton" parent="." unique_id=1347030637]
+[node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
 layout_mode = 0
-offset_left = 641.0
-offset_top = 358.0
-offset_right = 1191.0
-offset_bottom = 560.0
-scale = Vector2(0.5, 0.5)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_8ln24")
-texture_hover = ExtResource("3_rtw2f")
+offset_left = -51.0
+offset_top = 102.0
+offset_right = 973.0
+offset_bottom = 870.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_tbmy8")
 stretch_mode = 4
 
 [node name="ShopButton" type="TextureButton" parent="." unique_id=2024617283]
@@ -53,14 +51,16 @@ texture_normal = ExtResource("5_tbmy8")
 texture_hover = ExtResource("7_oa1go")
 stretch_mode = 4
 
-[node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
+[node name="PlayButton" type="TextureButton" parent="." unique_id=1347030637]
 layout_mode = 0
-offset_left = -51.0
-offset_top = 102.0
-offset_right = 973.0
-offset_bottom = 870.0
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("8_tbmy8")
+offset_left = 641.0
+offset_top = 358.0
+offset_right = 1191.0
+offset_bottom = 560.0
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_8ln24")
+texture_hover = ExtResource("3_rtw2f")
 stretch_mode = 4
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
