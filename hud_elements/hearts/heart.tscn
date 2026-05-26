@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://7ofwgny6u651"]
 
-[ext_resource type="Texture2D" uid="uid://bea1ehkjlucaf" path="res://hud_elements/hearts/heart.png" id="1_b5qce"]
+[ext_resource type="Texture2D" uid="uid://bvb7gbckj5cwo" path="res://hud_elements/hearts/heart.png" id="1_b5qce"]
 [ext_resource type="Script" uid="uid://2gpu3yb0h77s" path="res://hud_elements/hearts/heart.gd" id="1_j1t7o"]
 
-[node name="Heart" type="Sprite2D" unique_id=629322751]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_b5qce")
+[node name="Heart" type="Control" unique_id=723388051]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 24.0
+offset_bottom = 24.0
 script = ExtResource("1_j1t7o")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1137961644]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_b5qce")
+expand_mode = 1
+stretch_mode = 5

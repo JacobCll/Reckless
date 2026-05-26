@@ -17,12 +17,12 @@ signal all_waves_completed
 @export_group("Waves")
 @export var waves: Array[WaveData]
 
+var active := false
 var _entity_types: Array[EntityType] = []
 var _current_wave_index: int = -1
 var _current_wave: WaveData = null
 var _total_spawned_this_wave: int = 0
 var _total_killed_this_wave: int = 0
-var spawning_enabled = false
 
 class EntityType:
 	var scenes: Array[PackedScene]
@@ -30,13 +30,6 @@ class EntityType:
 	var weight: float         # relative spawn chance; higher = more likely
 	var max_alive: int        # 0 = unlimited
 	var alive_count: int = 0
-
-func start() -> void:
-	start_next_wave()
-
-# stop everything and reset
-func stop():
-	reset()
 
 # Build the weighted pool from inspector data
 func _build_entity_types() -> void:
@@ -58,8 +51,31 @@ func _add_group(scenes, type, weight, max_alive):
 	entity_type.max_alive = max_alive
 	_entity_types.append(entity_type)
 
-# ─── wave logic ──────────────────────────────────────────────────────────────
+# enable the 
+func start() -> void:
+	active = true
+	start_next_wave()
 
+# stop everything and reset
+func stop():
+	active = false # Stop any ongoing spawning
+	_clear_all_entities() # Clear all spawned entities
+	_entity_types.clear() # Clear the entity types pool
+
+# reset all data
+func reset() -> void:
+	active = false # Stop any ongoing spawning
+	_clear_all_entities() # Clear all spawned entities
+	_entity_types.clear() # Clear the entity types pool  
+	
+	# Reset wave tracking
+	_current_wave_index = -1
+	_current_wave = null
+	_total_spawned_this_wave = 0
+	_total_killed_this_wave = 0
+	
+
+# ─── wave logic ──────────────────────────────────────────────────────────────
 
 func start_next_wave() -> void:
 	if waves.is_empty():
@@ -72,41 +88,46 @@ func start_next_wave() -> void:
 		all_waves_completed.emit()
 		print("All waves done!")
 		return
-
+  	
+	active = true
+	
 	_current_wave = waves[_current_wave_index]
 	_total_spawned_this_wave = 0
 	_total_killed_this_wave  = 0
 	_build_entity_types()
 
 	wave_started.emit(_current_wave_index)
-	spawning_enabled = true
 	_start_spawn_loop()
 
-func _is_wave_complete():
+func _is_wave_complete() -> bool:
+	if not active or _current_wave == null:
+		return true
 	return _total_killed_this_wave  >= _current_wave.total_to_kill 
 
 func _on_wave_entity_killed():
-	_total_killed_this_wave += 1
+	if not active:
+		return
 	if _is_wave_complete():
 		_advance_wave()
 
-
 func _advance_wave() -> void:
-	spawning_enabled = false
+	active = false
 	_clear_all_entities()
 	
-	if _current_wave_index >= waves.size() - 1:
+	if _current_wave_index >= waves.size() - 1 :
 		all_waves_completed.emit()
 	else:
 		wave_completed.emit(_current_wave_index)
+
 # ─── spawn logic ───────────────────────────────────────────────────────────────
 
 # automatic spawn loop
 func _start_spawn_loop() -> void:
-	while spawning_enabled and not _is_wave_complete():
+	while active and not _is_wave_complete():
+		print("Start spawn loop")
 		var delay := randf_range(_current_wave.respawn_delay_min, _current_wave.respawn_delay_max)
 		await get_tree().create_timer(delay).timeout
-		if not spawning_enabled or _is_wave_complete():
+		if not active or _is_wave_complete():
 			return
 		_trigger_spawn()
 
@@ -122,16 +143,16 @@ func _clear_all_entities():
 func _trigger_spawn() -> void:
 	var count := randi_range(_current_wave.spawn_count_min, _current_wave.spawn_count_max)
 	for i in count:
-		if not spawning_enabled or _is_wave_complete():
+		if not active or _is_wave_complete():
 			break
-			
+		
 		var type := _pick_type()
 		if type == null: 
 			break
 		
 		if _current_wave.burst_spread > 0.0:
 			await get_tree().create_timer(_current_wave.burst_spread * i).timeout
-			if not spawning_enabled or _is_wave_complete():
+			if not active or _is_wave_complete():
 				return
 		_spawn_from_type(type)
 
@@ -197,11 +218,19 @@ func _on_despawned(type: EntityType) -> void:
 func _on_slashed(type: EntityType) -> void:
 	entity_slashed.emit(type.entity_type)
 	type.alive_count -= 1
+	
+	if not type.entity_type == "green":
+		_total_killed_this_wave += 1
+	
 	_on_wave_entity_killed()
 	
 func _on_smashed(type: EntityType) -> void:
 	entity_smashed.emit(type.entity_type)
 	type.alive_count -= 1
+	
+	if not type.entity_type == "green":
+		_total_killed_this_wave += 1
+		
 	_on_wave_entity_killed()
 	
 func get_alive_count(entity_type: String) -> int:
@@ -213,19 +242,3 @@ func get_total_alive() -> int:
 	return _entity_types.reduce(func(acc, e): return acc + e.alive_count, 0)
 func get_current_wave_index() -> int:
 	return _current_wave_index
-
-func reset() -> void:
-	# Stop any ongoing spawning
-	spawning_enabled = false
-	
-	# Clear all spawned entities
-	_clear_all_entities()
-	
-	# Reset wave tracking
-	_current_wave_index = -1
-	_current_wave = null
-	_total_spawned_this_wave = 0
-	_total_killed_this_wave = 0
-	
-	# Clear the entity types pool
-	_entity_types.clear()           

@@ -22,8 +22,10 @@ func _ready() -> void:
 	current_lives = max_lives
 	_update_hearts_ui()
 	
+	# spawners set up
 	spawner1.entity_slashed.connect(_on_entity_slashed)
 	spawner1.entity_smashed.connect(_on_entity_smashed)
+	spawner1.entity_despawned.connect(_on_entity_despawned)
 	
 	spawner1.wave_started.connect(_on_wave_started)
 	spawner1.wave_completed.connect(_on_wave_completed)
@@ -58,6 +60,11 @@ func _on_entity_smashed(entity_type: String) -> void:
 		"green": 
 			score -= 5
 			_lose_heart()
+			
+func _on_entity_despawned(entity_type: String) -> void:
+	if entity_type == "blue" or entity_type == "red":
+		_lose_heart()
+		_update_hearts_ui()
 
 func _on_wave_started(wave_index: int) -> void:
 	$CanvasLayer/HUD.show()
@@ -65,6 +72,7 @@ func _on_wave_started(wave_index: int) -> void:
 
 # if wave is not last and it is completed
 func _on_wave_completed(wave_index: int) -> void:
+	print("Wave ", wave_index + 1, " completed")
 	$CanvasLayer/WaveWinLabel.show()
 	$CanvasLayer/WaveWinLabel.text = "Wave %d complete!" % (wave_index + 1)
 	
@@ -110,11 +118,13 @@ func _on_countdown_timer_timeout() -> void:
 func restart_level():
 	score = 0
 	spawner1.reset()
+	current_lives = 3
+	_update_hearts_ui()
 	
 	$CanvasLayer/GameoverScreen.hide()
 	$CanvasLayer/WinLevelScreen.hide()
-	$CanvasLayer/HUD.hide()
 	$CanvasLayer/WaveWinLabel.hide()
+	$CanvasLayer/CountdownLabel.show()
 	
 	start_countdown()
 
@@ -138,8 +148,11 @@ func _lose_heart():
 
 	if current_lives <= 0:
 		game_over()
-	
+
 func game_over():
 	print("Game Over")
-
+	
+	$CanvasLayer/HUD.hide()
+	$CanvasLayer/GameoverScreen.show()
+	
 	spawner1.stop()
