@@ -110,7 +110,17 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Game Over"
 
-[node name="RetryButton" type="Button" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer" unique_id=1612607519]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer" unique_id=957025106]
+layout_mode = 2
+alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1877575473]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[node name="RetryButton" type="Button" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1612607519]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
@@ -295,7 +305,8 @@ vertical_alignment = 1
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/HBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PreGameScreen/CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HUD/PauseButton" to="." method="_on_pause_button_pressed"]

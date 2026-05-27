@@ -1,3 +1,4 @@
+class_name LevelMenu
 extends TextureRect
 
 @export var level_button: PackedScene
@@ -13,22 +14,25 @@ func _ready() -> void:
 		var btn = level_button.instantiate()
 		
 		btn.level_number = i + 1
-		btn.level_path = "res://scenes/levels/level_" + str(i+1) + "/level_" + str(i+1) + ".tscn"
+		btn.text = str(i + 1)
+		
+		if i == 0:
+			btn.level_path = "res://scenes/levels/test_level/test_level.tscn"
+			btn.text = "Test Level"
+		else:
+			btn.level_path = "res://scenes/levels/level_" + str(i+1) + "/level_" + str(i+1) + ".tscn"
 		
 		btn.level_selected.connect(_on_level_selected)
 		
-		grid.add_child(btn)
+		# disable if not unlocked 
+		if not GameManager.is_level_unlocked(i + 1):
+			btn.disabled = true
+			btn.mouse_default_cursor_shape = Control.CURSOR_ARROW
 		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+		grid.add_child(btn)
 
 func _on_level_selected(path) -> void:
 	get_tree().change_scene_to_file(path)
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
-# enter test level
-func _on_test_level_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/test_level/test_level.tscn")

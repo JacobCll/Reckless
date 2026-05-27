@@ -124,7 +124,6 @@ func _advance_wave() -> void:
 # automatic spawn loop
 func _start_spawn_loop() -> void:
 	while active and not _is_wave_complete():
-		print("Start spawn loop")
 		var delay := randf_range(_current_wave.respawn_delay_min, _current_wave.respawn_delay_max)
 		await get_tree().create_timer(delay, false).timeout
 		if not active or _is_wave_complete():

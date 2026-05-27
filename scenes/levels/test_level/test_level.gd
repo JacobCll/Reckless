@@ -96,6 +96,7 @@ func _on_start_button_pressed() -> void:
 
 func _on_play_again_button_pressed() -> void:
 	# tentative
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_retry_button_pressed() -> void:
@@ -167,6 +168,6 @@ func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
 	$CanvasLayer/PauseScreen.hide()
 
-
 func _on_main_menu_button_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
