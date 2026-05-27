@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cq22nlaa40umh" path="res://backgrounds/level_background.png" id="1_jbqir"]
 [ext_resource type="Script" uid="uid://hqdgmuilnuxk" path="res://scenes/levels/test_level/test_level.gd" id="1_yautc"]
+[ext_resource type="PackedScene" uid="uid://b5r2s1tdnubjs" path="res://effects/entity_particles/entity_particles.tscn" id="2_2wufs"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_uxvkn"]
 [ext_resource type="Script" uid="uid://ii4c0mwd3eq8" path="res://entities/spawners/waves/wave_data.gd" id="7_6eemo"]
 [ext_resource type="Resource" uid="uid://booylrbhbd52g" path="res://scenes/levels/test_level/waves/wave_3.tres" id="7_lbjl6"]
@@ -18,6 +19,7 @@ point_count = 2
 [node name="TestLevel" type="Node" unique_id=39712665]
 process_mode = 1
 script = ExtResource("1_yautc")
+particles_scene = ExtResource("2_2wufs")
 heart_scene = ExtResource("8_6eemo")
 
 [node name="Background" type="TextureRect" parent="." unique_id=47054750]

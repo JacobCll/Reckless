@@ -3,6 +3,9 @@ extends Node
 
 var score := 0 : set = _set_score
 
+# particles
+@export var particles_scene: PackedScene
+
 # hearts
 @onready var hearts_container = $CanvasLayer/HUD/HeartsContainer
 @export var heart_scene: PackedScene
@@ -38,6 +41,8 @@ func _ready() -> void:
 	$CanvasLayer/CountdownLabel.hide()
 	$CanvasLayer/WaveWinLabel.hide()
 	$CanvasLayer/PreGameScreen.show()
+	
+	_prewarm_particles()
 
 func _process(_delta: float) -> void:
 	$CanvasLayer/HUD/TotalActiveEntitiesLabel.text = "Blue: %d  Red: %d  Green: %d" % [
@@ -174,3 +179,10 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_back_to_level_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_menu/level_menu.tscn")
+	
+func _prewarm_particles() -> void:
+	var particles = particles_scene.instantiate()
+	particles.global_position = Vector2(0, 0)
+	add_child(particles)
+	particles.modulate.a = 0.0
+	particles.spawn_particles(Vector2.ZERO, Color.WHITE)
