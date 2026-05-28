@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://bhglmgyjw2lsv"]
+
+[ext_resource type="Script" uid="uid://c3netncfohsvp" path="res://scenes/levels/base_level/base_level.gd" id="1_rwgnx"]
+[ext_resource type="PackedScene" uid="uid://7ofwgny6u651" path="res://hud_elements/hearts/heart.tscn" id="2_0jlsv"]
+[ext_resource type="PackedScene" uid="uid://b5r2s1tdnubjs" path="res://effects/entity_particles/entity_particles.tscn" id="3_fqjk7"]
+
+[node name="BaseLevel" type="Node" unique_id=818516806]
+script = ExtResource("1_rwgnx")
+heart_scene = ExtResource("2_0jlsv")
+entity_particles_scene = ExtResource("3_fqjk7")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1388791812]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CountdownTimer" type="Timer" parent="." unique_id=404842974]
+process_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1956116786]
+process_mode = 3
+
+[node name="PauseScreen" type="Control" parent="CanvasLayer" unique_id=1455857404]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseScreen" unique_id=192485497]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseScreen/CenterContainer" unique_id=81481449]
+layout_mode = 2
+
+[node name="PauseMenuLabel" type="Label" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=1550357692]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=1256739309]
+layout_mode = 2
+alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1295048651]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[node name="ResumeButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=549232154]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="GameoverScreen" type="Control" parent="CanvasLayer" unique_id=914947514]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/GameoverScreen" unique_id=984660243]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameoverScreen/CenterContainer" unique_id=1757514996]
+layout_mode = 2
+alignment = 1
+
+[node name="GameoverText" type="Label" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer" unique_id=1750382725]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer" unique_id=606013018]
+layout_mode = 2
+alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1986516839]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[node name="RetryButton" type="Button" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1294782512]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Retry"
+
+[node name="WinLevelScreen" type="Control" parent="CanvasLayer" unique_id=800143018]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/WinLevelScreen" unique_id=133865196]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/WinLevelScreen/CenterContainer" unique_id=473718819]
+layout_mode = 2
+alignment = 1
+
+[node name="WinText" type="Label" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer" unique_id=196137116]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "You Win!"
+
+[node name="PlayAgainButton" type="Button" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer" unique_id=767164933]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1244923538]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HeartsContainer" type="HBoxContainer" parent="CanvasLayer/HUD" unique_id=418267277]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 53.0
+offset_right = 999.0
+offset_bottom = 98.0
+
+[node name="Heart" parent="CanvasLayer/HUD/HeartsContainer" unique_id=723388051 instance=ExtResource("2_0jlsv")]
+layout_mode = 2
+
+[node name="Heart2" parent="CanvasLayer/HUD/HeartsContainer" unique_id=1245656873 instance=ExtResource("2_0jlsv")]
+layout_mode = 2
+
+[node name="Heart3" parent="CanvasLayer/HUD/HeartsContainer" unique_id=429050758 instance=ExtResource("2_0jlsv")]
+layout_mode = 2
+
+[node name="CurrentWaveLabel" type="Label" parent="CanvasLayer/HUD" unique_id=483354666]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83900005
+anchor_right = 0.83900005
+anchor_bottom = 0.123
+offset_left = 24.0
+offset_top = 152.0
+offset_right = 206.0
+offset_bottom = 181.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Wave: 1"
+
+[node name="TotalActiveEntitiesLabel" type="Label" parent="CanvasLayer/HUD" unique_id=1459818585]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.86
+anchor_top = 0.078
+anchor_right = 0.86
+anchor_bottom = 0.078
+offset_left = 24.0
+offset_top = 120.0
+offset_right = 208.0
+offset_bottom = 144.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
+text = "Blue: 0  Red: 0  Green: 0"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/HUD" unique_id=656952242]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49300003
+anchor_top = 0.095000006
+anchor_right = 0.49300003
+anchor_bottom = 0.095000006
+offset_left = 392.0
+offset_top = 64.0
+offset_right = 648.0
+offset_bottom = 152.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseButton" type="Button" parent="CanvasLayer/HUD" unique_id=383113909]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 79.0
+offset_bottom = 104.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 16
+text = "Pause"
+
+[node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=1652738209]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 24.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 44)
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveWinLabel" type="Label" parent="CanvasLayer" unique_id=1339355824]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -44.0
+offset_right = 20.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -3,6 +3,10 @@ extends Node
 
 var score := 0 : set = _set_score
 
+func _set_score(value: int) -> void:
+	score = value
+	$CanvasLayer/HUD/ScoreLabel.text = str(score)
+	
 # particles
 @export var particles_scene: PackedScene
 
@@ -13,8 +17,9 @@ var score := 0 : set = _set_score
 var current_lives = 0
 
 # countdown and delays
-@export var countdown_value := 3
-@export var delay_between_waves: float = 2.0
+@export var countdown_value_original := 3
+var countdown_value := countdown_value_original
+@export var delay_between_waves: float = 1
 
 # spawners
 @onready var spawner1: EntitySpawner = $EntitySpawner1
@@ -25,6 +30,9 @@ func _ready() -> void:
 	
 	current_lives = max_lives
 	_update_hearts_ui()
+	
+	# load the particles to prevent first-time lag
+	_prewarm_particles()
 	
 	# spawners set up
 	spawner1.entity_slashed.connect(_on_entity_slashed)
@@ -39,11 +47,11 @@ func _ready() -> void:
 	$CanvasLayer/GameoverScreen.hide()
 	$CanvasLayer/WinLevelScreen.hide()
 	$CanvasLayer/HUD.hide()
-	$CanvasLayer/CountdownLabel.hide()
 	$CanvasLayer/WaveWinLabel.hide()
-	$CanvasLayer/PreGameScreen.show()
+	$CanvasLayer/PreGameScreen.hide()
 	
-	_prewarm_particles()
+	$CanvasLayer/CountdownLabel.show()
+	start_countdown()
 
 func _process(_delta: float) -> void:
 	$CanvasLayer/HUD/TotalActiveEntitiesLabel.text = "Blue: %d  Red: %d  Green: %d" % [
@@ -51,6 +59,22 @@ func _process(_delta: float) -> void:
 		 spawner1.get_alive_count("red"),
 		 spawner1.get_alive_count("green")
 	 ]
+
+func start_countdown() -> void:
+	countdown_value = countdown_value_original
+	$CanvasLayer/CountdownLabel.text = str(countdown_value)
+	$CountdownTimer.start()
+
+func _on_countdown_timer_timeout() -> void:
+	countdown_value -= 1
+	if countdown_value > 0:
+		$CanvasLayer/CountdownLabel.text = str(countdown_value)
+	else:
+		$CountdownTimer.stop() 
+		$CanvasLayer/CountdownLabel.hide()
+		$CanvasLayer/HUD.show()
+		spawner1.start()
+		spawner1.spawn_entity()
 
 func _on_entity_slashed(entity_type: String) -> void:
 	match entity_type:
@@ -79,10 +103,6 @@ func _on_wave_started(wave_index: int) -> void:
 
 # if wave is not last and it is completed
 func _on_wave_completed(wave_index: int) -> void:
-	print("Wave ", wave_index + 1, " completed")
-	#$CanvasLayer/WaveWinLabel.show()
-	#$CanvasLayer/WaveWinLabel.text = "Wave %d complete!" % (wave_index + 1)
-	
 	# if wave is not last
 	if wave_index < spawner1.waves.size() - 1:
 		# delay before next wave
@@ -108,21 +128,6 @@ func _on_play_again_button_pressed() -> void:
 func _on_retry_button_pressed() -> void:
 	restart_level()
 
-func start_countdown() -> void:
-	countdown_value = 3
-	$CanvasLayer/CountdownLabel.text = str(countdown_value)
-	$CountdownTimer.start()
-
-func _on_countdown_timer_timeout() -> void:
-	countdown_value -= 1
-	if countdown_value > 0:
-		$CanvasLayer/CountdownLabel.text = str(countdown_value)
-	else:
-		$CountdownTimer.stop() 
-		$CanvasLayer/CountdownLabel.hide()
-		$CanvasLayer/HUD.show()
-		spawner1.start()
-
 func restart_level():
 	score = 0
 	spawner1.reset()
@@ -136,9 +141,16 @@ func restart_level():
 	
 	start_countdown()
 
-func _set_score(value: int) -> void:
-	score = value
-	$CanvasLayer/HUD/ScoreLabel.text = str(score)
+# show paused menu, pause everything except button input and sfx
+func _on_pause_button_pressed() -> void:
+	get_tree().paused = true
+	$CanvasLayer/PauseScreen.show()
+
+func _on_resume_button_pressed() -> void:
+	get_tree().paused = false
+	$CanvasLayer/PauseScreen.hide()
+
+
 
 func _update_hearts_ui():
 	for child in hearts_container.get_children():
@@ -164,15 +176,6 @@ func game_over():
 	$CanvasLayer/GameoverScreen.show()
 	
 	spawner1.stop()
-
-# show paused menu, pause everything except button input and sfx
-func _on_pause_button_pressed() -> void:
-	get_tree().paused = true
-	$CanvasLayer/PauseScreen.show()
-
-func _on_resume_button_pressed() -> void:
-	get_tree().paused = false
-	$CanvasLayer/PauseScreen.hide()
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false

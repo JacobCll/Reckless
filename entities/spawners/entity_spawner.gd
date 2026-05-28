@@ -121,6 +121,26 @@ func _advance_wave() -> void:
 
 # ─── spawn logic ───────────────────────────────────────────────────────────────
 
+# spawn entity
+func spawn_entity(n: int = 1, burst_spread: float = 0):
+	active = true
+	await get_tree().create_timer(1, false).timeout # delay for 1 second
+	for i in n:
+		var type := _pick_type() #  pick type
+		if type == null: 
+			break
+			
+		await get_tree().create_timer(burst_spread * i, false).timeout
+		_spawn_from_type(type, throw_entity_up_default)
+	
+# Throw UP
+func throw_entity_up_default(entity: RigidBody2D) -> void:
+	var force := randf_range(830, 830)
+	var direction := Vector2(randf_range(-0.1,0.1), -1.0).normalized()
+	entity.angular_velocity = 5
+	entity.gravity_scale = randf_range(0.8,0.8)
+	entity.apply_central_impulse(direction * force)
+
 # automatic spawn loop
 func _start_spawn_loop() -> void:
 	while active and not _is_wave_complete():
@@ -153,7 +173,7 @@ func _trigger_spawn() -> void:
 			await get_tree().create_timer(_current_wave.burst_spread * i, false).timeout
 			if not active or _is_wave_complete():
 				return
-		_spawn_from_type(type)
+		_spawn_from_type(type, throw_entity_up)
 
 # Weighted random color pick
 # Selects an entity type
@@ -172,7 +192,7 @@ func _pick_type() -> EntityType:
 			return type
 	return available.back()
 
-func _spawn_from_type(type: EntityType) -> void:
+func _spawn_from_type(type: EntityType, throw_function: Callable) -> void:
 	var scenes: Array[PackedScene] = type.scenes
 	var scene: PackedScene = scenes.pick_random()
 	var entity = scene.instantiate()
@@ -199,15 +219,15 @@ func _spawn_from_type(type: EntityType) -> void:
 			entity.smashed.connect(_on_smashed.bind(type))
 	
 	# throw up
-	throw_entity(entity)
+	throw_function.call(entity)
 
 # Throw UP
-func throw_entity(entity: RigidBody2D) -> void:
+func throw_entity_up(entity: RigidBody2D) -> void:
 	var force := randf_range(_current_wave.throw_force_min, _current_wave.throw_force_max)
 	var direction := Vector2(randf_range(_current_wave.spread_min, _current_wave.spread_max), -1.0).normalized()
-	entity.apply_central_impulse(direction * force)
 	entity.angular_velocity = randf_range(_current_wave.spin_min, _current_wave.spin_max)
 	entity.gravity_scale = randf_range(_current_wave.gravity_min, _current_wave.gravity_max)
+	entity.apply_central_impulse(direction * force)
 
 # when the entity goes out of bounds and gets despawned
 func _on_despawned(type: EntityType) -> void:

@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://bmi1qepd3a7go"]
-
-[ext_resource type="Script" uid="uid://bw2l4dlggb862" path="res://entities/spawners/blue_spawner.gd" id="1_mqwcq"]
-[ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="2_k05x5"]
-[ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="3_1igf4"]
-
-[node name="BlueSpawner" type="Node2D" unique_id=34152403]
-script = ExtResource("1_mqwcq")
-blue_entity_scenes = Array[PackedScene]([ExtResource("2_k05x5"), ExtResource("3_1igf4")])

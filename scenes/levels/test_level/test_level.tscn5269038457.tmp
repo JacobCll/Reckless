@@ -10,7 +10,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_uxvkn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 660.3795, 712, 0, 0, 0, 0, 398.32416, 712)
+"points": PackedVector2Array(0, 0, 0, 0, 725.5238, 712, 0, 0, 0, 0, 253.82414, 712)
 }
 point_count = 2
 
@@ -128,7 +128,6 @@ theme_override_font_sizes/font_size = 32
 text = "Retry"
 
 [node name="PreGameScreen" type="Control" parent="CanvasLayer" unique_id=203912142]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
