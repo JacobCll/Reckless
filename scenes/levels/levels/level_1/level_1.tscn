@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b74jsgn1rm2d7"]
+
+[ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_pskts"]
+[ext_resource type="Script" uid="uid://jhed2w16kxhx" path="res://scenes/levels/levels/level_1/level_1.gd" id="2_b8e02"]
+[ext_resource type="Script" uid="uid://ii4c0mwd3eq8" path="res://entities/spawners/waves/wave_data.gd" id="2_bpnwn"]
+[ext_resource type="Resource" uid="uid://okvyiigq3lb3" path="res://scenes/levels/levels/level_1/waves/wave_1.tres" id="3_b8e02"]
+[ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_b8e02"]
+
+[sub_resource type="Curve2D" id="Curve2D_b8e02"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 660.3795, 712, 0, 0, 0, 0, 398.32416, 712)
+}
+point_count = 2
+
+[node name="Level1" unique_id=818516806 instance=ExtResource("1_pskts")]
+script = ExtResource("2_b8e02")
+waves = Array[ExtResource("2_bpnwn")]([ExtResource("3_b8e02")])
+
+[node name="EntitySpawner1" parent="." index="0" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_b8e02")]
+path = NodePath("../EntitySpawner1Path")
+
+[node name="EntitySpawner1Path" type="Path2D" parent="." index="1" unique_id=1657388762]
+position = Vector2(111.99999, 136)
+scale = Vector2(0.76319754, 1)
+curve = SubResource("Curve2D_b8e02")
