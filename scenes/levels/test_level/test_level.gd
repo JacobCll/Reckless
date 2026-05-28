@@ -12,6 +12,7 @@ var score := 0 : set = _set_score
 @export var max_lives := 3
 var current_lives = 0
 
+# countdown and delays
 @export var countdown_value := 3
 @export var delay_between_waves: float = 2.0
 
@@ -79,8 +80,8 @@ func _on_wave_started(wave_index: int) -> void:
 # if wave is not last and it is completed
 func _on_wave_completed(wave_index: int) -> void:
 	print("Wave ", wave_index + 1, " completed")
-	$CanvasLayer/WaveWinLabel.show()
-	$CanvasLayer/WaveWinLabel.text = "Wave %d complete!" % (wave_index + 1)
+	#$CanvasLayer/WaveWinLabel.show()
+	#$CanvasLayer/WaveWinLabel.text = "Wave %d complete!" % (wave_index + 1)
 	
 	# if wave is not last
 	if wave_index < spawner1.waves.size() - 1:

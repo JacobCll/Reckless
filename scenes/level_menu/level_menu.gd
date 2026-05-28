@@ -32,7 +32,10 @@ func _ready() -> void:
 		grid.add_child(btn)
 
 func _on_level_selected(path) -> void:
-	get_tree().change_scene_to_file(path)
+	var loading = preload("res://loading_screen/loading_screen.tscn").instantiate()
+	loading.next_scene_path = path
+	get_tree().root.add_child(loading)
+	get_tree().current_scene.queue_free()
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
