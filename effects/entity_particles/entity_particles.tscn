@@ -2,26 +2,30 @@
 
 [ext_resource type="Script" uid="uid://by3uqxs4c3u5k" path="res://effects/entity_particles/entity_particles.gd" id="1_35a5v"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b0a2k"]
-resource_local_to_scene = true
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-direction = Vector3(1, -10, 5)
-spread = 90.0
-initial_velocity_max = 109.549995
-gravity = Vector3(0, 101.81, 0)
-linear_accel_min = 28.489998
-linear_accel_max = 61.629997
-scale_min = 2.0
-scale_max = 7.0
-color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+[sub_resource type="Curve" id="Curve_qi6k8"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.33629298), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[node name="EntityParticles" type="GPUParticles2D" unique_id=1104455548]
+[sub_resource type="Curve" id="Curve_e1dfp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.19033766), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="EntityParticles" type="CPUParticles2D" unique_id=628180798]
 emitting = false
-amount = 10
-lifetime = 1.5
+amount = 15
+lifetime = 0.6
 one_shot = true
-speed_scale = 2.0
 explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_b0a2k")
+lifetime_randomness = 0.3
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 150.0
+initial_velocity_max = 570.0
+angle_min = -90.0
+angle_max = 90.0
+angle_curve = SubResource("Curve_qi6k8")
+scale_amount_min = 20.0
+scale_amount_max = 30.0
+scale_amount_curve = SubResource("Curve_e1dfp")
 script = ExtResource("1_35a5v")

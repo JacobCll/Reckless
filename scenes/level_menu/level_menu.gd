@@ -16,11 +16,7 @@ func _ready() -> void:
 		btn.level_number = i + 1
 		btn.text = str(i + 1)
 		
-		if i == 0:
-			btn.level_path = "res://scenes/levels/test_level/test_level.tscn"
-			btn.text = "Test Level"
-		else:
-			btn.level_path = "res://scenes/levels/level_" + str(i+1) + "/level_" + str(i+1) + ".tscn"
+		btn.level_path = "res://scenes/levels/levels/level_" + str(i+1) + "/level_" + str(i+1) + ".tscn"
 		
 		btn.level_selected.connect(_on_level_selected)
 		

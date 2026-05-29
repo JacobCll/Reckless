@@ -1,6 +1,8 @@
 class_name EntitySpawner
 extends Node2D
 
+var spawner_name = "Spawner 1"
+
 # entity signals
 signal entity_killed(entity_type: String)
 signal entity_slashed(entity_type: String)
@@ -42,6 +44,7 @@ func _add_group(scenes, type, weight, max_alive):
 	_entity_types.append(entity_type)
 
 func start_wave(wave: WaveData) -> void:
+	print("Started wave for ", spawner_name)
 	active = true
 	current_wave = wave
 	_build_entity_types()
@@ -75,6 +78,7 @@ func spawn_entity(n: int = 1, burst_spread: float = 0):
 
 # automatic spawn loop
 func _start_spawn_loop() -> void:
+	print("Spawn loop started for ", spawner_name)
 	while active:
 		var delay := randf_range(current_wave.respawn_delay_min, current_wave.respawn_delay_max)
 		await get_tree().create_timer(delay, false).timeout

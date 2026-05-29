@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 [autoload]
 
 GameManager="*uid://ceciu4t7ocdnv"
+MouseManager="*uid://ch787e7n03s2v"
 
 [display]
 

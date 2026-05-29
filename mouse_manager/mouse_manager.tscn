@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ch787e7n03s2v"]
+
+[ext_resource type="Script" uid="uid://f2r3iixlqr14" path="res://mouse_manager/mouse_trail.gd" id="1_dbao0"]
+
+[sub_resource type="Curve" id="Curve_hv0al"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2o2lr"]
+offsets = PackedFloat32Array(0, 0.53503186, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.5, 0.5, 0.5, 1, 0.3553136, 0.35531354, 0.35531357, 1)
+
+[node name="MouseManager" type="CanvasLayer" unique_id=1736025209]
+process_mode = 3
+layer = 999
+
+[node name="MouseTrail" type="Line2D" parent="." unique_id=1013294443]
+top_level = true
+z_index = 999
+width = 20.0
+width_curve = SubResource("Curve_hv0al")
+gradient = SubResource("Gradient_2o2lr")
+script = ExtResource("1_dbao0")
+max_length = 8

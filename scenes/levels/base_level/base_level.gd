@@ -72,6 +72,7 @@ func _setup_ui() -> void:
 	gameover_screen.hide()
 	win_screen.hide()
 	wave_label.hide()
+	hud.hide()
 
 	countdown_label.show()
 	_update_hearts_ui()
@@ -114,11 +115,12 @@ func _on_countdown_timer_timeout() -> void:
 	else:
 		countdown_timer.stop()
 		countdown_label.hide()
-		hud.show()
+		
 		_on_level_start()
 
 # override hook
 func _on_level_start() -> void:
+	hud.show()
 	start_wave()
 
 # =========================================================
@@ -217,7 +219,7 @@ func game_over() -> void:
 		s.stop()
 
 # =========================================================
-# PAUSE / UI ACTIONS
+# UI ACTIONS
 # =========================================================
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
@@ -228,5 +230,16 @@ func _on_resume_button_pressed() -> void:
 	pause_screen.hide()
 
 func restart_level() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+func _on_retry_button_pressed() -> void:
+	restart_level()
+
+func _on_main_menu_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/level_menu/level_menu.tscn")
+
+func _on_play_again_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()

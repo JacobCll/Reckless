@@ -8,7 +8,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_b8e02"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 660.3795, 712, 0, 0, 0, 0, 398.32416, 712)
+"points": PackedVector2Array(0, 0, 0, 0, 828.0949, 760, 0, 0, 0, 0, 283.01978, 760)
 }
 point_count = 2
 
@@ -23,3 +23,9 @@ path = NodePath("../EntitySpawner1Path")
 position = Vector2(111.99999, 136)
 scale = Vector2(0.76319754, 1)
 curve = SubResource("Curve2D_b8e02")
+
+[node name="HUD" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="2" unique_id=1244923538]
+visible = true
+
+[node name="ColorRect" parent="CanvasLayer/PauseScreen" parent_id_path=PackedInt32Array(1455857404) index="0" unique_id=882516791]
+color = Color(0.26657507, 0.26657525, 0.2665752, 1)

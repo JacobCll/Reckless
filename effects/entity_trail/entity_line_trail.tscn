@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ch22tmstisw2p"]
+
+[ext_resource type="Script" uid="uid://dv82uk1pfkmhs" path="res://effects/entity_trail/entity_line_trail.gd" id="1_cejdv"]
+
+[sub_resource type="Curve" id="Curve_cejdv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="EntityLineTrail" type="Line2D" unique_id=2004345689]
+top_level = true
+z_index = -999
+width = 15.0
+width_curve = SubResource("Curve_cejdv")
+script = ExtResource("1_cejdv")

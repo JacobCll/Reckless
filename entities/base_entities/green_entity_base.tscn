@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://cxvmq0y3bxufr" path="res://entities/base_entities/green_entity_base.gd" id="1_xfh22"]
 [ext_resource type="PackedScene" uid="uid://b5r2s1tdnubjs" path="res://effects/entity_particles/entity_particles.tscn" id="2_a4xyk"]
 [ext_resource type="PackedScene" uid="uid://cuvq6iixtky20" path="res://effects/entity_half_effect/entity_sprite_halves.tscn" id="4_rvl3p"]
+[ext_resource type="PackedScene" uid="uid://ch22tmstisw2p" path="res://effects/entity_trail/entity_line_trail.tscn" id="5_4b1cy"]
+
+[sub_resource type="Gradient" id="Gradient_4b1cy"]
+colors = PackedColorArray(0, 0.65882355, 0.07450981, 0.44705883, 1, 1, 1, 0)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xfh22"]
 blend_mode = 1
@@ -13,6 +17,9 @@ collision_mask = 0
 input_pickable = true
 script = ExtResource("1_xfh22")
 particles_scene = ExtResource("2_a4xyk")
+
+[node name="EntityLineTrail" parent="." unique_id=2004345689 instance=ExtResource("5_4b1cy")]
+gradient = SubResource("Gradient_4b1cy")
 
 [node name="GlowCircle" type="Sprite2D" parent="." unique_id=1100081190]
 modulate = Color(2.0455568e-06, 0.5818609, 0.059796207, 1)

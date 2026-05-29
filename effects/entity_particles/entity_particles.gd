@@ -1,9 +1,8 @@
-extends GPUParticles2D
+extends CPUParticles2D
 
-func spawn_particles(pos: Vector2, color: Color):
+func spawn_particles(pos: Vector2, c: Color):
 	global_position = pos
 	emitting = true
 	
 	# change color
-	var mat = process_material as ParticleProcessMaterial
-	mat.color = color
+	color = c
