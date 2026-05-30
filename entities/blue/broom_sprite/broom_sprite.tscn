@@ -12,16 +12,16 @@ left_half_texture = ExtResource("3_ye0mt")
 right_half_texture = ExtResource("4_q865p")
 particle_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 
-[node name="GlowCircle" parent="." index="0" unique_id=1188814709]
+[node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0
 position = Vector2(1.9999981, 29.999996)
 scale = Vector2(0.13472117, 0.1396613)
 
-[node name="Sprite2D" parent="." index="1" unique_id=226567958]
+[node name="Sprite2D" parent="." index="2" unique_id=226567958]
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_mvxh2")
 
-[node name="CollisionPolygon2D" parent="." index="2" unique_id=1735354089]
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=1735354089]
 position = Vector2(3, 10)
 scale = Vector2(1.1568772, 1.0361714)
-polygon = PackedVector2Array(-7.7795634, -79.13748, -11.237148, -1.9301825, -44.948593, 35.708374, -28.525066, 58.870564, 21.6099, 59.83566, 41.491005, 39.56874, 13.830336, -1.9301825, 9.508356, -79.13748)
+polygon = PackedVector2Array(-17.28792, -83.96294, -20.745502, -2.8952737, -44.948593, 35.708374, -28.525066, 58.870564, 21.6099, 59.83566, 41.491005, 39.56874, 19.881107, -2.8952737, 19.016712, -82.99784)

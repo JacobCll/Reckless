@@ -11,8 +11,9 @@ signal smashed
 var was_interacted := false
 var was_slashed := false
 var was_smashed := false
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+var was_mouse_over := false
+
 func _process(_delta):
 	if was_interacted: return
 	
@@ -21,10 +22,13 @@ func _process(_delta):
 		queue_free()
 		return
 		
-	# Catch fast swipes that skipped _on_mouse_entered
+	# SLASHING LOGIC
+	var mouse_over = _is_mouse_over(get_viewport().get_mouse_position())
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if _is_mouse_over(get_viewport().get_mouse_position()):
+		# Mouse crossed from outside -> inside
+		if mouse_over and !was_mouse_over:
 			slash()
+	was_mouse_over = mouse_over
 
 func _is_mouse_over(mouse_pos: Vector2) -> bool:
 	var local := to_local(mouse_pos)

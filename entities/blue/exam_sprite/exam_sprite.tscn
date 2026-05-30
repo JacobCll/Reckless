@@ -11,17 +11,16 @@ script = ExtResource("2_e1bbf")
 left_half_texture = ExtResource("3_rbnx4")
 right_half_texture = ExtResource("4_lc41f")
 
-[node name="GlowCircle" parent="." index="0" unique_id=1188814709]
+[node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0
 position = Vector2(12, 6.999996)
 scale = Vector2(0.27, 0.28)
 
-[node name="Sprite2D" parent="." index="1" unique_id=226567958]
+[node name="Sprite2D" parent="." index="2" unique_id=226567958]
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_8heef")
 
-[node name="CollisionPolygon2D" parent="." index="2" unique_id=1735354089]
-visible = false
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=1735354089]
 position = Vector2(3.9999998, -1.0000005)
 scale = Vector2(1.1568772, 1.0361714)
-polygon = PackedVector2Array(-19.881107, -57.90547, 69.15168, -67.55638, 42.355404, 81.06766, -76.06684, 42.464016)
+polygon = PackedVector2Array(-19.881107, -57.90547, 70.88047, -68.521484, 42.355404, 81.06766, -76.06684, 42.464016)

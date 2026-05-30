@@ -7,17 +7,21 @@ extends RigidBody2D
 signal despawned
 signal slashed
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var was_mouse_over := false
+
 func _process(_delta):
 	if global_position.x < -200 or global_position.x > 1224 or global_position.y < -200 or global_position.y > 968:
 		despawned.emit()
 		queue_free()
 		return
 	
-	# Catch fast swipes that skipped _on_mouse_entered
+	# SLASHING LOGIC
+	var mouse_over = _is_mouse_over(get_viewport().get_mouse_position())
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if _is_mouse_over(get_viewport().get_mouse_position()):
+		# Mouse crossed from outside -> inside
+		if mouse_over and !was_mouse_over:
 			slash()
+	was_mouse_over = mouse_over
 
 func _is_mouse_over(mouse_pos: Vector2) -> bool:
 	var local = to_local(mouse_pos)
