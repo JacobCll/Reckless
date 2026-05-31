@@ -43,3 +43,5 @@ func slash():
 	spawn_halves()
 
 	queue_free()
+
+	

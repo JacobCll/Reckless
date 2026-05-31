@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1780154397|12347907';
+const CACHE_VERSION = '1780233774|12817586302';
 /** @type {string} */
 const CACHE_PREFIX = 'Reckless-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

@@ -20,8 +20,8 @@ var countdown_value := countdown_value_original
 
 # waves
 @export var wave_start_delay := 1.0
-@export var waves: Array[WaveData]
-var current_wave_idx := 0
+var current_wave = 0
+var wave_to_kill = [10]
 var total_killed_this_wave := 0
 
 # --------------------
@@ -136,9 +136,7 @@ func _on_entity_killed(entity_type: String) -> void:
 	if entity_type != "green":
 		total_killed_this_wave += 1
 
-	var wave = waves[current_wave_idx]
-
-	if total_killed_this_wave >= wave.total_to_kill:
+	if total_killed_this_wave >= wave_to_kill[current_wave]:
 		complete_wave()
 
 func _on_entity_despawned(entity_type: String) -> void:
@@ -160,34 +158,32 @@ func _default_score_logic(entity_type: String, action: String) -> void:
 # WAVES
 # =========================================================
 func start_wave() -> void:
-	print("wave started")
-	var wave = waves[current_wave_idx]
+	print("wave ", current_wave + 1, " started")
 
 	for spawner in spawners:
-		spawner.start_wave(wave)
+		spawner.start()
 
 	_on_wave_started()
 
 func complete_wave() -> void:
+	print("wave completed")
 	for s in spawners:
 		s.stop()
 		s.reset()
 	
-	current_wave_idx += 1
-	_on_wave_completed()
+	current_wave += 1
 	total_killed_this_wave = 0
-
-func _on_wave_started() -> void:
-	wave_label.show()
-	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave: %d" % (current_wave_idx + 1)
-
-func _on_wave_completed() -> void:
-	if current_wave_idx < waves.size() - 1:
+	
+	if current_wave < wave_to_kill.size() - 1:
 		await get_tree().create_timer(wave_start_delay, false).timeout
 		wave_label.hide()
 		start_wave()
 	else:
 		_on_all_waves_completed()
+
+func _on_wave_started() -> void:
+	wave_label.show()
+	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave: %d" % (current_wave + 1)
 
 func _on_all_waves_completed() -> void:
 	hud.hide()
