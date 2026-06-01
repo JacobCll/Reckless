@@ -36,10 +36,12 @@ var total_killed_this_wave := 0
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
 @onready var win_screen = $CanvasLayer/WinLevelScreen
 @onready var wave_label = $CanvasLayer/WaveWinLabel
+@onready var settings_menu = $SettingsMenu
 
 # --------------------
 # RESOURCES
 # --------------------
+@export var level_music: AudioStream
 @export var heart_scene: PackedScene
 @export var entity_particles_scene: PackedScene
 
@@ -66,6 +68,10 @@ func _setup_level() -> void:
 	score = 0
 	current_lives = max_lives
 	countdown_value = countdown_value_original
+	MusicManager.play_music(level_music)
+
+func _exit_tree() -> void:
+	MusicManager.stop_music()
 
 func _setup_ui() -> void:
 	pause_screen.hide()
@@ -170,6 +176,8 @@ func complete_wave() -> void:
 	for s in spawners:
 		s.stop()
 		s.reset()
+		
+	_on_wave_completed()
 	
 	current_wave += 1
 	total_killed_this_wave = 0
@@ -180,6 +188,9 @@ func complete_wave() -> void:
 		start_wave()
 	else:
 		_on_all_waves_completed()
+
+func _on_wave_completed():
+	pass
 
 func _on_wave_started() -> void:
 	wave_label.show()
@@ -234,8 +245,12 @@ func _on_retry_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
+	MusicManager.stop_music()
 	get_tree().change_scene_to_file("res://scenes/level_menu/level_menu.tscn")
 
 func _on_play_again_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+func _on_settings_button_pressed() -> void:
+	settings_menu.show()

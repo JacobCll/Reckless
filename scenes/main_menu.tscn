@@ -3,12 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://dorqpsujcuf71" path="res://backgrounds/main_menu_background.png" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://crysq2vt1huvk" path="res://buttons/play_button.png" id="2_8ln24"]
 [ext_resource type="Script" uid="uid://g38ghibrcydq" path="res://scenes/main_menu.gd" id="2_jk1qb"]
+[ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/main_menu_music_1.mp3" id="3_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://dgms7fordq37c" path="res://buttons/play_button_hovered.png" id="3_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://dmnearlm67egk" path="res://buttons/shop_button.png" id="4_oa1go"]
 [ext_resource type="Texture2D" uid="uid://cd8mshchubt0p" path="res://buttons/shop_button_hovered.png" id="5_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://b3yg68encyyy4" path="res://buttons/settings_button.png" id="5_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://5h8qpaitdirm" path="res://buttons/settings_button_hovered.png" id="7_oa1go"]
 [ext_resource type="Texture2D" uid="uid://cbi40sq2seqn" path="res://logo/reckless_logo.png" id="8_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="11_lgwnu"]
 
 [node name="MainMenu" type="TextureRect" unique_id=311017489]
 z_index = -1
@@ -16,6 +18,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_l6cm7")
 script = ExtResource("2_jk1qb")
+music = ExtResource("3_5dd4i")
 
 [node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
 layout_mode = 0
@@ -63,4 +66,8 @@ texture_normal = ExtResource("2_8ln24")
 texture_hover = ExtResource("3_rtw2f")
 stretch_mode = 4
 
+[node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("11_lgwnu")]
+visible = false
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

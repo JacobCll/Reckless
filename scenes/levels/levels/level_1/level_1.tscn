@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_pskts"]
 [ext_resource type="Script" uid="uid://jhed2w16kxhx" path="res://scenes/levels/levels/level_1/level_1.gd" id="2_b8e02"]
+[ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/level_music_1.mp3" id="3_8ftis"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_b8e02"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="4_eq1f0"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_8ftis"]
@@ -17,6 +18,7 @@ point_count = 2
 [node name="Level1" unique_id=818516806 instance=ExtResource("1_pskts")]
 script = ExtResource("2_b8e02")
 countdown_value_original = 0
+level_music = ExtResource("3_8ftis")
 
 [node name="Background" parent="." index="0" unique_id=1388791812]
 visible = false
