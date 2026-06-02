@@ -17,6 +17,3 @@ func get_total_active_entities(type: String):
 	for spawner in spawners:
 		total_alive += spawner.get_alive_count(type)
 	return total_alive
-
-func _on_level_start():
-	super()

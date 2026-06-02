@@ -54,5 +54,3 @@ path = NodePath("../EntitySpawner1Path")
 
 [node name="EntitySpawner1Path" type="Path2D" parent="." index="4" unique_id=1921622601]
 curve = SubResource("Curve2D_k0gby")
-
-[node name="Line2D" type="Line2D" parent="." index="5" unique_id=781490112]

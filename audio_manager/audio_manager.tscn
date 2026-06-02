@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cadsngqsl0fq1"]
+
+[ext_resource type="Script" uid="uid://cd7snxtl3o8k5" path="res://audio_manager/audio_manager.gd" id="1_j0p2n"]
+
+[node name="MusicManager" type="Node" unique_id=981638966]
+process_mode = 3
+script = ExtResource("1_j0p2n")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1976056234]
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042515]

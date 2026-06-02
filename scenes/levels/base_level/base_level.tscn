@@ -277,6 +277,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("5_1txf7")]
+visible = false
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

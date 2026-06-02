@@ -3,10 +3,9 @@ extends CanvasLayer
 @onready var music_slider = $Control/MusicSlider
 
 func _ready():
-	MouseManager.hide_mouse_trail()
-	
 	music_slider.value = Settings.music_volume
 	_apply_audio()
+	
 	hide()
 
 func _on_music_slider_value_changed(value: float) -> void:
@@ -20,4 +19,5 @@ func _apply_audio():
 	)
 
 func _on_back_button_pressed() -> void:
+	MouseManager.show_mouse_trail()
 	hide()

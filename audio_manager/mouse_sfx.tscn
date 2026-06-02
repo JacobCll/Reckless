@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dg34sgrk5g81v"]
+
+[ext_resource type="Script" uid="uid://drex6louai3e3" path="res://audio_manager/mouse_sfx.gd" id="1_g565f"]
+[ext_resource type="AudioStream" uid="uid://bluepr3ka17jc" path="res://sfx/mouse_sfx/blade_woosh/blade_woosh_1.wav" id="2_pelws"]
+[ext_resource type="AudioStream" uid="uid://nidcfv3vgk62" path="res://sfx/mouse_sfx/blade_woosh/blade_woosh_2.wav" id="3_jifb6"]
+[ext_resource type="AudioStream" uid="uid://cuv3yic3xqkyu" path="res://sfx/mouse_sfx/blade_woosh/blade_woosh_3.wav" id="4_dyawp"]
+[ext_resource type="AudioStream" uid="uid://by1i3l27e21tq" path="res://sfx/mouse_sfx/blade_woosh/blade_woosh_4.wav" id="5_rjqc8"]
+[ext_resource type="AudioStream" uid="uid://cibxqaln48pug" path="res://sfx/mouse_sfx/blade_woosh/blade_woosh_5.wav" id="6_ddeb8"]
+[ext_resource type="AudioStream" uid="uid://dxgomm3ajlk6k" path="res://sfx/mouse_sfx/blade_woosh/blade_woosh_6.wav" id="7_yi5jl"]
+[ext_resource type="AudioStream" uid="uid://ctpcoliq3cgeq" path="res://sfx/mouse_sfx/blade_woosh/blade_woosh_7.wav" id="8_oe44c"]
+
+[node name="MouseSfx" type="Node" unique_id=1909375880]
+script = ExtResource("1_g565f")
+whoosh_sounds = Array[AudioStream]([ExtResource("2_pelws"), ExtResource("3_jifb6"), ExtResource("4_dyawp"), ExtResource("5_rjqc8"), ExtResource("6_ddeb8"), ExtResource("7_yi5jl"), ExtResource("8_oe44c")])
+speed_threshold = 1450.0
+min_interval = 0.18
+
+[node name="WhooshPlayer" type="AudioStreamPlayer" parent="." unique_id=998491557]
+volume_db = -10.0
+bus = &"Sfx"

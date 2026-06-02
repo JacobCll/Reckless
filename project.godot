@@ -21,9 +21,10 @@ buses/default_bus_layout="uid://bxvlra1iaiacs"
 [autoload]
 
 GameManager="*uid://ceciu4t7ocdnv"
-MouseManager="*uid://ch787e7n03s2v"
-MusicManager="*uid://cadsngqsl0fq1"
+AudioManager="*uid://cadsngqsl0fq1"
 Settings="*uid://b41lv5urtlevp"
+MouseManager="*uid://ch787e7n03s2v"
+MouseSfx="*uid://dg34sgrk5g81v"
 
 [display]
 

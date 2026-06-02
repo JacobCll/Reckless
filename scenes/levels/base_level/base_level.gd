@@ -68,10 +68,10 @@ func _setup_level() -> void:
 	score = 0
 	current_lives = max_lives
 	countdown_value = countdown_value_original
-	MusicManager.play_music(level_music)
-
-func _exit_tree() -> void:
-	MusicManager.stop_music()
+	
+	AudioManager.play_music(level_music)
+	AudioManager.enable_mouse_sfx()
+	GameManager.current_scene = "in_game"
 
 func _setup_ui() -> void:
 	pause_screen.hide()
@@ -230,10 +230,12 @@ func game_over() -> void:
 # =========================================================
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
+	AudioManager.pause_music()
 	pause_screen.show()
 
 func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
+	AudioManager.resume_music()
 	pause_screen.hide()
 
 func restart_level() -> void:
@@ -245,7 +247,7 @@ func _on_retry_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
-	MusicManager.stop_music()
+	AudioManager.stop_music()
 	get_tree().change_scene_to_file("res://scenes/level_menu/level_menu.tscn")
 
 func _on_play_again_button_pressed() -> void:
@@ -253,4 +255,5 @@ func _on_play_again_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_settings_button_pressed() -> void:
+	MouseManager.hide_mouse_trail()
 	settings_menu.show()

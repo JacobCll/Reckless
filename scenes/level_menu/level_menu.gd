@@ -3,10 +3,15 @@ extends TextureRect
 
 @export var level_button: PackedScene
 
+@export var level_menu_music: AudioStream
+
 var levels = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioManager.play_music(level_menu_music)
+	GameManager.current_scene = "level_menu"
+	
 	var grid = $LevelGrid
 	grid.columns = 5
 	
