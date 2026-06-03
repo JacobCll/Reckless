@@ -71,6 +71,7 @@ func _setup_level() -> void:
 	
 	AudioManager.play_music(level_music)
 	AudioManager.enable_mouse_sfx()
+	
 	GameManager.current_scene = "in_game"
 
 func _setup_ui() -> void:
@@ -103,6 +104,7 @@ func register_spawner(spawner) -> void:
 	spawner.entity_slashed.connect(_on_entity_slashed)
 	spawner.entity_smashed.connect(_on_entity_smashed)
 	spawner.entity_killed.connect(_on_entity_killed)
+	spawner.entity_spawned.connect(_on_entity_spawned)
 	spawner.entity_despawned.connect(_on_entity_despawned)
 
 # =========================================================
@@ -132,6 +134,9 @@ func _on_level_start() -> void:
 # =========================================================
 # SPAWNER EVENTS (override logic allowed)
 # =========================================================
+func _on_entity_spawned(entity_type: String) -> void:
+	CombatAudioSystem.play_throw(entity_type)
+
 func _on_entity_slashed(entity_type: String) -> void:
 	_default_score_logic(entity_type, "slash")
 
@@ -231,11 +236,13 @@ func game_over() -> void:
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	AudioManager.pause_music()
+	AudioManager.disable_mouse_sfx()
 	pause_screen.show()
 
 func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
 	AudioManager.resume_music()
+	AudioManager.enable_mouse_sfx()
 	pause_screen.hide()
 
 func restart_level() -> void:
@@ -248,6 +255,7 @@ func _on_retry_button_pressed() -> void:
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
 	AudioManager.stop_music()
+	AudioManager.disable_mouse_sfx()
 	get_tree().change_scene_to_file("res://scenes/level_menu/level_menu.tscn")
 
 func _on_play_again_button_pressed() -> void:

@@ -52,6 +52,7 @@ class EntityType:
 # ─────────────────────────────────────────────
 # ENTITY SIGNALS
 # ─────────────────────────────────────────────
+signal entity_spawned(entity_type: String)
 signal entity_killed(entity_type: String)
 signal entity_slashed(entity_type: String)
 signal entity_smashed(entity_type: String)
@@ -192,9 +193,9 @@ func _spawn_from_type(type: EntityType, throw_function: Callable) -> void:
 	add_child(entity)
 
 	type.alive_count += 1
-
+	
 	entity.despawned.connect(_on_despawned.bind(type))
-
+	
 	match type.entity_type:
 		"blue":
 			entity.slashed.connect(_on_slashed.bind(type))
@@ -203,7 +204,9 @@ func _spawn_from_type(type: EntityType, throw_function: Callable) -> void:
 		"green":	
 			entity.slashed.connect(_on_slashed.bind(type))
 			entity.smashed.connect(_on_smashed.bind(type))
-
+	
+	entity_spawned.emit(type.entity_type)
+	
 	throw_function.call(entity)
 
 
@@ -238,7 +241,6 @@ func _on_smashed(type: EntityType) -> void:
 	entity_smashed.emit(type.entity_type)
 	entity_killed.emit(type.entity_type)
 	type.alive_count -= 1
-
 
 # ─────────────────────────────────────────────
 # DEBUG HELPERS

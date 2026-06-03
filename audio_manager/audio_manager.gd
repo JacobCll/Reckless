@@ -22,3 +22,6 @@ func resume_music() -> void:
 
 func enable_mouse_sfx():
 	MouseSfx.enabled = true
+
+func disable_mouse_sfx():
+	MouseSfx.enabled = false

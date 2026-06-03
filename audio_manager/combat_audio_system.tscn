@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bqbgd5qf4fpws"]
+
+[ext_resource type="Script" uid="uid://dp2u7mum5us2c" path="res://audio_manager/combat_audio_system.gd" id="1_dra73"]
+[ext_resource type="AudioStream" uid="uid://ctr3bf7tp34s7" path="res://sfx/entity_sfx/throw/throw_sfx_good_entity.wav" id="2_equaj"]
+[ext_resource type="AudioStream" uid="uid://dtrx1r01issqk" path="res://sfx/entity_sfx/throw/throw_sfx_bad_entity.wav" id="3_abqx4"]
+
+[node name="CombatAudioSystem" type="Node" unique_id=1116037989]
+script = ExtResource("1_dra73")
+slash_sounds = Array[AudioStream]([null])
+good_entity_throw = ExtResource("2_equaj")
+bad_entity_throw = ExtResource("3_abqx4")
+
+[node name="CombatSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1843136562]
+
+[node name="ThrowSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=510930248]

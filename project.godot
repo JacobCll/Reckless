@@ -25,6 +25,7 @@ AudioManager="*uid://cadsngqsl0fq1"
 Settings="*uid://b41lv5urtlevp"
 MouseManager="*uid://ch787e7n03s2v"
 MouseSfx="*uid://dg34sgrk5g81v"
+CombatAudioSystem="*uid://bqbgd5qf4fpws"
 
 [display]
 
