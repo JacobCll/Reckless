@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b74jsgn1rm2d7"]
+
+[ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_pskts"]
+[ext_resource type="Script" uid="uid://jhed2w16kxhx" path="res://scenes/levels/levels/level_1/level_1.gd" id="2_b8e02"]
+[ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/level_music_1.mp3" id="3_8ftis"]
+[ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_b8e02"]
+[ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="4_eq1f0"]
+[ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_8ftis"]
+[ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="6_l4mnh"]
+[ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="7_yasux"]
+
+[sub_resource type="Curve2D" id="Curve2D_k0gby"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 774, 800, 0, 0, 0, 0, 294, 823)
+}
+point_count = 2
+
+[node name="Level1" unique_id=818516806 instance=ExtResource("1_pskts")]
+script = ExtResource("2_b8e02")
+countdown_value_original = 0
+wave_to_kill = Array[int]([5, 5, 10])
+level_music = ExtResource("3_8ftis")
+
+[node name="Background" parent="." index="0" unique_id=1388791812]
+visible = false
+
+[node name="HUD" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="2" unique_id=1244923538]
+visible = true
+
+[node name="PauseScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="3" unique_id=1455857404]
+visible = false
+
+[node name="ColorRect" parent="CanvasLayer/PauseScreen" index="0" unique_id=882516791]
+color = Color(0.26657507, 0.26657525, 0.2665752, 1)
+
+[node name="EntitySpawner1" parent="." index="3" unique_id=626687165 node_paths=PackedStringArray("path") instance=ExtResource("4_b8e02")]
+spawner_name = null
+spawn_delay_min = 2.0
+spawn_delay_max = 2.0
+spawn_count_min = null
+spawn_count_max = 1
+burst_spread = 0.0
+throw_force_min = 1000.0
+throw_force_max = 1100.0
+spread_min = -0.1
+spread_max = 0.1
+spin_min = -3.0
+spin_max = 3.0
+gravity_min = 1.0
+gravity_max = 1.0
+blue_scenes = Array[PackedScene]([ExtResource("4_eq1f0"), ExtResource("5_8ftis")])
+blue_weight = null
+blue_max_alive = null
+red_scenes = Array[PackedScene]([ExtResource("6_l4mnh")])
+red_weight = null
+red_max_alive = 2
+green_scenes = Array[PackedScene]([ExtResource("7_yasux")])
+green_weight = null
+green_max_alive = 1
+path = NodePath("../EntitySpawner1Path")
+
+[node name="EntitySpawner1Path" type="Path2D" parent="." index="4" unique_id=1921622601]
+curve = SubResource("Curve2D_k0gby")

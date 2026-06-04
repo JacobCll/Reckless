@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cdncd7g2fei8p"]
+
+[ext_resource type="Script" uid="uid://c5ef6gy2xi75d" path="res://scenes/levels/base_level/wave_manager.gd" id="1_d8774"]
+
+[node name="WaveManager" type="Node" unique_id=805755620]
+script = ExtResource("1_d8774")

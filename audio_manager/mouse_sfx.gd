@@ -11,7 +11,7 @@ var _last_play_time := 0.0
 var _is_lmb_down := false
 var _speed := 0.0
 
-var enabled := false
+var enabled := true
 
 func _ready():
 	_last_mouse_pos = get_viewport().get_mouse_position()
@@ -29,7 +29,6 @@ func _process(delta):
 	if _is_lmb_down:
 		_try_play_whoosh()
 
-
 func _input(event):
 	if not enabled:
 		return
@@ -37,7 +36,6 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			_is_lmb_down = event.pressed
-
 
 func _try_play_whoosh():
 	if _speed < speed_threshold:

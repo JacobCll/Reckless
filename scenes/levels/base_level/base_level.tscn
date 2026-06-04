@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b5r2s1tdnubjs" path="res://effects/entity_particles/entity_particles.tscn" id="3_fqjk7"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="5_1txf7"]
 [ext_resource type="Shader" uid="uid://cu6iypa0yqnl5" path="res://scenes/levels/base_level/base_level.gdshader" id="5_y3fao"]
+[ext_resource type="PackedScene" uid="uid://cdncd7g2fei8p" path="res://scenes/levels/base_level/wave_manager.tscn" id="6_1txf7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1txf7"]
 shader = ExtResource("5_y3fao")
@@ -26,6 +27,10 @@ grow_vertical = 2
 
 [node name="CountdownTimer" type="Timer" parent="." unique_id=404842974]
 process_mode = 1
+
+[node name="WaveManager" parent="." unique_id=805755620 instance=ExtResource("6_1txf7")]
+
+[node name="Waves" type="Node" parent="." unique_id=1732898637]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1956116786]
 process_mode = 3
@@ -97,8 +102,19 @@ alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PlayAgainButton" type="Button" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer" unique_id=767164933]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer" unique_id=298857045]
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1770277089]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[node name="PlayAgainButton" type="Button" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=767164933]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
@@ -186,6 +202,7 @@ text = "Pause"
 
 [node name="PauseScreen" type="Control" parent="CanvasLayer" unique_id=1455857404]
 process_mode = 2
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -282,7 +299,8 @@ visible = false
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HUD/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

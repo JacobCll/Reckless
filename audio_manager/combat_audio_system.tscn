@@ -1,15 +1,37 @@
 [gd_scene format=3 uid="uid://bqbgd5qf4fpws"]
 
 [ext_resource type="Script" uid="uid://dp2u7mum5us2c" path="res://audio_manager/combat_audio_system.gd" id="1_dra73"]
+[ext_resource type="AudioStream" uid="uid://cqurm1tfexbik" path="res://sfx/entity_sfx/impact_sfx/impact_entity_1.wav" id="2_bj1h8"]
 [ext_resource type="AudioStream" uid="uid://ctr3bf7tp34s7" path="res://sfx/entity_sfx/throw/throw_sfx_good_entity.wav" id="2_equaj"]
+[ext_resource type="AudioStream" uid="uid://bu1kosujhxdk2" path="res://sfx/entity_sfx/impact_sfx/impact_entity_2.wav" id="3_3gs8r"]
 [ext_resource type="AudioStream" uid="uid://dtrx1r01issqk" path="res://sfx/entity_sfx/throw/throw_sfx_bad_entity.wav" id="3_abqx4"]
+[ext_resource type="AudioStream" uid="uid://sjwyv35spk6b" path="res://sfx/entity_sfx/impact_sfx/impact_entity_3.wav" id="4_txa5a"]
+[ext_resource type="AudioStream" uid="uid://cnrv2eugnxtgh" path="res://sfx/entity_sfx/impact_sfx/impact_entity_4.wav" id="5_xtttn"]
+[ext_resource type="AudioStream" uid="uid://g2b1gqhyp0hr" path="res://sfx/entity_sfx/slash/slice_entity_3.wav" id="6_xtttn"]
+[ext_resource type="AudioStream" uid="uid://b2785m7hjift4" path="res://sfx/entity_sfx/slash/slice_entity_2.wav" id="7_ap633"]
+[ext_resource type="AudioStream" uid="uid://dmi7n7lpjgq7j" path="res://sfx/entity_sfx/slash/slice_entity_1.wav" id="8_wvwx7"]
+[ext_resource type="AudioStream" uid="uid://6yp55tj2ekvx" path="res://sfx/entity_sfx/smash/smash_entity_1.wav" id="9_wvwx7"]
+[ext_resource type="AudioStream" uid="uid://c2radprcuurne" path="res://sfx/entity_sfx/smash/smash_entity_2.wav" id="10_4h706"]
+[ext_resource type="AudioStream" uid="uid://v8o1wm3jybn6" path="res://sfx/entity_sfx/despawned/despawned_sfx.wav" id="13_4h706"]
 
 [node name="CombatAudioSystem" type="Node" unique_id=1116037989]
 script = ExtResource("1_dra73")
-slash_sounds = Array[AudioStream]([null])
+slash_impact_sfx = Array[AudioStream]([ExtResource("2_bj1h8"), ExtResource("3_3gs8r"), ExtResource("4_txa5a"), ExtResource("5_xtttn")])
+slash_sfx = Array[AudioStream]([ExtResource("6_xtttn"), ExtResource("7_ap633"), ExtResource("8_wvwx7")])
+smash_sfx = Array[AudioStream]([ExtResource("9_wvwx7"), ExtResource("10_4h706")])
 good_entity_throw = ExtResource("2_equaj")
 bad_entity_throw = ExtResource("3_abqx4")
+despawned_sfx = ExtResource("13_4h706")
+
+[node name="ImpactSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=384077573]
+bus = &"Sfx"
 
 [node name="CombatSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1843136562]
+bus = &"Sfx"
 
 [node name="ThrowSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=510930248]
+bus = &"Sfx"
+
+[node name="DespawnedSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1081067072]
+volume_db = -5.0
+bus = &"Sfx"

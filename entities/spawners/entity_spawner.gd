@@ -36,7 +36,6 @@ class EntityType:
 	var max_alive: int
 	var alive_count := 0
 
-# Exposed inspector groups (replace WaveData)
 @export var blue_scenes: Array[PackedScene]
 @export var blue_weight := 1.0
 @export var blue_max_alive := 0
@@ -69,6 +68,7 @@ var _entity_types: Array[EntityType] = []
 
 func _ready() -> void:
 	_build_entity_types()
+	
 
 func _build_entity_types() -> void:
 	_entity_types.clear()
@@ -119,9 +119,12 @@ func _clear_all_entities() -> void:
 func _start_spawn_loop() -> void:
 	while active:
 		var delay := randf_range(spawn_delay_min, spawn_delay_max)
+		
 		await get_tree().create_timer(delay, false).timeout
+		
 		if not active:
 			return
+		
 		_trigger_spawn()
 
 # manual spawning

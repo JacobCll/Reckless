@@ -18,11 +18,8 @@ var current_lives := 0
 @export var countdown_value_original := 3
 var countdown_value := countdown_value_original
 
-# waves
-@export var wave_start_delay := 1.0
-var current_wave = 0
-var wave_to_kill = [10]
-var total_killed_this_wave := 0
+# wave manager
+@onready var wave_manager: WaveManager = $WaveManager
 
 # --------------------
 # UI (shared HUD)
@@ -35,7 +32,6 @@ var total_killed_this_wave := 0
 @onready var pause_screen = $CanvasLayer/PauseScreen
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
 @onready var win_screen = $CanvasLayer/WinLevelScreen
-@onready var wave_label = $CanvasLayer/WaveWinLabel
 @onready var settings_menu = $SettingsMenu
 
 # --------------------
@@ -45,11 +41,6 @@ var total_killed_this_wave := 0
 @export var heart_scene: PackedScene
 @export var entity_particles_scene: PackedScene
 
-# --------------------
-# SPAWNERS (assigned by child level)
-# --------------------
-@onready var spawners: Array = []
-
 # =========================================================
 # READY
 # =========================================================
@@ -58,6 +49,10 @@ func _ready() -> void:
 	_setup_ui()
 	_setup_spawners()
 	_prewarm_particles()
+	
+	wave_manager.wave_started.connect(_on_wave_started)
+	wave_manager.wave_completed.connect(_on_wave_completed)
+	wave_manager.all_waves_completed.connect(_on_all_waves_completed)
 
 	start_countdown()
 
@@ -66,6 +61,7 @@ func _ready() -> void:
 # =========================================================
 func _setup_level() -> void:
 	score = 0
+	
 	current_lives = max_lives
 	countdown_value = countdown_value_original
 	
@@ -78,7 +74,6 @@ func _setup_ui() -> void:
 	pause_screen.hide()
 	gameover_screen.hide()
 	win_screen.hide()
-	wave_label.hide()
 	hud.hide()
 
 	countdown_label.show()
@@ -94,18 +89,15 @@ func _prewarm_particles() -> void:
 	p.modulate.a = 0.0
 	p.spawn_particles(Vector2.ZERO, Color.WHITE)
 
-# override this in child levels since a child level can have different spawner setups
 func _setup_spawners() -> void:
-	pass
-
-func register_spawner(spawner) -> void:
-	spawners.append(spawner)
-
-	spawner.entity_slashed.connect(_on_entity_slashed)
-	spawner.entity_smashed.connect(_on_entity_smashed)
-	spawner.entity_killed.connect(_on_entity_killed)
-	spawner.entity_spawned.connect(_on_entity_spawned)
-	spawner.entity_despawned.connect(_on_entity_despawned)
+	for wave in wave_manager.waves:
+		for child in wave.get_children():
+			if child is EntitySpawner:
+				child.entity_slashed.connect(_on_entity_slashed)
+				child.entity_smashed.connect(_on_entity_smashed)
+				child.entity_killed.connect(_on_entity_killed)
+				child.entity_spawned.connect(_on_entity_spawned)
+				child.entity_despawned.connect(_on_entity_despawned)
 
 # =========================================================
 # COUNTDOWN
@@ -129,7 +121,7 @@ func _on_countdown_timer_timeout() -> void:
 # override hook
 func _on_level_start() -> void:
 	hud.show()
-	start_wave()
+	wave_manager.start()
 
 # =========================================================
 # SPAWNER EVENTS (override logic allowed)
@@ -139,20 +131,21 @@ func _on_entity_spawned(entity_type: String) -> void:
 
 func _on_entity_slashed(entity_type: String) -> void:
 	_default_score_logic(entity_type, "slash")
+	CombatAudioSystem.play_slash()
 
 func _on_entity_smashed(entity_type: String) -> void:
 	_default_score_logic(entity_type, "smash")
-
+	CombatAudioSystem.play_smash()
+	
 func _on_entity_killed(entity_type: String) -> void:
 	if entity_type != "green":
-		total_killed_this_wave += 1
-
-	if total_killed_this_wave >= wave_to_kill[current_wave]:
-		complete_wave()
+		wave_manager.register_kill()
 
 func _on_entity_despawned(entity_type: String) -> void:
 	if entity_type in ["blue", "red"]:
 		_lose_heart()
+		CombatAudioSystem.play_despawned()
+		
 
 # override if needed
 func _default_score_logic(entity_type: String, action: String) -> void:
@@ -162,46 +155,29 @@ func _default_score_logic(entity_type: String, action: String) -> void:
 		"red":
 			score += 5 if action == "smash" else 0
 		"green":
-			score -= 5
+			score = max(score - 5, 0)
 			_lose_heart()
 
 # =========================================================
-# WAVES
+# WAVE SIGNALS
 # =========================================================
-func start_wave() -> void:
-	print("wave ", current_wave + 1, " started")
-
-	for spawner in spawners:
-		spawner.start()
-
-	_on_wave_started()
-
-func complete_wave() -> void:
-	print("wave completed")
-	for s in spawners:
-		s.stop()
-		s.reset()
-		
-	_on_wave_completed()
-	
-	current_wave += 1
-	total_killed_this_wave = 0
-	
-	if current_wave < wave_to_kill.size() - 1:
-		await get_tree().create_timer(wave_start_delay, false).timeout
-		wave_label.hide()
-		start_wave()
-	else:
-		_on_all_waves_completed()
-
-func _on_wave_completed():
-	pass
-
 func _on_wave_started() -> void:
-	wave_label.show()
-	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave: %d" % (current_wave + 1)
+	var current_wave = wave_manager.current_wave + 1
+	
+	print("wave ", current_wave, " started")
+	
+	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave: %d" % (current_wave)
+	
+
+func _on_wave_completed() -> void:
+	var current_wave = wave_manager.current_wave + 1
+	
+	print("wave ", current_wave, " completed")
+	
 
 func _on_all_waves_completed() -> void:
+	print("You win!")
+	
 	hud.hide()
 	win_screen.show()
 
@@ -226,9 +202,8 @@ func _lose_heart() -> void:
 func game_over() -> void:
 	hud.hide()
 	gameover_screen.show()
-
-	for s in spawners:
-		s.stop()
+	
+	wave_manager.game_over()
 
 # =========================================================
 # UI ACTIONS

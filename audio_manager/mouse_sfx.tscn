@@ -12,8 +12,8 @@
 [node name="MouseSfx" type="Node" unique_id=1909375880]
 script = ExtResource("1_g565f")
 whoosh_sounds = Array[AudioStream]([ExtResource("2_pelws"), ExtResource("3_jifb6"), ExtResource("4_dyawp"), ExtResource("5_rjqc8"), ExtResource("6_ddeb8"), ExtResource("7_yi5jl"), ExtResource("8_oe44c")])
-speed_threshold = 1450.0
-min_interval = 0.18
+speed_threshold = 1470.0
+min_interval = 0.16
 
 [node name="WhooshPlayer" type="AudioStreamPlayer" parent="." unique_id=998491557]
 volume_db = -10.0

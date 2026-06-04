@@ -51,15 +51,6 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
-[node name="GridContainer" type="GridContainer" parent="Control" unique_id=1168276975]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.125
-anchor_top = 0.25
-anchor_right = 0.875
-anchor_bottom = 0.8333333
-metadata/_edit_use_anchors_ = true
-
 [node name="MusicSlider" type="HSlider" parent="Control" unique_id=1378049898]
 layout_mode = 0
 offset_left = 520.0
@@ -79,5 +70,25 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Music Volume"
 
+[node name="SfxSliderLabel" type="Label" parent="Control" unique_id=1429145969]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 288.0
+offset_right = 403.0
+offset_bottom = 322.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Sfx Volume"
+
+[node name="SfxSlider" type="HSlider" parent="Control" unique_id=150762281]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 296.0
+offset_right = 816.0
+offset_bottom = 312.0
+max_value = 1.0
+step = 0.05
+
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="value_changed" from="Control/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Control/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
