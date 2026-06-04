@@ -22,52 +22,50 @@ music = ExtResource("3_5dd4i")
 
 [node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
 layout_mode = 0
-offset_left = -51.0
-offset_top = 102.0
-offset_right = 973.0
-offset_bottom = 870.0
+offset_left = 5.0
+offset_top = 90.0
+offset_right = 1029.0
+offset_bottom = 858.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_tbmy8")
-stretch_mode = 4
-
-[node name="ShopButton" type="TextureButton" parent="." unique_id=2024617283]
-layout_mode = 0
-offset_left = 644.0
-offset_top = 472.0
-offset_right = 1194.0
-offset_bottom = 674.0
-scale = Vector2(0.5, 0.5)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_oa1go")
-texture_hover = ExtResource("5_rtw2f")
-stretch_mode = 4
-
-[node name="SettingsButton" type="TextureButton" parent="." unique_id=49510251]
-layout_mode = 0
-offset_left = 647.0
-offset_top = 586.00006
-offset_right = 1197.0
-offset_bottom = 788.00006
-scale = Vector2(0.51, 0.51)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_tbmy8")
-texture_hover = ExtResource("7_oa1go")
-stretch_mode = 4
-
-[node name="PlayButton" type="TextureButton" parent="." unique_id=1347030637]
-layout_mode = 0
-offset_left = 641.0
-offset_top = 358.0
-offset_right = 1191.0
-offset_bottom = 560.0
-scale = Vector2(0.5, 0.5)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_8ln24")
-texture_hover = ExtResource("3_rtw2f")
 stretch_mode = 4
 
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("11_lgwnu")]
 visible = false
 
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=520339295]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 356.0
+offset_right = 1104.0
+offset_bottom = 970.0
+
+[node name="PlayButton" type="TextureButton" parent="ButtonContainer" unique_id=1347030637]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_8ln24")
+texture_hover = ExtResource("3_rtw2f")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SettingsButton" type="TextureButton" parent="ButtonContainer" unique_id=49510251]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_tbmy8")
+texture_hover = ExtResource("7_oa1go")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ShopButton" type="TextureButton" parent="ButtonContainer" unique_id=2024617283]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_oa1go")
+texture_hover = ExtResource("5_rtw2f")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
