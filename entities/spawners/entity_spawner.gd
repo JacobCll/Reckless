@@ -10,21 +10,21 @@ extends Node2D
 @export var spawn_delay_max := 3.0
 
 @export var spawn_count_min := 1
-@export var spawn_count_max := 3
+@export var spawn_count_max := 2
 
-@export var burst_spread := 0.2
+@export var burst_spread := 0.5
 
-@export var throw_force_min := 200.0
-@export var throw_force_max := 500.0
+@export var throw_force_min := 1000.0
+@export var throw_force_max := 1100.0
 
-@export var spread_min := -0.5
-@export var spread_max := 0.5
+@export var spread_min := -0.1
+@export var spread_max := 0.1
 
-@export var spin_min := -10.0
-@export var spin_max := 10.0
+@export var spin_min := -3.0
+@export var spin_max := 3.0
 
-@export var gravity_min := 0.8
-@export var gravity_max := 1.2
+@export var gravity_min := 1.0
+@export var gravity_max := 1.0
 
 # ─────────────────────────────────────────────
 # ENTITY TYPE CONFIG
