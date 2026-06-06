@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://63204h1uvjk7"]
 
 [ext_resource type="Script" uid="uid://dyj7sfyk2ip20" path="res://entities/spawners/entity_spawner.gd" id="1_lpjny"]
-[ext_resource type="Script" uid="uid://ii4c0mwd3eq8" path="res://entities/spawners/waves/wave_data.gd" id="4_8vih8"]
 
 [node name="EntitySpawner" type="Node2D" unique_id=1783648034]
 process_mode = 1
 script = ExtResource("1_lpjny")
-waves = Array[ExtResource("4_8vih8")]([null])
