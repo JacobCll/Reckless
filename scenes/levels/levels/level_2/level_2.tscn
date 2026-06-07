@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://k7oabpkg76m3"]
+
+[ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_lajwx"]
+[ext_resource type="Script" uid="uid://rdxejfrn5x8g" path="res://scenes/levels/levels/level_2/level_2.gd" id="2_v6o0a"]
+[ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/level_music_1.mp3" id="3_0rd2h"]
+[ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="4_yuhpf"]
+[ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="5_xx7qf"]
+[ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_u6ogp"]
+[ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="7_jc4j5"]
+[ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="8_jc4j5"]
+
+[sub_resource type="Curve2D" id="Curve2D_u6ogp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 768, 832, 0, 0, 0, 0, 264, 832)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jc4j5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 840, 800, 0, 0, 0, 0, 224, 808)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_bel7p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 112, 872, 0, 0, 0, 0, 944, 848)
+}
+point_count = 2
+
+[node name="Level2" unique_id=818516806 instance=ExtResource("1_lajwx")]
+script = ExtResource("2_v6o0a")
+LEVEL_NUMBER = 2
+level_music = ExtResource("3_0rd2h")
+
+[node name="WaveManager" parent="." index="2" unique_id=805755620 node_paths=PackedStringArray("waves")]
+waves = [NodePath("../Waves/Wave1")]
+
+[node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=1299203071]
+script = ExtResource("4_yuhpf")
+kill_requirement = 35
+metadata/_custom_type_script = "uid://dxcjb187qfvfc"
+
+[node name="EntitySpawner1" parent="Waves/Wave1" index="0" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave 1 Spawner 1"
+blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5")])
+path = NodePath("../EntitySpawner1Path")
+
+[node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave1" index="1" unique_id=825421476]
+curve = SubResource("Curve2D_u6ogp")
+
+[node name="EntitySpawner2" parent="Waves/Wave1" index="2" unique_id=1582450743 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave 1 Spawner 1"
+spawn_delay_min = 7.0
+spawn_delay_max = 7.0
+spawn_count_min = 3
+spawn_count_max = 3
+burst_spread = 0.2
+blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5")])
+path = NodePath("../EntitySpawner2Path")
+
+[node name="EntitySpawner2Path" type="Path2D" parent="Waves/Wave1" index="3" unique_id=1261742993]
+curve = SubResource("Curve2D_jc4j5")
+
+[node name="GreenSpawner3" parent="Waves/Wave1" index="4" unique_id=135887794 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave 1 Spawner 1"
+spawn_delay_min = 4.0
+spawn_delay_max = 6.0
+spawn_count_max = 1
+green_scenes = Array[PackedScene]([ExtResource("8_jc4j5")])
+path = NodePath("../EntitySpawner2Path")
+
+[node name="GreenSpawnerPath" type="Path2D" parent="Waves/Wave1" index="5" unique_id=2098953688]
+curve = SubResource("Curve2D_bel7p")
+
+[node name="TotalActiveEntitiesLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=1459818585]
+visible = false

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c3netncfohsvp" path="res://scenes/levels/base_level/base_level.gd" id="1_rwgnx"]
 [ext_resource type="PackedScene" uid="uid://7ofwgny6u651" path="res://hud_elements/hearts/heart.tscn" id="2_0jlsv"]
-[ext_resource type="PackedScene" uid="uid://b5r2s1tdnubjs" path="res://effects/entity_particles/entity_particles.tscn" id="3_fqjk7"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="5_1txf7"]
 [ext_resource type="Shader" uid="uid://cu6iypa0yqnl5" path="res://scenes/levels/base_level/base_level.gdshader" id="5_y3fao"]
 [ext_resource type="PackedScene" uid="uid://cdncd7g2fei8p" path="res://scenes/levels/base_level/wave_manager.tscn" id="6_1txf7"]
@@ -14,8 +13,6 @@ shader_parameter/darkness = 0.1
 
 [node name="BaseLevel" type="Node" unique_id=818516806]
 script = ExtResource("1_rwgnx")
-heart_scene = ExtResource("2_0jlsv")
-entity_particles_scene = ExtResource("3_fqjk7")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1388791812]
 z_index = -1

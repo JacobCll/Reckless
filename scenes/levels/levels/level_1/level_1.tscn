@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_8ftis"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="6_l4mnh"]
 [ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="7_yasux"]
-[ext_resource type="Script" path="res://scenes/levels/base_level/wave.gd" id="9_l4mnh"]
+[ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="9_l4mnh"]
 
 [sub_resource type="Curve2D" id="Curve2D_k0gby"]
 _data = {
@@ -24,6 +24,7 @@ point_count = 2
 
 [node name="Level1" unique_id=818516806 instance=ExtResource("1_pskts")]
 script = ExtResource("2_b8e02")
+LEVEL_NUMBER = 1
 level_music = ExtResource("3_8ftis")
 
 [node name="Background" parent="." index="0" unique_id=1388791812]

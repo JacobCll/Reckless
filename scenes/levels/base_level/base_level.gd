@@ -1,6 +1,8 @@
 class_name BaseLevel
 extends Node
 
+@export var LEVEL_NUMBER := 0
+
 # --------------------
 # CORE GAME STATE
 # --------------------
@@ -38,8 +40,8 @@ var countdown_value := countdown_value_original
 # RESOURCES
 # --------------------
 @export var level_music: AudioStream
-@export var heart_scene: PackedScene
-@export var entity_particles_scene: PackedScene
+var heart_scene := preload("res://hud_elements/hearts/heart.tscn")
+var entity_particles_scene := preload("res://effects/entity_particles/entity_particles.tscn")
 
 # =========================================================
 # READY
@@ -139,13 +141,17 @@ func _on_entity_smashed(entity_type: String) -> void:
 	
 func _on_entity_killed(entity_type: String) -> void:
 	if entity_type != "green":
+		_entity_drop(entity_type)
 		wave_manager.register_kill()
 
 func _on_entity_despawned(entity_type: String) -> void:
 	if entity_type in ["blue", "red"]:
 		_lose_heart()
 		CombatAudioSystem.play_despawned()
-		
+
+func _entity_drop(entity_type: String):
+	if entity_type != "green":
+		GameManager.user_orbs += 5
 
 # override if needed
 func _default_score_logic(entity_type: String, action: String) -> void:
@@ -168,7 +174,6 @@ func _on_wave_started() -> void:
 	
 	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave: %d" % (current_wave)
 	
-
 func _on_wave_completed() -> void:
 	var current_wave = wave_manager.current_wave + 1
 	

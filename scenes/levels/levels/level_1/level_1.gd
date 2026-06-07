@@ -1,5 +1,6 @@
 extends BaseLevel
 
+# LEVEL 1
 func _process(_delta):
 	$CanvasLayer/HUD/TotalActiveEntitiesLabel.text = "Blue: %d  Red: %d  Green: %d" % [
 		 get_total_active_entities("blue"),
