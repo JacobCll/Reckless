@@ -185,6 +185,8 @@ func _on_all_waves_completed() -> void:
 	
 	hud.hide()
 	win_screen.show()
+	
+	GameManager.unlock_level()
 
 # =========================================================
 # LIVES / HEARTS
