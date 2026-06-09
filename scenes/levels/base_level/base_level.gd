@@ -222,6 +222,10 @@ func _on_pause_button_pressed() -> void:
 	_pause_game()
 	
 func _unhandled_input(event: InputEvent) -> void:
+	# don't do anything if settings menu is shown
+	if settings_menu.visible:
+		return
+	
 	if event.is_action_pressed("Pause"):
 		_handle_pause_input()
 

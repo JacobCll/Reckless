@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ctkkbptbg7kif" path="res://logo/levels_text.png" id="3_7obll"]
 [ext_resource type="PackedScene" uid="uid://bh5whn5f6bwwh" path="res://scenes/level_menu/level_button.tscn" id="3_bvllw"]
 [ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/main_menu_music_1.mp3" id="4_jw3qw"]
+[ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="6_5gure"]
 
 [node name="LevelMenu" type="TextureRect" unique_id=1450082209]
 offset_right = 40.0
@@ -24,6 +25,7 @@ offset_bottom = 264.0
 scale = Vector2(0.4, 0.4)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_jqwib")
+texture_hover = ExtResource("6_5gure")
 stretch_mode = 4
 
 [node name="LevelsText" type="TextureRect" parent="." unique_id=1342054559]
