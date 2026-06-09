@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://dp2tk3hn4wk5c"]
+
+[ext_resource type="Texture2D" uid="uid://ddc7ikcc0uerw" path="res://buttons/pressed-level.png" id="1_xabev"]
+
+[resource]
+atlas = ExtResource("1_xabev")
+region = Rect2(39, 84, 567.3179, 205.78937)

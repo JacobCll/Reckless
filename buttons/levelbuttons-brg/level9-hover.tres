@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://btmm1lj0vgnxa"]
+
+[ext_resource type="Texture2D" uid="uid://brxnqmmhy3n7u" path="res://buttons/hover-level.png" id="1_kmiqd"]
+
+[resource]
+atlas = ExtResource("1_kmiqd")
+region = Rect2(400, 202, 82, 85)

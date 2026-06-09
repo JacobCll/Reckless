@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://ctunyfc27eak"]
+
+[ext_resource type="Texture2D" uid="uid://cmd57qnn61sda" path="res://backgrounds/levels_menu_background.png" id="1_pktdi"]
+[ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="2_4fshh"]
+[ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="3_ddqly"]
+[ext_resource type="Texture2D" uid="uid://ctkkbptbg7kif" path="res://logo/levels_text.png" id="4_cxrkr"]
+[ext_resource type="PackedScene" uid="uid://bh5whn5f6bwwh" path="res://scenes/level_menu/level_button.tscn" id="5_vl1nj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5egty"]
+atlas = ExtResource("4_cxrkr")
+region = Rect2(80, 276, 866, 209)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dr5fo"]
+
+[node name="LevelSelect" type="Node2D" unique_id=500938725]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1098305567]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pktdi")
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=719392720]
+custom_minimum_size = Vector2(50, 20)
+offset_left = -456.0
+offset_top = -296.0
+offset_right = -264.0
+offset_bottom = -208.0
+texture_normal = ExtResource("2_4fshh")
+texture_pressed = ExtResource("3_ddqly")
+texture_hover = ExtResource("3_ddqly")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Title" type="TextureRect" parent="." unique_id=759016149]
+anchors_preset = -1
+anchor_left = 0.5135135
+anchor_top = -0.004464286
+anchor_right = 0.9054054
+anchor_bottom = -0.004464286
+offset_left = -224.0
+offset_top = -472.0
+offset_right = 276.0
+offset_bottom = -22.0
+texture = SubResource("AtlasTexture_5egty")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelMenu" type="TextureRect" parent="." unique_id=410785532]
+self_modulate = Color(0.29803923, 0.29803923, 0.29803923, 0.2)
+offset_left = -432.0
+offset_top = -136.0
+offset_right = 456.0
+offset_bottom = 312.0
+texture = SubResource("CanvasTexture_dr5fo")
+
+[node name="Control" type="Control" parent="LevelMenu" unique_id=2015042212]
+anchors_preset = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 832.0
+offset_bottom = 416.0
+
+[node name="GridContainer" type="GridContainer" parent="LevelMenu/Control" unique_id=551732914]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 768.0
+offset_bottom = 376.0
+columns = 5
+
+[node name="LevelSelection" parent="LevelMenu/Control/GridContainer" unique_id=506350853 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+
+[node name="LevelSelection2" parent="LevelMenu/Control/GridContainer" unique_id=574529792 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+disabled = true
+
+[node name="LevelSelection3" parent="LevelMenu/Control/GridContainer" unique_id=972208673 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+disabled = true
+
+[node name="LevelSelection4" parent="LevelMenu/Control/GridContainer" unique_id=178460669 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+disabled = true
+
+[node name="LevelSelection5" parent="LevelMenu/Control/GridContainer" unique_id=539639701 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+disabled = true
+
+[node name="LevelSelection6" parent="LevelMenu/Control/GridContainer" unique_id=984616780 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+disabled = true
+
+[node name="LevelSelection7" parent="LevelMenu/Control/GridContainer" unique_id=1003568481 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+disabled = true
+
+[node name="LevelSelection8" parent="LevelMenu/Control/GridContainer" unique_id=605774106 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+disabled = true
+
+[node name="LevelSelection9" parent="LevelMenu/Control/GridContainer" unique_id=1982034480 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+disabled = true
+
+[node name="LevelSelection10" parent="LevelMenu/Control/GridContainer" unique_id=574042742 instance=ExtResource("5_vl1nj")]
+layout_mode = 2
+disabled = true

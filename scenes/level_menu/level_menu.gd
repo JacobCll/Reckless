@@ -1,40 +1,42 @@
 class_name LevelMenu
 extends TextureRect
 
-@export var level_button: PackedScene
-
 @export var level_menu_music: AudioStream
 
-var levels = 10
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioManager.play_music(level_menu_music)
 	GameManager.current_scene = "level_menu"
-	
-	var grid = $LevelGrid
-	grid.columns = 5
-	
-	for i in range(levels):
-		var btn = level_button.instantiate()
-		
-		btn.level_number = i + 1
-		btn.text = str(i + 1)
-		
-		btn.level_path = "res://scenes/levels/levels/level_" + str(i+1) + "/level_" + str(i+1) + ".tscn"
-		
-		btn.level_selected.connect(_on_level_selected)
-		
-		# disable if not unlocked 
-		if not GameManager.is_level_unlocked(i + 1):
-			btn.disabled = true
-			btn.mouse_default_cursor_shape = Control.CURSOR_ARROW
-		
-		grid.add_child(btn)
 
-func _on_level_selected(path) -> void:
+	var buttons: Array = get_children()
+
+	for i in range(buttons.size()):
+		var btn = buttons[i]
+
+		if btn is LevelButton:
+			var level_num := i + 1
+
+			btn.level_number = level_num
+			btn.level_path = "res://scenes/levels/levels/level_%d/level_%d.tscn" % [level_num, level_num]
+
+			if not btn.level_selected.is_connected(_on_level_selected):
+				btn.level_selected.connect(_on_level_selected)
+
+			var unlocked: bool = GameManager.is_level_unlocked(level_num)
+
+			btn.unlocked = unlocked
+			btn.disabled = not unlocked
+
+			btn.mouse_default_cursor_shape = (
+				Control.CURSOR_POINTING_HAND
+				if unlocked
+				else Control.CURSOR_ARROW
+			)
+
+func _on_level_selected(path: String) -> void:
 	var loading = preload("res://loading_screen/loading_screen.tscn").instantiate()
 	loading.next_scene_path = path
+
 	get_tree().root.add_child(loading)
 	get_tree().current_scene.queue_free()
 
