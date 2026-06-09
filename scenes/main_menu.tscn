@@ -4,13 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://crysq2vt1huvk" path="res://buttons/play_button.png" id="2_8ln24"]
 [ext_resource type="Script" uid="uid://g38ghibrcydq" path="res://scenes/main_menu.gd" id="2_jk1qb"]
 [ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/main_menu_music_1.mp3" id="3_5dd4i"]
-[ext_resource type="Texture2D" uid="uid://dgms7fordq37c" path="res://buttons/play_button_hovered.png" id="3_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://dmnearlm67egk" path="res://buttons/shop_button.png" id="4_oa1go"]
-[ext_resource type="Texture2D" uid="uid://cd8mshchubt0p" path="res://buttons/shop_button_hovered.png" id="5_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://b3yg68encyyy4" path="res://buttons/settings_button.png" id="5_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://5h8qpaitdirm" path="res://buttons/settings_button_hovered.png" id="7_oa1go"]
+[ext_resource type="Texture2D" uid="uid://kb26ty78af78" path="res://buttons/play-hover.png" id="7_rcqid"]
 [ext_resource type="Texture2D" uid="uid://cbi40sq2seqn" path="res://logo/reckless_logo.png" id="8_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://c7lylr4oh33u4" path="res://buttons/shop-hover.png" id="9_1ajci"]
+[ext_resource type="Texture2D" uid="uid://bswcbt536ffsw" path="res://buttons/setting-hover.png" id="11_7b55j"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="11_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://c2yxskel6pten" path="res://buttons/exit-default.png" id="12_5pajh"]
+[ext_resource type="Texture2D" uid="uid://cw6kar0t1ejsk" path="res://buttons/exit-hover.png" id="13_j7ex8"]
 
 [node name="MainMenu" type="TextureRect" unique_id=311017489]
 z_index = -1
@@ -22,52 +24,62 @@ music = ExtResource("3_5dd4i")
 
 [node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
 layout_mode = 0
-offset_left = -51.0
-offset_top = 102.0
-offset_right = 973.0
-offset_bottom = 870.0
+offset_left = 9.0
+offset_top = 101.0
+offset_right = 1033.0
+offset_bottom = 869.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_tbmy8")
-stretch_mode = 4
-
-[node name="ShopButton" type="TextureButton" parent="." unique_id=2024617283]
-layout_mode = 0
-offset_left = 644.0
-offset_top = 472.0
-offset_right = 1194.0
-offset_bottom = 674.0
-scale = Vector2(0.5, 0.5)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_oa1go")
-texture_hover = ExtResource("5_rtw2f")
-stretch_mode = 4
-
-[node name="SettingsButton" type="TextureButton" parent="." unique_id=49510251]
-layout_mode = 0
-offset_left = 647.0
-offset_top = 586.00006
-offset_right = 1197.0
-offset_bottom = 788.00006
-scale = Vector2(0.51, 0.51)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_tbmy8")
-texture_hover = ExtResource("7_oa1go")
-stretch_mode = 4
-
-[node name="PlayButton" type="TextureButton" parent="." unique_id=1347030637]
-layout_mode = 0
-offset_left = 641.0
-offset_top = 358.0
-offset_right = 1191.0
-offset_bottom = 560.0
-scale = Vector2(0.5, 0.5)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_8ln24")
-texture_hover = ExtResource("3_rtw2f")
 stretch_mode = 4
 
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("11_lgwnu")]
 visible = false
 
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=520339295]
+layout_mode = 0
+offset_left = 543.0
+offset_top = 265.0
+offset_right = 1093.0
+offset_bottom = 879.0
+
+[node name="PlayButton" type="TextureButton" parent="ButtonContainer" unique_id=1347030637]
+custom_minimum_size = Vector2(0, 102)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_8ln24")
+texture_pressed = ExtResource("7_rcqid")
+texture_hover = ExtResource("7_rcqid")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ShopButton" type="TextureButton" parent="ButtonContainer" unique_id=2024617283]
+custom_minimum_size = Vector2(0, 103)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_oa1go")
+texture_pressed = ExtResource("9_1ajci")
+texture_hover = ExtResource("9_1ajci")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SettingsButton" type="TextureButton" parent="ButtonContainer" unique_id=49510251]
+custom_minimum_size = Vector2(0, 104)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_tbmy8")
+texture_pressed = ExtResource("11_7b55j")
+texture_hover = ExtResource("11_7b55j")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ExitButton" type="TextureButton" parent="ButtonContainer" unique_id=242013837]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+texture_normal = ExtResource("12_5pajh")
+texture_pressed = ExtResource("13_j7ex8")
+texture_hover = ExtResource("13_j7ex8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
