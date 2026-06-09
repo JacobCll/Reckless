@@ -81,14 +81,5 @@ texture_hover = ExtResource("13_j7ex8")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="." unique_id=1491518567]
-layout_mode = 0
-offset_left = 414.0
-offset_top = 45.0
-offset_right = 571.0
-offset_bottom = 90.0
-theme_override_font_sizes/font_size = 32
-text = "Test Label"
-
 [connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
