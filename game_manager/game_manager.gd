@@ -1,20 +1,29 @@
 extends Node
 
-const SAVE_FILE := "user://save.dat"
+const SAVE_FILE := "user://game_manager_state.dat"
 
 var current_scene := "main_menu"
 var user_orbs := 0
 var highest_unlocked_level := 1
+var max_unlockable_level := 2
 
 func _ready():
+	reset()
 	load_data()
+
+func reset():
+	user_orbs = 0
+	highest_unlocked_level = 1
 
 func is_level_unlocked(level: int) -> bool:
 	return level <= highest_unlocked_level
 
-func unlock_level() -> void:
-	highest_unlocked_level += 1
-	save_data()
+func unlock_level(level_completed: int) -> void:
+	var next_level := level_completed + 1
+
+	if next_level > highest_unlocked_level and next_level <= max_unlockable_level:
+		highest_unlocked_level = next_level
+		save_data()
 
 func save_data() -> void:
 	var data := {
@@ -31,6 +40,10 @@ func load_data() -> void:
 
 	var file := FileAccess.open(SAVE_FILE, FileAccess.READ)
 	var saved_data = file.get_var()
+	
+	if typeof(saved_data) != TYPE_DICTIONARY:
+		return
 
 	highest_unlocked_level = saved_data.get("highest_unlocked_level", 1)
 	user_orbs = saved_data.get("user_orbs", 0)
+	

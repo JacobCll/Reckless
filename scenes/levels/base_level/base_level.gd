@@ -11,6 +11,9 @@ var score := 0 : set = _set_score
 func _set_score(value: int) -> void:
 	score = value
 	$CanvasLayer/HUD/ScoreLabel.text = str(score)
+	
+# pause
+var is_paused := false
 
 # lives
 @export var max_lives := 3
@@ -178,7 +181,6 @@ func _on_wave_completed() -> void:
 	var current_wave = wave_manager.current_wave + 1
 	
 	print("wave ", current_wave, " completed")
-	
 
 func _on_all_waves_completed() -> void:
 	print("You win!")
@@ -186,7 +188,8 @@ func _on_all_waves_completed() -> void:
 	hud.hide()
 	win_screen.show()
 	
-	GameManager.unlock_level()
+	# unlock next level
+	GameManager.unlock_level(LEVEL_NUMBER)
 
 # =========================================================
 # LIVES / HEARTS
@@ -216,16 +219,14 @@ func game_over() -> void:
 # UI ACTIONS
 # =========================================================
 func _on_pause_button_pressed() -> void:
-	get_tree().paused = true
-	AudioManager.pause_music()
-	AudioManager.disable_mouse_sfx()
-	pause_screen.show()
+	_pause_game()
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Pause"):
+		_handle_pause_input()
 
 func _on_resume_button_pressed() -> void:
-	get_tree().paused = false
-	AudioManager.resume_music()
-	AudioManager.enable_mouse_sfx()
-	pause_screen.hide()
+	_resume_game()
 
 func restart_level() -> void:
 	get_tree().paused = false
@@ -236,8 +237,18 @@ func _on_retry_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
+	
 	AudioManager.stop_music()
 	AudioManager.disable_mouse_sfx()
+	
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func _on_level_menu_button_pressed() -> void:
+	get_tree().paused = false
+	
+	AudioManager.stop_music()
+	AudioManager.disable_mouse_sfx()
+	
 	get_tree().change_scene_to_file("res://scenes/level_menu/level_menu.tscn")
 
 func _on_play_again_button_pressed() -> void:
@@ -247,3 +258,28 @@ func _on_play_again_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	MouseManager.hide_mouse_trail()
 	settings_menu.show()
+
+# PAUSE
+func _handle_pause_input() -> void:
+	if is_paused:
+		_resume_game()
+	else:
+		_pause_game()
+		
+func _pause_game() -> void:
+	is_paused = true
+	get_tree().paused = true
+
+	AudioManager.pause_music()
+	AudioManager.disable_mouse_sfx()
+
+	pause_screen.show()
+	
+func _resume_game() -> void:
+	is_paused = false
+	get_tree().paused = false
+
+	AudioManager.resume_music()
+	AudioManager.enable_mouse_sfx()
+
+	pause_screen.hide()

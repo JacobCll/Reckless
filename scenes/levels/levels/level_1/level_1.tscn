@@ -88,8 +88,5 @@ path = NodePath("../EntitySpawner1Path")
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave3" index="1" unique_id=1988290731]
 curve = SubResource("Curve2D_l4mnh")
 
-[node name="HUD" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="2" unique_id=1244923538]
-visible = true
-
 [node name="ColorRect" parent="CanvasLayer/PauseScreen" parent_id_path=PackedInt32Array(1455857404) index="0" unique_id=882516791]
 color = Color(0.26657507, 0.26657525, 0.2665752, 1)
