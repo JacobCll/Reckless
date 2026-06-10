@@ -22,25 +22,25 @@ texture = ExtResource("1_l6cm7")
 script = ExtResource("2_jk1qb")
 music = ExtResource("3_5dd4i")
 
+[node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("11_lgwnu")]
+visible = false
+
 [node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 101.0
-offset_right = 1033.0
-offset_bottom = 869.0
+offset_left = -61.0
+offset_top = 119.0
+offset_right = 963.0
+offset_bottom = 887.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_tbmy8")
 stretch_mode = 4
 
-[node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("11_lgwnu")]
-visible = false
-
 [node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=520339295]
 layout_mode = 0
-offset_left = 543.0
-offset_top = 265.0
-offset_right = 1093.0
-offset_bottom = 879.0
+offset_left = 644.0
+offset_top = 238.0
+offset_right = 918.0
+offset_bottom = 669.0
 
 [node name="PlayButton" type="TextureButton" parent="ButtonContainer" unique_id=1347030637]
 custom_minimum_size = Vector2(0, 102)
