@@ -7,6 +7,12 @@ var user_orbs := 0
 var highest_unlocked_level := 1
 var max_unlockable_level := 2
 
+var inventory := {
+	"powerup_shields": 0,
+	"powerup_no_green": 0,
+	"powerup_double_orbs": 0
+}
+
 func _ready():
 	reset()
 	load_data()
@@ -28,7 +34,8 @@ func unlock_level(level_completed: int) -> void:
 func save_data() -> void:
 	var data := {
 		"highest_unlocked_level": highest_unlocked_level,
-		"user_orbs": user_orbs
+		"user_orbs": user_orbs,
+		"inventory": inventory
 	}
 
 	var file := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
@@ -46,4 +53,9 @@ func load_data() -> void:
 
 	highest_unlocked_level = saved_data.get("highest_unlocked_level", 1)
 	user_orbs = saved_data.get("user_orbs", 0)
+	inventory = saved_data.get("inventory", {
+		"health_potion": 0,
+		"damage_boost": 0,
+		"shield": 0
+	})
 	
