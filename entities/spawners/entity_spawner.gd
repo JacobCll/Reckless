@@ -95,7 +95,6 @@ func _add_group(scenes: Array, type: String, weight: float, max_alive: int) -> v
 
 func start() -> void:
 	active = true
-	_start_spawn_loop()
 
 func stop() -> void:
 	active = false
@@ -116,7 +115,7 @@ func _clear_all_entities() -> void:
 # ─────────────────────────────────────────────
 # SPAWN LOOP
 # ─────────────────────────────────────────────
-func _start_spawn_loop() -> void:
+func start_spawn_loop() -> void:
 	while active:
 		var delay := randf_range(spawn_delay_min, spawn_delay_max)
 		
@@ -129,6 +128,7 @@ func _start_spawn_loop() -> void:
 
 # manual spawning
 func spawn_entity(n: int = 1, b_spread: float = 0):
+	print("Manually Spawned entity")
 	await get_tree().create_timer(1, false).timeout # delay for 1 second
 	for i in n: # number of entities to spawn
 		var type := _pick_type() #  pick type

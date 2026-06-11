@@ -14,12 +14,19 @@ var inventory := {
 }
 
 func _ready():
-	reset()
 	load_data()
+	reset()
 
+# for debugging
 func reset():
 	user_orbs = 0
 	highest_unlocked_level = 1
+	inventory = {
+		"powerup_shields": 0,
+		"powerup_no_green": 0,
+		"powerup_double_orbs": 0
+	}
+	save_data()
 
 func is_level_unlocked(level: int) -> bool:
 	return level <= highest_unlocked_level

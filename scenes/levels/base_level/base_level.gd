@@ -178,6 +178,8 @@ func _on_wave_started() -> void:
 	
 	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave: %d" % (current_wave)
 	
+	wave_manager.start_spawn_loops()
+	
 func _on_wave_completed() -> void:
 	var current_wave = wave_manager.current_wave + 1
 	

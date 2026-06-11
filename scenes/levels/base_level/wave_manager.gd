@@ -32,6 +32,14 @@ func start_wave() -> void:
 			child.start()
 
 	wave_started.emit()
+	
+func start_spawn_loops() -> void:
+	var wave = waves[current_wave]
+	
+	for child in wave.get_children():
+		if child is EntitySpawner:
+			active_spawners.append(child)
+			child.start_spawn_loop()
 
 func register_kill() -> void:
 	kills += 1
