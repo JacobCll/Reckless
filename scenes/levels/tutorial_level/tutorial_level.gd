@@ -9,6 +9,14 @@ enum TutorialStep {
 
 var current_step := TutorialStep.SLASH
 
+var tutorial_slash_done := false
+var tutorial_smash_done := false
+var tutorial_avoid_done := false
+var tutorial_all_done := false
+
+var blue_entities_slashed := 0
+var red_entities_smashed := 0
+
 # override - remove countdown
 func _ready() -> void:
 	_setup_level()
@@ -39,14 +47,30 @@ func _on_level_start() -> void:
 # ENTITY SIGNALS
 # =========================================================
 # override - forgive the user from missing
-func _on_entity_despawned(entity_type: String) -> void:
+func _on_entity_despawned(_entity_type: String) -> void:
 	pass
 
 func _on_entity_slashed(entity_type: String) -> void:
 	super(entity_type)
 	
-	current_step = (current_step + 1) as TutorialStep
-	start_step()
+	blue_entities_slashed += 1
+	
+	if current_step == 0:
+		current_step = (current_step + 1) as TutorialStep
+		start_step()
+	else:
+		return
+
+func _on_entity_smashed(entity_type: String) -> void:
+	super(entity_type)
+	
+	red_entities_smashed += 1
+	
+	if current_step == 1:
+		current_step = (current_step + 1) as TutorialStep
+		start_step()
+	else:
+		return
 
 # =========================================================
 # WAVE SIGNALS
@@ -69,8 +93,15 @@ func start_step():
 	match current_step:
 		TutorialStep.SLASH:
 			_handle_tutorial_slash()
+		TutorialStep.SMASH:
+			_handle_tutorial_smash()
 
 func _handle_tutorial_slash():
 	var blue_spawner := $Waves/SlashTutorial/BlueSpawner
 	
 	blue_spawner.spawn_entity(1)
+
+func _handle_tutorial_smash():
+	var red_spawner := $Waves/SmashTutorial/RedSpawner
+	
+	red_spawner.spawn_entity(1)

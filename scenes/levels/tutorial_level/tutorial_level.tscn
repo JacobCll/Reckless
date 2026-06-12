@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_knk6l"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_haaw4"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_l7ta3"]
+[ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="7_l7ta3"]
 
 [sub_resource type="Curve2D" id="Curve2D_asvqm"]
 _data = {
@@ -13,12 +14,14 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve2D" id="Curve2D_1xsvc"]
+
 [node name="TutorialLevel" unique_id=818516806 instance=ExtResource("1_nw3yw")]
 script = ExtResource("2_h8moi")
 countdown_value_original = 0
 
 [node name="WaveManager" parent="." index="2" unique_id=805755620 node_paths=PackedStringArray("waves")]
-waves = [NodePath("../Waves/SlashTutorial")]
+waves = [NodePath("../Waves/SlashTutorial"), NodePath("../Waves/SmashTutorial")]
 
 [node name="SlashTutorial" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=752780320]
 script = ExtResource("3_1ovlm")
@@ -41,6 +44,15 @@ curve = SubResource("Curve2D_asvqm")
 script = ExtResource("3_1ovlm")
 wave_name = "SmashTutorial"
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
+
+[node name="RedSpawner" parent="Waves/SmashTutorial" index="0" unique_id=46997689 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
+spawn_delay_max = 1.0
+spawn_count_max = 1
+red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
+path = NodePath("../RedSpawnerPath")
+
+[node name="RedSpawnerPath" type="Path2D" parent="Waves/SmashTutorial" index="1" unique_id=1069834548]
+curve = SubResource("Curve2D_1xsvc")
 
 [node name="AvoidTutorial" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="2" unique_id=9259128]
 script = ExtResource("3_1ovlm")
