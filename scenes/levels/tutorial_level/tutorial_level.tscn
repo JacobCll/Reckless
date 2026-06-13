@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_nw3yw"]
 [ext_resource type="Script" uid="uid://b87t8mxgjju4" path="res://scenes/levels/tutorial_level/tutorial_level.gd" id="2_h8moi"]
-[ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="3_1ovlm"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_knk6l"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_haaw4"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_l7ta3"]
+[ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="7_1xsvc"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="7_l7ta3"]
 
 [sub_resource type="Curve2D" id="Curve2D_asvqm"]
@@ -15,49 +15,20 @@ _data = {
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_1xsvc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 578, 742, 0, 0, 0, 0, 504, 742)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_haaw4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 480, 744, 0, 0, 0, 0, 551, 745)
+}
+point_count = 2
 
 [node name="TutorialLevel" unique_id=818516806 instance=ExtResource("1_nw3yw")]
 script = ExtResource("2_h8moi")
 countdown_value_original = 0
-
-[node name="WaveManager" parent="." index="2" unique_id=805755620 node_paths=PackedStringArray("waves")]
-waves = [NodePath("../Waves/SlashTutorial"), NodePath("../Waves/SmashTutorial")]
-
-[node name="SlashTutorial" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=752780320]
-script = ExtResource("3_1ovlm")
-wave_name = "SlashTutorial"
-kill_requirement = 1
-metadata/_custom_type_script = "uid://dxcjb187qfvfc"
-
-[node name="BlueSpawner" parent="Waves/SlashTutorial" index="0" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
-spawn_delay_max = 1.0
-spawn_count_max = 1
-blue_scenes = Array[PackedScene]([ExtResource("5_haaw4"), ExtResource("6_l7ta3")])
-red_weight = 0.0
-green_weight = 0.0
-path = NodePath("../BlueSpawnerPath")
-
-[node name="BlueSpawnerPath" type="Path2D" parent="Waves/SlashTutorial" index="1" unique_id=1429210558]
-curve = SubResource("Curve2D_asvqm")
-
-[node name="SmashTutorial" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="1" unique_id=682036332]
-script = ExtResource("3_1ovlm")
-wave_name = "SmashTutorial"
-metadata/_custom_type_script = "uid://dxcjb187qfvfc"
-
-[node name="RedSpawner" parent="Waves/SmashTutorial" index="0" unique_id=46997689 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
-spawn_delay_max = 1.0
-spawn_count_max = 1
-red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
-path = NodePath("../RedSpawnerPath")
-
-[node name="RedSpawnerPath" type="Path2D" parent="Waves/SmashTutorial" index="1" unique_id=1069834548]
-curve = SubResource("Curve2D_1xsvc")
-
-[node name="AvoidTutorial" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="2" unique_id=9259128]
-script = ExtResource("3_1ovlm")
-wave_name = "AvoidTutorial"
-metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="WaveWinLabel" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="0" unique_id=1339355824]
 visible = false
@@ -76,3 +47,38 @@ visible = false
 
 [node name="PauseScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="5" unique_id=1455857404]
 visible = false
+
+[node name="BlueSpawner" parent="." index="6" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
+spawn_delay_max = 1.0
+spawn_count_max = 1
+blue_scenes = Array[PackedScene]([ExtResource("5_haaw4"), ExtResource("6_l7ta3")])
+red_weight = 0.0
+green_weight = 0.0
+path = NodePath("../BlueSpawnerPath")
+
+[node name="BlueSpawnerPath" type="Path2D" parent="." index="7" unique_id=1429210558]
+position = Vector2(-24, 0)
+curve = SubResource("Curve2D_asvqm")
+
+[node name="RedSpawner" parent="." index="8" unique_id=46997689 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
+spawn_delay_max = 1.0
+spawn_count_max = 1
+blue_weight = 0.0
+red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
+green_weight = 0.0
+path = NodePath("../RedSpawnerPath")
+
+[node name="RedSpawnerPath" type="Path2D" parent="." index="9" unique_id=1069834548]
+position = Vector2(-23, 0)
+curve = SubResource("Curve2D_1xsvc")
+
+[node name="GreenSpawner" parent="." index="10" unique_id=458903256 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
+spawn_delay_max = 1.0
+spawn_count_max = 1
+blue_weight = 0.0
+red_weight = 0.0
+green_scenes = Array[PackedScene]([ExtResource("7_1xsvc")])
+path = NodePath("../GreenSpawnerPath")
+
+[node name="GreenSpawnerPath" type="Path2D" parent="." index="11" unique_id=427356094]
+curve = SubResource("Curve2D_haaw4")
