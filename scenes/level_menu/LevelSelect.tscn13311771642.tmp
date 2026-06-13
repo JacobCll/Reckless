@@ -1,17 +1,14 @@
 [gd_scene format=3 uid="uid://cbgn28v82pj1m"]
 
-[ext_resource type="Script" uid="uid://je24mpxsuj8j" path="res://scenes/level_menu/LevelSelect.gd" id="1_ddqly"]
 [ext_resource type="Texture2D" uid="uid://cmd57qnn61sda" path="res://backgrounds/levels_menu_background.png" id="1_pktdi"]
 [ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="3_ddqly"]
 [ext_resource type="Texture2D" uid="uid://ctkkbptbg7kif" path="res://logo/levels_text.png" id="4_cxrkr"]
-[ext_resource type="ButtonGroup" uid="uid://cmggptblxaoad" path="res://scenes/level_menu/levelbuttons.tres" id="4_ehvfe"]
 [ext_resource type="Texture2D" uid="uid://el1nh5cb8jrt" path="res://buttons/levelbuttons-brg/level1.tres" id="7_xegj6"]
 [ext_resource type="Texture2D" uid="uid://buicr74j1u5tq" path="res://buttons/levelbuttons-brg/pressed-level1.tres" id="8_tvtf2"]
 [ext_resource type="Texture2D" uid="uid://hqjo8rtw7vmq" path="res://buttons/levelbuttons-brg/level2.tres" id="9_0kg6i"]
 [ext_resource type="Texture2D" uid="uid://daif7q7fnu3sb" path="res://buttons/levelbuttons-brg/level1-hover.tres" id="9_trpgl"]
 [ext_resource type="Texture2D" uid="uid://b0lersv0xjmhb" path="res://buttons/levelbuttons-brg/disable_level1.tres" id="10_eosdy"]
 [ext_resource type="Texture2D" uid="uid://c2ko560jnhedr" path="res://buttons/levelbuttons-brg/pressed-level2.tres" id="10_uaqmx"]
-[ext_resource type="Script" uid="uid://urkkllh6ritm" path="res://scenes/level_menu/buttonscript.gd" id="10_xomfm"]
 [ext_resource type="Texture2D" uid="uid://c1vedgibfoxyq" path="res://buttons/levelbuttons-brg/level2-hover.tres" id="11_xomfm"]
 [ext_resource type="Texture2D" uid="uid://bwho4nfkm4rrp" path="res://buttons/levelbuttons-brg/disable_level2.tres" id="12_74xqp"]
 [ext_resource type="Texture2D" uid="uid://che2kqs43lfbj" path="res://buttons/levelbuttons-brg/level3.tres" id="13_b42hy"]
@@ -53,7 +50,6 @@ load_path = "res://.godot/imported/back_left_button.png-435ebce1fa2c33866fe7e9cb
 [node name="LevelSelect" type="Control" unique_id=2112232084]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_ddqly")
 
 [node name="MenuBackground" type="TextureRect" parent="." unique_id=1869641766]
 unique_name_in_owner = true
@@ -81,161 +77,17 @@ ignore_texture_size = true
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="LevelContainer" type="GridContainer" parent="." unique_id=1622933283]
+[node name="LevelContainer" type="GridContainer" parent="BackButton" unique_id=1622933283]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 104.0
-offset_top = 280.0
-offset_right = 920.0
-offset_bottom = 672.0
+offset_left = 54.0
+offset_top = 230.0
+offset_right = 870.0
+offset_bottom = 598.0
 mouse_filter = 0
 columns = 5
 
-[node name="Level1" type="TextureButton" parent="LevelContainer" unique_id=1393213110]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("4_ehvfe")
-texture_normal = ExtResource("7_xegj6")
-texture_pressed = ExtResource("8_tvtf2")
-texture_hover = ExtResource("9_trpgl")
-texture_disabled = ExtResource("10_eosdy")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("10_xomfm")
-
-[node name="Level2" type="TextureButton" parent="LevelContainer" unique_id=2017872742]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("4_ehvfe")
-texture_normal = ExtResource("9_0kg6i")
-texture_pressed = ExtResource("10_uaqmx")
-texture_hover = ExtResource("11_xomfm")
-texture_disabled = ExtResource("12_74xqp")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("10_xomfm")
-
-[node name="Level3" type="TextureButton" parent="LevelContainer" unique_id=729846999]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("4_ehvfe")
-texture_normal = ExtResource("13_b42hy")
-texture_pressed = ExtResource("14_ll0g8")
-texture_hover = ExtResource("15_iwwsr")
-texture_disabled = ExtResource("16_xedg2")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("10_xomfm")
-
-[node name="Level4" type="TextureButton" parent="LevelContainer" unique_id=890832590]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("4_ehvfe")
-texture_normal = ExtResource("17_siyaj")
-texture_pressed = ExtResource("18_fu57g")
-texture_hover = ExtResource("19_cbo7q")
-texture_disabled = ExtResource("20_n0vdq")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("10_xomfm")
-
-[node name="Level5" type="TextureButton" parent="LevelContainer" unique_id=798193978]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("4_ehvfe")
-texture_normal = ExtResource("21_1cqt2")
-texture_pressed = ExtResource("22_h2esu")
-texture_hover = ExtResource("23_m3blv")
-texture_disabled = ExtResource("24_l5aqr")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("10_xomfm")
-
-[node name="Level6" type="TextureButton" parent="LevelContainer" unique_id=1408837831]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("4_ehvfe")
-texture_normal = ExtResource("25_bc803")
-texture_pressed = ExtResource("26_l6nor")
-texture_hover = ExtResource("27_uxvuw")
-texture_disabled = ExtResource("28_uytp8")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("10_xomfm")
-
-[node name="Level7" type="TextureButton" parent="LevelContainer" unique_id=735115698]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("4_ehvfe")
-texture_normal = ExtResource("29_x0o16")
-texture_pressed = ExtResource("30_xqas7")
-texture_hover = ExtResource("31_wo56v")
-texture_disabled = ExtResource("32_lpqur")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("10_xomfm")
-
-[node name="Level8" type="TextureButton" parent="LevelContainer" unique_id=640434568]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("4_ehvfe")
-texture_normal = ExtResource("33_tge28")
-texture_pressed = ExtResource("34_c72jh")
-texture_hover = ExtResource("35_nlws6")
-texture_disabled = ExtResource("36_1us2r")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("10_xomfm")
-
-[node name="Level9" type="TextureButton" parent="LevelContainer" unique_id=1307764560]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-button_group = ExtResource("4_ehvfe")
-texture_normal = ExtResource("37_v5uce")
-texture_pressed = ExtResource("38_hx3r1")
-texture_hover = ExtResource("39_hai0j")
-texture_disabled = ExtResource("40_q1qho")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("10_xomfm")
-
-[node name="Level10" type="TextureButton" parent="LevelContainer" unique_id=2104987068]
+[node name="Level1" type="TextureButton" parent="BackButton/LevelContainer" unique_id=1393213110]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -243,11 +95,146 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 button_pressed = true
-button_group = ExtResource("4_ehvfe")
+texture_normal = ExtResource("7_xegj6")
+texture_pressed = ExtResource("8_tvtf2")
+texture_hover = ExtResource("9_trpgl")
+texture_disabled = ExtResource("10_eosdy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level2" type="TextureButton" parent="BackButton/LevelContainer" unique_id=2017872742]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("9_0kg6i")
+texture_pressed = ExtResource("10_uaqmx")
+texture_hover = ExtResource("11_xomfm")
+texture_disabled = ExtResource("12_74xqp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level3" type="TextureButton" parent="BackButton/LevelContainer" unique_id=729846999]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("13_b42hy")
+texture_pressed = ExtResource("14_ll0g8")
+texture_hover = ExtResource("15_iwwsr")
+texture_disabled = ExtResource("16_xedg2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level4" type="TextureButton" parent="BackButton/LevelContainer" unique_id=890832590]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("17_siyaj")
+texture_pressed = ExtResource("18_fu57g")
+texture_hover = ExtResource("19_cbo7q")
+texture_disabled = ExtResource("20_n0vdq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level5" type="TextureButton" parent="BackButton/LevelContainer" unique_id=798193978]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("21_1cqt2")
+texture_pressed = ExtResource("22_h2esu")
+texture_hover = ExtResource("23_m3blv")
+texture_disabled = ExtResource("24_l5aqr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level6" type="TextureButton" parent="BackButton/LevelContainer" unique_id=1408837831]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("25_bc803")
+texture_pressed = ExtResource("26_l6nor")
+texture_hover = ExtResource("27_uxvuw")
+texture_disabled = ExtResource("28_uytp8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level7" type="TextureButton" parent="BackButton/LevelContainer" unique_id=735115698]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("29_x0o16")
+texture_pressed = ExtResource("30_xqas7")
+texture_hover = ExtResource("31_wo56v")
+texture_disabled = ExtResource("32_lpqur")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level8" type="TextureButton" parent="BackButton/LevelContainer" unique_id=640434568]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("33_tge28")
+texture_pressed = ExtResource("34_c72jh")
+texture_hover = ExtResource("35_nlws6")
+texture_disabled = ExtResource("36_1us2r")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level9" type="TextureButton" parent="BackButton/LevelContainer" unique_id=1307764560]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("37_v5uce")
+texture_pressed = ExtResource("38_hx3r1")
+texture_hover = ExtResource("39_hai0j")
+texture_disabled = ExtResource("40_q1qho")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level10" type="TextureButton" parent="BackButton/LevelContainer" unique_id=2104987068]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
 texture_normal = ExtResource("41_vwte5")
 texture_pressed = ExtResource("42_3m4m0")
 texture_hover = ExtResource("43_bt3xy")
 texture_disabled = ExtResource("44_6yfri")
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("10_xomfm")
+
+[connection signal="toggled" from="BackButton/LevelContainer/Level1" to="BackButton/LevelContainer/Level1" method="_on_toggled"]
