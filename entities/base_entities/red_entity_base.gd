@@ -13,7 +13,8 @@ func _process(_delta):
 		queue_free()
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed: 
+	print("RED INPUT EVENT")
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		smash()
 
 # modify this in individual entities
@@ -21,6 +22,7 @@ func spawn_halves():
 	pass
 
 func smash():
+	print("smashed")
 	smashed.emit()
 	
 	# show smash particle effects

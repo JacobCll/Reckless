@@ -128,14 +128,16 @@ func start_spawn_loop() -> void:
 
 # manual spawning
 func spawn_entity(n: int = 1, b_spread: float = 0):
-	print("Manually Spawned entity")
-	await get_tree().create_timer(1, false).timeout # delay for 1 second
+	var entities = []
 	for i in n: # number of entities to spawn
 		var type := _pick_type() #  pick type
 		if type == null: 
 			break
 		await get_tree().create_timer(b_spread * i, false).timeout
-		_spawn_from_type(type, throw_entity_up)
+		var entity = _spawn_from_type(type, throw_entity_up)
+		entities.append(entity)
+	
+	return entities
 
 func _trigger_spawn() -> void:
 	var count := randi_range(spawn_count_min, spawn_count_max)
@@ -184,7 +186,7 @@ func _pick_type() -> EntityType:
 # SPAWNING
 # ─────────────────────────────────────────────
 
-func _spawn_from_type(type: EntityType, throw_function: Callable) -> void:
+func _spawn_from_type(type: EntityType, throw_function: Callable):
 	var scene: PackedScene = type.scenes.pick_random()
 	var entity = scene.instantiate()
 
@@ -211,6 +213,8 @@ func _spawn_from_type(type: EntityType, throw_function: Callable) -> void:
 	entity_spawned.emit(type.entity_type)
 	
 	throw_function.call(entity)
+	
+	return entity
 
 
 # ─────────────────────────────────────────────

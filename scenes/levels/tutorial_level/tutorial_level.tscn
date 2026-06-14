@@ -36,38 +36,29 @@ visible = false
 [node name="CountdownLabel" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="1" unique_id=1652738209]
 visible = false
 
-[node name="HeartsContainer" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="0" unique_id=418267277]
-visible = false
-
-[node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="1" unique_id=483354666]
-visible = false
-
-[node name="TotalActiveEntitiesLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=1459818585]
-visible = false
-
-[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="3" unique_id=656952242]
-visible = false
-
-[node name="TutorialModal" type="Control" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="5" unique_id=1326149685]
+[node name="TutorialModal" type="Control" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="4" unique_id=1326149685]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 1024.0
+offset_bottom = 768.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/TutorialModal" index="0" unique_id=198574665]
+z_index = -999
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.14117648)
 
-[node name="Panel" type="Panel" parent="CanvasLayer/TutorialModal" index="1" unique_id=1656236572]
+[node name="MainModal" type="Panel" parent="CanvasLayer/TutorialModal" index="1" unique_id=1656236572]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.16308594
@@ -76,9 +67,10 @@ anchor_right = 0.8261719
 anchor_bottom = 0.7838542
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TutorialBodyText" type="Label" parent="CanvasLayer/TutorialModal/Panel" index="0" unique_id=1085651810]
+[node name="TutorialBodyText" type="Label" parent="CanvasLayer/TutorialModal/MainModal" index="0" unique_id=1085651810]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.048600882
@@ -93,18 +85,68 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="TutorialButton" type="Button" parent="CanvasLayer/TutorialModal/Panel" index="1" unique_id=537960690]
+[node name="TutorialButton" type="Button" parent="CanvasLayer/TutorialModal/MainModal" index="1" unique_id=537960690]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3078056
-anchor_top = 0.79262674
-anchor_right = 0.7059537
-anchor_bottom = 0.94850904
+anchor_left = 0.37849778
+anchor_top = 0.8110599
+anchor_right = 0.6259205
+anchor_bottom = 0.93317974
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+
+[node name="TextModal" type="Panel" parent="CanvasLayer/TutorialModal" index="2" unique_id=1392499488]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26953125
+anchor_top = 0.041666668
+anchor_right = 0.71875
+anchor_bottom = 0.14583333
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="CanvasLayer/TutorialModal/TextModal" index="0" unique_id=397745463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = -15.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/TutorialModal" index="3" unique_id=941577549]
+layout_mode = 0
+anchor_left = 0.7734375
+anchor_top = 0.8645833
+anchor_right = 0.93652344
+anchor_bottom = 0.93359375
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "Continue"
 metadata/_edit_use_anchors_ = true
+
+[node name="HeartsContainer" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="0" unique_id=418267277]
+visible = false
+
+[node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="1" unique_id=483354666]
+visible = false
+
+[node name="TotalActiveEntitiesLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=1459818585]
+visible = false
+
+[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="3" unique_id=656952242]
+visible = false
 
 [node name="PauseScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="6" unique_id=1455857404]
 visible = false
@@ -117,8 +159,7 @@ spread_min = 0.0
 spread_max = 0.0
 spin_min = 1.0
 spin_max = 1.0
-blue_scenes = Array[PackedScene]([ExtResource("5_haaw4"), ExtResource("6_l7ta3")])
-red_weight = 0.0
+blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4")])
 green_weight = 0.0
 path = NodePath("../BlueSpawnerPath")
 
@@ -152,4 +193,5 @@ path = NodePath("../GreenSpawnerPath")
 [node name="GreenSpawnerPath" type="Path2D" parent="." index="11" unique_id=427356094]
 curve = SubResource("Curve2D_haaw4")
 
-[connection signal="pressed" from="CanvasLayer/TutorialModal/Panel/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TutorialModal/MainModal/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TutorialModal/ContinueButton" to="." method="_on_continue_button_pressed"]
