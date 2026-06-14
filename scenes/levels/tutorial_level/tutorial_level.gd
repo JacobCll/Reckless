@@ -6,11 +6,37 @@ enum TutorialStep {
 	SMASH,
 	AVOID
 }
-
 var current_step := TutorialStep.SLASH
 
-var blue_entities_slashed := 0
-var red_entities_smashed := 0
+var current_page := 0
+@onready var tutorial_modal := $CanvasLayer/TutorialModal
+@onready var tutorial_body_text := $CanvasLayer/TutorialModal/Panel/TutorialBodyText
+@onready var tutorial_button := $CanvasLayer/TutorialModal/Panel/TutorialButton
+var pages := [
+	{
+		"body": "Welcome to the tutorial!"
+	},
+	{
+		"body": "Make sure that you have a keyboard and mouse/trackpad to have the best gaming experience."
+	},
+	{
+		"body": "Let's try it!"
+	}
+]
+
+func show_page():
+	tutorial_body_text.text = pages[current_page].body
+	tutorial_modal.show()
+
+func _on_tutorial_button_pressed():
+	current_page += 1
+
+	if current_page >= pages.size():
+		tutorial_modal.hide()
+		start_step()
+		return
+
+	show_page()
 
 # override - remove countdown
 func _ready() -> void:
@@ -21,12 +47,13 @@ func _ready() -> void:
 	
 	$BlueSpawner.entity_slashed.connect(_on_entity_slashed)
 	$BlueSpawner.entity_smashed.connect(_on_entity_smashed)
-
+	
 	$RedSpawner.entity_slashed.connect(_on_entity_slashed)
 	$RedSpawner.entity_smashed.connect(_on_entity_smashed)
 	
 	$GreenSpawner.entity_killed.connect(_on_entity_killed)
 	$GreenSpawner.entity_despawned.connect(_on_entity_despawned)
+	
 	_on_level_start()
 
 # override - show hud
@@ -38,7 +65,7 @@ func _setup_ui() -> void:
 
 # override hook
 func _on_level_start() -> void:
-	start_step()
+	show_page()
 
 func next_step():
 	current_step = (current_step + 1) as TutorialStep
@@ -57,8 +84,6 @@ func _on_entity_despawned(entity_type: String) -> void:
 func _on_entity_slashed(entity_type: String) -> void:
 	super(entity_type)
 	
-	blue_entities_slashed += 1
-	
 	if current_step == TutorialStep.SLASH:
 		next_step()
 	else:
@@ -66,8 +91,6 @@ func _on_entity_slashed(entity_type: String) -> void:
 
 func _on_entity_smashed(entity_type: String) -> void:
 	super(entity_type)
-	
-	red_entities_smashed += 1
 	
 	if current_step == TutorialStep.SMASH:
 		next_step()

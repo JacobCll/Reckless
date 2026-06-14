@@ -10,21 +10,21 @@
 
 [sub_resource type="Curve2D" id="Curve2D_asvqm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 512, 741, 0, 0, 0, 0, 580, 742)
+"points": PackedVector2Array(0, 0, 0, 0, 536, 736)
 }
-point_count = 2
+point_count = 1
 
 [sub_resource type="Curve2D" id="Curve2D_1xsvc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 578, 742, 0, 0, 0, 0, 504, 742)
+"points": PackedVector2Array(0, 0, 0, 0, 535, 736)
 }
-point_count = 2
+point_count = 1
 
 [sub_resource type="Curve2D" id="Curve2D_haaw4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 480, 744, 0, 0, 0, 0, 551, 745)
+"points": PackedVector2Array(0, 0, 0, 0, 512, 736)
 }
-point_count = 2
+point_count = 1
 
 [node name="TutorialLevel" unique_id=818516806 instance=ExtResource("1_nw3yw")]
 script = ExtResource("2_h8moi")
@@ -45,12 +45,78 @@ visible = false
 [node name="TotalActiveEntitiesLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=1459818585]
 visible = false
 
-[node name="PauseScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="5" unique_id=1455857404]
+[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="3" unique_id=656952242]
+visible = false
+
+[node name="TutorialModal" type="Control" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="5" unique_id=1326149685]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TutorialModal" index="0" unique_id=198574665]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.14117648)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/TutorialModal" index="1" unique_id=1656236572]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16308594
+anchor_top = 0.21875
+anchor_right = 0.8261719
+anchor_bottom = 0.7838542
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TutorialBodyText" type="Label" parent="CanvasLayer/TutorialModal/Panel" index="0" unique_id=1085651810]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.048600882
+anchor_top = 0.05529954
+anchor_right = 0.9558174
+anchor_bottom = 0.7557604
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TutorialButton" type="Button" parent="CanvasLayer/TutorialModal/Panel" index="1" unique_id=537960690]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3078056
+anchor_top = 0.79262674
+anchor_right = 0.7059537
+anchor_bottom = 0.94850904
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="6" unique_id=1455857404]
 visible = false
 
 [node name="BlueSpawner" parent="." index="6" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
 spawn_delay_max = 1.0
 spawn_count_max = 1
+throw_force_max = 1000.0
+spread_min = 0.0
+spread_max = 0.0
+spin_min = 1.0
+spin_max = 1.0
 blue_scenes = Array[PackedScene]([ExtResource("5_haaw4"), ExtResource("6_l7ta3")])
 red_weight = 0.0
 green_weight = 0.0
@@ -63,6 +129,9 @@ curve = SubResource("Curve2D_asvqm")
 [node name="RedSpawner" parent="." index="8" unique_id=46997689 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
 spawn_delay_max = 1.0
 spawn_count_max = 1
+throw_force_max = 1000.0
+spread_min = 0.0
+spread_max = 0.0
 blue_weight = 0.0
 red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
 green_weight = 0.0
@@ -82,3 +151,5 @@ path = NodePath("../GreenSpawnerPath")
 
 [node name="GreenSpawnerPath" type="Path2D" parent="." index="11" unique_id=427356094]
 curve = SubResource("Curve2D_haaw4")
+
+[connection signal="pressed" from="CanvasLayer/TutorialModal/Panel/TutorialButton" to="." method="_on_tutorial_button_pressed"]
