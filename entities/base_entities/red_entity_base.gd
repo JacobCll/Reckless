@@ -13,7 +13,6 @@ func _process(_delta):
 		queue_free()
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	print("RED INPUT EVENT")
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		smash()
 

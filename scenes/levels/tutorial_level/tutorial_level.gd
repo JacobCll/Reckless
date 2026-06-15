@@ -5,7 +5,8 @@ enum TutorialStep {
 	SLASH,
 	SMASH,
 	AVOID,
-	ALL
+	ALL,
+	COMPLETE
 }
 var current_step := TutorialStep.SLASH
 
@@ -16,6 +17,7 @@ var despawned_count := 0
 @onready var blue_spawner := $BlueSpawner
 @onready var red_spawner := $RedSpawner
 @onready var green_spawner := $GreenSpawner
+@onready var all_spawner := $AllSpawner
 
 var current_page := 0
 @onready var tutorial_modal := $CanvasLayer/TutorialModal
@@ -52,6 +54,8 @@ func _ready() -> void:
 	green_spawner.entity_killed.connect(_on_entity_killed)
 	green_spawner.entity_despawned.connect(_on_entity_despawned)
 	
+	all_spawner.entity_killed.connect(_on_entity_killed)
+	
 	_on_level_start()
 
 # override - show hud
@@ -72,6 +76,10 @@ func show_page():
 	tutorial_modal.show()
 
 func _on_tutorial_button_pressed():
+	if current_step == TutorialStep.COMPLETE:
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		return
+	
 	current_page += 1
 
 	if current_page >= pages.size():
@@ -91,7 +99,11 @@ func next_step():
 
 	current_step = (current_step + 1) as TutorialStep
 	start_step()
-	
+
+func _on_continue_button_pressed() -> void:
+	text_modal.hide()
+	next_step()
+
 # STEPS
 func start_step():
 	match current_step:
@@ -103,6 +115,8 @@ func start_step():
 			_handle_tutorial_avoid()
 		TutorialStep.ALL:
 			_handle_tutorial_all()
+		TutorialStep.COMPLETE:
+			_handle_tutorial_complete()
 
 # =========================================================
 # ENTITY SIGNALS
@@ -132,6 +146,11 @@ func _on_entity_smashed(entity_type: String) -> void:
 		continue_button.show()
 
 func _on_entity_killed(entity_type: String) -> void:
+	print(slashed_count, smashed_count)
+	if current_step == TutorialStep.ALL:
+		if slashed_count >= 5 and smashed_count >= 5:
+			continue_button.show()
+	
 	if entity_type == "green":
 		print("Green entity killed")
 
@@ -168,21 +187,31 @@ func _handle_tutorial_avoid():
 	red_spawner.stop()
 	
 	await get_tree().create_timer(1).timeout
-	
 	green_spawner.spawn_entity(1)
-	
-	await get_tree().create_timer(0.5).timeout
-	
+	await get_tree().create_timer(1.5).timeout
 	green_spawner.spawn_entity(1)
-	
-	await get_tree().create_timer(0.5).timeout
-	
-	green_spawner.spawn_entity(1)
+	await get_tree().create_timer(1.5).timeout
+	green_spawner.spawn_entity(1.5)
 	
 
 func _handle_tutorial_all():
-	pass
-
-func _on_continue_button_pressed() -> void:
-	text_modal.hide()
-	next_step()
+	continue_button.hide()
+	text_modal.show()
+	text_modal_text.text = "Now try them all!"
+	
+	blue_spawner.stop()
+	red_spawner.stop()
+	green_spawner.stop()
+	
+	await get_tree().create_timer(3).timeout
+	
+	all_spawner.start()
+	all_spawner.start_spawn_loop()
+	
+func _handle_tutorial_complete():
+	continue_button.hide()
+	tutorial_modal.show()
+	main_modal.show()
+	
+	tutorial_body_text.text = "Congratulations! You have completed the tutorial level!"
+	tutorial_button.text = "Main Menu"
