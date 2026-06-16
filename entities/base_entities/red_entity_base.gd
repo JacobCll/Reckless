@@ -21,7 +21,6 @@ func spawn_halves():
 	pass
 
 func smash():
-	print("smashed")
 	smashed.emit()
 	
 	# show smash particle effects

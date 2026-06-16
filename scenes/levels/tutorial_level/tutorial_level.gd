@@ -55,6 +55,8 @@ func _ready() -> void:
 	green_spawner.entity_despawned.connect(_on_entity_despawned)
 	
 	all_spawner.entity_killed.connect(_on_entity_killed)
+	all_spawner.entity_slashed.connect(_on_entity_slashed)
+	all_spawner.entity_smashed.connect(_on_entity_smashed)
 	
 	_on_level_start()
 
@@ -146,7 +148,6 @@ func _on_entity_smashed(entity_type: String) -> void:
 		continue_button.show()
 
 func _on_entity_killed(entity_type: String) -> void:
-	print(slashed_count, smashed_count)
 	if current_step == TutorialStep.ALL:
 		if slashed_count >= 5 and smashed_count >= 5:
 			continue_button.show()
@@ -186,12 +187,8 @@ func _handle_tutorial_avoid():
 	blue_spawner.stop()
 	red_spawner.stop()
 	
-	await get_tree().create_timer(1).timeout
-	green_spawner.spawn_entity(1)
-	await get_tree().create_timer(1.5).timeout
-	green_spawner.spawn_entity(1)
-	await get_tree().create_timer(1.5).timeout
-	green_spawner.spawn_entity(1.5)
+	green_spawner.start()
+	green_spawner.start_spawn_loop()
 	
 
 func _handle_tutorial_all():
@@ -212,6 +209,11 @@ func _handle_tutorial_complete():
 	continue_button.hide()
 	tutorial_modal.show()
 	main_modal.show()
+	
+	blue_spawner.stop()
+	red_spawner.stop()
+	green_spawner.stop()
+	all_spawner.stop()
 	
 	tutorial_body_text.text = "Congratulations! You have completed the tutorial level!"
 	tutorial_button.text = "Main Menu"

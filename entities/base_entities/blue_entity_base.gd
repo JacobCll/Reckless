@@ -34,7 +34,6 @@ func spawn_halves():
 	pass
 
 func slash():
-	print("slashed")
 	slashed.emit()
 	
 	# show slash particle effects

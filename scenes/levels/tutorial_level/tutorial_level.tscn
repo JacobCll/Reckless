@@ -192,6 +192,7 @@ curve = SubResource("Curve2D_1xsvc")
 [node name="GreenSpawner" parent="." index="10" unique_id=458903256 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
 spawn_delay_max = 1.0
 spawn_count_max = 1
+throw_force_max = 1000.0
 blue_weight = 0.0
 red_weight = 0.0
 green_scenes = Array[PackedScene]([ExtResource("7_1xsvc")])
