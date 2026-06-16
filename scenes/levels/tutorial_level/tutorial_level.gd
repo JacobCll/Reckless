@@ -200,7 +200,7 @@ func _handle_tutorial_all():
 	red_spawner.stop()
 	green_spawner.stop()
 	
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(1, false).timeout
 	
 	all_spawner.start()
 	all_spawner.start_spawn_loop()

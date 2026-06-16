@@ -54,7 +54,6 @@ curve = SubResource("Curve2D_k0gby")
 
 [node name="Wave2" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="1" unique_id=500858295]
 script = ExtResource("9_l4mnh")
-kill_requirement = 4
 
 [node name="EntitySpawner1" parent="Waves/Wave2" index="0" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_b8e02")]
 spawner_name = "Wave 2 Spawner 1"

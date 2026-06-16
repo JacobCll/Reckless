@@ -116,15 +116,17 @@ func _clear_all_entities() -> void:
 # SPAWN LOOP
 # ─────────────────────────────────────────────
 func start_spawn_loop() -> void:
+	await get_tree().create_timer(1.5, false).timeout # short delay before starting
+	
 	while active:
-		var delay := randf_range(spawn_delay_min, spawn_delay_max)
+		_trigger_spawn()
 		
+		var delay := randf_range(spawn_delay_min, spawn_delay_max)
 		await get_tree().create_timer(delay, false).timeout
 		
 		if not active:
 			return
 		
-		_trigger_spawn()
 
 # manual spawning
 func spawn_entity(n: int = 1, b_spread: float = 0):
