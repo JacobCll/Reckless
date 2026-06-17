@@ -87,6 +87,3 @@ path = NodePath("../../Wave1/EntitySpawner1Path")
 
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave2" index="1" unique_id=1515629054]
 curve = SubResource("Curve2D_1l0jw")
-
-[node name="TotalActiveEntitiesLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=1459818585]
-visible = false

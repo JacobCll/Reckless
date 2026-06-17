@@ -6,6 +6,7 @@ var current_scene := "main_menu"
 var user_orbs := 0
 var highest_unlocked_level := 1
 var max_unlockable_level := 2
+var level_1_tutorial_seen := false
 
 var inventory := {
 	"powerup_shields": 0,
@@ -42,7 +43,8 @@ func save_data() -> void:
 	var data := {
 		"highest_unlocked_level": highest_unlocked_level,
 		"user_orbs": user_orbs,
-		"inventory": inventory
+		"inventory": inventory,
+		"level_1_tutorial_seen": level_1_tutorial_seen
 	}
 
 	var file := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
@@ -65,4 +67,4 @@ func load_data() -> void:
 		"damage_boost": 0,
 		"shield": 0
 	})
-	
+	level_1_tutorial_seen = saved_data.get("level_1_tutorial_seen", false)

@@ -149,13 +149,7 @@ visible = false
 [node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="1" unique_id=483354666]
 visible = false
 
-[node name="TotalActiveEntitiesLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=1459818585]
-visible = false
-
-[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="3" unique_id=656952242]
-visible = false
-
-[node name="PauseScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="6" unique_id=1455857404]
+[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=656952242]
 visible = false
 
 [node name="BlueSpawner" parent="." index="6" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
