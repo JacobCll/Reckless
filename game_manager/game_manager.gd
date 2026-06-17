@@ -2,11 +2,15 @@ extends Node
 
 const SAVE_FILE := "user://game_manager_state.dat"
 
+# SAVE TO FILE
 var current_scene := "main_menu"
 var user_orbs := 0
 var highest_unlocked_level := 1
 var max_unlockable_level := 2
 var level_1_tutorial_seen := false
+
+# DO NOT SAVE TO FILE
+var from_level := 0 # 0 is default (none)
 
 var inventory := {
 	"powerup_shields": 0,
@@ -27,6 +31,7 @@ func reset():
 		"powerup_no_green": 0,
 		"powerup_double_orbs": 0
 	}
+	level_1_tutorial_seen = false
 	save_data()
 
 func is_level_unlocked(level: int) -> bool:

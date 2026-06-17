@@ -79,18 +79,18 @@ func show_page():
 
 func _on_tutorial_button_pressed():
 	if current_step == TutorialStep.COMPLETE:
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-		return
+		# if this is the first time level 1 has been opened and tutorial is not yet completed
+		if not GameManager.level_1_tutorial_seen:
+			GameManager.level_1_tutorial_seen = true
+			GameManager.save_data()
+			get_tree().change_scene_to_file("res://scenes/levels/levels/level_1/level_1.tscn")
+			return
+		else:
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+			return
 	
-	# if this is the first time level 1 has been opened and tutorial is not yet completed
-	if not GameManager.level_1_tutorial_seen:
-		get_tree().change_scene_to_file("res://scenes/levels/levels/level_1/level_1.tscn")
-		GameManager.level_1_tutorial_seen = true
-		GameManager.save_data()
-		return
-		
 	current_page += 1
-
+	
 	if current_page >= pages.size():
 		main_modal.hide()
 		start_step()
@@ -223,4 +223,10 @@ func _handle_tutorial_complete():
 	all_spawner.stop()
 	
 	tutorial_body_text.text = "Congratulations! You have completed the tutorial level!"
+	
 	tutorial_button.text = "Main Menu"
+	
+	if GameManager.from_level == 1:
+		tutorial_button.text = "Continue to Level 1"
+		GameManager.from_level = 0
+	

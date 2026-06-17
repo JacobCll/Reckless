@@ -35,6 +35,7 @@ var countdown_value := countdown_value_original
 @onready var score_label = $CanvasLayer/HUD/ScoreLabel
 @onready var countdown_timer = $CountdownTimer
 @onready var countdown_label = $CanvasLayer/CountdownLabel
+@onready var pause_button = $CanvasLayer/PauseButton
 @onready var pause_screen = $CanvasLayer/PauseScreen
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
 @onready var win_screen = $CanvasLayer/WinLevelScreen
@@ -81,7 +82,7 @@ func _setup_ui() -> void:
 	gameover_screen.hide()
 	win_screen.hide()
 	hud.hide()
-
+	
 	countdown_label.show()
 	_update_hearts_ui()
 
@@ -222,7 +223,10 @@ func game_over() -> void:
 # UI ACTIONS
 # =========================================================
 func _on_pause_button_pressed() -> void:
-	_pause_game()
+	if not is_paused:
+		_pause_game()
+	else:
+		_resume_game()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# don't do anything if settings menu is shown
