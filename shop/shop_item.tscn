@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dtlw5tpigq7tt"]
+
+[ext_resource type="Script" uid="uid://ciyvdgue7bsd1" path="res://shop/shop_item.gd" id="1_rchi8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrnko"]
+bg_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+
+[node name="ShopItem" type="Panel" unique_id=145953330]
+custom_minimum_size = Vector2(0, 150)
+theme_override_styles/panel = SubResource("StyleBoxFlat_mrnko")
+script = ExtResource("1_rchi8")
+
+[node name="Name" type="Label" parent="." unique_id=86519959]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 24.0
+offset_right = 592.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 32
+text = "Shields"
+
+[node name="Cost" type="Label" parent="." unique_id=23312611]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 104.0
+offset_right = 776.0
+offset_bottom = 138.0
+theme_override_font_sizes/font_size = 24
+text = "15 orbs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=1545262007]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 72.0
+offset_right = 600.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 24
+text = "+2 additional health"
+
+[node name="Sprite(Temporary)" type="ColorRect" parent="." unique_id=126588407]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 24.0
+offset_right = 155.0
+offset_bottom = 128.0
+
+[node name="BuyButton" type="Button" parent="." unique_id=131228972]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 24.0
+offset_right = 776.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 50
+text = "BUY"

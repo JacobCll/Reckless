@@ -11,8 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://c7lylr4oh33u4" path="res://buttons/shop-hover.png" id="9_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bswcbt536ffsw" path="res://buttons/setting-hover.png" id="11_7b55j"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="11_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://c2yxskel6pten" path="res://buttons/exit-default.png" id="12_5pajh"]
-[ext_resource type="Texture2D" uid="uid://cw6kar0t1ejsk" path="res://buttons/exit-hover.png" id="13_j7ex8"]
 
 [node name="MainMenu" type="TextureRect" unique_id=311017489]
 z_index = -1
@@ -72,15 +70,13 @@ texture_hover = ExtResource("11_7b55j")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="ExitButton" type="TextureButton" parent="ButtonContainer" unique_id=242013837]
-custom_minimum_size = Vector2(0, 110)
+[node name="TutorialButton" type="Button" parent="ButtonContainer" unique_id=1213294719]
 layout_mode = 2
-texture_normal = ExtResource("12_5pajh")
-texture_pressed = ExtResource("13_j7ex8")
-texture_hover = ExtResource("13_j7ex8")
-ignore_texture_size = true
-stretch_mode = 5
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "How to Play"
 
 [connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
