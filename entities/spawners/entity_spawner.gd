@@ -3,6 +3,8 @@ extends Node2D
 
 @export var spawner_name := "Spawner 1"
 
+# wait out the delay before spawning or spawn entitites before the delay
+@export var spawn_loop_wait := false
 # ─────────────────────────────────────────────
 # GLOBAL SPAWN SETTINGS
 # ─────────────────────────────────────────────
@@ -116,17 +118,20 @@ func _clear_all_entities() -> void:
 # SPAWN LOOP
 # ─────────────────────────────────────────────
 func start_spawn_loop() -> void:
-	await get_tree().create_timer(1.5, false).timeout # short delay before starting
+	await get_tree().create_timer(1, false).timeout # short delay before starting
+	
+	if spawn_loop_wait == false:
+		_trigger_spawn()
 	
 	while active:
-		_trigger_spawn()
-		
 		var delay := randf_range(spawn_delay_min, spawn_delay_max)
 		await get_tree().create_timer(delay, false).timeout
 		
 		if not active:
 			return
-		
+			
+		_trigger_spawn()
+
 
 # manual spawning
 func spawn_entity(n: int = 1, b_spread: float = 0):

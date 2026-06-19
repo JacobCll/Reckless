@@ -4,9 +4,9 @@ const SAVE_FILE := "user://game_manager_state.dat"
 
 # SAVE TO FILE
 var current_scene := "main_menu"
-var user_orbs := 0
-var highest_unlocked_level := 1
-var max_unlockable_level := 2
+var user_orbs := 0 # user currency
+var highest_unlocked_level := 1 # highest level the player has unlocked
+var max_unlockable_level := 2 # max level that can be unlocked
 var level_1_tutorial_seen := false
 
 # DO NOT SAVE TO FILE
@@ -20,7 +20,7 @@ var inventory := {
 
 func _ready():
 	load_data()
-	reset()
+	#reset()
 
 # for debugging
 func reset():

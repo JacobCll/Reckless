@@ -39,6 +39,7 @@ var countdown_value := countdown_value_original
 @onready var pause_screen = $CanvasLayer/PauseScreen
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
 @onready var win_screen = $CanvasLayer/WinLevelScreen
+@onready var next_level_button = $CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer/NextLevelButton
 @onready var settings_menu = $SettingsMenu
 
 # --------------------
@@ -157,6 +158,7 @@ func _on_entity_despawned(entity_type: String) -> void:
 func _entity_drop(entity_type: String):
 	if entity_type != "green":
 		GameManager.user_orbs += 5
+		GameManager.save_data()
 
 # override if needed
 func _default_score_logic(entity_type: String, action: String) -> void:
@@ -194,6 +196,12 @@ func _on_all_waves_completed() -> void:
 	
 	# unlock next level
 	GameManager.unlock_level(LEVEL_NUMBER)
+	
+	# show next level button if there is a next level
+	if LEVEL_NUMBER < GameManager.max_unlockable_level:
+		next_level_button.show()
+	else:
+		next_level_button.hide()
 
 # =========================================================
 # LIVES / HEARTS
@@ -270,6 +278,15 @@ func _on_settings_button_pressed() -> void:
 	MouseManager.hide_mouse_trail()
 	settings_menu.show()
 
+# go to next level in win screen
+func _on_next_level_button_pressed() -> void:
+	if LEVEL_NUMBER == GameManager.max_unlockable_level:
+		return
+
+	var next_level_scene = "res://scenes/levels/levels/level_" + str(LEVEL_NUMBER + 1) + "/level_" + str(LEVEL_NUMBER + 1) + ".tscn"
+	get_tree().paused = false
+	get_tree().change_scene_to_file(next_level_scene)
+	
 # PAUSE
 func _handle_pause_input() -> void:
 	if is_paused:

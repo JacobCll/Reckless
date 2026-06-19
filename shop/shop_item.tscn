@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dtlw5tpigq7tt"]
+[gd_scene format=3 uid="uid://bqbjr1ufdmurf"]
 
 [ext_resource type="Script" uid="uid://ciyvdgue7bsd1" path="res://shop/shop_item.gd" id="1_rchi8"]
 
@@ -19,13 +19,24 @@ offset_bottom = 69.0
 theme_override_font_sizes/font_size = 32
 text = "Shields"
 
+[node name="OwnedCount" type="Label" parent="." unique_id=1419821591]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 112.0
+offset_right = 797.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 20
+text = "Owned: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Cost" type="Label" parent="." unique_id=23312611]
 layout_mode = 0
-offset_left = 624.0
-offset_top = 104.0
-offset_right = 776.0
-offset_bottom = 138.0
-theme_override_font_sizes/font_size = 24
+offset_left = 608.0
+offset_top = 112.0
+offset_right = 693.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 20
 text = "15 orbs"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -52,5 +63,8 @@ offset_left = 624.0
 offset_top = 24.0
 offset_right = 776.0
 offset_bottom = 104.0
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 50
 text = "BUY"
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

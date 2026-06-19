@@ -32,7 +32,8 @@ func start_wave() -> void:
 			child.start()
 
 	wave_started.emit()
-	
+
+# start the spawn loops for all spawners in the current wave
 func start_spawn_loops() -> void:
 	var wave = waves[current_wave]
 	
