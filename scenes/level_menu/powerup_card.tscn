@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dnrnq2clsmdkk"]
+
+[ext_resource type="Script" uid="uid://c80rhd3xwo726" path="res://scenes/level_menu/powerup_card.gd" id="1_wsh8c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ri0ji"]
+
+[node name="PowerupCard" type="Panel" unique_id=467836585]
+custom_minimum_size = Vector2(100, 100)
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ri0ji")
+script = ExtResource("1_wsh8c")
+
+[node name="Sprite" type="Panel" parent="." unique_id=47896073]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.851
+offset_bottom = 0.021110535
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Name" type="Label" parent="." unique_id=1907515894]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55700004
+anchor_top = 0.92100006
+anchor_right = 0.55700004
+anchor_bottom = 0.92100006
+offset_left = -52.93184
+offset_top = -6.9789124
+offset_right = -0.004501343
+offset_bottom = 7.0210876
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Shields"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="OwnedCount" type="Label" parent="." unique_id=647355799]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.637
+anchor_top = 0.92100006
+anchor_right = 0.637
+anchor_bottom = 0.92100006
+offset_left = -0.03217697
+offset_top = -6.9788895
+offset_right = 33.18581
+offset_bottom = 7.0211105
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "x 5"
+vertical_alignment = 1

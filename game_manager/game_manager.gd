@@ -12,10 +12,19 @@ var level_1_tutorial_seen := false
 # DO NOT SAVE TO FILE
 var from_level := 0 # 0 is default (none)
 
+# dictionary of item_id and amount owned
 var inventory := {
 	"powerup_shields": 0,
 	"powerup_no_green": 0,
 	"powerup_double_orbs": 0
+}
+
+# dictionary of all item information, access with item_id
+var item_info := {
+	"powerup_shields": {
+		"display_name": "Shields",
+		"Description": "Adds +2 lives at the start of the run"
+	}
 }
 
 func _ready():

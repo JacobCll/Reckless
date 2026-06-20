@@ -75,6 +75,7 @@ func _setup_level() -> void:
 	
 	AudioManager.play_music(level_music)
 	AudioManager.enable_mouse_sfx()
+	MouseManager.show_mouse_trail()
 	
 	GameManager.current_scene = "in_game"
 

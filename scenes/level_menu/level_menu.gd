@@ -2,15 +2,21 @@ class_name LevelMenu
 extends TextureRect
 
 @export var level_button: PackedScene
-
 @export var level_menu_music: AudioStream
+@export var powerup_card_scene: PackedScene
+
+@onready var powerup_modal := $CanvasLayer/PowerupModal
+@onready var powerup_grid := $CanvasLayer/PowerupModal/ScrollContainer/PowerupGrid
 
 var levels = 10
+var selected_level_path := ""
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioManager.play_music(level_menu_music)
 	GameManager.current_scene = "level_menu"
+	MouseManager.hide_mouse_trail()
+	
+	powerup_modal.hide()
 	
 	var grid = $LevelGrid
 	grid.columns = 5
@@ -33,10 +39,42 @@ func _ready() -> void:
 		grid.add_child(btn)
 
 func _on_level_selected(path) -> void:
-	var loading = preload("res://loading_screen/loading_screen.tscn").instantiate()
-	loading.next_scene_path = path
-	get_tree().root.add_child(loading)
-	get_tree().current_scene.queue_free()
+	selected_level_path = path
+	
+	populate_powerups()
+	
+	powerup_modal.show()
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func _on_start_button_pressed() -> void:
+	if selected_level_path == "":
+		return
+		
+	var loading = preload("res://loading_screen/loading_screen.tscn").instantiate()
+	loading.next_scene_path = selected_level_path
+	
+	get_tree().root.add_child(loading)
+	get_tree().current_scene.queue_free()
+
+func _on_cancel_button_pressed() -> void:
+	selected_level_path = ""
+	
+	powerup_modal.hide()
+	
+func populate_powerups():
+	for child in $CanvasLayer/PowerupModal/ScrollContainer/PowerupGrid.get_children():
+		child.queue_free()
+		
+	for item_id in GameManager.inventory:
+		if GameManager.inventory[item_id] <= 0:
+			continue
+		
+		var card = powerup_card_scene.instantiate()
+		
+		card.item_id = item_id
+		card.powerup_name = GameManager.item_info[item_id]["display_name"]
+		card.quantity_owned = GameManager.inventory[item_id]
+		
+		powerup_grid.add_child(card)
