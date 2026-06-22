@@ -12,7 +12,7 @@ func _ready() -> void:
 	MouseManager.show_mouse_trail()
 
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/level_menu/LevelSelect.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_menu/level_menu.tscn")
 
 func _on_settings_button_pressed() -> void:
 	MouseManager.hide_mouse_trail()
