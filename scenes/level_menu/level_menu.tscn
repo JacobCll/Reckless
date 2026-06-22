@@ -141,11 +141,23 @@ offset_top = -93.10655
 offset_right = 161.748
 offset_bottom = 98.270355
 
-[node name="PowerupGrid" type="GridContainer" parent="CanvasLayer/PowerupModal/ScrollContainer" unique_id=633945927]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PowerupModal/ScrollContainer" unique_id=1094850720]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PowerupGrid" type="GridContainer" parent="CanvasLayer/PowerupModal/ScrollContainer/MarginContainer" unique_id=633945927]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 3
+
+[node name="PowerupCard" parent="CanvasLayer/PowerupModal/ScrollContainer/MarginContainer/PowerupGrid" unique_id=467836585 instance=ExtResource("12_uxs4i")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PowerupModal/StartButton" to="." method="_on_start_button_pressed"]

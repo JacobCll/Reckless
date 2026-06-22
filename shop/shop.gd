@@ -5,11 +5,18 @@ extends Node
 @onready var items_container := $ScrollContainer/VBoxContainer
 
 @export var shop_item_scene: PackedScene
+
+# items to sell
 var items := {
 	"powerup_shields": {
 		"display_name": "Shields",
 		"cost": 15,
 		"description": "+2 additional health"
+	},
+	"powerup_double_orbs": {
+		"display_name": "Double Orbs",
+		"cost": 50,
+		"description": "Higher chance of double orb drops"
 	}
 }
 

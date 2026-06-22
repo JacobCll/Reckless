@@ -11,6 +11,7 @@ var level_1_tutorial_seen := false
 
 # DO NOT SAVE TO FILE
 var from_level := 0 # 0 is default (none)
+var selected_powerup := ""
 
 # dictionary of item_id and amount owned
 var inventory := {
@@ -23,7 +24,13 @@ var inventory := {
 var item_info := {
 	"powerup_shields": {
 		"display_name": "Shields",
+		"cost": 15,
 		"Description": "Adds +2 lives at the start of the run"
+	},
+	"powerup_double_orbs": {
+		"display_name": "Double Orbs",
+		"cost": 50,
+		"description": "Higher chance of double orb drops"
 	}
 }
 

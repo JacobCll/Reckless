@@ -6,10 +6,15 @@ extends TextureRect
 @export var powerup_card_scene: PackedScene
 
 @onready var powerup_modal := $CanvasLayer/PowerupModal
-@onready var powerup_grid := $CanvasLayer/PowerupModal/ScrollContainer/PowerupGrid
+@onready var powerup_grid := $CanvasLayer/PowerupModal/ScrollContainer/MarginContainer/PowerupGrid
 
 var levels = 10
 var selected_level_path := ""
+
+var selected_powerup_card: PowerupCard = null
+#
+#func _process(delta: float) -> void:
+	#print(selected_powerup_card)
 
 func _ready() -> void:
 	AudioManager.play_music(level_menu_music)
@@ -60,11 +65,12 @@ func _on_start_button_pressed() -> void:
 
 func _on_cancel_button_pressed() -> void:
 	selected_level_path = ""
+	selected_powerup_card = null
 	
 	powerup_modal.hide()
 	
 func populate_powerups():
-	for child in $CanvasLayer/PowerupModal/ScrollContainer/PowerupGrid.get_children():
+	for child in powerup_grid.get_children():
 		child.queue_free()
 		
 	for item_id in GameManager.inventory:
@@ -76,5 +82,20 @@ func populate_powerups():
 		card.item_id = item_id
 		card.powerup_name = GameManager.item_info[item_id]["display_name"]
 		card.quantity_owned = GameManager.inventory[item_id]
+		card.selected.connect(select_powerup)
 		
 		powerup_grid.add_child(card)
+
+func select_powerup(card: PowerupCard):
+	if selected_powerup_card == card:
+		card.set_selected(false)
+		selected_powerup_card = null
+		return
+	
+	if selected_powerup_card:
+		selected_powerup_card.set_selected(false) 
+
+	selected_powerup_card = card
+	selected_powerup_card.set_selected(true)
+
+	GameManager.selected_powerup = card.item_id
