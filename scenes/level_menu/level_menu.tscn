@@ -32,6 +32,14 @@
 [ext_resource type="Texture2D" uid="uid://dop6xbr8lbet4" path="res://buttons/levelbuttons-brg/pressed-level5.tres" id="26_p7g7j"]
 [ext_resource type="Texture2D" uid="uid://d1rs0jjulj2bw" path="res://buttons/levelbuttons-brg/level5-hover.tres" id="27_r0alg"]
 [ext_resource type="Texture2D" uid="uid://cebc0b7hiwtc3" path="res://buttons/levelbuttons-brg/disable_level5.tres" id="28_q87vn"]
+[ext_resource type="Texture2D" uid="uid://bvsojketn5acg" path="res://buttons/levelbuttons-brg/level6.tres" id="29_v8526"]
+[ext_resource type="Texture2D" uid="uid://rwqwd1un1wg3" path="res://buttons/levelbuttons-brg/pressed-level6.tres" id="30_khfbq"]
+[ext_resource type="Texture2D" uid="uid://gwo3sut5kqjk" path="res://buttons/levelbuttons-brg/level6-hover.tres" id="31_0jfdj"]
+[ext_resource type="Texture2D" uid="uid://cenqe0f1lfsok" path="res://buttons/levelbuttons-brg/disable_level6.tres" id="32_bl8af"]
+[ext_resource type="Texture2D" uid="uid://bbcuep8mn5coi" path="res://buttons/levelbuttons-brg/level7.tres" id="33_khfbq"]
+[ext_resource type="Texture2D" uid="uid://b6l3iefam3c8v" path="res://buttons/levelbuttons-brg/pressed-level7.tres" id="34_ve5mc"]
+[ext_resource type="Texture2D" uid="uid://brg4sj0nqmc1" path="res://buttons/levelbuttons-brg/level7-hover.tres" id="35_lgsuu"]
+[ext_resource type="Texture2D" uid="uid://6nbr16cw6fye" path="res://buttons/levelbuttons-brg/disable_level7.tres" id="36_4jhlu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri0ji"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8745098)
@@ -126,6 +134,22 @@ texture_pressed = ExtResource("26_p7g7j")
 texture_hover = ExtResource("27_r0alg")
 texture_disabled = ExtResource("28_q87vn")
 level_number = 5
+
+[node name="Level6Button" parent="LevelGrid" unique_id=429947267 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("29_v8526")
+texture_pressed = ExtResource("30_khfbq")
+texture_hover = ExtResource("31_0jfdj")
+texture_disabled = ExtResource("32_bl8af")
+level_number = 6
+
+[node name="Level7Button" parent="LevelGrid" unique_id=1923168705 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("33_khfbq")
+texture_pressed = ExtResource("34_ve5mc")
+texture_hover = ExtResource("35_lgsuu")
+texture_disabled = ExtResource("36_4jhlu")
+level_number = 7
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064702113]
 
