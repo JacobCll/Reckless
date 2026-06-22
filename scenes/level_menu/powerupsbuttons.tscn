@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dxva8d0vw4wj2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vs0fg"]
+
+[node name="PowerupSelect" type="Control" unique_id=1032017277]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1434802838]
+modulate = Color(0.6401257, 0.66367596, 0.6695707, 1)
+self_modulate = Color(0.6392157, 0.6627451, 0.67058825, 0.5254902)
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+texture = SubResource("CanvasTexture_vs0fg")
+
+[node name="Power1" type="TextureButton" parent="TextureRect" unique_id=1231491076]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 288.0
+offset_right = 208.0
+offset_bottom = 328.0
+
+[node name="Power2" type="TextureButton" parent="TextureRect" unique_id=595796313]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Power3" type="TextureButton" parent="TextureRect" unique_id=1415364039]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
