@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://mevuta02i13c"]
+
+[ext_resource type="Texture2D" uid="uid://cmd57qnn61sda" path="res://backgrounds/levels_menu_background.png" id="1_yl4fo"]
+[ext_resource type="Script" uid="uid://kh73i6r688f0" path="res://scenes/level_menu/level_menu.gd" id="2_8xmkv"]
+[ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="2_jqwib"]
+[ext_resource type="Texture2D" uid="uid://ctkkbptbg7kif" path="res://logo/levels_text.png" id="3_7obll"]
+[ext_resource type="PackedScene" uid="uid://bh5whn5f6bwwh" path="res://scenes/level_menu/level_button.tscn" id="3_bvllw"]
+[ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/main_menu_music_1.mp3" id="4_jw3qw"]
+[ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="6_5gure"]
+[ext_resource type="Texture2D" uid="uid://dmee4cu7xcab" path="res://buttons/cancel-default.png" id="8_j8mn1"]
+[ext_resource type="Texture2D" uid="uid://c43ct5m0j1duq" path="res://buttons/start-default.png" id="8_xsnhl"]
+[ext_resource type="Texture2D" uid="uid://ce8xds135yrpo" path="res://buttons/start-hover.png" id="9_j8mn1"]
+[ext_resource type="Texture2D" uid="uid://c72jkmm00uux" path="res://buttons/cancel-hover.png" id="9_ri0ji"]
+[ext_resource type="PackedScene" uid="uid://dnrnq2clsmdkk" path="res://scenes/level_menu/powerup_card.tscn" id="12_uxs4i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri0ji"]
+bg_color = Color(0.6, 0.6, 0.6, 0.8745098)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[node name="LevelMenu" type="TextureRect" unique_id=1450082209]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_yl4fo")
+script = ExtResource("2_8xmkv")
+level_button = ExtResource("3_bvllw")
+level_menu_music = ExtResource("4_jw3qw")
+powerup_card_scene = ExtResource("12_uxs4i")
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=612589866]
+layout_mode = 0
+offset_left = 62.999996
+offset_top = 62.0
+offset_right = 613.0
+offset_bottom = 264.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_jqwib")
+texture_hover = ExtResource("6_5gure")
+stretch_mode = 4
+
+[node name="LevelsText" type="TextureRect" parent="." unique_id=1342054559]
+layout_mode = 0
+offset_left = 306.0
+offset_top = -75.0
+offset_right = 1330.0
+offset_bottom = 693.0
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("3_7obll")
+
+[node name="LevelGrid" type="GridContainer" parent="." unique_id=760875452]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 287.0
+offset_right = 912.0
+offset_bottom = 567.0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 40
+columns = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064702113]
+
+[node name="PowerupModal" type="Panel" parent="CanvasLayer" unique_id=1807815975]
+anchors_preset = -1
+anchor_left = 0.508
+anchor_top = 0.56600004
+anchor_right = 0.508
+anchor_bottom = 0.56600004
+offset_left = -329.19202
+offset_top = -244.68805
+offset_right = 126.80798
+offset_bottom = 93.720215
+scale = Vector2(1.445, 1.445)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ri0ji")
+
+[node name="ModalTitle" type="Label" parent="CanvasLayer/PowerupModal" unique_id=1747031357]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50600004
+anchor_top = 0.08800001
+anchor_right = 0.50600004
+anchor_bottom = 0.08800001
+offset_left = -111.012856
+offset_top = -17.05147
+offset_right = 110.98715
+offset_bottom = 16.94853
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Choose a Power-up"
+
+[node name="StartButton" type="TextureButton" parent="CanvasLayer/PowerupModal" unique_id=920378249]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.671
+anchor_top = 0.86500007
+anchor_right = 0.671
+anchor_bottom = 0.86500007
+offset_left = -67.18292
+offset_top = -25.867584
+offset_right = 67.299805
+offset_bottom = 25.856598
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_xsnhl")
+texture_pressed = ExtResource("9_j8mn1")
+texture_hover = ExtResource("9_j8mn1")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CancelButton" type="TextureButton" parent="CanvasLayer/PowerupModal" unique_id=900316808]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.342
+anchor_top = 0.86800003
+anchor_right = 0.342
+anchor_bottom = 0.86800003
+offset_left = -56.81407
+offset_top = -20.7211
+offset_right = 56.97905
+offset_bottom = 21.00296
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_j8mn1")
+texture_pressed = ExtResource("9_ri0ji")
+texture_hover = ExtResource("9_ri0ji")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/PowerupModal" unique_id=1802302523]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.52400005
+anchor_top = 0.45100003
+anchor_right = 0.52400005
+anchor_bottom = 0.45100003
+offset_left = -169.04782
+offset_top = -93.10655
+offset_right = 161.748
+offset_bottom = 98.270355
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PowerupModal/ScrollContainer" unique_id=1094850720]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PowerupGrid" type="GridContainer" parent="CanvasLayer/PowerupModal/ScrollContainer/MarginContainer" unique_id=633945927]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="PowerupCard" parent="CanvasLayer/PowerupModal/ScrollContainer/MarginContainer/PowerupGrid" unique_id=467836585 instance=ExtResource("12_uxs4i")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PowerupModal/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PowerupModal/CancelButton" to="." method="_on_cancel_button_pressed"]

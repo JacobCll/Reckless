@@ -1,15 +1,12 @@
+# LEVEL 1
 extends BaseLevel
 
-# LEVEL 1
-func _process(_delta):
-	$CanvasLayer/HUD/TotalActiveEntitiesLabel.text = "Blue: %d  Red: %d  Green: %d" % [
-		 get_total_active_entities("blue"),
-		 get_total_active_entities("red"),
-		 get_total_active_entities("green")
-	 ]
+func _ready() -> void:
+	super()
 	
-func get_total_active_entities(type: String):
-	var total_alive = 0
-	for spawner in wave_manager.active_spawners:
-		total_alive += spawner.get_alive_count(type)
-	return total_alive
+	#if not GameManager.level_1_tutorial_seen:
+		#show_tutorial()
+
+func show_tutorial():
+	get_tree().change_scene_to_file("res://scenes/levels/tutorial_level/tutorial_level.tscn")
+	GameManager.from_level = 1

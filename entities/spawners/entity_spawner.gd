@@ -3,6 +3,8 @@ extends Node2D
 
 @export var spawner_name := "Spawner 1"
 
+# wait out the delay before spawning or spawn entitites before the delay
+@export var spawn_loop_wait := false
 # ─────────────────────────────────────────────
 # GLOBAL SPAWN SETTINGS
 # ─────────────────────────────────────────────
@@ -95,7 +97,6 @@ func _add_group(scenes: Array, type: String, weight: float, max_alive: int) -> v
 
 func start() -> void:
 	active = true
-	_start_spawn_loop()
 
 func stop() -> void:
 	active = false
@@ -116,26 +117,34 @@ func _clear_all_entities() -> void:
 # ─────────────────────────────────────────────
 # SPAWN LOOP
 # ─────────────────────────────────────────────
-func _start_spawn_loop() -> void:
+func start_spawn_loop() -> void:
+	await get_tree().create_timer(1, false).timeout # short delay before starting
+	
+	if spawn_loop_wait == false:
+		_trigger_spawn()
+	
 	while active:
 		var delay := randf_range(spawn_delay_min, spawn_delay_max)
-		
 		await get_tree().create_timer(delay, false).timeout
 		
 		if not active:
 			return
-		
+			
 		_trigger_spawn()
+
 
 # manual spawning
 func spawn_entity(n: int = 1, b_spread: float = 0):
-	await get_tree().create_timer(1, false).timeout # delay for 1 second
+	var entities = []
 	for i in n: # number of entities to spawn
 		var type := _pick_type() #  pick type
 		if type == null: 
 			break
 		await get_tree().create_timer(b_spread * i, false).timeout
-		_spawn_from_type(type, throw_entity_up)
+		var entity = _spawn_from_type(type, throw_entity_up)
+		entities.append(entity)
+	
+	return entities
 
 func _trigger_spawn() -> void:
 	var count := randi_range(spawn_count_min, spawn_count_max)
@@ -184,7 +193,7 @@ func _pick_type() -> EntityType:
 # SPAWNING
 # ─────────────────────────────────────────────
 
-func _spawn_from_type(type: EntityType, throw_function: Callable) -> void:
+func _spawn_from_type(type: EntityType, throw_function: Callable):
 	var scene: PackedScene = type.scenes.pick_random()
 	var entity = scene.instantiate()
 
@@ -211,6 +220,8 @@ func _spawn_from_type(type: EntityType, throw_function: Callable) -> void:
 	entity_spawned.emit(type.entity_type)
 	
 	throw_function.call(entity)
+	
+	return entity
 
 
 # ─────────────────────────────────────────────

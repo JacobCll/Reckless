@@ -7,6 +7,8 @@ func _ready() -> void:
 
 func hide_mouse_trail():
 	mouse_trail_effect.hide()
+	MouseSfx.enabled = false
 	
 func show_mouse_trail():
 	mouse_trail_effect.show()
+	MouseSfx.enabled = true

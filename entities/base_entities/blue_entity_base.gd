@@ -7,6 +7,8 @@ extends RigidBody2D
 signal despawned
 signal slashed
 
+var frozen := false
+
 var was_mouse_over := false
 
 func _process(_delta):
@@ -44,4 +46,10 @@ func slash():
 
 	queue_free()
 
-	
+func freeze():
+	frozen = true
+	set_physics_process(false)
+
+func unfreeze():
+	frozen = false
+	set_physics_process(true)
