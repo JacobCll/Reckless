@@ -42,6 +42,9 @@ visible = false
 [node name="CountdownLabel" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="1" unique_id=1652738209]
 visible = false
 
+[node name="WinLevelScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="3" unique_id=800143018]
+visible = false
+
 [node name="TutorialModal" type="Control" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="4" unique_id=1326149685]
 layout_mode = 3
 anchors_preset = 0

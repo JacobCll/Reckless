@@ -84,8 +84,8 @@ func load_data() -> void:
 	highest_unlocked_level = saved_data.get("highest_unlocked_level", 1)
 	user_orbs = saved_data.get("user_orbs", 0)
 	inventory = saved_data.get("inventory", {
-		"health_potion": 0,
-		"damage_boost": 0,
-		"shield": 0
+		"powerup_shields": 0,
+		"powerup_no_green": 0,
+		"powerup_double_orbs": 0
 	})
 	level_1_tutorial_seen = saved_data.get("level_1_tutorial_seen", false)
