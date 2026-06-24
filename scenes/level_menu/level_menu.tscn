@@ -4,14 +4,42 @@
 [ext_resource type="Script" uid="uid://clkrhe502hgy6" path="res://scenes/level_menu/level_menu.gd" id="2_8xmkv"]
 [ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="2_jqwib"]
 [ext_resource type="Texture2D" uid="uid://ctkkbptbg7kif" path="res://logo/levels_text.png" id="3_7obll"]
-[ext_resource type="PackedScene" path="res://scenes/level_menu/level_button.tscn" id="3_bvllw"]
+[ext_resource type="PackedScene" uid="uid://bwdvqid0hbikl" path="res://scenes/level_menu/level_button.tscn" id="3_bvllw"]
 [ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/main_menu_music_1.mp3" id="4_jw3qw"]
 [ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="6_5gure"]
 [ext_resource type="Texture2D" uid="uid://dmee4cu7xcab" path="res://buttons/cancel-default.png" id="8_j8mn1"]
 [ext_resource type="Texture2D" uid="uid://c43ct5m0j1duq" path="res://buttons/start-default.png" id="8_xsnhl"]
+[ext_resource type="Texture2D" uid="uid://el1nh5cb8jrt" path="res://buttons/levelbuttons-brg/level1.tres" id="9_hxshe"]
 [ext_resource type="Texture2D" uid="uid://ce8xds135yrpo" path="res://buttons/start-hover.png" id="9_j8mn1"]
 [ext_resource type="Texture2D" uid="uid://c72jkmm00uux" path="res://buttons/cancel-hover.png" id="9_ri0ji"]
-[ext_resource type="PackedScene" path="res://scenes/level_menu/powerup_card.tscn" id="12_uxs4i"]
+[ext_resource type="Texture2D" uid="uid://daif7q7fnu3sb" path="res://buttons/levelbuttons-brg/level1-hover.tres" id="10_4yaje"]
+[ext_resource type="Texture2D" uid="uid://buicr74j1u5tq" path="res://buttons/levelbuttons-brg/pressed-level1.tres" id="10_fv47d"]
+[ext_resource type="Texture2D" uid="uid://b0lersv0xjmhb" path="res://buttons/levelbuttons-brg/disable_level1.tres" id="11_qqymp"]
+[ext_resource type="PackedScene" uid="uid://dnrnq2clsmdkk" path="res://scenes/level_menu/powerup_card.tscn" id="12_uxs4i"]
+[ext_resource type="Texture2D" uid="uid://hqjo8rtw7vmq" path="res://buttons/levelbuttons-brg/level2.tres" id="13_ho8ji"]
+[ext_resource type="Texture2D" uid="uid://c2ko560jnhedr" path="res://buttons/levelbuttons-brg/pressed-level2.tres" id="14_a2vxr"]
+[ext_resource type="Texture2D" uid="uid://c1vedgibfoxyq" path="res://buttons/levelbuttons-brg/level2-hover.tres" id="15_2x002"]
+[ext_resource type="Texture2D" uid="uid://bwho4nfkm4rrp" path="res://buttons/levelbuttons-brg/disable_level2.tres" id="16_xdurn"]
+[ext_resource type="Texture2D" uid="uid://che2kqs43lfbj" path="res://buttons/levelbuttons-brg/level3.tres" id="17_jicxw"]
+[ext_resource type="Texture2D" uid="uid://cdv1qv77a0sd5" path="res://buttons/levelbuttons-brg/pressed-level3.tres" id="18_fu625"]
+[ext_resource type="Texture2D" uid="uid://c1l30x5phyj52" path="res://buttons/levelbuttons-brg/level3-hover.tres" id="19_dfng4"]
+[ext_resource type="Texture2D" uid="uid://dp1rddglrhfj2" path="res://buttons/levelbuttons-brg/disable_level3.tres" id="20_nsy7d"]
+[ext_resource type="Texture2D" uid="uid://ekb348tfw43x" path="res://buttons/levelbuttons-brg/level4.tres" id="21_xr8l2"]
+[ext_resource type="Texture2D" uid="uid://ciemaecb4elrv" path="res://buttons/levelbuttons-brg/pressed-level4.tres" id="22_kvjpb"]
+[ext_resource type="Texture2D" uid="uid://dilhq1umrp60g" path="res://buttons/levelbuttons-brg/level4-hover.tres" id="23_hf2qt"]
+[ext_resource type="Texture2D" uid="uid://cbund0q6juj73" path="res://buttons/levelbuttons-brg/disable_level4.tres" id="24_tfkek"]
+[ext_resource type="Texture2D" uid="uid://cwrrl5jcuhkjc" path="res://buttons/levelbuttons-brg/level5.tres" id="25_0hlaf"]
+[ext_resource type="Texture2D" uid="uid://dop6xbr8lbet4" path="res://buttons/levelbuttons-brg/pressed-level5.tres" id="26_p7g7j"]
+[ext_resource type="Texture2D" uid="uid://d1rs0jjulj2bw" path="res://buttons/levelbuttons-brg/level5-hover.tres" id="27_r0alg"]
+[ext_resource type="Texture2D" uid="uid://cebc0b7hiwtc3" path="res://buttons/levelbuttons-brg/disable_level5.tres" id="28_q87vn"]
+[ext_resource type="Texture2D" uid="uid://bvsojketn5acg" path="res://buttons/levelbuttons-brg/level6.tres" id="29_v8526"]
+[ext_resource type="Texture2D" uid="uid://rwqwd1un1wg3" path="res://buttons/levelbuttons-brg/pressed-level6.tres" id="30_khfbq"]
+[ext_resource type="Texture2D" uid="uid://gwo3sut5kqjk" path="res://buttons/levelbuttons-brg/level6-hover.tres" id="31_0jfdj"]
+[ext_resource type="Texture2D" uid="uid://cenqe0f1lfsok" path="res://buttons/levelbuttons-brg/disable_level6.tres" id="32_bl8af"]
+[ext_resource type="Texture2D" uid="uid://bbcuep8mn5coi" path="res://buttons/levelbuttons-brg/level7.tres" id="33_khfbq"]
+[ext_resource type="Texture2D" uid="uid://b6l3iefam3c8v" path="res://buttons/levelbuttons-brg/pressed-level7.tres" id="34_ve5mc"]
+[ext_resource type="Texture2D" uid="uid://brg4sj0nqmc1" path="res://buttons/levelbuttons-brg/level7-hover.tres" id="35_lgsuu"]
+[ext_resource type="Texture2D" uid="uid://6nbr16cw6fye" path="res://buttons/levelbuttons-brg/disable_level7.tres" id="36_4jhlu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri0ji"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8745098)
@@ -51,18 +79,82 @@ scale = Vector2(0.44, 0.44)
 texture = ExtResource("3_7obll")
 
 [node name="LevelGrid" type="GridContainer" parent="." unique_id=760875452]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 287.0
-offset_right = 912.0
-offset_bottom = 567.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.58900005
+anchor_right = 0.5
+anchor_bottom = 0.58900005
+offset_left = -404.0
+offset_top = -244.35205
+offset_right = 396.0
+offset_bottom = 244.64795
 theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 40
 columns = 5
 
+[node name="Level1Button" parent="LevelGrid" unique_id=1704980035 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("9_hxshe")
+texture_pressed = ExtResource("10_fv47d")
+texture_hover = ExtResource("10_4yaje")
+texture_disabled = ExtResource("11_qqymp")
+level_path = "uid://b74jsgn1rm2d7"
+level_number = 1
+
+[node name="Level2Button" parent="LevelGrid" unique_id=505964992 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("13_ho8ji")
+texture_pressed = ExtResource("14_a2vxr")
+texture_hover = ExtResource("15_2x002")
+texture_disabled = ExtResource("16_xdurn")
+level_path = "uid://k7oabpkg76m3"
+level_number = 2
+
+[node name="Level3Button" parent="LevelGrid" unique_id=1680632181 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("17_jicxw")
+texture_pressed = ExtResource("18_fu625")
+texture_hover = ExtResource("19_dfng4")
+texture_disabled = ExtResource("20_nsy7d")
+level_number = 3
+
+[node name="Level4Button" parent="LevelGrid" unique_id=196909909 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("21_xr8l2")
+texture_pressed = ExtResource("22_kvjpb")
+texture_hover = ExtResource("23_hf2qt")
+texture_disabled = ExtResource("24_tfkek")
+level_number = 4
+
+[node name="Level5Button" parent="LevelGrid" unique_id=1882643206 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("25_0hlaf")
+texture_pressed = ExtResource("26_p7g7j")
+texture_hover = ExtResource("27_r0alg")
+texture_disabled = ExtResource("28_q87vn")
+level_number = 5
+
+[node name="Level6Button" parent="LevelGrid" unique_id=429947267 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("29_v8526")
+texture_pressed = ExtResource("30_khfbq")
+texture_hover = ExtResource("31_0jfdj")
+texture_disabled = ExtResource("32_bl8af")
+level_number = 6
+
+[node name="Level7Button" parent="LevelGrid" unique_id=1923168705 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("33_khfbq")
+texture_pressed = ExtResource("34_ve5mc")
+texture_hover = ExtResource("35_lgsuu")
+texture_disabled = ExtResource("36_4jhlu")
+level_number = 7
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064702113]
 
 [node name="PowerupModal" type="Panel" parent="CanvasLayer" unique_id=1807815975]
+visible = false
 anchors_preset = -1
 anchor_left = 0.508
 anchor_top = 0.56600004

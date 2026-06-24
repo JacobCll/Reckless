@@ -30,6 +30,7 @@ offset_top = 119.0
 offset_right = 963.0
 offset_bottom = 887.0
 scale = Vector2(0.75, 0.75)
+mouse_filter = 2
 texture = ExtResource("8_tbmy8")
 stretch_mode = 4
 

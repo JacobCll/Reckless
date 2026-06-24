@@ -3,8 +3,10 @@ extends TextureRect
 
 @export var level_button: PackedScene
 @export var level_menu_music: AudioStream
-@export var powerup_card_scene: PackedScene
 
+@onready var level_grid := $LevelGrid
+
+@export var powerup_card_scene: PackedScene
 @onready var powerup_modal := $CanvasLayer/PowerupModal
 @onready var powerup_grid := $CanvasLayer/PowerupModal/ScrollContainer/MarginContainer/PowerupGrid
 
@@ -12,9 +14,6 @@ var levels = 10
 var selected_level_path := ""
 
 var selected_powerup_card: PowerupCard = null
-#
-#func _process(delta: float) -> void:
-	#print(selected_powerup_card)
 
 func _ready() -> void:
 	AudioManager.play_music(level_menu_music)
@@ -26,22 +25,13 @@ func _ready() -> void:
 	var grid = $LevelGrid
 	grid.columns = 5
 	
-	for i in range(levels):
-		var btn = level_button.instantiate()
-		
-		btn.level_number = i + 1
-		btn.text = str(i + 1)
-		
-		btn.level_path = "res://scenes/levels/levels/level_" + str(i+1) + "/level_" + str(i+1) + ".tscn"
-		
-		btn.level_selected.connect(_on_level_selected)
+	for button in level_grid.get_children():
+		button.level_selected.connect(_on_level_selected)
 		
 		# disable if not unlocked 
-		if not GameManager.is_level_unlocked(i + 1):
-			btn.disabled = true
-			btn.mouse_default_cursor_shape = Control.CURSOR_ARROW
-		
-		grid.add_child(btn)
+		if not GameManager.is_level_unlocked(button.level_number):
+			button.disabled = true
+			button.mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 func _on_level_selected(path) -> void:
 	selected_level_path = path
