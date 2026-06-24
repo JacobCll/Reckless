@@ -11,8 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://c7lylr4oh33u4" path="res://buttons/shop-hover.png" id="9_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bswcbt536ffsw" path="res://buttons/setting-hover.png" id="11_7b55j"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="11_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://c2yxskel6pten" path="res://buttons/exit-default.png" id="12_5pajh"]
-[ext_resource type="Texture2D" uid="uid://cw6kar0t1ejsk" path="res://buttons/exit-hover.png" id="13_j7ex8"]
 
 [node name="MainMenu" type="TextureRect" unique_id=311017489]
 z_index = -1
@@ -22,25 +20,25 @@ texture = ExtResource("1_l6cm7")
 script = ExtResource("2_jk1qb")
 music = ExtResource("3_5dd4i")
 
+[node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("11_lgwnu")]
+visible = false
+
 [node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 101.0
-offset_right = 1033.0
-offset_bottom = 869.0
+offset_left = -61.0
+offset_top = 119.0
+offset_right = 963.0
+offset_bottom = 887.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_tbmy8")
 stretch_mode = 4
 
-[node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("11_lgwnu")]
-visible = false
-
 [node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=520339295]
 layout_mode = 0
-offset_left = 543.0
-offset_top = 265.0
-offset_right = 1093.0
-offset_bottom = 879.0
+offset_left = 644.0
+offset_top = 238.0
+offset_right = 918.0
+offset_bottom = 669.0
 
 [node name="PlayButton" type="TextureButton" parent="ButtonContainer" unique_id=1347030637]
 custom_minimum_size = Vector2(0, 102)
@@ -72,14 +70,13 @@ texture_hover = ExtResource("11_7b55j")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="ExitButton" type="TextureButton" parent="ButtonContainer" unique_id=242013837]
-custom_minimum_size = Vector2(0, 110)
+[node name="TutorialButton" type="Button" parent="ButtonContainer" unique_id=1213294719]
 layout_mode = 2
-texture_normal = ExtResource("12_5pajh")
-texture_pressed = ExtResource("13_j7ex8")
-texture_hover = ExtResource("13_j7ex8")
-ignore_texture_size = true
-stretch_mode = 5
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "How to Play"
 
 [connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]

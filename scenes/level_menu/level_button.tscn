@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bwdvqid0hbikl"]
+
+[ext_resource type="Script" uid="uid://bn6jem22wli6k" path="res://scenes/level_menu/level_button.gd" id="1_i82w3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i82w3"]
+bg_color = Color(0.16206557, 0.1620656, 0.16206548, 1)
+
+[node name="LevelButton" type="Button" unique_id=1704980035]
+custom_minimum_size = Vector2(120, 120)
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i82w3")
+text = "1"
+autowrap_mode = 2
+script = ExtResource("1_i82w3")

@@ -33,6 +33,15 @@ func start_wave() -> void:
 
 	wave_started.emit()
 
+# start the spawn loops for all spawners in the current wave
+func start_spawn_loops() -> void:
+	var wave = waves[current_wave]
+	
+	for child in wave.get_children():
+		if child is EntitySpawner:
+			active_spawners.append(child)
+			child.start_spawn_loop()
+
 func register_kill() -> void:
 	kills += 1
 	if kills >= waves[current_wave].kill_requirement:

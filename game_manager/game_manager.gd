@@ -2,18 +2,53 @@ extends Node
 
 const SAVE_FILE := "user://game_manager_state.dat"
 
+# SAVE TO FILE
 var current_scene := "main_menu"
-var user_orbs := 0
-var highest_unlocked_level := 1
-var max_unlockable_level := 2
+var user_orbs := 0 # user currency
+var highest_unlocked_level := 1 # highest level the player has unlocked
+var max_unlockable_level := 2 # max level that can be unlocked
+var level_1_tutorial_seen := false
+
+# DO NOT SAVE TO FILE
+var from_level := 0 # 0 is default (none)
+var selected_powerup := ""
+
+# dictionary of item_id and amount owned
+var inventory := {
+	"powerup_shields": 0,
+	"powerup_no_green": 0,
+	"powerup_double_orbs": 0
+}
+
+# dictionary of all item information, access with item_id
+var item_info := {
+	"powerup_shields": {
+		"display_name": "Shields",
+		"cost": 15,
+		"Description": "Adds +2 lives at the start of the run"
+	},
+	"powerup_double_orbs": {
+		"display_name": "Double Orbs",
+		"cost": 50,
+		"description": "Higher chance of double orb drops"
+	}
+}
 
 func _ready():
-	reset()
 	load_data()
+	#reset()
 
+# for debugging
 func reset():
 	user_orbs = 0
 	highest_unlocked_level = 1
+	inventory = {
+		"powerup_shields": 0,
+		"powerup_no_green": 0,
+		"powerup_double_orbs": 0
+	}
+	level_1_tutorial_seen = false
+	save_data()
 
 func is_level_unlocked(level: int) -> bool:
 	return level <= highest_unlocked_level
@@ -28,7 +63,9 @@ func unlock_level(level_completed: int) -> void:
 func save_data() -> void:
 	var data := {
 		"highest_unlocked_level": highest_unlocked_level,
-		"user_orbs": user_orbs
+		"user_orbs": user_orbs,
+		"inventory": inventory,
+		"level_1_tutorial_seen": level_1_tutorial_seen
 	}
 
 	var file := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
@@ -46,4 +83,9 @@ func load_data() -> void:
 
 	highest_unlocked_level = saved_data.get("highest_unlocked_level", 1)
 	user_orbs = saved_data.get("user_orbs", 0)
-	
+	inventory = saved_data.get("inventory", {
+		"health_potion": 0,
+		"damage_boost": 0,
+		"shield": 0
+	})
+	level_1_tutorial_seen = saved_data.get("level_1_tutorial_seen", false)

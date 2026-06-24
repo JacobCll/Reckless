@@ -40,6 +40,7 @@ waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2")]
 
 [node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=1299203071]
 script = ExtResource("4_yuhpf")
+wave_number = 1
 kill_requirement = 25
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
@@ -51,32 +52,34 @@ path = NodePath("../EntitySpawner1Path")
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave1" index="1" unique_id=825421476]
 curve = SubResource("Curve2D_u6ogp")
 
-[node name="EntitySpawner2" parent="Waves/Wave1" index="2" unique_id=1582450743 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+[node name="BlueBurstSpawner" parent="Waves/Wave1" index="2" unique_id=1582450743 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
 spawner_name = "Wave 1 Spawner 1"
-spawn_delay_min = 8.0
+spawn_loop_wait = true
+spawn_delay_min = 7.0
 spawn_delay_max = 10.0
 spawn_count_min = 2
 burst_spread = 0.2
 blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5")])
-path = NodePath("../EntitySpawner2Path")
+path = NodePath("../BlueBurstSpawnerPath")
 
-[node name="EntitySpawner2Path" type="Path2D" parent="Waves/Wave1" index="3" unique_id=1261742993]
+[node name="BlueBurstSpawnerPath" type="Path2D" parent="Waves/Wave1" index="3" unique_id=1261742993]
 curve = SubResource("Curve2D_jc4j5")
 
 [node name="GreenSpawner3" parent="Waves/Wave1" index="4" unique_id=135887794 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
 spawner_name = "Wave 1 Spawner 1"
+spawn_loop_wait = true
 spawn_delay_min = 4.0
 spawn_delay_max = 6.0
 spawn_count_max = 1
 green_scenes = Array[PackedScene]([ExtResource("8_jc4j5")])
-path = NodePath("../EntitySpawner2Path")
+path = NodePath("../BlueBurstSpawnerPath")
 
 [node name="GreenSpawnerPath" type="Path2D" parent="Waves/Wave1" index="5" unique_id=2098953688]
 curve = SubResource("Curve2D_bel7p")
 
 [node name="Wave2" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="1" unique_id=1196583884]
 script = ExtResource("4_yuhpf")
-kill_requirement = 15
+wave_number = 1
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="EntitySpawner1" parent="Waves/Wave2" index="0" unique_id=966974244 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
@@ -87,6 +90,3 @@ path = NodePath("../../Wave1/EntitySpawner1Path")
 
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave2" index="1" unique_id=1515629054]
 curve = SubResource("Curve2D_1l0jw")
-
-[node name="TotalActiveEntitiesLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=1459818585]
-visible = false

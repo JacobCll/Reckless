@@ -1,3 +1,4 @@
+
 class_name BaseLevel
 extends Node
 
@@ -34,9 +35,11 @@ var countdown_value := countdown_value_original
 @onready var score_label = $CanvasLayer/HUD/ScoreLabel
 @onready var countdown_timer = $CountdownTimer
 @onready var countdown_label = $CanvasLayer/CountdownLabel
+@onready var pause_button = $CanvasLayer/PauseButton
 @onready var pause_screen = $CanvasLayer/PauseScreen
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
 @onready var win_screen = $CanvasLayer/WinLevelScreen
+@onready var next_level_button = $CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer/NextLevelButton
 @onready var settings_menu = $SettingsMenu
 
 # --------------------
@@ -72,6 +75,7 @@ func _setup_level() -> void:
 	
 	AudioManager.play_music(level_music)
 	AudioManager.enable_mouse_sfx()
+	MouseManager.show_mouse_trail()
 	
 	GameManager.current_scene = "in_game"
 
@@ -80,7 +84,7 @@ func _setup_ui() -> void:
 	gameover_screen.hide()
 	win_screen.hide()
 	hud.hide()
-
+	
 	countdown_label.show()
 	_update_hearts_ui()
 
@@ -155,6 +159,7 @@ func _on_entity_despawned(entity_type: String) -> void:
 func _entity_drop(entity_type: String):
 	if entity_type != "green":
 		GameManager.user_orbs += 5
+		GameManager.save_data()
 
 # override if needed
 func _default_score_logic(entity_type: String, action: String) -> void:
@@ -177,6 +182,8 @@ func _on_wave_started() -> void:
 	
 	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave: %d" % (current_wave)
 	
+	wave_manager.start_spawn_loops()
+	
 func _on_wave_completed() -> void:
 	var current_wave = wave_manager.current_wave + 1
 	
@@ -190,6 +197,12 @@ func _on_all_waves_completed() -> void:
 	
 	# unlock next level
 	GameManager.unlock_level(LEVEL_NUMBER)
+	
+	# show next level button if there is a next level
+	if LEVEL_NUMBER < GameManager.max_unlockable_level:
+		next_level_button.show()
+	else:
+		next_level_button.hide()
 
 # =========================================================
 # LIVES / HEARTS
@@ -219,7 +232,10 @@ func game_over() -> void:
 # UI ACTIONS
 # =========================================================
 func _on_pause_button_pressed() -> void:
-	_pause_game()
+	if not is_paused:
+		_pause_game()
+	else:
+		_resume_game()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# don't do anything if settings menu is shown
@@ -263,6 +279,15 @@ func _on_settings_button_pressed() -> void:
 	MouseManager.hide_mouse_trail()
 	settings_menu.show()
 
+# go to next level in win screen
+func _on_next_level_button_pressed() -> void:
+	if LEVEL_NUMBER == GameManager.max_unlockable_level:
+		return
+
+	var next_level_scene = "res://scenes/levels/levels/level_" + str(LEVEL_NUMBER + 1) + "/level_" + str(LEVEL_NUMBER + 1) + ".tscn"
+	get_tree().paused = false
+	get_tree().change_scene_to_file(next_level_scene)
+	
 # PAUSE
 func _handle_pause_input() -> void:
 	if is_paused:

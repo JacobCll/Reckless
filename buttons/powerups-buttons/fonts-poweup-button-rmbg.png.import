@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://g7qeokyldcb4"
+=======
+uid="uid://ciexvjiamp4x1"
+>>>>>>> c3110ce7bd5153a8e78d613a91edd5832e4a5d24
 path="res://.godot/imported/fonts-poweup-button-rmbg.png-d55aa8961d144712070c48111742ba50.ctex"
 metadata={
 "vram_texture": false
