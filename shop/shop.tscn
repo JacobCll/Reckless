@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bqbjr1ufdmurf" path="res://shop/shop_item.tscn" id="5_gy7ao"]
 [ext_resource type="Texture2D" uid="uid://cwpkbrjwixqbe" path="res://buttons/powerups-buttons/orb-bag.tres" id="6_q4g17"]
 [ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="7_2wf2a"]
+[ext_resource type="Texture2D" uid="uid://dalergjb5t8rk" path="res://buttons/powerups-buttons/wizard.tres" id="8_xad5q"]
 
 [node name="Shop" type="Node" unique_id=1750255976]
 script = ExtResource("1_sxvro")
@@ -33,10 +34,10 @@ texture_hover = ExtResource("4_gy7ao")
 stretch_mode = 5
 
 [node name="OrbBag" type="TextureRect" parent="." unique_id=1000303236]
-offset_left = 872.0
+offset_left = 840.0
 offset_top = 24.0
-offset_right = 1016.0
-offset_bottom = 96.0
+offset_right = 1048.0
+offset_bottom = 120.0
 size_flags_horizontal = 0
 texture = ExtResource("6_q4g17")
 expand_mode = 1
@@ -48,10 +49,10 @@ anchor_left = 0.97200006
 anchor_top = 0.123
 anchor_right = 0.97200006
 anchor_bottom = 0.123
-offset_left = -83.328064
-offset_top = 1.5359955
-offset_right = -17.328064
-offset_bottom = 28.056831
+offset_left = -91.328064
+offset_top = 17.535995
+offset_right = -11.328064
+offset_bottom = 49.535995
 grow_horizontal = 0
 grow_vertical = 2
 metadata/_edit_group_ = true
@@ -59,7 +60,7 @@ metadata/_edit_group_ = true
 [node name="OrbCount" type="Label" parent="PanelContainer" unique_id=969332268]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_2wf2a")
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 22
 text = "Orbs: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -79,5 +80,14 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="HirayaWizard" type="TextureRect" parent="." unique_id=2056872977]
+offset_left = -144.0
+offset_top = 376.0
+offset_right = 424.0
+offset_bottom = 779.0
+texture = ExtResource("8_xad5q")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

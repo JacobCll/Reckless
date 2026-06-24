@@ -11,7 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://c7lylr4oh33u4" path="res://buttons/shop-hover.png" id="9_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bswcbt536ffsw" path="res://buttons/setting-hover.png" id="11_7b55j"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="11_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://cw3jk45k2c2h3" path="res://buttons/red-button.tres" id="12_7b55j"]
 [ext_resource type="Texture2D" uid="uid://cj4xphsg28deb" path="res://buttons/powerups-buttons/walkitalky.tres" id="12_flqon"]
+[ext_resource type="Texture2D" uid="uid://guou7mfaftr4" path="res://buttons/red-button-hover.tres" id="13_5pajh"]
+[ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="14_j7ex8"]
 
 [node name="MainMenu" type="TextureRect" unique_id=311017489]
 z_index = -1
@@ -72,11 +75,26 @@ texture_hover = ExtResource("11_7b55j")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TutorialButton" type="Button" parent="ButtonContainer" unique_id=1213294719]
+[node name="TutorialButton" type="TextureButton" parent="ButtonContainer" unique_id=1098944751]
+custom_minimum_size = Vector2(86, 86)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "How to Play"
+texture_normal = ExtResource("12_7b55j")
+texture_pressed = ExtResource("13_5pajh")
+texture_hover = ExtResource("13_5pajh")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TutorialLabel" type="Label" parent="ButtonContainer/TutorialButton" unique_id=1223120818]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 12.0
+offset_right = 219.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("14_j7ex8")
+theme_override_font_sizes/font_size = 42
+text = "tutorial"
+uppercase = true
 
 [node name="NotificationButton" type="TextureButton" parent="." unique_id=327508239]
 layout_mode = 0
