@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dnrnq2clsmdkk"]
 
 [ext_resource type="Script" uid="uid://c80rhd3xwo726" path="res://scenes/level_menu/powerup_card.gd" id="1_wsh8c"]
+[ext_resource type="Texture2D" uid="uid://dhcmhv5d08yur" path="res://inventory_items/powerup_double_orbs.tres" id="2_rr13m"]
 [ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_rr13m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsh8c"]
@@ -35,6 +36,7 @@ offset_top = 4.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_rr13m")
 expand_mode = 2
 stretch_mode = 5
 

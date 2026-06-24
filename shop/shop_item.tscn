@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://bqbjr1ufdmurf"]
 
 [ext_resource type="Script" uid="uid://ciyvdgue7bsd1" path="res://shop/shop_item.gd" id="1_rchi8"]
+[ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="2_rdxfv"]
+[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_u3fxv"]
+[ext_resource type="Texture2D" uid="uid://b213x87lciq5g" path="res://inventory_items/powerup_shields.tres" id="4_uxktj"]
+[ext_resource type="Texture2D" uid="uid://ckelwqyj5oua7" path="res://buttons/buy-default.png" id="5_rdqe2"]
+[ext_resource type="Texture2D" uid="uid://ca2ivs1fgl8tt" path="res://buttons/buy-hover.png" id="6_k16ug"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrnko"]
 bg_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
@@ -16,15 +21,17 @@ offset_left = 184.0
 offset_top = 24.0
 offset_right = 592.0
 offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_rdxfv")
 theme_override_font_sizes/font_size = 32
 text = "Shields"
 
 [node name="OwnedCount" type="Label" parent="." unique_id=1419821591]
 layout_mode = 0
 offset_left = 688.0
-offset_top = 112.0
+offset_top = 96.0
 offset_right = 797.0
-offset_bottom = 140.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("2_rdxfv")
 theme_override_font_sizes/font_size = 20
 text = "Owned: 0"
 horizontal_alignment = 1
@@ -32,10 +39,11 @@ vertical_alignment = 1
 
 [node name="Cost" type="Label" parent="." unique_id=23312611]
 layout_mode = 0
-offset_left = 608.0
-offset_top = 112.0
-offset_right = 693.0
-offset_bottom = 140.0
+offset_left = 600.0
+offset_top = 96.0
+offset_right = 685.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("2_rdxfv")
 theme_override_font_sizes/font_size = 20
 text = "15 orbs"
 horizontal_alignment = 1
@@ -47,24 +55,25 @@ offset_left = 184.0
 offset_top = 72.0
 offset_right = 600.0
 offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("3_u3fxv")
 theme_override_font_sizes/font_size = 24
 text = "+2 additional health"
 
-[node name="Sprite(Temporary)" type="ColorRect" parent="." unique_id=126588407]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 24.0
-offset_right = 155.0
-offset_bottom = 128.0
+[node name="Shield" type="Sprite2D" parent="." unique_id=343048272]
+position = Vector2(104, 72)
+texture = ExtResource("4_uxktj")
 
-[node name="BuyButton" type="Button" parent="." unique_id=131228972]
+[node name="BuyButton" type="TextureButton" parent="." unique_id=1343088198]
 layout_mode = 0
-offset_left = 624.0
-offset_top = 24.0
+offset_left = 616.0
+offset_top = 32.0
 offset_right = 776.0
-offset_bottom = 104.0
+offset_bottom = 96.0
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 50
-text = "BUY"
+texture_normal = ExtResource("5_rdqe2")
+texture_pressed = ExtResource("6_k16ug")
+texture_hover = ExtResource("6_k16ug")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

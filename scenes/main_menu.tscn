@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c7lylr4oh33u4" path="res://buttons/shop-hover.png" id="9_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bswcbt536ffsw" path="res://buttons/setting-hover.png" id="11_7b55j"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="11_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://cj4xphsg28deb" path="res://buttons/powerups-buttons/walkitalky.tres" id="12_flqon"]
 
 [node name="MainMenu" type="TextureRect" unique_id=311017489]
 z_index = -1
@@ -76,6 +77,18 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "How to Play"
+
+[node name="NotificationButton" type="TextureButton" parent="." unique_id=327508239]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 133.0
+offset_bottom = 169.0
+texture_normal = ExtResource("12_flqon")
+texture_pressed = ExtResource("12_flqon")
+texture_hover = ExtResource("12_flqon")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ShopButton" to="." method="_on_shop_button_pressed"]
