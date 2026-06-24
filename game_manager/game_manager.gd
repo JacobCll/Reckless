@@ -13,7 +13,7 @@ var level_1_tutorial_seen := false
 var from_level := 0 # 0 is default (none)
 var selected_powerup := ""
 
-# dictionary of item_id and amount owned
+# dictionary of {item_id: amount owned}
 var inventory := {
 	"powerup_shields": 0,
 	"powerup_no_green": 0,
@@ -25,12 +25,14 @@ var item_info := {
 	"powerup_shields": {
 		"display_name": "Shields",
 		"cost": 15,
-		"Description": "Adds +2 lives at the start of the run"
+		"Description": "Adds +2 lives at the start of the run",
+		"texture": "res://inventory_items/powerup_shields.tres"
 	},
 	"powerup_double_orbs": {
 		"display_name": "Double Orbs",
 		"cost": 50,
-		"description": "Higher chance of double orb drops"
+		"description": "Higher chance of double orb drops",
+		"texture": "res://inventory_items/powerup_double_orbs.tres"
 	}
 }
 

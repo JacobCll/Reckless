@@ -36,9 +36,9 @@ func _ready() -> void:
 func _on_level_selected(path) -> void:
 	selected_level_path = path
 	
-	populate_powerups()
-	
 	powerup_modal.show()
+	
+	populate_powerups()
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
@@ -72,6 +72,8 @@ func populate_powerups():
 		card.item_id = item_id
 		card.powerup_name = GameManager.item_info[item_id]["display_name"]
 		card.quantity_owned = GameManager.inventory[item_id]
+		card.texture_path = GameManager.item_info[item_id]["texture"]
+		
 		card.selected.connect(select_powerup)
 		
 		powerup_grid.add_child(card)
