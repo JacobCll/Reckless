@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://dxva8d0vw4wj2"]
 
+[ext_resource type="Texture2D" uid="uid://g7qeokyldcb4" path="res://buttons/powerups-buttons/fonts-poweup-button-rmbg.png" id="1_jth2h"]
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_vs0fg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtg0c"]
+atlas = ExtResource("1_jth2h")
+region = Rect2(62.299866, 72.699905, 202.5, 186.30003)
 
 [node name="PowerupSelect" type="Control" unique_id=1032017277]
 layout_mode = 3
@@ -16,10 +22,13 @@ texture = SubResource("CanvasTexture_vs0fg")
 
 [node name="Power1" type="TextureButton" parent="TextureRect" unique_id=1231491076]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 288.0
-offset_right = 208.0
-offset_bottom = 328.0
+offset_left = 56.0
+offset_top = 240.0
+offset_right = 400.0
+offset_bottom = 520.0
+texture_normal = SubResource("AtlasTexture_mtg0c")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Power2" type="TextureButton" parent="TextureRect" unique_id=595796313]
 layout_mode = 0

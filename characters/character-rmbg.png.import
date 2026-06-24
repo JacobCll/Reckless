@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1vklcwt58676"
-path="res://.godot/imported/shelves.png-721314c4a8bcd4e13a48b00621ff8aa1.ctex"
+uid="uid://dfunjqtkh58t"
+path="res://.godot/imported/character-rmbg.png-b2ee0ac684e31df9b1381ce8c34754a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backgrounds/shelves.png"
-dest_files=["res://.godot/imported/shelves.png-721314c4a8bcd4e13a48b00621ff8aa1.ctex"]
+source_file="res://characters/character-rmbg.png"
+dest_files=["res://.godot/imported/character-rmbg.png-b2ee0ac684e31df9b1381ce8c34754a1.ctex"]
 
 [params]
 
