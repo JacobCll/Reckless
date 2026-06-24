@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxva8d0vw4wj2"]
 
-[ext_resource type="Texture2D" uid="uid://g7qeokyldcb4" path="res://buttons/powerups-buttons/fonts-poweup-button-rmbg.png" id="1_jth2h"]
+[ext_resource type="Texture2D" uid="uid://ciexvjiamp4x1" path="res://buttons/powerups-buttons/fonts-poweup-button-rmbg.png" id="1_jth2h"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vs0fg"]
 

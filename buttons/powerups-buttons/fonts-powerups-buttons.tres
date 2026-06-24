@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://dt0sq5rxlxx34"]
-
-[ext_resource type="Texture2D" uid="uid://g7qeokyldcb4" path="res://buttons/powerups-buttons/fonts-poweup-button-rmbg.png" id="1_e7htk"]
-
-[resource]
-atlas = ExtResource("1_e7htk")
-region = Rect2(62.299866, 72.699905, 202.5, 186.30003)

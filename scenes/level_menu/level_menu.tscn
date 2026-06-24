@@ -40,6 +40,19 @@
 [ext_resource type="Texture2D" uid="uid://b6l3iefam3c8v" path="res://buttons/levelbuttons-brg/pressed-level7.tres" id="34_ve5mc"]
 [ext_resource type="Texture2D" uid="uid://brg4sj0nqmc1" path="res://buttons/levelbuttons-brg/level7-hover.tres" id="35_lgsuu"]
 [ext_resource type="Texture2D" uid="uid://6nbr16cw6fye" path="res://buttons/levelbuttons-brg/disable_level7.tres" id="36_4jhlu"]
+[ext_resource type="Texture2D" uid="uid://c5iewjlmn3msx" path="res://buttons/levelbuttons-brg/level8.tres" id="37_52qnn"]
+[ext_resource type="Texture2D" uid="uid://dmuox3flie7ex" path="res://buttons/levelbuttons-brg/pressed-level8.tres" id="38_lcikx"]
+[ext_resource type="Texture2D" uid="uid://7qmii2q8na6h" path="res://buttons/levelbuttons-brg/level8-hover.tres" id="39_l55ic"]
+[ext_resource type="Texture2D" uid="uid://vc3plv85po7j" path="res://buttons/levelbuttons-brg/disable_level8.tres" id="40_kkgl1"]
+[ext_resource type="Texture2D" uid="uid://yardjrjagvvq" path="res://buttons/levelbuttons-brg/level9.tres" id="41_5j1mp"]
+[ext_resource type="Texture2D" uid="uid://b7vil5mb4vdhh" path="res://buttons/levelbuttons-brg/pressed-level9.tres" id="42_n67cf"]
+[ext_resource type="Texture2D" uid="uid://btmm1lj0vgnxa" path="res://buttons/levelbuttons-brg/level9-hover.tres" id="43_chobt"]
+[ext_resource type="Texture2D" uid="uid://cesjurivjol8w" path="res://buttons/levelbuttons-brg/disable_level9.tres" id="44_aa1ng"]
+[ext_resource type="Texture2D" uid="uid://bvu0o154hjhb" path="res://buttons/levelbuttons-brg/level10.tres" id="45_8pyte"]
+[ext_resource type="Texture2D" uid="uid://ivpygwfungc8" path="res://buttons/levelbuttons-brg/pressed-level10.tres" id="46_jhchr"]
+[ext_resource type="Texture2D" uid="uid://va5s2fr71bqu" path="res://buttons/levelbuttons-brg/level10-hover.tres" id="47_a4ij0"]
+[ext_resource type="Texture2D" uid="uid://bbrx30c7famjj" path="res://buttons/levelbuttons-brg/disable_level10.tres" id="48_edey8"]
+[ext_resource type="Texture2D" uid="uid://dt0sq5rxlxx34" path="res://buttons/powerups-buttons/poweruptitle.tres" id="49_lcikx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri0ji"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8745098)
@@ -59,9 +72,9 @@ powerup_card_scene = ExtResource("12_uxs4i")
 
 [node name="BackButton" type="TextureButton" parent="." unique_id=612589866]
 layout_mode = 0
-offset_left = 62.999996
+offset_left = 41.0
 offset_top = 62.0
-offset_right = 613.0
+offset_right = 591.0
 offset_bottom = 264.0
 scale = Vector2(0.4, 0.4)
 mouse_default_cursor_shape = 2
@@ -71,10 +84,10 @@ stretch_mode = 4
 
 [node name="LevelsText" type="TextureRect" parent="." unique_id=1342054559]
 layout_mode = 0
-offset_left = 306.0
-offset_top = -75.0
-offset_right = 1330.0
-offset_bottom = 693.0
+offset_left = 248.0
+offset_top = -70.0
+offset_right = 1470.7273
+offset_bottom = 793.63635
 scale = Vector2(0.44, 0.44)
 texture = ExtResource("3_7obll")
 
@@ -85,10 +98,10 @@ anchor_left = 0.5
 anchor_top = 0.58900005
 anchor_right = 0.5
 anchor_bottom = 0.58900005
-offset_left = -404.0
-offset_top = -244.35205
-offset_right = 396.0
-offset_bottom = 244.64795
+offset_left = -391.0
+offset_top = -170.35205
+offset_right = 409.0
+offset_bottom = 109.64795
 theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 40
 columns = 5
@@ -151,10 +164,33 @@ texture_hover = ExtResource("35_lgsuu")
 texture_disabled = ExtResource("36_4jhlu")
 level_number = 7
 
+[node name="Level8Button" parent="LevelGrid" unique_id=228970928 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("37_52qnn")
+texture_pressed = ExtResource("38_lcikx")
+texture_hover = ExtResource("39_l55ic")
+texture_disabled = ExtResource("40_kkgl1")
+level_number = 8
+
+[node name="Level9Button" parent="LevelGrid" unique_id=1578585791 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("41_5j1mp")
+texture_pressed = ExtResource("42_n67cf")
+texture_hover = ExtResource("43_chobt")
+texture_disabled = ExtResource("44_aa1ng")
+level_number = 9
+
+[node name="Level10Button" parent="LevelGrid" unique_id=1794927642 instance=ExtResource("3_bvllw")]
+layout_mode = 2
+texture_normal = ExtResource("45_8pyte")
+texture_pressed = ExtResource("46_jhchr")
+texture_hover = ExtResource("47_a4ij0")
+texture_disabled = ExtResource("48_edey8")
+level_number = 10
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064702113]
 
 [node name="PowerupModal" type="Panel" parent="CanvasLayer" unique_id=1807815975]
-visible = false
 anchors_preset = -1
 anchor_left = 0.508
 anchor_top = 0.56600004
@@ -169,21 +205,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ri0ji")
 
-[node name="ModalTitle" type="Label" parent="CanvasLayer/PowerupModal" unique_id=1747031357]
+[node name="ModalTitle" type="TextureRect" parent="CanvasLayer/PowerupModal" unique_id=342716695]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.50600004
 anchor_top = 0.08800001
 anchor_right = 0.50600004
 anchor_bottom = 0.08800001
-offset_left = -111.012856
-offset_top = -17.05147
-offset_right = 110.98715
-offset_bottom = 16.94853
+offset_left = -154.61147
+offset_top = -22.167473
+offset_right = 159.64978
+offset_bottom = 44.688835
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Choose a Power-up"
+texture = ExtResource("49_lcikx")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="StartButton" type="TextureButton" parent="CanvasLayer/PowerupModal" unique_id=920378249]
 layout_mode = 1
@@ -228,10 +264,10 @@ anchor_left = 0.52400005
 anchor_top = 0.45100003
 anchor_right = 0.52400005
 anchor_bottom = 0.45100003
-offset_left = -169.04782
-offset_top = -93.10655
-offset_right = 161.748
-offset_bottom = 98.270355
+offset_left = -204.34195
+offset_top = -79.26574
+offset_right = 126.4539
+offset_bottom = 112.111206
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PowerupModal/ScrollContainer" unique_id=1094850720]
 layout_mode = 2
