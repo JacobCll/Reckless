@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c80rhd3xwo726" path="res://scenes/level_menu/powerup_card.gd" id="1_wsh8c"]
 [ext_resource type="Texture2D" uid="uid://ciexvjiamp4x1" path="res://buttons/powerups-buttons/fonts-poweup-button-rmbg.png" id="2_lwpef"]
-[ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="3_rr13m"]
+[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_rr13m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsh8c"]
 bg_color = Color(1, 1, 1, 0)
@@ -44,10 +44,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.851
-offset_left = 5.0
-offset_top = -2.0
-offset_right = -11.0
-offset_bottom = -4.0999985
+offset_left = 21.0
+offset_top = 3.0
+offset_right = 5.0
+offset_bottom = 0.9000015
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -64,15 +64,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -40.0
-offset_right = 96.0
-offset_bottom = 14.9583435
+offset_left = -81.0
+offset_top = -37.0
+offset_right = 115.0
+offset_bottom = 17.958344
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_rr13m")
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 11
 text = "Double Orbs  x0"
 horizontal_alignment = 1
 vertical_alignment = 1
