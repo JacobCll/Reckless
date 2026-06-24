@@ -4,23 +4,23 @@
 [ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_rr13m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsh8c"]
-bg_color = Color(0.3529412, 0.3529412, 0.3529412, 0)
+bg_color = Color(1, 1, 1, 0)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="PowerupCard" type="Panel" unique_id=467836585]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 anchors_preset = -1
-anchor_left = 0.049000002
-anchor_top = 0.065000005
-anchor_right = 0.049000002
-anchor_bottom = 0.065000005
-offset_left = -50.176003
-offset_top = -49.920006
-offset_right = 49.823997
-offset_bottom = 50.079994
+anchor_left = 0.07300001
+anchor_top = 0.098000005
+anchor_right = 0.07300001
+anchor_bottom = 0.098000005
+offset_left = -74.75201
+offset_top = -75.26401
+offset_right = 25.247993
+offset_bottom = 24.735992
 pivot_offset = Vector2(50, 50)
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wsh8c")
@@ -32,7 +32,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 4.0
-offset_bottom = -16.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 2
@@ -52,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_rr13m")
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 20
 text = "Shields x2"
 horizontal_alignment = 1
 vertical_alignment = 1

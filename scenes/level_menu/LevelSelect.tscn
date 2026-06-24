@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://ctunyfc27eak"]
+
+[ext_resource type="Texture2D" uid="uid://cmd57qnn61sda" path="res://backgrounds/levels_menu_background.png" id="1_pktdi"]
+[ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="3_ddqly"]
+[ext_resource type="Texture2D" uid="uid://ctkkbptbg7kif" path="res://logo/levels_text.png" id="4_cxrkr"]
+[ext_resource type="Texture2D" uid="uid://el1nh5cb8jrt" path="res://buttons/levelbuttons-brg/level1.tres" id="7_xegj6"]
+[ext_resource type="Texture2D" uid="uid://buicr74j1u5tq" path="res://buttons/levelbuttons-brg/pressed-level1.tres" id="8_tvtf2"]
+[ext_resource type="Texture2D" uid="uid://hqjo8rtw7vmq" path="res://buttons/levelbuttons-brg/level2.tres" id="9_0kg6i"]
+[ext_resource type="Texture2D" uid="uid://daif7q7fnu3sb" path="res://buttons/levelbuttons-brg/level1-hover.tres" id="9_trpgl"]
+[ext_resource type="Texture2D" uid="uid://b0lersv0xjmhb" path="res://buttons/levelbuttons-brg/disable_level1.tres" id="10_eosdy"]
+[ext_resource type="Texture2D" uid="uid://c2ko560jnhedr" path="res://buttons/levelbuttons-brg/pressed-level2.tres" id="10_uaqmx"]
+[ext_resource type="Texture2D" uid="uid://c1vedgibfoxyq" path="res://buttons/levelbuttons-brg/level2-hover.tres" id="11_xomfm"]
+[ext_resource type="Texture2D" uid="uid://bwho4nfkm4rrp" path="res://buttons/levelbuttons-brg/disable_level2.tres" id="12_74xqp"]
+[ext_resource type="Texture2D" uid="uid://che2kqs43lfbj" path="res://buttons/levelbuttons-brg/level3.tres" id="13_b42hy"]
+[ext_resource type="Texture2D" uid="uid://cdv1qv77a0sd5" path="res://buttons/levelbuttons-brg/pressed-level3.tres" id="14_ll0g8"]
+[ext_resource type="Texture2D" uid="uid://c1l30x5phyj52" path="res://buttons/levelbuttons-brg/level3-hover.tres" id="15_iwwsr"]
+[ext_resource type="Texture2D" uid="uid://dp1rddglrhfj2" path="res://buttons/levelbuttons-brg/disable_level3.tres" id="16_xedg2"]
+[ext_resource type="Texture2D" uid="uid://ekb348tfw43x" path="res://buttons/levelbuttons-brg/level4.tres" id="17_siyaj"]
+[ext_resource type="Texture2D" uid="uid://ciemaecb4elrv" path="res://buttons/levelbuttons-brg/pressed-level4.tres" id="18_fu57g"]
+[ext_resource type="Texture2D" uid="uid://dilhq1umrp60g" path="res://buttons/levelbuttons-brg/level4-hover.tres" id="19_cbo7q"]
+[ext_resource type="Texture2D" uid="uid://cbund0q6juj73" path="res://buttons/levelbuttons-brg/disable_level4.tres" id="20_n0vdq"]
+[ext_resource type="Texture2D" uid="uid://cwrrl5jcuhkjc" path="res://buttons/levelbuttons-brg/level5.tres" id="21_1cqt2"]
+[ext_resource type="Texture2D" uid="uid://dop6xbr8lbet4" path="res://buttons/levelbuttons-brg/pressed-level5.tres" id="22_h2esu"]
+[ext_resource type="Texture2D" uid="uid://d1rs0jjulj2bw" path="res://buttons/levelbuttons-brg/level5-hover.tres" id="23_m3blv"]
+[ext_resource type="Texture2D" uid="uid://cebc0b7hiwtc3" path="res://buttons/levelbuttons-brg/disable_level5.tres" id="24_l5aqr"]
+[ext_resource type="Texture2D" uid="uid://bvsojketn5acg" path="res://buttons/levelbuttons-brg/level6.tres" id="25_bc803"]
+[ext_resource type="Texture2D" uid="uid://rwqwd1un1wg3" path="res://buttons/levelbuttons-brg/pressed-level6.tres" id="26_l6nor"]
+[ext_resource type="Texture2D" uid="uid://gwo3sut5kqjk" path="res://buttons/levelbuttons-brg/level6-hover.tres" id="27_uxvuw"]
+[ext_resource type="Texture2D" uid="uid://cenqe0f1lfsok" path="res://buttons/levelbuttons-brg/disable_level6.tres" id="28_uytp8"]
+[ext_resource type="Texture2D" uid="uid://bbcuep8mn5coi" path="res://buttons/levelbuttons-brg/level7.tres" id="29_x0o16"]
+[ext_resource type="Texture2D" uid="uid://b6l3iefam3c8v" path="res://buttons/levelbuttons-brg/pressed-level7.tres" id="30_xqas7"]
+[ext_resource type="Texture2D" uid="uid://brg4sj0nqmc1" path="res://buttons/levelbuttons-brg/level7-hover.tres" id="31_wo56v"]
+[ext_resource type="Texture2D" uid="uid://6nbr16cw6fye" path="res://buttons/levelbuttons-brg/disable_level7.tres" id="32_lpqur"]
+[ext_resource type="Texture2D" uid="uid://c5iewjlmn3msx" path="res://buttons/levelbuttons-brg/level8.tres" id="33_tge28"]
+[ext_resource type="Texture2D" uid="uid://dmuox3flie7ex" path="res://buttons/levelbuttons-brg/pressed-level8.tres" id="34_c72jh"]
+[ext_resource type="Texture2D" uid="uid://7qmii2q8na6h" path="res://buttons/levelbuttons-brg/level8-hover.tres" id="35_nlws6"]
+[ext_resource type="Texture2D" uid="uid://vc3plv85po7j" path="res://buttons/levelbuttons-brg/disable_level8.tres" id="36_1us2r"]
+[ext_resource type="Texture2D" uid="uid://yardjrjagvvq" path="res://buttons/levelbuttons-brg/level9.tres" id="37_v5uce"]
+[ext_resource type="Texture2D" uid="uid://b7vil5mb4vdhh" path="res://buttons/levelbuttons-brg/pressed-level9.tres" id="38_hx3r1"]
+[ext_resource type="Texture2D" uid="uid://btmm1lj0vgnxa" path="res://buttons/levelbuttons-brg/level9-hover.tres" id="39_hai0j"]
+[ext_resource type="Texture2D" uid="uid://cesjurivjol8w" path="res://buttons/levelbuttons-brg/disable_level9.tres" id="40_q1qho"]
+[ext_resource type="Texture2D" uid="uid://bvu0o154hjhb" path="res://buttons/levelbuttons-brg/level10.tres" id="41_vwte5"]
+[ext_resource type="Texture2D" uid="uid://ivpygwfungc8" path="res://buttons/levelbuttons-brg/pressed-level10.tres" id="42_3m4m0"]
+[ext_resource type="Texture2D" uid="uid://va5s2fr71bqu" path="res://buttons/levelbuttons-brg/level10-hover.tres" id="43_bt3xy"]
+[ext_resource type="Texture2D" uid="uid://bbrx30c7famjj" path="res://buttons/levelbuttons-brg/disable_level10.tres" id="44_6yfri"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_we5ky"]
+load_path = "res://.godot/imported/back_left_button.png-435ebce1fa2c33866fe7e9cbdf56af24.ctex"
+
+[node name="LevelSelect" type="Control" unique_id=2112232084]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MenuBackground" type="TextureRect" parent="." unique_id=1869641766]
+unique_name_in_owner = true
+layout_mode = 0
+texture = ExtResource("1_pktdi")
+
+[node name="LevelTitle" type="Sprite2D" parent="." unique_id=940040804]
+unique_name_in_owner = true
+position = Vector2(536, 128)
+scale = Vector2(0.5820313, 0.49479172)
+texture = ExtResource("4_cxrkr")
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=261290270]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 250.0
+offset_bottom = 150.0
+toggle_mode = true
+texture_normal = SubResource("CompressedTexture2D_we5ky")
+texture_pressed = ExtResource("3_ddqly")
+texture_hover = ExtResource("3_ddqly")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelContainer" type="GridContainer" parent="." unique_id=1622933283]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 104.0
+offset_top = 280.0
+offset_right = 920.0
+offset_bottom = 672.0
+mouse_filter = 0
+columns = 5
+
+[node name="Level1" type="TextureButton" parent="LevelContainer" unique_id=1393213110]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("7_xegj6")
+texture_pressed = ExtResource("8_tvtf2")
+texture_hover = ExtResource("9_trpgl")
+texture_disabled = ExtResource("10_eosdy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level2" type="TextureButton" parent="LevelContainer" unique_id=2017872742]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("9_0kg6i")
+texture_pressed = ExtResource("10_uaqmx")
+texture_hover = ExtResource("11_xomfm")
+texture_disabled = ExtResource("12_74xqp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level3" type="TextureButton" parent="LevelContainer" unique_id=729846999]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("13_b42hy")
+texture_pressed = ExtResource("14_ll0g8")
+texture_hover = ExtResource("15_iwwsr")
+texture_disabled = ExtResource("16_xedg2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level4" type="TextureButton" parent="LevelContainer" unique_id=890832590]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("17_siyaj")
+texture_pressed = ExtResource("18_fu57g")
+texture_hover = ExtResource("19_cbo7q")
+texture_disabled = ExtResource("20_n0vdq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level5" type="TextureButton" parent="LevelContainer" unique_id=798193978]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("21_1cqt2")
+texture_pressed = ExtResource("22_h2esu")
+texture_hover = ExtResource("23_m3blv")
+texture_disabled = ExtResource("24_l5aqr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level6" type="TextureButton" parent="LevelContainer" unique_id=1408837831]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("25_bc803")
+texture_pressed = ExtResource("26_l6nor")
+texture_hover = ExtResource("27_uxvuw")
+texture_disabled = ExtResource("28_uytp8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level7" type="TextureButton" parent="LevelContainer" unique_id=735115698]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("29_x0o16")
+texture_pressed = ExtResource("30_xqas7")
+texture_hover = ExtResource("31_wo56v")
+texture_disabled = ExtResource("32_lpqur")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level8" type="TextureButton" parent="LevelContainer" unique_id=640434568]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("33_tge28")
+texture_pressed = ExtResource("34_c72jh")
+texture_hover = ExtResource("35_nlws6")
+texture_disabled = ExtResource("36_1us2r")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level9" type="TextureButton" parent="LevelContainer" unique_id=1307764560]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("37_v5uce")
+texture_pressed = ExtResource("38_hx3r1")
+texture_hover = ExtResource("39_hai0j")
+texture_disabled = ExtResource("40_q1qho")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Level10" type="TextureButton" parent="LevelContainer" unique_id=2104987068]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("41_vwte5")
+texture_pressed = ExtResource("42_3m4m0")
+texture_hover = ExtResource("43_bt3xy")
+texture_disabled = ExtResource("44_6yfri")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="LevelContainer/Level1" to="LevelContainer/Level1" method="_on_pressed"]

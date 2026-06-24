@@ -42,6 +42,9 @@ func _on_level_selected(path) -> void:
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	selected_level_path = ""
+	selected_powerup_card = null
+	GameManager.selected_powerup = ""
 
 func _on_start_button_pressed() -> void:
 	if selected_level_path == "":
@@ -56,6 +59,7 @@ func _on_start_button_pressed() -> void:
 func _on_cancel_button_pressed() -> void:
 	selected_level_path = ""
 	selected_powerup_card = null
+	GameManager.selected_powerup = ""
 	
 	powerup_modal.hide()
 	
