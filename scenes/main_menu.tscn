@@ -114,3 +114,4 @@ stretch_mode = 5
 [connection signal="pressed" from="ButtonContainer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="NotificationButton" to="." method="_on_notification_button_pressed"]

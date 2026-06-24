@@ -22,6 +22,8 @@ func _on_shop_button_pressed() -> void:
 	MouseManager.hide_mouse_trail()
 	get_tree().change_scene_to_file("res://shop/shop.tscn")
 
-
 func _on_tutorial_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/levels/tutorial_level/tutorial_level.tscn")
+
+func _on_notification_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://notification/notificationscreen.tscn")

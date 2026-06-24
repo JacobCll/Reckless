@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://e3lqhrllyrhm"]
+
+[node name="NotificationScreen" type="Control" unique_id=1069354861]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="." unique_id=220160792]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 31.0
+offset_right = 794.0
+offset_bottom = 134.0
+theme_override_font_sizes/font_size = 32
+text = "Notification Screen"
