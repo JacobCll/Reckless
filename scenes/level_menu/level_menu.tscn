@@ -52,7 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://ivpygwfungc8" path="res://buttons/levelbuttons-brg/pressed-level10.tres" id="46_jhchr"]
 [ext_resource type="Texture2D" uid="uid://va5s2fr71bqu" path="res://buttons/levelbuttons-brg/level10-hover.tres" id="47_a4ij0"]
 [ext_resource type="Texture2D" uid="uid://bbrx30c7famjj" path="res://buttons/levelbuttons-brg/disable_level10.tres" id="48_edey8"]
-[ext_resource type="Texture2D" uid="uid://dt0sq5rxlxx34" path="res://buttons/powerups-buttons/poweruptitle.tres" id="49_lcikx"]
+[ext_resource type="Texture2D" uid="uid://d0pa51uu8a6xe" path="res://text_labels/poweruptitle.tres" id="49_lcikx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri0ji"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8745098)
@@ -192,34 +192,66 @@ level_number = 10
 
 [node name="PowerupModal" type="Panel" parent="CanvasLayer" unique_id=1807815975]
 anchors_preset = -1
-anchor_left = 0.508
-anchor_top = 0.56600004
-anchor_right = 0.508
-anchor_bottom = 0.56600004
-offset_left = -329.19202
-offset_top = -244.68805
-offset_right = 126.80798
-offset_bottom = 93.720215
+anchor_left = 0.49300003
+anchor_top = 0.523
+anchor_right = 0.49300003
+anchor_bottom = 0.523
+offset_left = -328.83203
+offset_top = -249.664
+offset_right = 127.16797
+offset_bottom = 88.74426
 scale = Vector2(1.445, 1.445)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ri0ji")
 
-[node name="ModalTitle" type="TextureRect" parent="CanvasLayer/PowerupModal" unique_id=342716695]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PowerupModal" unique_id=437110974]
+z_index = -999
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.41522
+offset_top = -104.49826
+offset_right = 132.23529
+offset_bottom = 87.197296
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5137255)
+
+[node name="ModalLabel" type="TextureRect" parent="CanvasLayer/PowerupModal" unique_id=1638090128]
+layout_mode = 0
+offset_top = 15.916946
+offset_right = 456.05536
+offset_bottom = 50.51902
+texture = ExtResource("49_lcikx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/PowerupModal" unique_id=1802302523]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.50600004
-anchor_top = 0.08800001
-anchor_right = 0.50600004
-anchor_bottom = 0.08800001
-offset_left = -154.61147
-offset_top = -22.167473
-offset_right = 159.64978
-offset_bottom = 44.688835
-grow_horizontal = 2
-texture = ExtResource("49_lcikx")
-expand_mode = 1
-stretch_mode = 5
+anchor_left = 0.5
+anchor_top = 0.462
+anchor_right = 0.5
+anchor_bottom = 0.462
+offset_left = -193.39792
+offset_top = -93.368835
+offset_right = 194.14532
+offset_bottom = 104.55504
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PowerupModal/ScrollContainer" unique_id=1094850720]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PowerupGrid" type="GridContainer" parent="CanvasLayer/PowerupModal/ScrollContainer/MarginContainer" unique_id=633945927]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
 
 [node name="StartButton" type="TextureButton" parent="CanvasLayer/PowerupModal" unique_id=920378249]
 layout_mode = 1
@@ -256,36 +288,6 @@ texture_pressed = ExtResource("9_ri0ji")
 texture_hover = ExtResource("9_ri0ji")
 ignore_texture_size = true
 stretch_mode = 5
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/PowerupModal" unique_id=1802302523]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.52400005
-anchor_top = 0.45100003
-anchor_right = 0.52400005
-anchor_bottom = 0.45100003
-offset_left = -204.34195
-offset_top = -79.26574
-offset_right = 126.4539
-offset_bottom = 112.111206
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PowerupModal/ScrollContainer" unique_id=1094850720]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="PowerupGrid" type="GridContainer" parent="CanvasLayer/PowerupModal/ScrollContainer/MarginContainer" unique_id=633945927]
-layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 3
-
-[node name="PowerupCard" parent="CanvasLayer/PowerupModal/ScrollContainer/MarginContainer/PowerupGrid" unique_id=467836585 instance=ExtResource("12_uxs4i")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PowerupModal/StartButton" to="." method="_on_start_button_pressed"]

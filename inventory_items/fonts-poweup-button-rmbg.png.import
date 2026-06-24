@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ciexvjiamp4x1"
-path="res://.godot/imported/fonts-poweup-button-rmbg.png-d55aa8961d144712070c48111742ba50.ctex"
+path="res://.godot/imported/fonts-poweup-button-rmbg.png-28170895dbbdc3a823f0c5a8e983349e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://buttons/powerups-buttons/fonts-poweup-button-rmbg.png"
-dest_files=["res://.godot/imported/fonts-poweup-button-rmbg.png-d55aa8961d144712070c48111742ba50.ctex"]
+source_file="res://inventory_items/fonts-poweup-button-rmbg.png"
+dest_files=["res://.godot/imported/fonts-poweup-button-rmbg.png-28170895dbbdc3a823f0c5a8e983349e.ctex"]
 
 [params]
 

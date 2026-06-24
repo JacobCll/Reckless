@@ -1,8 +1,8 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://dt0sq5rxlxx34"]
+[gd_resource type="AtlasTexture" format=3 uid="uid://d0pa51uu8a6xe"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ofm7y"]
 load_path = "res://.godot/imported/fonts-poweup-button-rmbg.png-d55aa8961d144712070c48111742ba50.ctex"
 
 [resource]
 atlas = SubResource("CompressedTexture2D_ofm7y")
-region = Rect2(734.59985, 299.49994, 367.19995, 72.89996)
+region = Rect2(738.75146, 310.96066, 359.5702, 47.415863)
