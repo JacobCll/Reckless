@@ -1,5 +1,31 @@
 [gd_scene format=3 uid="uid://dae43usjjw2we"]
 
+[ext_resource type="Script" uid="uid://c6o04di73s80a" path="res://settings/helpmanual.gd" id="1_lmv0r"]
+[ext_resource type="Texture2D" uid="uid://cmd57qnn61sda" path="res://backgrounds/levels_menu_background.png" id="2_6wfyy"]
+[ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="3_ed3c8"]
+[ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="4_0xjd1"]
+
 [node name="HelpManual" type="Control" unique_id=1443152548]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_lmv0r")
+
+[node name="Background" type="TextureRect" parent="." unique_id=836364795]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6wfyy")
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=1531630456]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 30.0
+offset_right = 203.0
+offset_bottom = 148.0
+texture_normal = ExtResource("3_ed3c8")
+texture_pressed = ExtResource("4_0xjd1")
+texture_hover = ExtResource("4_0xjd1")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
