@@ -33,6 +33,22 @@ window/size/viewport_width=1024
 window/size/viewport_height=768
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://audio_manager/": "red",
+"res://backgrounds/": "orange",
+"res://buttons/": "yellow",
+"res://characters/": "green",
+"res://effects/": "teal",
+"res://entities/": "green",
+"res://fonts/": "orange",
+"res://game_manager/": "red",
+"res://hud_elements/": "teal",
+"res://inventory_items/": "teal",
+"res://loading_screen/": "red"
+}
+
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
