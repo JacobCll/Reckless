@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dae43usjjw2we"]
+
+[node name="HelpManual" type="Control" unique_id=1443152548]
+layout_mode = 3
+anchors_preset = 0
