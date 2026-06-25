@@ -34,10 +34,10 @@ texture_hover = ExtResource("4_gy7ao")
 stretch_mode = 5
 
 [node name="OrbBag" type="TextureRect" parent="." unique_id=1000303236]
-offset_left = 840.0
-offset_top = 24.0
-offset_right = 1048.0
-offset_bottom = 120.0
+offset_left = 839.0
+offset_top = 29.0
+offset_right = 1047.0
+offset_bottom = 125.0
 size_flags_horizontal = 0
 texture = ExtResource("6_q4g17")
 expand_mode = 1
@@ -45,14 +45,14 @@ stretch_mode = 5
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1029697808]
 anchors_preset = -1
-anchor_left = 0.97200006
-anchor_top = 0.123
-anchor_right = 0.97200006
-anchor_bottom = 0.123
-offset_left = -91.328064
-offset_top = 17.535995
-offset_right = -11.328064
-offset_bottom = 49.535995
+anchor_left = 0.961
+anchor_top = 0.178
+anchor_right = 0.961
+anchor_bottom = 0.178
+offset_left = -80.064026
+offset_top = -15.70401
+offset_right = -0.06402588
+offset_bottom = 16.29599
 grow_horizontal = 0
 grow_vertical = 2
 metadata/_edit_group_ = true
@@ -72,7 +72,7 @@ anchor_bottom = 1.0
 offset_left = 104.0
 offset_top = 168.0
 offset_right = -112.0
-offset_bottom = -25.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -80,8 +80,10 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 10
 
 [node name="HirayaWizard" type="TextureRect" parent="." unique_id=2056872977]
+visible = false
 offset_left = -144.0
 offset_top = 376.0
 offset_right = 424.0

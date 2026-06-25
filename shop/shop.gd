@@ -36,7 +36,11 @@ func _ready() -> void:
 		item.name_label.text = item_data["display_name"]
 		item.desc_label.text = item_data["description"]
 		item.cost_label.text = str(item_data["cost"]) + " orbs"
-	
+		
+		var item_texture_path = GameManager.item_info[item_id]["texture"]
+		var item_texture = load(item_texture_path)
+		item.texture_rect.texture = item_texture
+		
 	update_ui()
 
 func buy_item(item_id: String, cost: int) -> bool:

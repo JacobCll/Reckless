@@ -6,6 +6,7 @@ extends Panel
 @onready var cost_label := $Cost
 @onready var buy_button := $BuyButton
 @onready var owned_label := $OwnedCount
+@onready var texture_rect := $Texture
 
 var shop
 var item_id: String
