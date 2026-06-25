@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cb31tut22gh7p"]
+
+[ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="1_i67lv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vy5wx"]
+
+[node name="ViewMessage" type="Control" unique_id=798058511]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="TextureRect" parent="." unique_id=1378652699]
+modulate = Color(0.7812813, 0.8319993, 0.5636833, 1)
+layout_mode = 0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 1022.0
+offset_bottom = 768.0
+texture = SubResource("CanvasTexture_vy5wx")
+
+[node name="SubjectTitle" type="Label" parent="." unique_id=388808971]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 42.0
+offset_right = 418.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.12005126, 0.12005126, 0.12005126, 1)
+theme_override_fonts/font = ExtResource("1_i67lv")
+theme_override_font_sizes/font_size = 52
+text = "Welcome, Players!"
+
+[node name="Date" type="Label" parent="." unique_id=1034986997]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 124.0
+offset_right = 147.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_i67lv")
+text = "June 25, 2026"
+uppercase = true
+
+[node name="Time" type="Label" parent="." unique_id=1367329232]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 121.0
+offset_right = 247.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_i67lv")
+theme_override_font_sizes/font_size = 16
+text = "9:00 PM"
+
+[node name="Message" type="TextEdit" parent="." unique_id=770092110]
+layout_mode = 0
+offset_left = 35.5
+offset_top = 188.0
+offset_right = 980.0
+offset_bottom = 715.0
+theme_override_font_sizes/font_size = 18
+text = "Placeholder for text for messages. 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis porttitor auctor. Aliquam ornare fermentum feugiat. Aenean ornare consectetur consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat quis quam nec viverra. Curabitur mattis mi sit amet erat pulvinar tincidunt. Aenean molestie mi felis, condimentum ullamcorper risus laoreet eu. Phasellus tincidunt risus magna, sollicitudin semper nibh maximus et. Praesent efficitur tortor sed laoreet laoreet. Aliquam in lorem nisi.
+
+Nulla sed lacinia massa. Proin quis mattis enim. Etiam interdum velit vitae nisi dapibus rutrum. Vestibulum quis enim blandit, euismod lacus quis, ullamcorper dolor. Nam eget malesuada nisl. Duis feugiat sed sem et congue. Vivamus interdum ultricies mi in mollis.
+
+Duis eleifend quis ante varius auctor. Duis volutpat sollicitudin quam, ac eleifend ex vestibulum eu. Pellentesque nec nunc blandit, pharetra dolor vitae, vulputate ante. Suspendisse eros ex, auctor eu tempus vel, rutrum vel leo. Morbi accumsan magna in dapibus sollicitudin. Vivamus posuere venenatis posuere. Nam eleifend sit amet ex quis posuere. Praesent suscipit magna in est cursus, laoreet hendrerit ligula ullamcorper. Quisque sollicitudin commodo rutrum. Vestibulum maximus ultricies urna et posuere. Sed sit amet erat nunc. Mauris eu lacinia mi. Mauris a nulla sit amet ipsum venenatis suscipit. Duis nec diam placerat, blandit arcu eu, finibus erat.
+
+Etiam id iaculis tellus, nec congue mauris. Fusce turpis quam, iaculis vitae facilisis non, pretium nec magna. Aliquam auctor varius nibh, in cursus eros rhoncus vehicula. Donec dignissim ipsum nec massa placerat, at sagittis lectus consequat. Pellentesque auctor quam a ipsum tincidunt, ultricies ullamcorper erat tempor. Aliquam non tincidunt lectus. Cras aliquam dui porta metus vestibulum, a auctor magna tincidunt. In gravida interdum nibh, vel luctus lorem.
+
+Phasellus cursus scelerisque tellus. Vivamus in placerat nunc. Phasellus libero justo, tincidunt nec condimentum a, ornare non risus. Proin imperdiet, tortor eget ornare porta, ligula nulla finibus dui, in venenatis elit dolor at nunc. Vestibulum mattis urna ut ultrices pharetra. Proin convallis sem ultrices purus hendrerit finibus. Duis dui orci, rutrum et molestie nec, pulvinar quis mi. Nulla aliquam nisi non purus feugiat ornare. Nulla at efficitur lacus."
+placeholder_text = "Enter your text here"
+wrap_mode = 1

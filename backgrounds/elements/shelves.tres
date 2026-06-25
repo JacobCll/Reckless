@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://cdnpygwcbk4tg"]
+
+[ext_resource type="Texture2D" uid="uid://cqv0jifxg6r3u" path="res://backgrounds/elements/shelves.png" id="1_rai3m"]
+
+[resource]
+atlas = ExtResource("1_rai3m")
+region = Rect2(32, 243, 435, 29)

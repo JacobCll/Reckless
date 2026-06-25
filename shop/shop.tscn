@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cwpkbrjwixqbe" path="res://buttons/powerups-buttons/orb-bag.tres" id="6_q4g17"]
 [ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="7_2wf2a"]
 [ext_resource type="Texture2D" uid="uid://dalergjb5t8rk" path="res://buttons/powerups-buttons/wizard.tres" id="8_xad5q"]
+[ext_resource type="Texture2D" uid="uid://cdnpygwcbk4tg" path="res://backgrounds/elements/shelves.tres" id="9_ljlg5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ljlg5"]
 
 [node name="Shop" type="Node" unique_id=1750255976]
 script = ExtResource("1_sxvro")
@@ -69,10 +72,10 @@ vertical_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 104.0
-offset_top = 168.0
-offset_right = -112.0
-offset_bottom = -24.0
+offset_left = 152.0
+offset_top = 240.0
+offset_right = -512.0
+offset_bottom = -320.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -83,13 +86,29 @@ size_flags_vertical = 3
 theme_override_constants/separation = 10
 
 [node name="HirayaWizard" type="TextureRect" parent="." unique_id=2056872977]
-visible = false
-offset_left = -144.0
-offset_top = 376.0
-offset_right = 424.0
-offset_bottom = 779.0
+offset_left = 432.0
+offset_top = 192.0
+offset_right = 1160.0
+offset_bottom = 787.0
 texture = ExtResource("8_xad5q")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Shelves" type="TextureRect" parent="." unique_id=1925111453]
+offset_left = 120.0
+offset_top = 440.0
+offset_right = 555.0
+offset_bottom = 480.0
+texture = ExtResource("9_ljlg5")
+
+[node name="BoxtoLocateItem" type="TextureRect" parent="." unique_id=496102738]
+visible = false
+modulate = Color(0.19607843, 1, 1, 1)
+self_modulate = Color(0.13333334, 1, 1, 1)
+offset_left = 152.0
+offset_top = 232.0
+offset_right = 512.0
+offset_bottom = 440.0
+texture = SubResource("CanvasTexture_ljlg5")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

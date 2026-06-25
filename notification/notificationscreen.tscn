@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://d01yh6a6vbkqd" path="res://notification/notificationscreen.gd" id="1_hkot4"]
 [ext_resource type="Texture2D" uid="uid://b2qsyxc0cnsfy" path="res://backgrounds/updated-notification-brg.png" id="1_p2uf4"]
 [ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="3_ixy60"]
+[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_sjudy"]
 [ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="4_sjudy"]
+[ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="6_l3ck7"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sjudy"]
 
 [node name="NotificationScreen" type="Control" unique_id=1069354861]
 layout_mode = 3
@@ -26,12 +30,14 @@ expand_mode = 2
 
 [node name="Label" type="Label" parent="." unique_id=220160792]
 layout_mode = 0
-offset_left = 246.0
-offset_top = 85.0
-offset_right = 770.0
-offset_bottom = 129.66667
-theme_override_font_sizes/font_size = 32
-text = "Notification Screen"
+offset_left = 262.0
+offset_top = 101.0
+offset_right = 786.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0.19415873, 0.29256728, 0.10537874, 1)
+theme_override_fonts/font = ExtResource("3_sjudy")
+theme_override_font_sizes/font_size = 58
+text = "NOTIFICATION INBOX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -42,14 +48,57 @@ offset_bottom = 40.0
 
 [node name="BackButton" type="TextureButton" parent="." unique_id=1979583565]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 62.0
-offset_right = 591.0
-offset_bottom = 264.0
+offset_left = 59.0
+offset_top = 83.0
+offset_right = 609.0
+offset_bottom = 285.0
 scale = Vector2(0.4, 0.4)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_ixy60")
 texture_hover = ExtResource("4_sjudy")
 stretch_mode = 4
 
+[node name="MessageSelect" type="VScrollBar" parent="." unique_id=1887244559]
+self_modulate = Color(0.7812813, 0.8319993, 0.5636833, 1)
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_left = 93.0
+offset_top = 214.0
+offset_right = 343.0
+offset_bottom = 625.0
+
+[node name="Message1" type="LinkButton" parent="MessageSelect" unique_id=1979678410]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 19.0
+offset_right = 268.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.42339557, 0.63292414, 0.07483374, 1)
+theme_override_colors/font_hover_color = Color(0.827451, 0.5803922, 0.09019608, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.26800025, 0.40697095, 0.97330374, 1)
+theme_override_colors/font_disabled_color = Color(0.899626, 0.00041365973, 0.00022698462, 1)
+theme_override_fonts/font = ExtResource("6_l3ck7")
+theme_override_font_sizes/font_size = 22
+text = "Welcome, Players!"
+underline = 1
+text_overrun_behavior = 5
+
+[node name="ViewSection" type="TextureRect" parent="." unique_id=1069211491]
+self_modulate = Color(0.35686275, 0.38039216, 0.25490198, 1)
+layout_mode = 0
+offset_left = 368.0
+offset_top = 214.0
+offset_right = 913.0
+offset_bottom = 623.0
+texture = SubResource("CanvasTexture_sjudy")
+
+[node name="Label" type="Label" parent="ViewSection" unique_id=1948827270]
+layout_mode = 0
+offset_right = 477.0
+offset_bottom = 47.666668
+text = "Need to be linked to the view message scene to be displayed here. This is just a placeholder."
+autowrap_mode = 3
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MessageSelect/Message1" to="." method="_on_message_1_pressed"]
