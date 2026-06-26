@@ -20,6 +20,9 @@ var items := {
 	}
 }
 
+func _process(_delta):
+	orb_count_label.text = "Orbs: " + str(GameManager.user_orbs)
+
 func _ready() -> void:
 	MouseManager.hide_mouse_trail()
 	
@@ -41,23 +44,17 @@ func _ready() -> void:
 		var item_texture = load(item_texture_path)
 		item.texture_rect.texture = item_texture
 		
-	update_ui()
 
 func buy_item(item_id: String, cost: int) -> bool:
 	if GameManager.user_orbs < cost:
 		return false
-
+	
 	GameManager.user_orbs -= cost
 	GameManager.inventory[item_id] += 1
-
+	
 	GameManager.save_data()
-	update_ui()
-
+	
 	return true
-
-
-func update_ui() -> void:
-	orb_count_label.text = "Orbs: " + str(GameManager.user_orbs)
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

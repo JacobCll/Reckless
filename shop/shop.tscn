@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cwpkbrjwixqbe" path="res://buttons/powerups-buttons/orb-bag.tres" id="6_q4g17"]
 [ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="7_2wf2a"]
 [ext_resource type="Texture2D" uid="uid://dalergjb5t8rk" path="res://buttons/powerups-buttons/wizard.tres" id="8_xad5q"]
-[ext_resource type="Texture2D" path="res://backgrounds/elements/shelves.tres" id="9_ljlg5"]
+[ext_resource type="Texture2D" uid="uid://cdnpygwcbk4tg" path="res://backgrounds/elements/shelves.tres" id="9_ljlg5"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ljlg5"]
 
@@ -17,6 +17,7 @@ script = ExtResource("1_sxvro")
 shop_item_scene = ExtResource("5_gy7ao")
 
 [node name="Background" type="TextureRect" parent="." unique_id=21323181]
+modulate = Color(0.8732984, 0.8732984, 0.8732984, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -72,10 +73,10 @@ vertical_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = 177.0
-offset_right = -466.0
-offset_bottom = -103.0
+offset_left = 78.0
+offset_top = 206.0
+offset_right = -468.0
+offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -95,10 +96,10 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Shelves" type="TextureRect" parent="." unique_id=1925111453]
-offset_left = 50.0
-offset_top = 665.0
-offset_right = 585.0
-offset_bottom = 705.0
+offset_left = 51.0
+offset_top = 632.0
+offset_right = 586.0
+offset_bottom = 672.0
 texture = ExtResource("9_ljlg5")
 
 [node name="BoxtoLocateItem" type="TextureRect" parent="." unique_id=496102738]
