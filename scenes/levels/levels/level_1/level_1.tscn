@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="6_l4mnh"]
 [ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="7_yasux"]
 [ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="9_l4mnh"]
-[ext_resource type="Texture2D" uid="uid://bhyerd4cab2gf" path="res://backgrounds/FinalVerGameoverBG.png" id="10_h0wnc"]
-[ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="11_ttfuh"]
-[ext_resource type="Texture2D" uid="uid://detx5xjsx8hry" path="res://backgrounds/VictoryBG.png" id="12_ttfuh"]
 
 [sub_resource type="Curve2D" id="Curve2D_k0gby"]
 _data = {
@@ -89,37 +86,6 @@ path = NodePath("../EntitySpawner1Path")
 
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave3" index="1" unique_id=1988290731]
 curve = SubResource("Curve2D_l4mnh")
-
-[node name="GameoverBG" type="TextureRect" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="0" unique_id=1020969356]
-layout_mode = 0
-offset_left = -73.0
-offset_top = -193.0
-offset_right = 1071.0
-offset_bottom = 962.0
-texture = ExtResource("10_h0wnc")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="GameoverText" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer" parent_id_path=PackedInt32Array(1757514996) index="0" unique_id=1750382725]
-theme_override_fonts/font = ExtResource("11_ttfuh")
-theme_override_font_sizes/font_size = 107
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VictoryBG" type="TextureRect" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="0" unique_id=1316101121]
-layout_mode = 0
-offset_left = -80.0
-offset_top = -68.0
-offset_right = 1166.0
-offset_bottom = 856.0
-texture = ExtResource("12_ttfuh")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="WinText" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer" parent_id_path=PackedInt32Array(473718819) index="0" unique_id=196137116]
-theme_override_fonts/font = ExtResource("11_ttfuh")
-theme_override_font_sizes/font_size = 115
-text = "Victory!"
 
 [node name="ColorRect" parent="CanvasLayer/PauseScreen" parent_id_path=PackedInt32Array(1455857404) index="0" unique_id=882516791]
 color = Color(0.26657507, 0.26657525, 0.2665752, 1)

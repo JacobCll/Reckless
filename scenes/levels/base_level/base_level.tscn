@@ -33,22 +33,6 @@ process_mode = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1956116786]
 process_mode = 3
 
-[node name="WaveWinLabel" type="Label" parent="CanvasLayer" unique_id=1339355824]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -44.0
-offset_right = 20.0
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=1652738209]
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,6 +51,39 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameoverScreen" type="Control" parent="CanvasLayer" unique_id=914947514]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameoverText" type="Label" parent="CanvasLayer/GameoverScreen" unique_id=1750382725]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 312.0
+offset_right = 684.0
+offset_bottom = 401.33334
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+
+[node name="MainMenuButton" type="TextureButton" parent="CanvasLayer/GameoverScreen" unique_id=1841760714]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 416.0
+offset_right = 511.0
+offset_bottom = 469.0
+mouse_default_cursor_shape = 2
+
+[node name="RetryButton" type="TextureButton" parent="CanvasLayer/GameoverScreen" unique_id=1343218882]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 416.0
+offset_right = 659.0
+offset_bottom = 469.0
+mouse_default_cursor_shape = 2
+
+[node name="WinLevelScreen" type="Control" parent="CanvasLayer" unique_id=800143018]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -75,86 +92,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/GameoverScreen" unique_id=984660243]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameoverScreen/CenterContainer" unique_id=1757514996]
-layout_mode = 2
-alignment = 1
-
-[node name="GameoverText" type="Label" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer" unique_id=1750382725]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Game Over"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer" unique_id=606013018]
-layout_mode = 2
-alignment = 1
-
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1986516839]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Main Menu"
-
-[node name="RetryButton" type="Button" parent="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1294782512]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Retry"
-
-[node name="WinLevelScreen" type="Control" parent="CanvasLayer" unique_id=800143018]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/WinLevelScreen" unique_id=133865196]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/WinLevelScreen/CenterContainer" unique_id=473718819]
-layout_mode = 2
-alignment = 1
-
-[node name="WinText" type="Label" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer" unique_id=196137116]
-layout_mode = 2
+[node name="WinText" type="Label" parent="CanvasLayer/WinLevelScreen" unique_id=196137116]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 339.0
+offset_right = 647.0
+offset_bottom = 428.33334
 theme_override_font_sizes/font_size = 64
 text = "You Win!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer" unique_id=298857045]
-layout_mode = 2
-
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1770277089]
-layout_mode = 2
+[node name="MainMenuButton" type="TextureButton" parent="CanvasLayer/WinLevelScreen" unique_id=609095930]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 512.0
+offset_bottom = 384.0
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Main Menu"
 
-[node name="PlayAgainButton" type="Button" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=767164933]
-layout_mode = 2
+[node name="PlayAgainButton" type="TextureButton" parent="CanvasLayer/WinLevelScreen" unique_id=1823004954]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 512.0
+offset_bottom = 384.0
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Play Again"
 
-[node name="NextLevelButton" type="Button" parent="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=251566266]
-layout_mode = 2
+[node name="NextLevelButton" type="TextureButton" parent="CanvasLayer/WinLevelScreen" unique_id=957213080]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 512.0
+offset_bottom = 384.0
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Next Level"
 
 [node name="HUD" type="Control" parent="CanvasLayer" unique_id=1244923538]
 layout_mode = 3
@@ -276,11 +247,11 @@ text = "Pause"
 visible = false
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/GameoverScreen/CenterContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameoverScreen/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameoverScreen/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinLevelScreen/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinLevelScreen/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinLevelScreen/NextLevelButton" to="." method="_on_next_level_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/LevelMenuButton" to="." method="_on_level_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

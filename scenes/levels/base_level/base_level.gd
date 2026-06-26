@@ -39,7 +39,7 @@ var countdown_value := countdown_value_original
 @onready var pause_screen = $CanvasLayer/PauseScreen
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
 @onready var win_screen = $CanvasLayer/WinLevelScreen
-@onready var next_level_button = $CanvasLayer/WinLevelScreen/CenterContainer/VBoxContainer/HBoxContainer/NextLevelButton
+@onready var next_level_button = $CanvasLayer/WinLevelScreen/NextLevelButton
 @onready var settings_menu = $SettingsMenu
 
 # --------------------
@@ -192,6 +192,7 @@ func _on_wave_completed() -> void:
 func _on_all_waves_completed() -> void:
 	print("You win!")
 	
+	pause_button.hide()
 	hud.hide()
 	win_screen.show()
 	
@@ -223,6 +224,7 @@ func _lose_heart() -> void:
 		game_over()
 
 func game_over() -> void:
+	pause_button.hide()
 	hud.hide()
 	gameover_screen.show()
 	
