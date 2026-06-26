@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="3_ixy60"]
 [ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_sjudy"]
 [ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="4_sjudy"]
+[ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="6_l3ck7"]
 [ext_resource type="PackedScene" uid="uid://ckkknbeiur8rb" path="res://notification/message_link_button.tscn" id="6_sjudy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ck7"]
@@ -19,6 +20,18 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbe4v"]
+bg_color = Color(0.61621636, 0.640181, 0.49582338, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
 
 [node name="NotificationScreen" type="Control" unique_id=1069354861]
 layout_mode = 3
@@ -182,6 +195,13 @@ offset_top = 456.0
 offset_right = 553.0
 offset_bottom = 487.0
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
+theme_override_colors/font_focus_color = Color(0.13755056, 0.13755059, 0.13755101, 1)
+theme_override_colors/font_pressed_color = Color(0.19253594, 0.24753907, 0.076026015, 1)
+theme_override_colors/font_hover_color = Color(0.39719033, 0.49682605, 0.18493232, 1)
+theme_override_fonts/font = ExtResource("6_l3ck7")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_nbe4v")
 text = "Read in Full Screen"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
