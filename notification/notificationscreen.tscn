@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://d01yh6a6vbkqd" path="res://notification/notificationscreen.gd" id="1_hkot4"]
 [ext_resource type="Texture2D" uid="uid://b2qsyxc0cnsfy" path="res://backgrounds/updated-notification-brg.png" id="1_p2uf4"]
 [ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="3_ixy60"]
-[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_sjudy"]
 [ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="4_sjudy"]
 [ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="6_l3ck7"]
 [ext_resource type="PackedScene" uid="uid://ckkknbeiur8rb" path="res://notification/message_link_button.tscn" id="6_sjudy"]
@@ -52,14 +51,14 @@ grow_vertical = 2
 texture = ExtResource("1_p2uf4")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="." unique_id=220160792]
+[node name="NotificationLabel" type="Label" parent="." unique_id=220160792]
 layout_mode = 0
-offset_left = 262.0
-offset_top = 101.0
-offset_right = 770.0
-offset_bottom = 158.0
+offset_left = 281.0
+offset_top = 88.0
+offset_right = 789.0
+offset_bottom = 181.0
 theme_override_colors/font_color = Color(0.19415873, 0.29256728, 0.10537874, 1)
-theme_override_fonts/font = ExtResource("3_sjudy")
+theme_override_fonts/font = ExtResource("6_l3ck7")
 theme_override_font_sizes/font_size = 58
 text = "NOTIFICATION INBOX"
 horizontal_alignment = 1
@@ -106,6 +105,7 @@ offset_bottom = 485.0
 
 [node name="Message2" parent="MessageSelectContainer/MessageSelect/VBoxContainer" unique_id=1731157046 instance=ExtResource("6_sjudy")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 27
 text = "New Update!"
 subject_title = "New Update! - Sample Title"
 date = "June 26, 2026"
@@ -113,6 +113,7 @@ time = "10:52 AM"
 
 [node name="Message1" parent="MessageSelectContainer/MessageSelect/VBoxContainer" unique_id=1756597523 instance=ExtResource("6_sjudy")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 27
 text = "Welcome, Players!"
 subject_title = "Welcome, Players!"
 date = "June 25, 2026"

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dy74y7xudf8f3"]
+[gd_scene format=3 uid="uid://cb31tut22gh7p"]
 
 [ext_resource type="Script" uid="uid://c2a6g0pr87hi7" path="res://notification/viewmessage.gd" id="1_gaynu"]
 [ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="1_i67lv"]
