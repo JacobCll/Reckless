@@ -5,9 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="3_ixy60"]
 [ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_sjudy"]
 [ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="4_sjudy"]
-[ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="6_l3ck7"]
+[ext_resource type="PackedScene" uid="uid://ckkknbeiur8rb" path="res://notification/message_link_button.tscn" id="6_sjudy"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_sjudy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ck7"]
+bg_color = Color(0.24840015, 0.24840021, 0.24840006, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjudy"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="NotificationScreen" type="Control" unique_id=1069354861]
 layout_mode = 3
@@ -32,7 +43,7 @@ expand_mode = 2
 layout_mode = 0
 offset_left = 262.0
 offset_top = 101.0
-offset_right = 786.0
+offset_right = 770.0
 offset_bottom = 158.0
 theme_override_colors/font_color = Color(0.19415873, 0.29256728, 0.10537874, 1)
 theme_override_fonts/font = ExtResource("3_sjudy")
@@ -58,47 +69,120 @@ texture_normal = ExtResource("3_ixy60")
 texture_hover = ExtResource("4_sjudy")
 stretch_mode = 4
 
-[node name="MessageSelect" type="VScrollBar" parent="." unique_id=1887244559]
+[node name="MessageSelectContainer" type="ScrollContainer" parent="." unique_id=1647763288]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 177.0
+offset_right = 354.0
+offset_bottom = 678.0
+
+[node name="MessageSelect" type="Panel" parent="MessageSelectContainer" unique_id=66923769]
 self_modulate = Color(0.7812813, 0.8319993, 0.5636833, 1)
 custom_minimum_size = Vector2(250, 0)
-layout_mode = 0
-offset_left = 93.0
-offset_top = 214.0
-offset_right = 343.0
-offset_bottom = 625.0
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_l3ck7")
 
-[node name="Message1" type="LinkButton" parent="MessageSelect" unique_id=1979678410]
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageSelectContainer/MessageSelect" unique_id=956331269]
 layout_mode = 0
-offset_left = 17.0
+offset_left = 24.0
 offset_top = 19.0
-offset_right = 268.0
-offset_bottom = 57.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.42339557, 0.63292414, 0.07483374, 1)
-theme_override_colors/font_hover_color = Color(0.827451, 0.5803922, 0.09019608, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.26800025, 0.40697095, 0.97330374, 1)
-theme_override_colors/font_disabled_color = Color(0.899626, 0.00041365973, 0.00022698462, 1)
-theme_override_fonts/font = ExtResource("6_l3ck7")
-theme_override_font_sizes/font_size = 22
+offset_right = 249.0
+offset_bottom = 485.0
+
+[node name="Message2" parent="MessageSelectContainer/MessageSelect/VBoxContainer" unique_id=1731157046 instance=ExtResource("6_sjudy")]
+layout_mode = 2
+text = "New Update!"
+subject_title = "New Update! - Sample Title"
+date = "June 26, 2026"
+time = "10:52 AM"
+
+[node name="Message1" parent="MessageSelectContainer/MessageSelect/VBoxContainer" unique_id=1756597523 instance=ExtResource("6_sjudy")]
+layout_mode = 2
 text = "Welcome, Players!"
-underline = 1
-text_overrun_behavior = 5
+subject_title = "Welcome, Players!"
+date = "June 25, 2026"
+time = "9:00 PM"
 
-[node name="ViewSection" type="TextureRect" parent="." unique_id=1069211491]
+[node name="MessageContentContainer" type="ScrollContainer" parent="." unique_id=1263137773]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.64000005
+anchor_top = 0.58100003
+anchor_right = 0.64000005
+anchor_bottom = 0.58100003
+offset_left = -284.36005
+offset_top = -269.208
+offset_right = 283.63995
+offset_bottom = 231.79199
+
+[node name="MessageContentPanel" type="Panel" parent="MessageContentContainer" unique_id=563660719]
 self_modulate = Color(0.35686275, 0.38039216, 0.25490198, 1)
-layout_mode = 0
-offset_left = 368.0
-offset_top = 214.0
-offset_right = 913.0
-offset_bottom = 623.0
-texture = SubResource("CanvasTexture_sjudy")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_sjudy")
 
-[node name="Label" type="Label" parent="ViewSection" unique_id=1948827270]
+[node name="Message2Content" type="RichTextLabel" parent="MessageContentContainer/MessageContentPanel" unique_id=1354752158]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 19.0
+offset_right = -24.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 16
+text = "Placeholder for text for messages. 
+
+For Message 2 Content
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis porttitor auctor. Aliquam ornare fermentum feugiat. Aenean ornare consectetur consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat quis quam nec viverra. Curabitur mattis mi sit amet erat pulvinar tincidunt. Aenean molestie mi felis, condimentum ullamcorper risus laoreet eu. Phasellus tincidunt risus magna, sollicitudin semper nibh maximus et. Praesent efficitur tortor sed laoreet laoreet. Aliquam in lorem nisi.
+
+Nulla sed lacinia massa. Proin quis mattis enim. Etiam interdum velit vitae nisi dapibus rutrum. Vestibulum quis enim blandit, euismod lacus quis, ullamcorper dolor. Nam eget malesuada nisl. Duis feugiat sed sem et congue. Vivamus interdum ultricies mi in mollis.
+
+Duis eleifend quis ante varius auctor. Duis volutpat sollicitudin quam, ac eleifend ex vestibulum eu. Pellentesque nec nunc blandit, pharetra dolor vitae, vulputate ante. Suspendisse eros ex, auctor eu tempus vel, rutrum vel leo. Morbi accumsan magna in dapibus sollicitudin. Vivamus posuere venenatis posuere. Nam eleifend sit amet ex quis posuere. Praesent suscipit magna in est cursus, laoreet hendrerit ligula ullamcorper. Quisque sollicitudin commodo rutrum. Vestibulum maximus ultricies urna et posuere. Sed sit amet erat nunc. Mauris eu lacinia mi. Mauris a nulla sit amet ipsum venenatis suscipit. Duis nec diam placerat, blandit arcu eu, finibus erat.
+
+Etiam id iaculis tellus, nec congue mauris. Fusce turpis quam, iaculis vitae facilisis non, pretium nec magna. Aliquam auctor varius nibh, in cursus eros rhoncus vehicula. Donec dignissim ipsum nec massa placerat, at sagittis lectus consequat. Pellentesque auctor quam a ipsum tincidunt, ultricies ullamcorper erat tempor. Aliquam non tincidunt lectus. Cras aliquam dui porta metus vestibulum, a auctor magna tincidunt. In gravida interdum nibh, vel luctus lorem.
+
+Phasellus cursus scelerisque tellus. Vivamus in placerat nunc. Phasellus libero justo, tincidunt nec condimentum a, ornare non risus. Proin imperdiet, tortor eget ornare porta, ligula nulla finibus dui, in venenatis elit dolor at nunc. Vestibulum mattis urna ut ultrices pharetra. Proin convallis sem ultrices purus hendrerit finibus. Duis dui orci, rutrum et molestie nec, pulvinar quis mi. Nulla aliquam nisi non purus feugiat ornare. Nulla at efficitur lacus."
+
+[node name="Message1Content" type="RichTextLabel" parent="MessageContentContainer/MessageContentPanel" unique_id=100115762]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 19.0
+offset_right = -24.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 16
+text = "Placeholder for text for messages. 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis porttitor auctor. Aliquam ornare fermentum feugiat. Aenean ornare consectetur consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat quis quam nec viverra. Curabitur mattis mi sit amet erat pulvinar tincidunt. Aenean molestie mi felis, condimentum ullamcorper risus laoreet eu. Phasellus tincidunt risus magna, sollicitudin semper nibh maximus et. Praesent efficitur tortor sed laoreet laoreet. Aliquam in lorem nisi.
+
+Nulla sed lacinia massa. Proin quis mattis enim. Etiam interdum velit vitae nisi dapibus rutrum. Vestibulum quis enim blandit, euismod lacus quis, ullamcorper dolor. Nam eget malesuada nisl. Duis feugiat sed sem et congue. Vivamus interdum ultricies mi in mollis.
+
+Duis eleifend quis ante varius auctor. Duis volutpat sollicitudin quam, ac eleifend ex vestibulum eu. Pellentesque nec nunc blandit, pharetra dolor vitae, vulputate ante. Suspendisse eros ex, auctor eu tempus vel, rutrum vel leo. Morbi accumsan magna in dapibus sollicitudin. Vivamus posuere venenatis posuere. Nam eleifend sit amet ex quis posuere. Praesent suscipit magna in est cursus, laoreet hendrerit ligula ullamcorper. Quisque sollicitudin commodo rutrum. Vestibulum maximus ultricies urna et posuere. Sed sit amet erat nunc. Mauris eu lacinia mi. Mauris a nulla sit amet ipsum venenatis suscipit. Duis nec diam placerat, blandit arcu eu, finibus erat.
+
+Etiam id iaculis tellus, nec congue mauris. Fusce turpis quam, iaculis vitae facilisis non, pretium nec magna. Aliquam auctor varius nibh, in cursus eros rhoncus vehicula. Donec dignissim ipsum nec massa placerat, at sagittis lectus consequat. Pellentesque auctor quam a ipsum tincidunt, ultricies ullamcorper erat tempor. Aliquam non tincidunt lectus. Cras aliquam dui porta metus vestibulum, a auctor magna tincidunt. In gravida interdum nibh, vel luctus lorem.
+
+Phasellus cursus scelerisque tellus. Vivamus in placerat nunc. Phasellus libero justo, tincidunt nec condimentum a, ornare non risus. Proin imperdiet, tortor eget ornare porta, ligula nulla finibus dui, in venenatis elit dolor at nunc. Vestibulum mattis urna ut ultrices pharetra. Proin convallis sem ultrices purus hendrerit finibus. Duis dui orci, rutrum et molestie nec, pulvinar quis mi. Nulla aliquam nisi non purus feugiat ornare. Nulla at efficitur lacus."
+
+[node name="ReadFullScreenButton" type="Button" parent="MessageContentContainer/MessageContentPanel" unique_id=2067604156]
 layout_mode = 0
-offset_right = 477.0
-offset_bottom = 47.666668
-text = "Need to be linked to the view message scene to be displayed here. This is just a placeholder."
-autowrap_mode = 3
+offset_left = 412.0
+offset_top = 454.0
+offset_right = 547.0
+offset_bottom = 485.0
+text = "Read Full Screen"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="MessageSelect/Message1" to="." method="_on_message_1_pressed"]
+[connection signal="pressed" from="MessageContentContainer/MessageContentPanel/ReadFullScreenButton" to="." method="_on_read_full_screen_button_pressed"]

@@ -12,6 +12,7 @@ var level_1_tutorial_seen := false
 # DO NOT SAVE TO FILE
 var from_level := 0 # 0 is default (none)
 var selected_powerup := ""
+var selected_notification := ""
 
 # dictionary of {item_id: amount owned}
 var inventory := {

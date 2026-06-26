@@ -11,29 +11,40 @@
 bg_color = Color(0.14901961, 0.14901961, 0.14901961, 0.85490197)
 
 [node name="ShopItem" type="Panel" unique_id=145953330]
-custom_minimum_size = Vector2(360, 208)
-offset_right = 360.0
+custom_minimum_size = Vector2(478, 208)
+anchors_preset = -1
+offset_right = 478.0
 offset_bottom = 208.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_mrnko")
 script = ExtResource("1_rchi8")
 
 [node name="Texture" type="TextureRect" parent="." unique_id=627486419]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 40.0
-offset_right = 168.0
-offset_bottom = 160.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24700001
+anchor_top = 0.5
+anchor_right = 0.24700001
+anchor_bottom = 0.5
+offset_left = -74.920006
+offset_top = -56.0
+offset_right = 75.079994
+offset_bottom = 64.0
 texture = ExtResource("4_rdxfv")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="Name" type="Label" parent="." unique_id=86519959]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 16.0
-offset_right = 278.0
-offset_bottom = 66.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95000005
+anchor_top = 0.149
+anchor_right = 0.95000005
+anchor_bottom = 0.149
+offset_left = -162.10004
+offset_top = -24.992
+offset_right = -0.10003662
+offset_bottom = 25.008
 theme_override_fonts/font = ExtResource("2_rdxfv")
 theme_override_font_sizes/font_size = 42
 text = "Shields"
@@ -41,12 +52,16 @@ text = "Shields"
 [node name="OwnedCount" type="Label" parent="." unique_id=1419821591]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 256.0
-offset_top = 160.0
-offset_right = 318.0
-offset_bottom = 189.0
+anchor_left = 0.90800005
+anchor_top = 0.873
+anchor_right = 0.90800005
+anchor_bottom = 0.873
+offset_left = -41.880005
+offset_top = -9.584
+offset_right = 0.11999512
+offset_bottom = 9.416
 theme_override_fonts/font = ExtResource("2_rdxfv")
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 16
 text = "Owned: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -54,32 +69,47 @@ vertical_alignment = 1
 [node name="Cost" type="Label" parent="." unique_id=23312611]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 200.0
-offset_top = 88.0
-offset_right = 237.0
-offset_bottom = 117.0
+anchor_left = 0.90800005
+anchor_top = 0.873
+anchor_right = 0.90800005
+anchor_bottom = 0.873
+offset_left = -134.02402
+offset_top = -9.584
+offset_right = -109.02402
+offset_bottom = 9.416
 theme_override_fonts/font = ExtResource("2_rdxfv")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "0 orbs"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="Label" parent="." unique_id=1545262007]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 64.0
-offset_right = 384.0
-offset_bottom = 81.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95000005
+anchor_top = 0.423
+anchor_right = 0.95000005
+anchor_bottom = 0.423
+offset_left = -162.00003
+offset_top = -25.984001
+offset_right = -0.10003662
+offset_bottom = 23.015999
 theme_override_fonts/font = ExtResource("3_u3fxv")
 theme_override_font_sizes/font_size = 16
 text = "+2 additional health"
+autowrap_mode = 3
 
 [node name="BuyButton" type="TextureButton" parent="." unique_id=1343088198]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 120.0
-offset_right = 320.0
-offset_bottom = 160.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.93100005
+anchor_top = 0.68700004
+anchor_right = 0.93100005
+anchor_bottom = 0.68700004
+offset_left = -153.01804
+offset_top = -25.896011
+offset_right = -8.876038
+offset_bottom = 28.103989
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_rdqe2")
 texture_pressed = ExtResource("6_k16ug")

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cwpkbrjwixqbe" path="res://buttons/powerups-buttons/orb-bag.tres" id="6_q4g17"]
 [ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="7_2wf2a"]
 [ext_resource type="Texture2D" uid="uid://dalergjb5t8rk" path="res://buttons/powerups-buttons/wizard.tres" id="8_xad5q"]
-[ext_resource type="Texture2D" uid="uid://cdnpygwcbk4tg" path="res://backgrounds/elements/shelves.tres" id="9_ljlg5"]
+[ext_resource type="Texture2D" path="res://backgrounds/elements/shelves.tres" id="9_ljlg5"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ljlg5"]
 
@@ -72,10 +72,10 @@ vertical_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = 240.0
-offset_right = -512.0
-offset_bottom = -320.0
+offset_left = 80.0
+offset_top = 177.0
+offset_right = -466.0
+offset_bottom = -103.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -86,19 +86,19 @@ size_flags_vertical = 3
 theme_override_constants/separation = 10
 
 [node name="HirayaWizard" type="TextureRect" parent="." unique_id=2056872977]
-offset_left = 432.0
-offset_top = 192.0
-offset_right = 1160.0
-offset_bottom = 787.0
+offset_left = 534.0
+offset_top = 250.0
+offset_right = 1047.0
+offset_bottom = 970.0
 texture = ExtResource("8_xad5q")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Shelves" type="TextureRect" parent="." unique_id=1925111453]
-offset_left = 120.0
-offset_top = 440.0
-offset_right = 555.0
-offset_bottom = 480.0
+offset_left = 50.0
+offset_top = 665.0
+offset_right = 585.0
+offset_bottom = 705.0
 texture = ExtResource("9_ljlg5")
 
 [node name="BoxtoLocateItem" type="TextureRect" parent="." unique_id=496102738]
@@ -110,5 +110,11 @@ offset_top = 232.0
 offset_right = 512.0
 offset_bottom = 440.0
 texture = SubResource("CanvasTexture_ljlg5")
+
+[node name="Control" type="Control" parent="." unique_id=827327717]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
