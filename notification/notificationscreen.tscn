@@ -125,7 +125,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_sjudy")
 
 [node name="Message2Content" type="RichTextLabel" parent="MessageContentContainer/MessageContentPanel" unique_id=1354752158]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -178,11 +177,12 @@ Phasellus cursus scelerisque tellus. Vivamus in placerat nunc. Phasellus libero 
 
 [node name="ReadFullScreenButton" type="Button" parent="MessageContentContainer/MessageContentPanel" unique_id=2067604156]
 layout_mode = 0
-offset_left = 412.0
-offset_top = 454.0
-offset_right = 547.0
-offset_bottom = 485.0
-text = "Read Full Screen"
+offset_left = 399.0
+offset_top = 456.0
+offset_right = 553.0
+offset_bottom = 487.0
+mouse_default_cursor_shape = 2
+text = "Read in Full Screen"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="MessageContentContainer/MessageContentPanel/ReadFullScreenButton" to="." method="_on_read_full_screen_button_pressed"]

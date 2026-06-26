@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var music_slider = $Control/MusicSlider
 @onready var sfx_slider = $Control/SfxSlider
 
+var HELP_MANUAL = preload("res://settings/helpmanual.tscn")
+
 func _ready():
 	master_slider.value = Settings.master_volume
 	music_slider.value = Settings.music_volume
@@ -32,4 +34,5 @@ func _on_back_button_pressed() -> void:
 	hide()
 
 func _on_help_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://settings/helpmanual.tscn")
+	var help_manual_scene = HELP_MANUAL.instantiate()
+	get_tree().current_scene.add_child(help_manual_scene)

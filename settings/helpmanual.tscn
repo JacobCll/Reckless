@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dae43usjjw2we"]
+[gd_scene format=3 uid="uid://c36cgwgl7xxbu"]
 
 [ext_resource type="Script" uid="uid://c6o04di73s80a" path="res://settings/helpmanual.gd" id="1_lmv0r"]
 [ext_resource type="Texture2D" uid="uid://cmd57qnn61sda" path="res://backgrounds/levels_menu_background.png" id="2_6wfyy"]
@@ -6,25 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="4_0xjd1"]
 [ext_resource type="Texture2D" uid="uid://t6snai06s3ti" path="res://backgrounds/elements/wanted-punchedholes.png" id="5_0xjd1"]
 [ext_resource type="FontFile" uid="uid://cdg3gpv5wfbj8" path="res://fonts/Serialpublicationdemo-qxo1.ttf" id="6_hpluh"]
-[ext_resource type="FontFile" uid="uid://baq170vtcugq7" path="res://fonts/animeace2_reg.otf" id="7_u8hwv"]
 
-[node name="HelpManual" type="Control" unique_id=1443152548]
-layout_mode = 3
-anchors_preset = 0
+[node name="HelpManual" type="CanvasLayer" unique_id=616617925]
 script = ExtResource("1_lmv0r")
 
 [node name="Background" type="TextureRect" parent="." unique_id=836364795]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_6wfyy")
 
 [node name="BackButton" type="TextureButton" parent="." unique_id=1531630456]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 30.0
-offset_right = 203.0
-offset_bottom = 148.0
+offset_left = 41.0
+offset_top = 43.0
+offset_right = 243.0
+offset_bottom = 126.0
+mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = ExtResource("3_ed3c8")
 texture_pressed = ExtResource("4_0xjd1")
@@ -33,21 +29,27 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="ManualContainer" type="TextureRect" parent="." unique_id=325483388]
-layout_mode = 0
-offset_left = 107.0
-offset_top = 11.0
-offset_right = 958.0
-offset_bottom = 747.0
+offset_left = 270.0
+offset_top = 43.0
+offset_right = 778.0
+offset_bottom = 801.0
 texture = ExtResource("5_0xjd1")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="ManualTitle" type="Label" parent="ManualContainer" unique_id=451890537]
-layout_mode = 0
-offset_left = 286.0
-offset_top = 82.0
-offset_right = 579.0
-offset_bottom = 150.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.5
+offset_top = -292.0
+offset_right = 145.5
+offset_bottom = -224.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.07123137, 0.07123139, 0.07123137, 1)
 theme_override_fonts/font = ExtResource("6_hpluh")
 theme_override_font_sizes/font_size = 67
@@ -55,14 +57,29 @@ text = "User Manual"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="ManualContainer" unique_id=2016514530]
-layout_mode = 0
-offset_left = 248.0
-offset_top = 162.0
-offset_right = 619.0
-offset_bottom = 649.0
-theme_override_fonts/font = ExtResource("7_u8hwv")
-theme_override_font_sizes/font_size = 15
+[node name="Panel" type="Panel" parent="ManualContainer" unique_id=451620030]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50100005
+anchor_top = 0.5
+anchor_right = 0.50100005
+anchor_bottom = 0.5
+offset_left = -183.35104
+offset_top = -216.0
+offset_right = 183.64896
+offset_bottom = 307.0
+
+[node name="Content" type="RichTextLabel" parent="ManualContainer/Panel" unique_id=1625506974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 16.0
+offset_right = -12.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce scelerisque vestibulum sapien id cursus. Sed mi nibh, blandit at nisl non, molestie venenatis lacus. Proin sed enim nec diam mollis maximus. Ut id erat eget nulla volutpat fringilla. Ut ullamcorper malesuada tempus. Donec pretium auctor lacinia. Sed accumsan massa nec nunc tincidunt placerat. Nam porttitor ex justo, in semper nisi suscipit id. Nullam congue faucibus libero id molestie. Aliquam quis nulla eget elit faucibus suscipit sit amet sed tortor. Ut ut eros sed nibh gravida semper.
 
 In magna massa, commodo vel aliquam nec, egestas eget arcu. Aliquam a fermentum sem, eget ultricies nisi. Phasellus ornare augue finibus risus rhoncus, ac venenatis est iaculis. Etiam metus quam, aliquet vel suscipit at, euismod vitae tortor. Praesent sollicitudin ante nunc, nec bibendum quam viverra eu. Mauris egestas leo non eros porta, a luctus felis vehicula. Vestibulum faucibus risus turpis. Aenean vehicula sit amet magna nec iaculis. Ut blandit ut ligula sed vulputate. Donec ut rutrum augue. Suspendisse interdum ut augue non aliquet. Donec blandit rhoncus ex, id consequat nisi. Suspendisse finibus enim at leo imperdiet, non ultricies nisi aliquam. Fusce a odio elit.
@@ -72,7 +89,5 @@ Aenean ac est enim. Sed nec molestie felis. Aliquam erat volutpat. Cras sit amet
 Nulla vitae bibendum turpis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi feugiat mi nec finibus dignissim. Integer quis sagittis sapien, ac condimentum metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur porttitor ullamcorper mi et luctus. Aenean ipsum nisi, facilisis ut ipsum at, volutpat tincidunt tellus. Phasellus feugiat dui odio, sed placerat erat consectetur sit amet. Integer neque quam, eleifend vel arcu sit amet, pellentesque facilisis lectus. Mauris leo libero, fringilla in velit quis, rutrum consectetur justo. Nullam dolor nibh, iaculis vitae euismod a, dapibus quis est. Suspendisse potenti.
 
 In pharetra felis et pellentesque iaculis. Vivamus non tempus mauris. Maecenas a ipsum cursus, lacinia nisl ac, vehicula mauris. Nam pharetra ante nulla, vel vestibulum mauris tristique sed. Aenean porttitor sed metus at consequat. Pellentesque vitae odio est. Vivamus blandit, tellus at fermentum venenatis, ipsum metus porttitor purus, sit amet laoreet risus neque in elit. Donec fermentum lacinia libero nec luctus. Fusce id maximus turpis. In vestibulum risus ac ante cursus vehicula. Nulla risus sapien, consequat efficitur metus sed, volutpat laoreet metus. In fermentum maximus volutpat."
-wrap_mode = 1
-scroll_smooth = true
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
