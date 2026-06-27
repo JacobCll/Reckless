@@ -10,16 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="7_yasux"]
 [ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="9_l4mnh"]
 [ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="11_ttfuh"]
-[ext_resource type="Texture2D" uid="uid://ci1gtoi3pukvx" path="res://buttons/menu-default.png" id="12_pejkb"]
-[ext_resource type="Texture2D" uid="uid://8xxeipjr84y7" path="res://buttons/menu-hover.png" id="13_34jxk"]
-[ext_resource type="Texture2D" uid="uid://b1i1bllm4er27" path="res://buttons/retry-default.png" id="14_f8rpw"]
-[ext_resource type="Texture2D" uid="uid://ch5ibvhpwl87b" path="res://buttons/retry-hover.png" id="15_qxbsn"]
-[ext_resource type="PackedScene" uid="uid://c4odclht7mhrm" path="res://scenes/levels/levels/Gameover&VictoryScreens/VictoryScreen.tscn" id="16_f8rpw"]
-[ext_resource type="PackedScene" uid="uid://bmddeo1baboke" path="res://scenes/levels/levels/Gameover&VictoryScreens/GameoverScreen.tscn" id="16_qxbsn"]
-[ext_resource type="Texture2D" uid="uid://bh0wbnlvm6a2i" path="res://buttons/orangebutton.tres" id="17_pejkb"]
-[ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="19_56agv"]
-[ext_resource type="Texture2D" uid="uid://imjqmk1hi4h6" path="res://buttons/greenbutton-hover.tres" id="20_f8rpw"]
-[ext_resource type="Texture2D" uid="uid://icvxke3dvgbe" path="res://buttons/greenbutton.tres" id="20_qxbsn"]
 
 [sub_resource type="Curve2D" id="Curve2D_k0gby"]
 _data = {
@@ -98,11 +88,7 @@ path = NodePath("../EntitySpawner1Path")
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave3" index="1" unique_id=1988290731]
 curve = SubResource("Curve2D_l4mnh")
 
-[node name="GameoverScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="1" unique_id=914947514]
-visible = false
-
-[node name="GameoverText" parent="CanvasLayer/GameoverScreen" index="0" unique_id=1750382725]
-visible = false
+[node name="GameoverText" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="1" unique_id=1750382725]
 offset_left = 130.0
 offset_top = 184.0
 offset_right = 925.0
@@ -114,35 +100,19 @@ text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameoverBackground" parent="CanvasLayer/GameoverScreen" index="1" unique_id=1177321787 instance=ExtResource("16_qxbsn")]
-layout_mode = 0
-
-[node name="MainMenuButton" parent="CanvasLayer/GameoverScreen" index="2" unique_id=1841760714]
+[node name="MainMenuButton" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="2" unique_id=1841760714]
 offset_left = 252.0
 offset_top = 428.0
 offset_right = 472.0
 offset_bottom = 531.0
-texture_normal = ExtResource("12_pejkb")
-texture_pressed = ExtResource("13_34jxk")
-texture_hover = ExtResource("13_34jxk")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="RetryButton" parent="CanvasLayer/GameoverScreen" index="3" unique_id=1343218882]
+[node name="RetryButton" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="3" unique_id=1343218882]
 offset_left = 563.0
 offset_top = 429.0
 offset_right = 756.0
 offset_bottom = 528.0
-texture_normal = ExtResource("14_f8rpw")
-texture_pressed = ExtResource("15_qxbsn")
-texture_hover = ExtResource("15_qxbsn")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="WinLevelScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="2" unique_id=800143018]
-visible = true
-
-[node name="WinText" parent="CanvasLayer/WinLevelScreen" index="0" unique_id=196137116]
+[node name="WinText" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="1" unique_id=196137116]
 offset_left = 294.0
 offset_top = 196.0
 offset_right = 797.0
@@ -152,65 +122,34 @@ theme_override_fonts/font = ExtResource("11_ttfuh")
 theme_override_font_sizes/font_size = 200
 text = ""
 
-[node name="VictoryBackground" parent="CanvasLayer/WinLevelScreen" index="1" unique_id=2062707192 instance=ExtResource("16_f8rpw")]
-layout_mode = 0
-
-[node name="MainMenuButton" parent="CanvasLayer/WinLevelScreen" index="2" unique_id=609095930]
+[node name="MainMenuButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="2" unique_id=609095930]
 offset_left = 185.0
 offset_top = 449.0
 offset_right = 407.0
 offset_bottom = 616.0
-texture_normal = ExtResource("12_pejkb")
-texture_pressed = ExtResource("13_34jxk")
-texture_hover = ExtResource("13_34jxk")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="PlayAgainButton" parent="CanvasLayer/WinLevelScreen" index="3" unique_id=1823004954]
+[node name="PlayAgainButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="3" unique_id=1823004954]
 offset_left = 456.0
 offset_top = 491.0
 offset_right = 618.0
-offset_bottom = 563.0
-texture_normal = ExtResource("17_pejkb")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="PlayAgainLabel" type="Label" parent="CanvasLayer/WinLevelScreen/PlayAgainButton" index="0" unique_id=1019537891]
-layout_mode = 0
-offset_left = -56.0
-offset_top = -15.0
-offset_right = 222.0
-offset_bottom = 83.0
-theme_override_fonts/font = ExtResource("19_56agv")
-theme_override_font_sizes/font_size = 27
-text = "Play Again"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+[node name="PlayAgainLabel" parent="CanvasLayer/WinLevelScreen/PlayAgainButton" index="0" unique_id=1578382659]
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 160.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 30
 
-[node name="NextLevelButton" parent="CanvasLayer/WinLevelScreen" index="4" unique_id=957213080]
+[node name="NextLevelButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="4" unique_id=957213080]
 offset_left = 691.0
 offset_top = 488.0
 offset_right = 855.0
 offset_bottom = 561.0
-texture_normal = ExtResource("20_qxbsn")
-texture_pressed = ExtResource("20_f8rpw")
-texture_hover = ExtResource("20_f8rpw")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="NextLevelLabel" type="Label" parent="CanvasLayer/WinLevelScreen/NextLevelButton" index="0" unique_id=1296976868]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 13.0
-offset_right = 144.0
-offset_bottom = 60.0
-theme_override_fonts/font = ExtResource("19_56agv")
-theme_override_font_sizes/font_size = 28
-text = "Next Level"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+[node name="NextLevelLabel" parent="CanvasLayer/WinLevelScreen/NextLevelButton" index="0" unique_id=1356031313]
+offset_left = 18.0
+offset_right = 154.0
+theme_override_font_sizes/font_size = 30
 
 [node name="ColorRect" parent="CanvasLayer/PauseScreen" parent_id_path=PackedInt32Array(1455857404) index="0" unique_id=882516791]
 color = Color(0.26657507, 0.26657525, 0.2665752, 1)

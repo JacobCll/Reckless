@@ -9,17 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="7_jc4j5"]
 [ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="8_jc4j5"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="9_bel7p"]
-[ext_resource type="PackedScene" uid="uid://bmddeo1baboke" path="res://scenes/levels/levels/Gameover&VictoryScreens/GameoverScreen.tscn" id="10_1l0jw"]
-[ext_resource type="Texture2D" uid="uid://ci1gtoi3pukvx" path="res://buttons/menu-default.png" id="11_clbrd"]
-[ext_resource type="Texture2D" uid="uid://8xxeipjr84y7" path="res://buttons/menu-hover.png" id="12_ljtbg"]
-[ext_resource type="Texture2D" uid="uid://b1i1bllm4er27" path="res://buttons/retry-default.png" id="13_o27bc"]
-[ext_resource type="Texture2D" uid="uid://ch5ibvhpwl87b" path="res://buttons/retry-hover.png" id="14_maltw"]
-[ext_resource type="PackedScene" uid="uid://c4odclht7mhrm" path="res://scenes/levels/levels/Gameover&VictoryScreens/VictoryScreen.tscn" id="15_s4jy1"]
-[ext_resource type="Texture2D" uid="uid://bh0wbnlvm6a2i" path="res://buttons/orangebutton.tres" id="16_xj08h"]
-[ext_resource type="Texture2D" uid="uid://ba6g0bf6e86q1" path="res://buttons/orangebutton-hover.tres" id="17_qgfbk"]
-[ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="18_xnx7l"]
-[ext_resource type="Texture2D" uid="uid://icvxke3dvgbe" path="res://buttons/greenbutton.tres" id="19_xnx7l"]
-[ext_resource type="Texture2D" uid="uid://imjqmk1hi4h6" path="res://buttons/greenbutton-hover.tres" id="20_4cyum"]
 
 [sub_resource type="Curve2D" id="Curve2D_u6ogp"]
 _data = {
@@ -103,10 +92,7 @@ path = NodePath("../../Wave1/EntitySpawner1Path")
 curve = SubResource("Curve2D_1l0jw")
 
 [node name="GameoverScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="1" unique_id=914947514]
-visible = false
-
-[node name="GameoverBackground" parent="CanvasLayer/GameoverScreen" index="0" unique_id=761246952 instance=ExtResource("10_1l0jw")]
-layout_mode = 0
+visible = true
 
 [node name="GameoverText" parent="CanvasLayer/GameoverScreen" index="1" unique_id=1750382725]
 text = ""
@@ -116,27 +102,15 @@ offset_left = 250.0
 offset_top = 434.0
 offset_right = 495.0
 offset_bottom = 515.0
-texture_normal = ExtResource("11_clbrd")
-texture_pressed = ExtResource("12_ljtbg")
-texture_hover = ExtResource("12_ljtbg")
-ignore_texture_size = true
-stretch_mode = 5
 
 [node name="RetryButton" parent="CanvasLayer/GameoverScreen" index="3" unique_id=1343218882]
-offset_left = 598.0
-offset_right = 780.0
-offset_bottom = 536.0
-texture_normal = ExtResource("13_o27bc")
-texture_pressed = ExtResource("14_maltw")
-texture_hover = ExtResource("14_maltw")
-ignore_texture_size = true
-stretch_mode = 5
+offset_left = 566.0
+offset_top = 428.0
+offset_right = 757.0
+offset_bottom = 525.0
 
 [node name="WinLevelScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="2" unique_id=800143018]
-visible = true
-
-[node name="VictoryBackground" parent="CanvasLayer/WinLevelScreen" index="0" unique_id=2062707192 instance=ExtResource("15_s4jy1")]
-layout_mode = 0
+visible = false
 
 [node name="WinText" parent="CanvasLayer/WinLevelScreen" index="1" unique_id=196137116]
 text = ""
@@ -146,62 +120,29 @@ offset_left = 198.0
 offset_top = 445.0
 offset_right = 416.0
 offset_bottom = 592.0
-texture_normal = ExtResource("11_clbrd")
-texture_pressed = ExtResource("12_ljtbg")
-texture_hover = ExtResource("12_ljtbg")
-ignore_texture_size = true
-stretch_mode = 5
 
 [node name="PlayAgainButton" parent="CanvasLayer/WinLevelScreen" index="3" unique_id=1823004954]
 offset_left = 431.0
 offset_top = 492.0
 offset_right = 624.0
 offset_bottom = 553.0
-texture_normal = ExtResource("16_xj08h")
-texture_pressed = ExtResource("17_qgfbk")
-texture_hover = ExtResource("17_qgfbk")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="PlayAgainLabel" type="Label" parent="CanvasLayer/WinLevelScreen/PlayAgainButton" index="0" unique_id=330575057]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.135
-anchor_right = 0.135
-offset_left = 8.945007
-offset_top = 8.0
-offset_right = 137.94504
-offset_bottom = 48.0
-theme_override_fonts/font = ExtResource("18_xnx7l")
-theme_override_font_sizes/font_size = 27
-text = "Play Again"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+[node name="PlayAgainLabel" parent="CanvasLayer/WinLevelScreen/PlayAgainButton" index="0" unique_id=1578382659]
+offset_left = 20.0
+offset_top = -11.0
+offset_right = 172.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 28
 
 [node name="NextLevelButton" parent="CanvasLayer/WinLevelScreen" index="4" unique_id=957213080]
 offset_left = 672.0
 offset_top = 475.0
 offset_right = 835.0
 offset_bottom = 565.0
-texture_normal = ExtResource("19_xnx7l")
-texture_pressed = ExtResource("20_4cyum")
-texture_hover = ExtResource("20_4cyum")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="NextLevelLabel" type="Label" parent="CanvasLayer/WinLevelScreen/NextLevelButton" index="0" unique_id=1479247611]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.156
-anchor_bottom = 0.156
+[node name="NextLevelLabel" parent="CanvasLayer/WinLevelScreen/NextLevelButton" index="0" unique_id=1356031313]
 offset_left = 16.0
-offset_top = 7.9600077
-offset_right = 143.0
-offset_bottom = 54.96
-theme_override_fonts/font = ExtResource("18_xnx7l")
-theme_override_font_sizes/font_size = 27
-text = "Next Level"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+offset_top = 20.0
+offset_right = 152.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 28

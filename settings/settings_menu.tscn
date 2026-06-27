@@ -22,9 +22,9 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fpik"]
 bg_color = Color(0.13423216, 0.5826764, 0.82425237, 1)
-border_width_left = 70
+border_width_left = 7
 border_width_top = 5
-border_width_right = 5
+border_width_right = 7
 border_width_bottom = 5
 border_color = Color(0.607476, 0.83488864, 0.9905487, 1)
 corner_radius_top_left = 7
@@ -33,7 +33,7 @@ corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 expand_margin_left = 100.0
 expand_margin_top = 8.0
-expand_margin_right = 5.0
+expand_margin_right = 12.0
 expand_margin_bottom = 8.0
 shadow_size = 2
 shadow_offset = Vector2(0, 3)
@@ -44,7 +44,9 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+expand_margin_left = 94.0
 expand_margin_top = 3.0
+expand_margin_right = 5.0
 expand_margin_bottom = 3.0
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=144426586]
