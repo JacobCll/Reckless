@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="6_l4mnh"]
 [ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="7_yasux"]
 [ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="9_l4mnh"]
+[ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="11_ttfuh"]
 
 [sub_resource type="Curve2D" id="Curve2D_k0gby"]
 _data = {
@@ -86,6 +87,69 @@ path = NodePath("../EntitySpawner1Path")
 
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave3" index="1" unique_id=1988290731]
 curve = SubResource("Curve2D_l4mnh")
+
+[node name="GameoverText" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="1" unique_id=1750382725]
+offset_left = 130.0
+offset_top = 184.0
+offset_right = 925.0
+offset_bottom = 476.0
+theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
+theme_override_fonts/font = ExtResource("11_ttfuh")
+theme_override_font_sizes/font_size = 200
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="2" unique_id=1841760714]
+offset_left = 252.0
+offset_top = 428.0
+offset_right = 472.0
+offset_bottom = 531.0
+
+[node name="RetryButton" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="3" unique_id=1343218882]
+offset_left = 563.0
+offset_top = 429.0
+offset_right = 756.0
+offset_bottom = 528.0
+
+[node name="WinText" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="1" unique_id=196137116]
+offset_left = 294.0
+offset_top = 196.0
+offset_right = 797.0
+offset_bottom = 430.0
+theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
+theme_override_fonts/font = ExtResource("11_ttfuh")
+theme_override_font_sizes/font_size = 200
+text = ""
+
+[node name="MainMenuButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="2" unique_id=609095930]
+offset_left = 185.0
+offset_top = 449.0
+offset_right = 407.0
+offset_bottom = 616.0
+
+[node name="PlayAgainButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="3" unique_id=1823004954]
+offset_left = 456.0
+offset_top = 491.0
+offset_right = 618.0
+
+[node name="PlayAgainLabel" parent="CanvasLayer/WinLevelScreen/PlayAgainButton" index="0" unique_id=1578382659]
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 160.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 30
+
+[node name="NextLevelButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="4" unique_id=957213080]
+offset_left = 691.0
+offset_top = 488.0
+offset_right = 855.0
+offset_bottom = 561.0
+
+[node name="NextLevelLabel" parent="CanvasLayer/WinLevelScreen/NextLevelButton" index="0" unique_id=1356031313]
+offset_left = 18.0
+offset_right = 154.0
+theme_override_font_sizes/font_size = 30
 
 [node name="ColorRect" parent="CanvasLayer/PauseScreen" parent_id_path=PackedInt32Array(1455857404) index="0" unique_id=882516791]
 color = Color(0.26657507, 0.26657525, 0.2665752, 1)

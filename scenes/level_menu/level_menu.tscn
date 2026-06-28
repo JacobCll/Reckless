@@ -235,10 +235,10 @@ anchor_left = 0.503
 anchor_top = 0.5
 anchor_right = 0.503
 anchor_bottom = 0.5
-offset_left = -242.699
-offset_top = -141.0
-offset_right = 243.301
-offset_bottom = 137.0
+offset_left = -236.699
+offset_top = -126.0
+offset_right = 249.301
+offset_bottom = 152.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PowerupModal/ScrollContainer" unique_id=1094850720]
 layout_mode = 2
@@ -252,6 +252,9 @@ layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 3
+
+[node name="PowerupCard" parent="CanvasLayer/PowerupModal/ScrollContainer/MarginContainer/PowerupGrid" unique_id=467836585 instance=ExtResource("12_uxs4i")]
+layout_mode = 2
 
 [node name="StartButton" type="TextureButton" parent="CanvasLayer/PowerupModal" unique_id=920378249]
 layout_mode = 1

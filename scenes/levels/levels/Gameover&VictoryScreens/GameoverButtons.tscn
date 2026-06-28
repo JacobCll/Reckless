@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c4o7voeymc37u"]
+
+[ext_resource type="Texture2D" uid="uid://ci1gtoi3pukvx" path="res://buttons/menu-default.png" id="1_uqs4i"]
+[ext_resource type="Texture2D" uid="uid://8xxeipjr84y7" path="res://buttons/menu-hover.png" id="2_vn685"]
+[ext_resource type="Texture2D" uid="uid://b1i1bllm4er27" path="res://buttons/retry-default.png" id="3_huci0"]
+[ext_resource type="Texture2D" uid="uid://ch5ibvhpwl87b" path="res://buttons/retry-hover.png" id="4_ghvrv"]
+
+[node name="GameoverButtons" type="Control" unique_id=679115704]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MainMenuButton" type="TextureButton" parent="." unique_id=1170422574]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 428.0
+offset_right = 472.0
+offset_bottom = 531.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_uqs4i")
+texture_pressed = ExtResource("2_vn685")
+texture_hover = ExtResource("2_vn685")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="RetryButton" type="TextureButton" parent="." unique_id=337377589]
+layout_mode = 0
+offset_left = 563.0
+offset_top = 429.0
+offset_right = 756.0
+offset_bottom = 528.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_huci0")
+texture_pressed = ExtResource("4_ghvrv")
+texture_hover = ExtResource("4_ghvrv")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
