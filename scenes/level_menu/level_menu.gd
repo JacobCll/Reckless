@@ -83,6 +83,7 @@ func populate_powerups():
 		powerup_grid.add_child(card)
 
 func select_powerup(card: PowerupCard):
+	# deselects it if you click the same card
 	if selected_powerup_card == card:
 		card.set_selected(false)
 		selected_powerup_card = null

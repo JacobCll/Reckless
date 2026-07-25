@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d1i7pcl5yqc8b"]
+
+[ext_resource type="Texture2D" uid="uid://e02bifejcx6p" path="res://hud_elements/shields/shield.tres" id="1_a7hdi"]
+
+[node name="Shield" type="Control" unique_id=749911334]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -994.0
+offset_bottom = -738.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1208822013]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a7hdi")
+expand_mode = 1
+stretch_mode = 5

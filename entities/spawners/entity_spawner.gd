@@ -79,6 +79,10 @@ func _build_entity_types() -> void:
 	_add_group(red_scenes, "red", red_weight, red_max_alive)
 	_add_group(green_scenes, "green", green_weight, green_max_alive)
 
+func set_green_weight(new_weight: float) -> void:
+	green_weight = new_weight
+	_build_entity_types()
+
 func _add_group(scenes: Array, type: String, weight: float, max_alive: int) -> void:
 	if scenes.is_empty() or weight <= 0.0:
 		return
@@ -272,3 +276,5 @@ func get_total_alive() -> int:
 	for e in _entity_types:
 		total += e.alive_count
 	return total
+	
+	

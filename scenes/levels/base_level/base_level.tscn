@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3netncfohsvp" path="res://scenes/levels/base_level/base_level.gd" id="1_rwgnx"]
 [ext_resource type="PackedScene" uid="uid://7ofwgny6u651" path="res://hud_elements/hearts/heart.tscn" id="2_0jlsv"]
 [ext_resource type="PackedScene" uid="uid://bmddeo1baboke" path="res://scenes/levels/levels/Gameover&VictoryScreens/GameoverScreen.tscn" id="3_e0wrk"]
+[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_uay4d"]
 [ext_resource type="Texture2D" uid="uid://ci1gtoi3pukvx" path="res://buttons/menu-default.png" id="4_jrr02"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="5_1txf7"]
 [ext_resource type="Texture2D" uid="uid://8xxeipjr84y7" path="res://buttons/menu-hover.png" id="5_18dyv"]
@@ -16,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ba6g0bf6e86q1" path="res://buttons/orangebutton-hover.tres" id="10_875bv"]
 [ext_resource type="Texture2D" uid="uid://icvxke3dvgbe" path="res://buttons/greenbutton.tres" id="12_uay4d"]
 [ext_resource type="Texture2D" uid="uid://imjqmk1hi4h6" path="res://buttons/greenbutton-hover.tres" id="13_lrd10"]
+[ext_resource type="PackedScene" uid="uid://d1i7pcl5yqc8b" path="res://hud_elements/shields/shield.tscn" id="14_875bv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1txf7"]
 shader = ExtResource("5_y3fao")
@@ -61,7 +63,27 @@ theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="WaveCompleteLabel" type="Label" parent="CanvasLayer" unique_id=837221459]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -56.0
+offset_right = 304.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_uay4d")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="GameoverScreen" type="Control" parent="CanvasLayer" unique_id=914947514]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -201,14 +223,29 @@ uppercase = true
 layout_mode = 3
 anchors_preset = 0
 
+[node name="ShieldsContainer" type="HBoxContainer" parent="CanvasLayer/HUD" unique_id=934863307]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 40.0
+offset_right = 840.0
+offset_bottom = 70.0
+alignment = 2
+
+[node name="Shield" parent="CanvasLayer/HUD/ShieldsContainer" unique_id=749911334 instance=ExtResource("14_875bv")]
+layout_mode = 2
+
+[node name="Shield2" parent="CanvasLayer/HUD/ShieldsContainer" unique_id=1520026501 instance=ExtResource("14_875bv")]
+layout_mode = 2
+
 [node name="HeartsContainer" type="HBoxContainer" parent="CanvasLayer/HUD" unique_id=418267277]
 layout_mode = 0
 offset_left = 848.0
 offset_top = 32.0
 offset_right = 991.0
 offset_bottom = 77.0
+alignment = 2
 
-[node name="Heart" parent="CanvasLayer/HUD/HeartsContainer" unique_id=723388051 instance=ExtResource("2_0jlsv")]
+[node name="Heart" parent="CanvasLayer/HUD/HeartsContainer" unique_id=1446289151 instance=ExtResource("2_0jlsv")]
 layout_mode = 2
 
 [node name="Heart2" parent="CanvasLayer/HUD/HeartsContainer" unique_id=1245656873 instance=ExtResource("2_0jlsv")]

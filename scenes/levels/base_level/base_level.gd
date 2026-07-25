@@ -1,8 +1,18 @@
-
 class_name BaseLevel
 extends Node
 
 @export var LEVEL_NUMBER := 0
+
+# --------------------
+# POWER UP FLAGS
+# --------------------
+var double_orbs_active := false # modify in entity_drop()
+var current_shields := 0
+
+# --------------------
+# WAVE COMPLETE BANNER
+# --------------------
+var _wave_complete_tween: Tween
 
 # --------------------
 # CORE GAME STATE
@@ -31,7 +41,9 @@ var countdown_value := countdown_value_original
 # UI (shared HUD)
 # --------------------
 @onready var hud = $CanvasLayer/HUD
+@onready var wave_complete_label = $CanvasLayer/WaveCompleteLabel
 @onready var hearts_container = $CanvasLayer/HUD/HeartsContainer
+@onready var shields_container = $CanvasLayer/HUD/ShieldsContainer
 @onready var score_label = $CanvasLayer/HUD/ScoreLabel
 @onready var countdown_timer = $CountdownTimer
 @onready var countdown_label = $CanvasLayer/CountdownLabel
@@ -47,6 +59,7 @@ var countdown_value := countdown_value_original
 # --------------------
 @export var level_music: AudioStream
 var heart_scene := preload("res://hud_elements/hearts/heart.tscn")
+var shield_scene := preload("res://hud_elements/shields/shield.tscn")
 var entity_particles_scene := preload("res://effects/entity_particles/entity_particles.tscn")
 
 # =========================================================
@@ -57,6 +70,7 @@ func _ready() -> void:
 	_setup_ui()
 	_setup_spawners()
 	_prewarm_particles()
+	
 	
 	wave_manager.wave_started.connect(_on_wave_started)
 	wave_manager.wave_completed.connect(_on_wave_completed)
@@ -69,15 +83,34 @@ func _ready() -> void:
 # =========================================================
 func _setup_level() -> void:
 	score = 0
-	
 	current_lives = max_lives
 	countdown_value = countdown_value_original
+	
+	# appy powerups	
+	_apply_selected_powerup()
 	
 	AudioManager.play_music(level_music)
 	AudioManager.enable_mouse_sfx()
 	MouseManager.show_mouse_trail()
 	
 	GameManager.current_scene = "in_game"
+	
+func _apply_selected_powerup():
+	match GameManager.selected_powerup:
+		"powerup_shields":
+			current_shields = 2
+			_update_shields_ui()
+		"powerup_no_green":
+			_apply_no_green_powerup()
+		"powerup_double_orbs": 
+			double_orbs_active = true
+		"": # no powerup selected
+			return
+			
+	if GameManager.selected_powerup != "":
+		GameManager.inventory[GameManager.selected_powerup] -= 1
+		GameManager.selected_powerup = ""
+		GameManager.save_data()
 
 func _setup_ui() -> void:
 	pause_screen.hide()
@@ -87,6 +120,7 @@ func _setup_ui() -> void:
 	
 	countdown_label.show()
 	_update_hearts_ui()
+	_update_shields_ui()
 
 # prevents particle lag when level is loaded for the first time
 func _prewarm_particles() -> void:
@@ -107,6 +141,12 @@ func _setup_spawners() -> void:
 				child.entity_killed.connect(_on_entity_killed)
 				child.entity_spawned.connect(_on_entity_spawned)
 				child.entity_despawned.connect(_on_entity_despawned)
+
+func _apply_no_green_powerup() -> void:
+	for wave in wave_manager.waves:
+		for child in wave.get_children():
+			if child is EntitySpawner:
+				child.set_green_weight(0.0)
 
 # =========================================================
 # COUNTDOWN
@@ -157,9 +197,18 @@ func _on_entity_despawned(entity_type: String) -> void:
 		CombatAudioSystem.play_despawned()
 
 func _entity_drop(entity_type: String):
-	if entity_type != "green":
-		GameManager.user_orbs += 5
-		GameManager.save_data()
+	# don't drop anything if entity is green
+	if entity_type == "green":
+		return
+	
+	var orbs_to_drop = 5
+	
+	# double orbs power-up
+	if double_orbs_active:
+		orbs_to_drop *= 2
+		
+	GameManager.user_orbs += orbs_to_drop
+	GameManager.save_data()
 
 # override if needed
 func _default_score_logic(entity_type: String, action: String) -> void:
@@ -186,8 +235,26 @@ func _on_wave_started() -> void:
 	
 func _on_wave_completed() -> void:
 	var current_wave = wave_manager.current_wave + 1
-	
+	var is_last_wave := wave_manager.current_wave >= wave_manager.waves.size() - 1
+
 	print("wave ", current_wave, " completed")
+
+	if not is_last_wave:
+		_show_wave_complete_banner(current_wave)
+
+func _show_wave_complete_banner(wave_number: int) -> void:
+	if _wave_complete_tween:
+		_wave_complete_tween.kill()
+
+	wave_complete_label.text = "Wave %d Completed!" % wave_number
+	wave_complete_label.modulate.a = 0.0
+	wave_complete_label.show()
+
+	_wave_complete_tween = create_tween()
+	_wave_complete_tween.set_loops(3)
+	_wave_complete_tween.tween_property(wave_complete_label, "modulate:a", 1.0, 0.5)
+	_wave_complete_tween.tween_property(wave_complete_label, "modulate:a", 0.0, 0.5)
+	_wave_complete_tween.finished.connect(wave_complete_label.hide)
 
 func _on_all_waves_completed() -> void:
 	print("You win!")
@@ -200,13 +267,13 @@ func _on_all_waves_completed() -> void:
 	GameManager.unlock_level(LEVEL_NUMBER)
 	
 	# show next level button if there is a next level
-	if LEVEL_NUMBER < GameManager.max_unlockable_level:
+	if LEVEL_NUMBER < GameManager.MAX_UNLOCKABLE_LEVEL:
 		next_level_button.show()
 	else:
 		next_level_button.hide()
 
 # =========================================================
-# LIVES / HEARTS
+# LIVES / HEARTS / SHIELDS
 # =========================================================
 func _update_hearts_ui() -> void:
 	for c in hearts_container.get_children():
@@ -215,8 +282,21 @@ func _update_hearts_ui() -> void:
 	for i in current_lives:
 		var heart = heart_scene.instantiate()
 		hearts_container.add_child(heart)
+		
+func _update_shields_ui():
+	for c in shields_container.get_children():
+		c.queue_free()
+		
+	for i in current_shields:
+		var shield = shield_scene.instantiate()
+		shields_container.add_child(shield)
 
 func _lose_heart() -> void:
+	if current_shields > 0:
+		current_shields -= 1
+		_update_shields_ui()
+		return
+	
 	current_lives = max(current_lives - 1, 0)
 	_update_hearts_ui()
 
@@ -283,7 +363,7 @@ func _on_settings_button_pressed() -> void:
 
 # go to next level in win screen
 func _on_next_level_button_pressed() -> void:
-	if LEVEL_NUMBER == GameManager.max_unlockable_level:
+	if LEVEL_NUMBER == GameManager.MAX_UNLOCKABLE_LEVEL:
 		return
 
 	var next_level_scene = "res://scenes/levels/levels/level_" + str(LEVEL_NUMBER + 1) + "/level_" + str(LEVEL_NUMBER + 1) + ".tscn"

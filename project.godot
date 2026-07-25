@@ -42,11 +42,11 @@ folder_colors={
 "res://characters/": "green",
 "res://effects/": "teal",
 "res://entities/": "green",
-"res://fonts/": "orange",
 "res://game_manager/": "red",
 "res://hud_elements/": "teal",
 "res://inventory_items/": "teal",
-"res://loading_screen/": "red"
+"res://loading_screen/": "red",
+"res://mouse_manager/": "red"
 }
 
 [gui]

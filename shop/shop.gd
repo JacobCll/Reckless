@@ -11,12 +11,17 @@ var items := {
 	"powerup_shields": {
 		"display_name": "Shields",
 		"cost": 15,
-		"description": "+2 additional health"
+		"description": "+2 shields"
 	},
 	"powerup_double_orbs": {
-		"display_name": "Double Orbs",
+		"display_name": "Double orbs",
 		"cost": 50,
 		"description": "Higher chance of double orb drops"
+	},
+	"powerup_no_green": {
+		"display_name": "No Green!",
+		"cost": 40,
+		"description": "Eliminate the chance of green entities spawning",
 	}
 }
 

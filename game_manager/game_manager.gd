@@ -6,7 +6,7 @@ const SAVE_FILE := "user://game_manager_state.dat"
 var current_scene := "main_menu"
 var user_orbs := 0 # user currency
 var highest_unlocked_level := 1 # highest level the player has unlocked
-var max_unlockable_level := 2 # max level that can be unlocked
+var MAX_UNLOCKABLE_LEVEL := 2 # max level that can be unlocked
 var level_1_tutorial_seen := false
 
 # DO NOT SAVE TO FILE
@@ -26,7 +26,7 @@ var item_info := {
 	"powerup_shields": {
 		"display_name": "Shields",
 		"cost": 15,
-		"Description": "Adds +2 lives at the start of the run",
+		"description": "Adds +2 shields at the start of the run",
 		"texture": "res://inventory_items/powerup_shields.tres"
 	},
 	"powerup_double_orbs": {
@@ -34,7 +34,14 @@ var item_info := {
 		"cost": 50,
 		"description": "Higher chance of double orb drops",
 		"texture": "res://inventory_items/powerup_double_orbs.tres"
+	},
+	"powerup_no_green": {
+		"display_name": "No Green!",
+		"cost": 1000,
+		"description": "Eliminate the chance of green entities spawning",
+		"texture": "res://buttons/powerups-buttons/target.tres"
 	}
+	
 }
 
 func _ready():
@@ -59,7 +66,7 @@ func is_level_unlocked(level: int) -> bool:
 func unlock_level(level_completed: int) -> void:
 	var next_level := level_completed + 1
 
-	if next_level > highest_unlocked_level and next_level <= max_unlockable_level:
+	if next_level > highest_unlocked_level and next_level <= MAX_UNLOCKABLE_LEVEL:
 		highest_unlocked_level = next_level
 		save_data()
 
