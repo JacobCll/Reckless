@@ -41,7 +41,6 @@ var item_info := {
 		"description": "Eliminate the chance of green entities spawning",
 		"texture": "res://buttons/powerups-buttons/target.tres"
 	}
-	
 }
 
 func _ready():

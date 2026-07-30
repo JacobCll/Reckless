@@ -71,11 +71,10 @@ func _ready() -> void:
 	_setup_spawners()
 	_prewarm_particles()
 	
-	
 	wave_manager.wave_started.connect(_on_wave_started)
 	wave_manager.wave_completed.connect(_on_wave_completed)
 	wave_manager.all_waves_completed.connect(_on_all_waves_completed)
-
+	
 	start_countdown()
 
 # =========================================================
