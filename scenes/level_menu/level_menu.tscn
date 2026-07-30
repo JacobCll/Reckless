@@ -220,7 +220,7 @@ color = Color(0, 0, 0, 0.5137255)
 
 [node name="ModalLabel" type="TextureRect" parent="CanvasLayer/PowerupModal" unique_id=1638090128]
 layout_mode = 0
-offset_top = 27.0
+offset_top = 20.0
 offset_right = 734.0
 offset_bottom = 83.0
 texture = ExtResource("49_lcikx")
