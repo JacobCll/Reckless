@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="2_jqwib"]
 [ext_resource type="Texture2D" uid="uid://ctkkbptbg7kif" path="res://logo/levels_text.png" id="3_7obll"]
 [ext_resource type="PackedScene" uid="uid://bwdvqid0hbikl" path="res://scenes/level_menu/level_button.tscn" id="3_bvllw"]
-[ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/main_menu_music_1.mp3" id="4_jw3qw"]
+[ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/menu_BGM1.mp3" id="4_jw3qw"]
 [ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="6_5gure"]
 [ext_resource type="Texture2D" uid="uid://dmee4cu7xcab" path="res://buttons/cancel-default.png" id="8_j8mn1"]
 [ext_resource type="Texture2D" uid="uid://c43ct5m0j1duq" path="res://buttons/start-default.png" id="8_xsnhl"]

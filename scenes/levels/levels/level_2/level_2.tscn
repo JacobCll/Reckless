@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_lajwx"]
 [ext_resource type="Script" uid="uid://rdxejfrn5x8g" path="res://scenes/levels/levels/level_2/level_2.gd" id="2_v6o0a"]
-[ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/level_music_1.mp3" id="3_0rd2h"]
+[ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/in_game_BGM2.mp3" id="3_0rd2h"]
 [ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="4_yuhpf"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="5_xx7qf"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_u6ogp"]
