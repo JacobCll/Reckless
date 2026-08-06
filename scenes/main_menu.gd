@@ -1,5 +1,5 @@
 class_name MainMenu
-extends TextureRect
+extends Control
 
 @export var music: AudioStream
 

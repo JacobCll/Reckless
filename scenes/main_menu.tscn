@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://duogth2i1fmrf"]
 
-[ext_resource type="Texture2D" uid="uid://dorqpsujcuf71" path="res://backgrounds/main_menu_background.png" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://crysq2vt1huvk" path="res://buttons/play_button.png" id="2_8ln24"]
 [ext_resource type="Script" uid="uid://g38ghibrcydq" path="res://scenes/main_menu.gd" id="2_jk1qb"]
 [ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/menu_BGM1.mp3" id="3_5dd4i"]
@@ -17,13 +16,30 @@
 [ext_resource type="Texture2D" uid="uid://cuv5vtkxraocv" path="res://buttons/walkietalky-normal.tres" id="15_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://del61yhuotki" path="res://buttons/walkietalky-hover.tres" id="17_a8gd2"]
 
-[node name="MainMenu" type="TextureRect" unique_id=311017489]
+[node name="MainMenu" type="Control" unique_id=184496763]
 z_index = -1
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_l6cm7")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 768.0
 script = ExtResource("2_jk1qb")
 music = ExtResource("3_5dd4i")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1715176793]
+modulate = Color(0.7750634, 0.7750634, 0.7750634, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -197.0
+offset_right = 250.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5pajh")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("11_lgwnu")]
 visible = false

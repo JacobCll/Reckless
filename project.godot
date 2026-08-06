@@ -37,15 +37,7 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://audio_manager/": "red",
-"res://backgrounds/": "orange",
-"res://buttons/": "yellow",
-"res://characters/": "green",
-"res://effects/": "teal",
-"res://entities/": "green",
 "res://game_manager/": "red",
-"res://hud_elements/": "teal",
-"res://inventory_items/": "teal",
-"res://loading_screen/": "red",
 "res://mouse_manager/": "red"
 }
 

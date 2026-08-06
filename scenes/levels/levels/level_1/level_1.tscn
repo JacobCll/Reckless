@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/in_game_BGM2.mp3" id="3_8ftis"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_b8e02"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="4_eq1f0"]
+[ext_resource type="Texture2D" uid="uid://ba1e7paoe0ufw" path="res://backgrounds/level/home_bg.jpg" id="4_h0wnc"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_8ftis"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="6_l4mnh"]
 [ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="7_yasux"]
@@ -29,7 +30,14 @@ LEVEL_NUMBER = 1
 level_music = ExtResource("3_8ftis")
 
 [node name="Background" parent="." index="0" unique_id=1388791812]
-visible = false
+modulate = Color(0.6147722, 0.6732629, 0.7282415, 1)
+offset_left = -264.0
+offset_top = -77.0
+offset_right = 239.0
+offset_bottom = 39.5
+texture = ExtResource("4_h0wnc")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="WaveManager" parent="." index="2" unique_id=805755620 node_paths=PackedStringArray("waves")]
 waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2"), NodePath("../Waves/Wave3")]
