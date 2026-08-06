@@ -42,6 +42,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1371281513]
+position = Vector2(512, 384)
+
 [node name="CountdownTimer" type="Timer" parent="." unique_id=404842974]
 process_mode = 1
 
@@ -55,6 +58,15 @@ bus = &"Sfx"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1956116786]
 process_mode = 3
+
+[node name="HarmEffect" type="ColorRect" parent="CanvasLayer" unique_id=721627686]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 0)
 
 [node name="WaveCompleteLabel" type="Label" parent="CanvasLayer" unique_id=837221459]
 visible = false
@@ -250,18 +262,17 @@ layout_mode = 2
 [node name="CurrentWaveLabel" type="Label" parent="CanvasLayer/HUD" unique_id=483354666]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.83900005
-anchor_right = 0.83900005
-anchor_bottom = 0.123
-offset_left = 32.0
-offset_top = 104.0
-offset_right = 128.0
-offset_bottom = 133.0
+offset_left = 929.0
+offset_top = 87.0
+offset_right = 973.0
+offset_bottom = 104.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_uay4d")
 text = "Wave: 1"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="LevelProgressBar" type="ProgressBar" parent="CanvasLayer/HUD" unique_id=372819405]
 layout_mode = 1

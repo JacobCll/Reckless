@@ -10,6 +10,15 @@ extends Node
 var _background_base_position: Vector2
 var _parallax_offset: Vector2 = Vector2.ZERO
 
+@export_group("Harm Screen Effect")
+@export var harm_flash_alpha: float = 0.25
+@export var harm_flash_fade_duration: float = 0.3
+@export var harm_shake_strength: float = 10.0
+@export var harm_shake_duration: float = 0.25
+
+var _harm_flash_tween: Tween
+var _shake_time_left := 0.0
+
 # --------------------
 # POWER UP FLAGS
 # --------------------
@@ -54,6 +63,10 @@ var countdown_value := countdown_value_original
 
 # background
 @onready var background: TextureRect = $Background
+
+# camera / screen effects
+@onready var camera: Camera2D = $Camera2D
+@onready var harm_effect: ColorRect = $CanvasLayer/HarmEffect
 
 # --------------------
 # UI (shared HUD)
@@ -109,6 +122,13 @@ func _process(delta: float) -> void:
 	_parallax_offset = _parallax_offset.lerp(normalized, min(parallax_smoothing * delta, 1.0))
 
 	background.position = _background_base_position + _parallax_offset * background_parallax_strength
+
+	if _shake_time_left > 0.0:
+		_shake_time_left = max(_shake_time_left - delta, 0.0)
+		var shake_amount := harm_shake_strength * (_shake_time_left / harm_shake_duration)
+		camera.offset = Vector2(randf_range(-shake_amount, shake_amount), randf_range(-shake_amount, shake_amount))
+	elif camera.offset != Vector2.ZERO:
+		camera.offset = Vector2.ZERO
 
 # =========================================================
 # SETUP
@@ -340,7 +360,19 @@ func _update_shields_ui():
 		var shield = shield_scene.instantiate()
 		shields_container.add_child(shield)
 
+func _trigger_harm_effect() -> void:
+	if _harm_flash_tween:
+		_harm_flash_tween.kill()
+
+	harm_effect.color.a = harm_flash_alpha
+	_harm_flash_tween = create_tween()
+	_harm_flash_tween.tween_property(harm_effect, "color:a", 0.0, harm_flash_fade_duration)
+
+	_shake_time_left = harm_shake_duration
+
 func _lose_heart() -> void:
+	_trigger_harm_effect()
+
 	if current_shields > 0:
 		current_shields -= 1
 		_update_shields_ui()
