@@ -289,7 +289,6 @@ vertical_alignment = 1
 
 [node name="PauseScreen" type="Control" parent="CanvasLayer" unique_id=1455857404]
 process_mode = 2
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -317,6 +316,18 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseScreen/CenterContainer" unique_id=81481449]
 layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="LevelMenuButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=424600411]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level Menu"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=1295048651]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
 
 [node name="SettingsButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=335949845]
 layout_mode = 2
@@ -324,22 +335,11 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 
-[node name="LevelMenuButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=424600411]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Level Menu"
-
 [node name="ResumeButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=549232154]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "Resume"
-
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=1295048651]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Main Menu"
 
 [node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=383113909]
 offset_left = 32.0
@@ -359,8 +359,8 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/WinLevelScreen/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/WinLevelScreen/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/WinLevelScreen/NextLevelButton" to="." method="_on_next_level_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/LevelMenuButton" to="." method="_on_level_menu_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]

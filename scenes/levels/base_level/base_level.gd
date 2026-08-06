@@ -15,6 +15,12 @@ var current_shields := 0
 var _wave_complete_tween: Tween
 
 # --------------------
+# END-OF-LEVEL SCREEN DELAYS
+# --------------------
+@export var game_over_screen_delay := 1.2
+@export var win_screen_delay := 1.2
+
+# --------------------
 # CORE GAME STATE
 # --------------------
 # score
@@ -25,6 +31,8 @@ func _set_score(value: int) -> void:
 	
 # pause
 var is_paused := false
+var _resume_countdown_active := false
+@export var resume_countdown_seconds := 3
 
 # lives
 @export var max_lives := 3
@@ -257,14 +265,17 @@ func _show_wave_complete_banner(wave_number: int) -> void:
 
 func _on_all_waves_completed() -> void:
 	print("You win!")
-	
+
 	pause_button.hide()
 	hud.hide()
-	win_screen.show()
-	
+
 	# unlock next level
 	GameManager.unlock_level(LEVEL_NUMBER)
-	
+
+	await get_tree().create_timer(win_screen_delay).timeout
+
+	win_screen.show()
+
 	# show next level button if there is a next level
 	if LEVEL_NUMBER < GameManager.MAX_UNLOCKABLE_LEVEL:
 		next_level_button.show()
@@ -305,9 +316,12 @@ func _lose_heart() -> void:
 func game_over() -> void:
 	pause_button.hide()
 	hud.hide()
-	gameover_screen.show()
-	
+
 	wave_manager.game_over()
+
+	await get_tree().create_timer(game_over_screen_delay).timeout
+
+	gameover_screen.show()
 
 # =========================================================
 # UI ACTIONS
@@ -315,8 +329,8 @@ func game_over() -> void:
 func _on_pause_button_pressed() -> void:
 	if not is_paused:
 		_pause_game()
-	else:
-		_resume_game()
+	elif not _resume_countdown_active:
+		_start_resume_countdown()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# don't do anything if settings menu is shown
@@ -327,7 +341,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_handle_pause_input()
 
 func _on_resume_button_pressed() -> void:
-	_resume_game()
+	if not _resume_countdown_active:
+		_start_resume_countdown()
 
 func restart_level() -> void:
 	get_tree().paused = false
@@ -372,10 +387,11 @@ func _on_next_level_button_pressed() -> void:
 # PAUSE
 func _handle_pause_input() -> void:
 	if is_paused:
-		_resume_game()
+		if not _resume_countdown_active:
+			_start_resume_countdown()
 	else:
 		_pause_game()
-		
+
 func _pause_game() -> void:
 	is_paused = true
 	get_tree().paused = true
@@ -384,7 +400,27 @@ func _pause_game() -> void:
 	AudioManager.disable_mouse_sfx()
 
 	pause_screen.show()
-	
+
+# counts down while the game stays paused, then actually resumes
+func _start_resume_countdown() -> void:
+	_resume_countdown_active = true
+	pause_screen.hide()
+
+	var count := resume_countdown_seconds
+	countdown_label.text = str(count)
+	countdown_label.show()
+
+	while count > 0:
+		await get_tree().create_timer(1.0).timeout
+		count -= 1
+		if count > 0:
+			countdown_label.text = str(count)
+
+	countdown_label.hide()
+	_resume_countdown_active = false
+
+	_resume_game()
+
 func _resume_game() -> void:
 	is_paused = false
 	get_tree().paused = false

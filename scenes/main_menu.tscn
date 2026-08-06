@@ -49,10 +49,10 @@ visible = false
 
 [node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 169.0
-offset_right = 752.07556
-offset_bottom = 802.3334
+offset_left = 418.0
+offset_top = 172.0
+offset_right = 1096.0756
+offset_bottom = 805.3334
 scale = Vector2(0.75, 0.75)
 mouse_filter = 2
 texture = SubResource("CompressedTexture2D_7b55j")
@@ -61,10 +61,11 @@ stretch_mode = 5
 
 [node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=520339295]
 layout_mode = 0
-offset_left = 639.0
-offset_top = 238.0
-offset_right = 918.0
-offset_bottom = 669.0
+offset_left = 72.0
+offset_top = 306.0
+offset_right = 350.0
+offset_bottom = 737.0
+theme_override_constants/separation = 4
 
 [node name="PlayButton" type="TextureButton" parent="ButtonContainer" unique_id=1347030637]
 custom_minimum_size = Vector2(0, 102)
@@ -126,10 +127,10 @@ uppercase = true
 
 [node name="NotificationButton" type="TextureButton" parent="." unique_id=327508239]
 layout_mode = 0
-offset_left = 50.0
-offset_top = 34.0
-offset_right = 103.0
-offset_bottom = 147.0
+offset_left = 908.0
+offset_top = 25.0
+offset_right = 983.0
+offset_bottom = 163.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("15_j7ex8")
 texture_pressed = ExtResource("17_a8gd2")
