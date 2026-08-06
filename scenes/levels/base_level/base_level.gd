@@ -3,6 +3,13 @@ extends Node
 
 @export var LEVEL_NUMBER := 0
 
+@export_group("Mouse Parallax")
+@export var background_parallax_strength: Vector2 = Vector2(6.0, 3.0)
+@export var parallax_smoothing: float = 5.0
+
+var _background_base_position: Vector2
+var _parallax_offset: Vector2 = Vector2.ZERO
+
 # --------------------
 # POWER UP FLAGS
 # --------------------
@@ -44,6 +51,9 @@ var countdown_value := countdown_value_original
 
 # wave manager
 @onready var wave_manager: WaveManager = $WaveManager
+
+# background
+@onready var background: TextureRect = $Background
 
 # --------------------
 # UI (shared HUD)
@@ -87,8 +97,18 @@ func _ready() -> void:
 	wave_manager.wave_completed.connect(_on_wave_completed)
 	wave_manager.all_waves_completed.connect(_on_all_waves_completed)
 	wave_manager.progress_changed.connect(_on_progress_changed)
-	
+
 	start_countdown()
+
+func _process(delta: float) -> void:
+	var viewport_size := get_viewport().get_visible_rect().size
+	var mouse_pos := get_viewport().get_mouse_position()
+	var normalized := (mouse_pos - viewport_size / 2.0) / (viewport_size / 2.0)
+	normalized = normalized.clamp(Vector2(-1.0, -1.0), Vector2(1.0, 1.0))
+
+	_parallax_offset = _parallax_offset.lerp(normalized, min(parallax_smoothing * delta, 1.0))
+
+	background.position = _background_base_position + _parallax_offset * background_parallax_strength
 
 # =========================================================
 # SETUP
@@ -97,16 +117,18 @@ func _setup_level() -> void:
 	score = 0
 	current_lives = max_lives
 	countdown_value = countdown_value_original
-	
-	# appy powerups	
+
+	# appy powerups
 	_apply_selected_powerup()
-	
+
 	AudioManager.play_music(level_music)
 	AudioManager.enable_mouse_sfx()
 	MouseManager.show_mouse_trail()
-	
+
 	GameManager.current_scene = "in_game"
-	
+
+	_background_base_position = background.position
+
 func _apply_selected_powerup():
 	match GameManager.selected_powerup:
 		"powerup_shields":
