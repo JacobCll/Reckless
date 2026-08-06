@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqphewyunkjxx"
-path="res://.godot/imported/exam_sprite_top.png-7dbb484d71c1efd9c0f70b32238eb452.ctex"
+uid="uid://d3utyygt4iobg"
+path="res://.godot/imported/mop_sprite_slashed.png-2854ca8f76a9c54d13a86847b7f74887.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/blue/exam_sprite/exam_sprite_top.png"
-dest_files=["res://.godot/imported/exam_sprite_top.png-7dbb484d71c1efd9c0f70b32238eb452.ctex"]
+source_file="res://entities/blue/mop_sprite/mop_sprite_slashed.png"
+dest_files=["res://.godot/imported/mop_sprite_slashed.png-2854ca8f76a9c54d13a86847b7f74887.ctex"]
 
 [params]
 

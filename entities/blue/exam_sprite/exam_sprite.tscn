@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://b4mk3uqqpa5ix"]
 
 [ext_resource type="PackedScene" uid="uid://m0ewq7oi2ajw" path="res://entities/base_entities/blue_entity_base.tscn" id="1_rc6rq"]
-[ext_resource type="Texture2D" uid="uid://105tkhsj1wuk" path="res://entities/blue/exam_sprite/exam_sprite.png" id="2_8heef"]
+[ext_resource type="Texture2D" uid="uid://bm2wq12jfpfs3" path="res://entities/blue/exam_sprite/exam_sprite.png" id="2_8heef"]
 [ext_resource type="Script" uid="uid://dmj5jvrokydch" path="res://entities/blue/exam_sprite/exam_sprite.gd" id="2_e1bbf"]
-[ext_resource type="Texture2D" uid="uid://cprfheit2kiqa" path="res://entities/blue/exam_sprite/exam_sprite_bottom.png" id="3_rbnx4"]
-[ext_resource type="Texture2D" uid="uid://cqphewyunkjxx" path="res://entities/blue/exam_sprite/exam_sprite_top.png" id="4_lc41f"]
+[ext_resource type="Texture2D" uid="uid://cwlnwaileg85y" path="res://entities/blue/exam_sprite/exam_sprite_slashed.png" id="3_h5abb"]
 
 [node name="ExamSprite" unique_id=1198263616 instance=ExtResource("1_rc6rq")]
 script = ExtResource("2_e1bbf")
-left_half_texture = ExtResource("3_rbnx4")
-right_half_texture = ExtResource("4_lc41f")
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0
@@ -23,4 +20,17 @@ texture = ExtResource("2_8heef")
 [node name="CollisionPolygon2D" parent="." index="3" unique_id=1735354089]
 position = Vector2(3.9999998, -1.0000005)
 scale = Vector2(1.1568772, 1.0361714)
-polygon = PackedVector2Array(-19.881107, -57.90547, 70.88047, -68.521484, 42.355404, 81.06766, -76.06684, 42.464016)
+polygon = PackedVector2Array(-56.185738, -71.41675, 59.643322, -70.45166, 58.778927, 82.03276, -59.643322, 78.17239)
+
+[node name="SlashPolygons" type="Node2D" parent="." index="5" unique_id=1851782842]
+visible = false
+
+[node name="TopPiece" type="Polygon2D" parent="SlashPolygons" index="0" unique_id=1453888121]
+texture = ExtResource("3_h5abb")
+polygon = PackedVector2Array(221.41254, 77.87185, 932.04565, 99.40619, 967.9363, 599.4814, 163.98761, 364.99637)
+uv = PackedVector2Array(221.41254, 77.87185, 932.04565, 99.40619, 967.9363, 599.4814, 163.98761, 364.99637)
+
+[node name="BottomPiece" type="Polygon2D" parent="SlashPolygons" index="1" unique_id=439311987]
+texture = ExtResource("3_h5abb")
+polygon = PackedVector2Array(219.5838, 415.25317, 878.3354, 617.4443, 884.8577, 993.56323, 160.88312, 943.55896)
+uv = PackedVector2Array(219.5838, 415.25317, 878.3354, 617.4443, 884.8577, 993.56323, 160.88312, 943.55896)

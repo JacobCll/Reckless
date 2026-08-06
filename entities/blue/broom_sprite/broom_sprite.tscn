@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://m0ewq7oi2ajw" path="res://entities/base_entities/blue_entity_base.tscn" id="1_b32v7"]
 [ext_resource type="Script" uid="uid://03gtdrfujlhq" path="res://entities/blue/broom_sprite/broom_sprite.gd" id="2_cysdy"]
-[ext_resource type="Texture2D" uid="uid://6y1v0emc7vge" path="res://entities/blue/broom_sprite/broom_sprite.png" id="3_mvxh2"]
+[ext_resource type="Texture2D" uid="uid://2a0dv5k5jd8i" path="res://entities/blue/broom_sprite/broom_sprite.png" id="3_mvxh2"]
 [ext_resource type="Texture2D" uid="uid://cqn3d7trmp3yf" path="res://entities/blue/broom_sprite/broom_sprite_bottom.png" id="3_ye0mt"]
 [ext_resource type="Texture2D" uid="uid://cxqqbhddwiqen" path="res://entities/blue/broom_sprite/broom_sprite_top.png" id="4_q865p"]
 
@@ -18,10 +18,10 @@ position = Vector2(1.9999981, 29.999996)
 scale = Vector2(0.13472117, 0.1396613)
 
 [node name="Sprite2D" parent="." index="2" unique_id=226567958]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_mvxh2")
 
 [node name="CollisionPolygon2D" parent="." index="3" unique_id=1735354089]
-position = Vector2(3, 10)
+position = Vector2(1.0000001, 11.000001)
 scale = Vector2(1.1568772, 1.0361714)
-polygon = PackedVector2Array(-17.28792, -83.96294, -20.745502, -2.8952737, -44.948593, 35.708374, -28.525066, 58.870564, 21.6099, 59.83566, 41.491005, 39.56874, 19.881107, -2.8952737, 19.016712, -82.99784)
+polygon = PackedVector2Array(23.338692, -1.9301825, 19.016712, -86.858215, -15.559128, -85.89312, -23.338692, -2.8952742, -48.406174, 44.394196, -0.8643961, 79.13748, 47.54178, 48.25456)

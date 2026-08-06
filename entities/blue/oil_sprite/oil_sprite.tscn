@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://igw5xap2k8at"]
+
+[ext_resource type="PackedScene" uid="uid://m0ewq7oi2ajw" path="res://entities/base_entities/blue_entity_base.tscn" id="1_rj6b1"]
+[ext_resource type="Script" uid="uid://bnw8d105bfojt" path="res://entities/blue/oil_sprite/oil_sprite.gd" id="2_i7yqe"]
+[ext_resource type="Texture2D" uid="uid://84on770ffcy5" path="res://entities/blue/oil_sprite/oil_sprite.png" id="3_i7yqe"]
+[ext_resource type="Texture2D" uid="uid://b8bu2bmere21p" path="res://entities/blue/oil_sprite/oil_sprite_slashed.png" id="4_skj1y"]
+
+[node name="OilSprite" unique_id=1198263616 instance=ExtResource("1_rj6b1")]
+script = ExtResource("2_i7yqe")
+
+[node name="GlowCircle" parent="." index="1" unique_id=1188814709]
+z_index = 0
+position = Vector2(1.7499982, 5.500004)
+scale = Vector2(0.1730539, 0.21676645)
+
+[node name="Sprite2D" parent="." index="2" unique_id=226567958]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_i7yqe")
+
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=1735354089]
+position = Vector2(3.9999998, -1.0000005)
+scale = Vector2(1.1568772, 1.0361714)
+polygon = PackedVector2Array(-46.677383, -65.626205, 38.89782, -66.59129, 42.355404, 76.2422, -49.270573, 77.207306)
+
+[node name="SlashPolygons" type="Node2D" parent="." index="5" unique_id=1851782842]
+visible = false
+
+[node name="TopPiece" type="Polygon2D" parent="SlashPolygons" index="0" unique_id=1453888121]
+texture = ExtResource("4_skj1y")
+polygon = PackedVector2Array(731.23413, 354.04272, 260.0852, 773.4469, 276.42554, 117.106544, 706.7234, 84.4257)
+uv = PackedVector2Array(731.23413, 354.04272, 276.42554, 740.76605, 276.42554, 117.106544, 706.7234, 84.4257)
+
+[node name="BottomPiece" type="Polygon2D" parent="SlashPolygons" index="1" unique_id=439311987]
+texture = ExtResource("4_skj1y")
+polygon = PackedVector2Array(265.53198, 729.87244, 750.29785, 378.55334, 750.29785, 909.6171, 276.42554, 936.8512)
+uv = PackedVector2Array(292.766, 721.7023, 750.29785, 378.55334, 750.29785, 909.6171, 300.93616, 917.78735)

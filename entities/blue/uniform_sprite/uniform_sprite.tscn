@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bjw7qjviebcx"]
+
+[ext_resource type="PackedScene" uid="uid://m0ewq7oi2ajw" path="res://entities/base_entities/blue_entity_base.tscn" id="1_jqxee"]
+[ext_resource type="Script" uid="uid://cv63jngi44akk" path="res://entities/blue/uniform_sprite/uniform_sprite.gd" id="2_iebcq"]
+[ext_resource type="Texture2D" uid="uid://cfeajkgvrv3vo" path="res://entities/blue/uniform_sprite/uniform_sprite.png" id="3_1tseu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1tseu"]
+load_path = "res://.godot/imported/uniform_sprite_slashed.png-85f1a01ac047641c2336dc6015fbde05.ctex"
+
+[node name="UniformSprite" unique_id=1198263616 instance=ExtResource("1_jqxee")]
+script = ExtResource("2_iebcq")
+
+[node name="GlowCircle" parent="." index="1" unique_id=1188814709]
+z_index = 0
+position = Vector2(4.6491623e-06, 0.99999845)
+scale = Vector2(0.17134777, 0.25859547)
+
+[node name="Sprite2D" parent="." index="2" unique_id=226567958]
+scale = Vector2(0.17884423, 0.17413487)
+texture = ExtResource("3_1tseu")
+
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=1735354089]
+position = Vector2(3.9999998, -1.0000005)
+scale = Vector2(1.3793386, 1.2028904)
+polygon = PackedVector2Array(-50.134968, -60.800747, 40.62661, -60.800747, 38.89782, 65.626205, -47.54178, 65.626205)
+
+[node name="SlashPolygons" type="Node2D" parent="." index="5" unique_id=1851782842]
+visible = false
+
+[node name="TopPiece" type="Polygon2D" parent="SlashPolygons" index="0" unique_id=388974073]
+texture = SubResource("CompressedTexture2D_1tseu")
+polygon = PackedVector2Array(293.99365, 187.06732, 786.80505, 783.6285, 775.0154, 111.61294)
+uv = PackedVector2Array(286.9198, 191.78322, 786.80505, 783.6285, 767.9415, 170.56168)
+
+[node name="BottomPiece" type="Polygon2D" parent="SlashPolygons" index="1" unique_id=1094026951]
+texture = SubResource("CompressedTexture2D_1tseu")
+polygon = PackedVector2Array(303.65967, 215.14911, 823.82983, 819.7448, 521.532, 917.78735, 227.4043, 868.76605, 221.95752, 193.36188)
+uv = PackedVector2Array(303.65967, 215.14911, 823.82983, 819.7448, 521.532, 917.78735, 227.4043, 868.76605, 221.95752, 193.36188)

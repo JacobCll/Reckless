@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cprfheit2kiqa"
-path="res://.godot/imported/exam_sprite_bottom.png-28f274e584492a87ebd4a3a0789107cf.ctex"
+uid="uid://dubh05fqnbx4k"
+path="res://.godot/imported/shovel_sprite_slashed.png-3567e0858744bdbec331809bbfd37b7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/blue/exam_sprite/exam_sprite_bottom.png"
-dest_files=["res://.godot/imported/exam_sprite_bottom.png-28f274e584492a87ebd4a3a0789107cf.ctex"]
+source_file="res://entities/blue/shovel_sprite/shovel_sprite_slashed.png"
+dest_files=["res://.godot/imported/shovel_sprite_slashed.png-3567e0858744bdbec331809bbfd37b7c.ctex"]
 
 [params]
 

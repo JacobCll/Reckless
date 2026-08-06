@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://wuowvfoe3qjj"]
+
+[ext_resource type="PackedScene" uid="uid://m0ewq7oi2ajw" path="res://entities/base_entities/blue_entity_base.tscn" id="1_x2mty"]
+[ext_resource type="Script" uid="uid://duvc4b05qs8ak" path="res://entities/blue/water_bottle_sprite/water_bottle_sprite.gd" id="2_h4a2p"]
+[ext_resource type="Texture2D" uid="uid://dip5wsfwj261v" path="res://entities/blue/water_bottle_sprite/water_bottle_sprite.png" id="3_hghin"]
+[ext_resource type="Texture2D" uid="uid://brmyehd76xw2" path="res://entities/blue/water_bottle_sprite/water_bottle_sprite_slashed.png" id="4_47bd0"]
+
+[node name="WaterBottleSprite" unique_id=1198263616 instance=ExtResource("1_x2mty")]
+script = ExtResource("2_h4a2p")
+
+[node name="GlowCircle" parent="." index="1" unique_id=1188814709]
+z_index = 0
+position = Vector2(0.31874752, -2)
+scale = Vector2(0.17169161, 0.28)
+
+[node name="Sprite2D" parent="." index="2" unique_id=226567958]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_hghin")
+
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=1735354089]
+position = Vector2(3.9999998, -1.0000005)
+scale = Vector2(1.1568772, 1.0361714)
+polygon = PackedVector2Array(-28.525068, -66.59129, 22.474295, -66.59129, 24.203087, 66.59129, -30.25386, 66.59129)
+
+[node name="SlashPolygons" type="Node2D" parent="." index="5" unique_id=1851782842]
+visible = false
+
+[node name="TopPiece" type="Polygon2D" parent="SlashPolygons" index="0" unique_id=388974073]
+texture = ExtResource("4_47bd0")
+polygon = PackedVector2Array(360.50256, 33.812065, 664.9303, 46.365776, 677.484, 432.39267, 335.39514, 620.6984)
+uv = PackedVector2Array(363.57446, 49.02144, 654.97876, 70.80868, 665.8723, 381.27676, 335.39514, 620.6984)
+
+[node name="BottomPiece" type="Polygon2D" parent="SlashPolygons" index="1" unique_id=1094026951]
+texture = ExtResource("4_47bd0")
+polygon = PackedVector2Array(354.43878, 590.4536, 703.4152, 418.32333, 698.6993, 915.8506, 311.99567, 941.788)
+uv = PackedVector2Array(354.43878, 590.4536, 703.4152, 418.32333, 698.6993, 915.8506, 311.99567, 941.788)

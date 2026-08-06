@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cik6hjm5mjsf5"]
+
+[ext_resource type="PackedScene" uid="uid://m0ewq7oi2ajw" path="res://entities/base_entities/blue_entity_base.tscn" id="1_tgwhu"]
+[ext_resource type="Script" uid="uid://byvfbrnlx4cq6" path="res://entities/blue/wrapper_sprite/wrapper_sprite.gd" id="2_4i7yb"]
+[ext_resource type="Texture2D" uid="uid://dl110om35e8sp" path="res://entities/blue/wrapper_sprite/wrapper_sprite.png" id="3_f48iu"]
+[ext_resource type="Texture2D" uid="uid://cw3t4m6hodrgf" path="res://entities/blue/wrapper_sprite/wrapper_sprite_slashed.png" id="4_8mfd4"]
+
+[node name="WrapperSprite" unique_id=1198263616 instance=ExtResource("1_tgwhu")]
+script = ExtResource("2_4i7yb")
+
+[node name="GlowCircle" parent="." index="1" unique_id=1188814709]
+z_index = 0
+position = Vector2(-5, -7)
+rotation = -0.16448247
+scale = Vector2(0.20349468, 0.13721147)
+
+[node name="Sprite2D" parent="." index="2" unique_id=226567958]
+scale = Vector2(0.12558368, 0.12666737)
+texture = ExtResource("3_f48iu")
+
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=1735354089]
+position = Vector2(3.9999998, -1.0000005)
+scale = Vector2(0.9685659, 0.87499404)
+polygon = PackedVector2Array(-67.42288, -33.778194, 44.94859, -49.219654, 57.91453, 10.616004, -54.456947, 49.219654)
+
+[node name="SlashPolygons" type="Node2D" parent="." index="5" unique_id=1851782842]
+visible = false
+
+[node name="TopPiece" type="Polygon2D" parent="SlashPolygons" index="0" unique_id=388974073]
+texture = ExtResource("4_8mfd4")
+polygon = PackedVector2Array(115.74475, 305.02145, 633.1915, 247.82996, 385.3617, 729.87244, 123.91492, 759.8299)
+uv = PackedVector2Array(115.74475, 305.02145, 633.1915, 247.82996, 385.3617, 729.87244, 123.91492, 759.8299)
+
+[node name="BottomPiece" type="Polygon2D" parent="SlashPolygons" index="1" unique_id=1094026951]
+texture = ExtResource("4_8mfd4")
+polygon = PackedVector2Array(630.46814, 228.76611, 932.766, 231.48953, 979.06384, 525.6171, 385.3617, 740.76605)
+uv = PackedVector2Array(649.532, 226.04272, 881.02136, 256.00015, 979.06384, 525.6171, 385.3617, 740.76605)
