@@ -72,6 +72,8 @@ func _setup_ui() -> void:
 	text_modal.hide()
 	continue_button.hide()
 	
+	_update_hearts_ui()
+	_update_shields_ui()
 
 func show_page():
 	tutorial_body_text.text = pages[current_page].body
