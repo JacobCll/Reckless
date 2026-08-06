@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_nw3yw"]
 [ext_resource type="Script" uid="uid://b87t8mxgjju4" path="res://scenes/levels/tutorial_level/tutorial_level.gd" id="2_h8moi"]
+[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_1xsvc"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_knk6l"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_haaw4"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_l7ta3"]
@@ -39,6 +40,7 @@ countdown_value_original = 0
 
 [node name="CountdownLabel" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="0" unique_id=1652738209]
 visible = false
+theme_override_fonts/font = ExtResource("3_1xsvc")
 
 [node name="TutorialModal" type="Control" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="4" unique_id=1326149685]
 layout_mode = 3
@@ -144,7 +146,7 @@ metadata/_edit_use_anchors_ = true
 [node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=483354666]
 visible = false
 
-[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="3" unique_id=656952242]
+[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="4" unique_id=656952242]
 visible = false
 
 [node name="BlueSpawner" parent="." index="6" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]

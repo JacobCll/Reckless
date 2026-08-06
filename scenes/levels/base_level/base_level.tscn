@@ -45,6 +45,10 @@ grow_vertical = 2
 [node name="CountdownTimer" type="Timer" parent="." unique_id=404842974]
 process_mode = 1
 
+[node name="CountdownSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042516]
+volume_db = -25.0
+bus = &"Sfx"
+
 [node name="WaveManager" parent="." unique_id=805755620 instance=ExtResource("6_1txf7")]
 
 [node name="Waves" type="Node" parent="." unique_id=1732898637]

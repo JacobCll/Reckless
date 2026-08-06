@@ -56,17 +56,20 @@ var countdown_value := countdown_value_original
 @onready var level_progress_bar = $CanvasLayer/HUD/LevelProgressBar
 @onready var countdown_timer = $CountdownTimer
 @onready var countdown_label = $CanvasLayer/CountdownLabel
+@onready var countdown_sfx_player = $CountdownSfxPlayer
 @onready var pause_button = $CanvasLayer/PauseButton
 @onready var pause_screen = $CanvasLayer/PauseScreen
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
 @onready var win_screen = $CanvasLayer/WinLevelScreen
 @onready var next_level_button = $CanvasLayer/WinLevelScreen/NextLevelButton
 @onready var settings_menu = $SettingsMenu
+@onready var progress_bar = $CanvasLayer/HUD/LevelProgressBar
 
 # --------------------
 # RESOURCES
 # --------------------
 @export var level_music: AudioStream
+var countdown_sfx := preload("res://sfx/time_beep.wav")
 var heart_scene := preload("res://hud_elements/hearts/heart.tscn")
 var shield_scene := preload("res://hud_elements/shields/shield.tscn")
 var entity_particles_scene := preload("res://effects/entity_particles/entity_particles.tscn")
@@ -164,18 +167,24 @@ func _apply_no_green_powerup() -> void:
 func start_countdown() -> void:
 	countdown_value = countdown_value_original
 	countdown_label.text = str(countdown_value)
+	_play_countdown_sfx()
 	countdown_timer.start()
 
 func _on_countdown_timer_timeout() -> void:
 	countdown_value -= 1
 	if countdown_value > 0:
 		countdown_label.text = str(countdown_value)
+		_play_countdown_sfx()
 		return
 	else:
 		countdown_timer.stop()
 		countdown_label.hide()
-		
+
 		_on_level_start()
+
+func _play_countdown_sfx() -> void:
+	countdown_sfx_player.stream = countdown_sfx
+	countdown_sfx_player.play()
 
 # override hook
 func _on_level_start() -> void:
@@ -200,6 +209,8 @@ func _on_entity_killed(entity_type: String) -> void:
 	if entity_type != "green":
 		_entity_drop(entity_type)
 		wave_manager.register_kill()
+	else:
+		CombatAudioSystem.play_despawned()
 
 func _on_entity_despawned(entity_type: String) -> void:
 	if entity_type in ["blue", "red"]:
@@ -415,12 +426,14 @@ func _start_resume_countdown() -> void:
 	var count := resume_countdown_seconds
 	countdown_label.text = str(count)
 	countdown_label.show()
+	_play_countdown_sfx()
 
 	while count > 0:
 		await get_tree().create_timer(1.0).timeout
 		count -= 1
 		if count > 0:
 			countdown_label.text = str(count)
+			_play_countdown_sfx()
 
 	countdown_label.hide()
 	_resume_countdown_active = false

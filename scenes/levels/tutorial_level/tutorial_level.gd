@@ -27,6 +27,7 @@ var current_page := 0
 @onready var text_modal := $CanvasLayer/TutorialModal/TextModal
 @onready var text_modal_text := $CanvasLayer/TutorialModal/TextModal/Text
 @onready var continue_button := $CanvasLayer/TutorialModal/ContinueButton
+
 var pages := [
 	{
 		"body": "Welcome to the tutorial!"
@@ -62,6 +63,7 @@ func _ready() -> void:
 
 # override - show hud
 func _setup_ui() -> void:
+	progress_bar.hide()
 	pause_screen.hide()
 	gameover_screen.hide()
 	win_screen.hide()
@@ -72,8 +74,14 @@ func _setup_ui() -> void:
 	text_modal.hide()
 	continue_button.hide()
 	
+	
 	_update_hearts_ui()
 	_update_shields_ui()
+
+# override - skip the resume countdown, unpause immediately
+func _start_resume_countdown() -> void:
+	pause_screen.hide()
+	_resume_game()
 
 func show_page():
 	tutorial_body_text.text = pages[current_page].body
