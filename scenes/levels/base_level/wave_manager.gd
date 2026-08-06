@@ -4,6 +4,7 @@ extends Node
 signal wave_started()
 signal wave_completed()
 signal all_waves_completed
+signal progress_changed(progress: float)
 
 @export var waves: Array[Wave]
 @export var wave_start_delay := 1.0
@@ -13,8 +14,17 @@ var active_spawners: Array[EntitySpawner] = []
 var current_wave := 0
 var kills := 0
 
+var total_kills_required := 0
+var total_kills_done := 0
+
 func start() -> void:
 	current_wave = 0
+	total_kills_done = 0
+
+	total_kills_required = 0
+	for wave in waves:
+		total_kills_required += wave.kill_requirement
+
 	start_wave()
 
 func start_wave() -> void:
@@ -44,6 +54,11 @@ func start_spawn_loops() -> void:
 
 func register_kill() -> void:
 	kills += 1
+	total_kills_done += 1
+
+	if total_kills_required > 0:
+		progress_changed.emit(float(total_kills_done) / total_kills_required)
+
 	if kills >= waves[current_wave].kill_requirement:
 		complete_wave()
 

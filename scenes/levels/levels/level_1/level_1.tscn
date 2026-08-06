@@ -35,6 +35,9 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxbsn"]
+bg_color = Color(8.6635355e-06, 0.6981291, 0.597345, 1)
+
 [node name="Level1" unique_id=818516806 instance=ExtResource("1_pskts")]
 script = ExtResource("2_b8e02")
 LEVEL_NUMBER = 1
@@ -169,6 +172,9 @@ offset_bottom = 561.0
 offset_left = 18.0
 offset_right = 154.0
 theme_override_font_sizes/font_size = 30
+
+[node name="LevelProgressBar" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="3" unique_id=372819405]
+theme_override_styles/fill = SubResource("StyleBoxFlat_qxbsn")
 
 [node name="ColorRect" parent="CanvasLayer/PauseScreen" parent_id_path=PackedInt32Array(1455857404) index="0" unique_id=882516791]
 color = Color(0.26657507, 0.26657525, 0.2665752, 1)

@@ -53,6 +53,7 @@ var countdown_value := countdown_value_original
 @onready var hearts_container = $CanvasLayer/HUD/HeartsContainer
 @onready var shields_container = $CanvasLayer/HUD/ShieldsContainer
 @onready var score_label = $CanvasLayer/HUD/ScoreLabel
+@onready var level_progress_bar = $CanvasLayer/HUD/LevelProgressBar
 @onready var countdown_timer = $CountdownTimer
 @onready var countdown_label = $CanvasLayer/CountdownLabel
 @onready var pause_button = $CanvasLayer/PauseButton
@@ -82,6 +83,7 @@ func _ready() -> void:
 	wave_manager.wave_started.connect(_on_wave_started)
 	wave_manager.wave_completed.connect(_on_wave_completed)
 	wave_manager.all_waves_completed.connect(_on_all_waves_completed)
+	wave_manager.progress_changed.connect(_on_progress_changed)
 	
 	start_countdown()
 
@@ -128,6 +130,7 @@ func _setup_ui() -> void:
 	countdown_label.show()
 	_update_hearts_ui()
 	_update_shields_ui()
+	level_progress_bar.value = 0.0
 
 # prevents particle lag when level is loaded for the first time
 func _prewarm_particles() -> void:
@@ -262,6 +265,9 @@ func _show_wave_complete_banner(wave_number: int) -> void:
 	_wave_complete_tween.tween_property(wave_complete_label, "modulate:a", 1.0, 0.5)
 	_wave_complete_tween.tween_property(wave_complete_label, "modulate:a", 0.0, 0.5)
 	_wave_complete_tween.finished.connect(wave_complete_label.hide)
+
+func _on_progress_changed(progress: float) -> void:
+	level_progress_bar.value = progress
 
 func _on_all_waves_completed() -> void:
 	print("You win!")

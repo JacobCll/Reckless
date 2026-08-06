@@ -13,7 +13,7 @@ func _ready():
 
 	Settings.apply_settings()
 	
-	hide()
+	#hide()
 
 func _on_music_slider_value_changed(value: float) -> void:
 	Settings.music_volume = value

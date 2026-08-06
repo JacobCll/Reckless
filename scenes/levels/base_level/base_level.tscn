@@ -19,6 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://imjqmk1hi4h6" path="res://buttons/greenbutton-hover.tres" id="13_lrd10"]
 [ext_resource type="PackedScene" uid="uid://d1i7pcl5yqc8b" path="res://hud_elements/shields/shield.tscn" id="14_875bv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
+bg_color = Color(0.1, 0.1, 0.1, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
+bg_color = Color(0.93, 0.65, 0.13, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1txf7"]
 shader = ExtResource("5_y3fao")
 shader_parameter/blur_amount = 2.0
@@ -269,6 +275,21 @@ grow_vertical = 2
 size_flags_horizontal = 4
 text = "Wave: 1"
 
+[node name="LevelProgressBar" type="ProgressBar" parent="CanvasLayer/HUD" unique_id=372819405]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 338.0
+offset_top = 37.0
+offset_right = 660.0
+offset_bottom = 68.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_progress_fill")
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/HUD" unique_id=656952242]
 layout_mode = 1
 anchors_preset = -1
@@ -276,10 +297,10 @@ anchor_left = 0.49300003
 anchor_top = 0.095000006
 anchor_right = 0.49300003
 anchor_bottom = 0.095000006
-offset_left = 376.0
-offset_top = 24.0
-offset_right = 632.0
-offset_bottom = 112.0
+offset_left = 374.0
+offset_top = 72.0
+offset_right = 628.0
+offset_bottom = 161.33334
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 64
@@ -289,6 +310,7 @@ vertical_alignment = 1
 
 [node name="PauseScreen" type="Control" parent="CanvasLayer" unique_id=1455857404]
 process_mode = 2
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
