@@ -38,9 +38,11 @@ script = ExtResource("2_h8moi")
 max_lives = 0
 countdown_value_original = 0
 
-[node name="CountdownLabel" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="0" unique_id=1652738209]
+[node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=483354666]
 visible = false
-theme_override_fonts/font = ExtResource("3_1xsvc")
+
+[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="4" unique_id=656952242]
+visible = false
 
 [node name="TutorialModal" type="Control" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="4" unique_id=1326149685]
 layout_mode = 3
@@ -143,11 +145,9 @@ theme_override_font_sizes/font_size = 32
 text = "Continue"
 metadata/_edit_use_anchors_ = true
 
-[node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=483354666]
+[node name="CountdownLabel" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="7" unique_id=1652738209]
 visible = false
-
-[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="4" unique_id=656952242]
-visible = false
+theme_override_fonts/font = ExtResource("3_1xsvc")
 
 [node name="BlueSpawner" parent="." index="6" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
 spawn_delay_max = 1.0

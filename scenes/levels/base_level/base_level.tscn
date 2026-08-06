@@ -56,23 +56,6 @@ bus = &"Sfx"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1956116786]
 process_mode = 3
 
-[node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=1652738209]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -44.0
-offset_right = 20.0
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(20, 44)
-theme_override_font_sizes/font_size = 64
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="WaveCompleteLabel" type="Label" parent="CanvasLayer" unique_id=837221459]
 visible = false
 anchors_preset = 8
@@ -344,6 +327,18 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 7
 
+[node name="ResumeButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=549232154]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=335949845]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
 [node name="LevelMenuButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=424600411]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -355,18 +350,6 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=335949845]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Settings"
-
-[node name="ResumeButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=549232154]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Resume"
-
 [node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=383113909]
 offset_left = 32.0
 offset_top = 32.0
@@ -375,6 +358,23 @@ offset_bottom = 88.0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 16
 text = "Pause"
+
+[node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=1652738209]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 20.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 44)
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("5_1txf7")]
 visible = false
@@ -385,8 +385,8 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/WinLevelScreen/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/WinLevelScreen/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/WinLevelScreen/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/LevelMenuButton" to="." method="_on_level_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]

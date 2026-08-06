@@ -74,14 +74,8 @@ func _setup_ui() -> void:
 	text_modal.hide()
 	continue_button.hide()
 	
-	
 	_update_hearts_ui()
 	_update_shields_ui()
-
-# override - skip the resume countdown, unpause immediately
-func _start_resume_countdown() -> void:
-	pause_screen.hide()
-	_resume_game()
 
 func show_page():
 	tutorial_body_text.text = pages[current_page].body
@@ -156,6 +150,14 @@ func _on_entity_slashed(entity_type: String) -> void:
 	if slashed_count >= 5:
 		continue_button.show()
 
+# overriden, no entity drops in tutorial
+func _entity_drop(entity_type: String):
+	return
+
+# overriden to not let user lose hearts because there is no hearts in the tutorial
+func _default_score_logic(entity_type: String, action: String) -> void:
+	return
+
 func _on_entity_smashed(entity_type: String) -> void:
 	super(entity_type)
 	
@@ -170,7 +172,7 @@ func _on_entity_killed(entity_type: String) -> void:
 			continue_button.show()
 	
 	if entity_type == "green":
-		print("Green entity killed")
+		CombatAudioSystem.play_despawned()
 
 func _handle_tutorial_slash():
 	continue_button.hide()
