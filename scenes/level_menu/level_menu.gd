@@ -17,8 +17,8 @@ var selected_powerup_card: PowerupCard = null
 
 func _ready() -> void:
 	AudioManager.play_music(level_menu_music)
+	AudioManager.disable_mouse_sfx()
 	GameManager.current_scene = "level_menu"
-	MouseManager.hide_mouse_trail()
 	
 	powerup_modal.hide()
 	

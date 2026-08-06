@@ -19,8 +19,9 @@ var _parallax_offset: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	GameManager.current_scene = "main_menu"
 	AudioManager.play_music(music)
-	AudioManager.disable_mouse_sfx()
 	MouseManager.show_mouse_trail()
+	AudioManager.disable_mouse_sfx()
+	
 	_background_base_position = background.position
 	_logo_base_position = reckless_logo.position
 
