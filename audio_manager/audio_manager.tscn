@@ -12,5 +12,5 @@ autoplay = true
 bus = &"Music"
 
 [node name="ButtonSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042515]
-volume_db = -15.0
+volume_db = -17.0
 bus = &"Sfx"

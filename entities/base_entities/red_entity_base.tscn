@@ -17,6 +17,7 @@ collision_mask = 0
 input_pickable = true
 script = ExtResource("1_7ohfh")
 particles_scene = ExtResource("2_7ohfh")
+particle_color = Color(0.69965345, 0.6996535, 0.6996533, 1)
 
 [node name="EntityLineTrail" parent="." unique_id=2004345689 instance=ExtResource("5_am58m")]
 gradient = SubResource("Gradient_am58m")

@@ -49,7 +49,7 @@ position = Vector2(512, 384)
 process_mode = 1
 
 [node name="CountdownSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042516]
-volume_db = -25.0
+volume_db = -15.0
 bus = &"Sfx"
 
 [node name="WaveManager" parent="." unique_id=805755620 instance=ExtResource("6_1txf7")]
