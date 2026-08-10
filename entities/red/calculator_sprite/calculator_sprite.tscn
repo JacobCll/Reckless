@@ -2,25 +2,41 @@
 
 [ext_resource type="PackedScene" uid="uid://ce4vdrqxwqa5n" path="res://entities/base_entities/red_entity_base.tscn" id="1_tay75"]
 [ext_resource type="Script" uid="uid://r3clxfyaakxt" path="res://entities/red/calculator_sprite/calculator_sprite.gd" id="2_30n6b"]
-[ext_resource type="Texture2D" uid="uid://lo40j8xbqpkj" path="res://entities/red/calculator_sprite/calculator_sprite.png" id="2_123ak"]
-[ext_resource type="Texture2D" uid="uid://1q2p5g88nnec" path="res://entities/red/calculator_sprite/calculator_sprite_bottom_left.png" id="3_feou7"]
-[ext_resource type="Texture2D" uid="uid://vbxtcc40km" path="res://entities/red/calculator_sprite/calculator_sprite_top_left.png" id="3_y2vly"]
-[ext_resource type="Texture2D" uid="uid://by7jeu4e5snuw" path="res://entities/red/calculator_sprite/calculator_sprite_top_right.png" id="4_ullyk"]
-[ext_resource type="Texture2D" uid="uid://dijpyfycve7c1" path="res://entities/red/calculator_sprite/calculator_sprite_bottom_right.png" id="6_ix15i"]
+[ext_resource type="Texture2D" uid="uid://xt4dc4i53l2q" path="res://entities/red/calculator_sprite/calculator_sprite.png" id="2_123ak"]
+[ext_resource type="Texture2D" uid="uid://dvm3ght7d47r8" path="res://entities/red/calculator_sprite/calculator_sprite_smashed.png" id="3_30n6b"]
 
 [node name="CalculatorSprite" unique_id=735652724 instance=ExtResource("1_tay75")]
 script = ExtResource("2_30n6b")
-top_left_piece = ExtResource("3_y2vly")
-top_right_piece = ExtResource("4_ullyk")
-bottom_left_piece = ExtResource("3_feou7")
-bottom_right_piece = ExtResource("6_ix15i")
 
-[node name="GlowCircle" parent="." index="0" unique_id=2087975921]
+[node name="GlowCircle" parent="." index="1" unique_id=2087975921]
 scale = Vector2(0.33703762, 0.46418917)
 
-[node name="Sprite2D" parent="." index="1" unique_id=495998550]
-scale = Vector2(0.15, 0.15)
+[node name="Sprite2D" parent="." index="2" unique_id=495998550]
+scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_123ak")
 
-[node name="CollisionPolygon2D" parent="." index="2" unique_id=2029557851]
-polygon = PackedVector2Array(-44, -76, 46, -76, 45, 78, -45, 78)
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=2029557851]
+polygon = PackedVector2Array(-54, -81, 57, -80, 54, 82, -54, 81)
+
+[node name="SmashPolygons" type="Node2D" parent="." index="5" unique_id=1584124947]
+visible = false
+
+[node name="TopLeftPiece" type="Polygon2D" parent="SmashPolygons" index="0" unique_id=918930040]
+texture = ExtResource("3_30n6b")
+polygon = PackedVector2Array(445.1117, 70.53641, 515.64856, 274.84995, 377.0072, 304.0376, 522.94543, 449.97583, 257.82434, 566.72644, 267.5536, 43.78107)
+uv = PackedVector2Array(445.1117, 70.53641, 515.64856, 274.84995, 428.08557, 313.7668, 522.94543, 449.97583, 257.82434, 566.72644, 267.5536, 43.78107)
+
+[node name="TopRightPiece" type="Polygon2D" parent="SmashPolygons" index="1" unique_id=1383819447]
+texture = ExtResource("3_30n6b")
+polygon = PackedVector2Array(581.3208, 34.05186, 522.94543, 216.47466, 654.2899, 311.3345, 556.9977, 313.7668, 642.1283, 398.89746, 530.24243, 401.32977, 537.5393, 471.86658, 591.0499, 591.04944, 839.145, 501.0542, 797.7958, 99.72406)
+uv = PackedVector2Array(581.3208, 34.05186, 522.94543, 216.47466, 654.2899, 311.3345, 556.9977, 313.7668, 642.1283, 398.89746, 530.24243, 401.32977, 537.5393, 471.86658, 591.0499, 591.04944, 839.145, 501.0542, 797.7958, 99.72406)
+
+[node name="BottomLeftPiece" type="Polygon2D" parent="SmashPolygons" index="2" unique_id=1835738905]
+texture = ExtResource("3_30n6b")
+polygon = PackedVector2Array(250.52747, 552.1326, 491.32556, 510.78345, 391.60107, 629.9663, 496.19006, 610.5079, 381.87183, 744.2846, 476.7317, 681.0447, 479.16394, 712.6647, 501.0547, 736.9877, 503.48706, 951.03046, 260.2566, 805.0922)
+uv = PackedVector2Array(250.52747, 552.1326, 491.32556, 510.78345, 391.60107, 629.9663, 496.19006, 610.5079, 381.87183, 744.2846, 476.7317, 681.0447, 479.16394, 712.6647, 501.0547, 736.9877, 503.48706, 951.03046, 260.2566, 805.0922)
+
+[node name="BottomRightPiece" type="Polygon2D" parent="SmashPolygons" index="3" unique_id=2110047418]
+texture = ExtResource("3_30n6b")
+polygon = PackedVector2Array(549.7008, 518.0803, 591.0499, 646.99243, 518.0808, 588.6172, 522.94543, 919.41046, 788.0665, 941.3012, 819.6865, 508.35114, 600.7792, 435.38202, 610.5084, 539.97107)
+uv = PackedVector2Array(549.7008, 518.0803, 591.0499, 646.99243, 518.0808, 588.6172, 522.94543, 919.41046, 788.0665, 941.3012, 819.6865, 508.35114, 600.7792, 435.38202, 610.5084, 539.97107)

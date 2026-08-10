@@ -1,21 +1,10 @@
 [gd_scene format=3 uid="uid://bmddeo1baboke"]
 
-[ext_resource type="Texture2D" uid="uid://bhyerd4cab2gf" path="res://backgrounds/FinalVerGameoverBG.png" id="1_emw4w"]
 [ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="2_i0lf1"]
 
 [node name="GameoverBackgoround" type="Control" unique_id=761246952]
 layout_mode = 3
 anchors_preset = 0
-
-[node name="GameoverBG" type="TextureRect" parent="." unique_id=2003929852]
-layout_mode = 0
-offset_left = -105.0
-offset_top = -230.0
-offset_right = 1125.0
-offset_bottom = 1040.0
-texture = ExtResource("1_emw4w")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="GameoverText" type="Label" parent="." unique_id=2073483605]
 layout_mode = 0

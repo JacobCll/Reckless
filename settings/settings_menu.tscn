@@ -9,35 +9,36 @@
 [ext_resource type="Texture2D" uid="uid://bfsl5fgu82ry5" path="res://buttons/help-hover.png" id="7_lakpe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fpik"]
-bg_color = Color(0.13423216, 0.5826764, 0.82425237, 1)
-border_width_left = 7
-border_width_top = 5
-border_width_right = 7
-border_width_bottom = 5
-border_color = Color(0.607476, 0.83488864, 0.9905487, 1)
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
-corner_detail = 10
-expand_margin_left = 14.0
-expand_margin_top = 8.0
-expand_margin_right = 12.0
-expand_margin_bottom = 8.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.14, 0.14, 0.14, 0.6)
+border_color = Color(0, 0, 0, 0.35)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.25)
 shadow_size = 2
-shadow_offset = Vector2(0, 3)
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lakpe"]
-bg_color = Color(0.0814055, 0.47654253, 0.6825771, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 20
-expand_margin_left = 3.0
-expand_margin_top = 3.0
-expand_margin_right = 5.0
-expand_margin_bottom = 3.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.70796657, 0.7079665, 0.7079665, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grabber_hl"]
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.76240367, 0.76240367, 0.76240367, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=144426586]
 process_mode = 3
@@ -97,82 +98,6 @@ texture_hover = ExtResource("5_oy4mk")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="MusicSliderLabel" type="Label" parent="Control" unique_id=624624575]
-layout_mode = 0
-offset_left = 185.0
-offset_top = 355.0
-offset_right = 355.0
-offset_bottom = 400.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
-theme_override_fonts/font = ExtResource("3_7fpik")
-theme_override_font_sizes/font_size = 30
-text = "Music Volume"
-horizontal_alignment = 1
-
-[node name="MusicSlider" type="HSlider" parent="Control" unique_id=1378049898]
-layout_mode = 0
-offset_left = 409.0
-offset_top = 367.0
-offset_right = 795.0
-offset_bottom = 391.0
-theme_override_constants/center_grabber = 1
-theme_override_styles/slider = SubResource("StyleBoxFlat_7fpik")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lakpe")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_lakpe")
-max_value = 1.0
-step = 0.05
-
-[node name="SfxSliderLabel" type="Label" parent="Control" unique_id=1429145969]
-layout_mode = 0
-offset_left = 186.0
-offset_top = 424.0
-offset_right = 349.0
-offset_bottom = 469.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
-theme_override_fonts/font = ExtResource("3_7fpik")
-theme_override_font_sizes/font_size = 30
-text = "Sfx Volume"
-
-[node name="SfxSlider" type="HSlider" parent="Control" unique_id=150762281]
-layout_mode = 0
-offset_left = 411.0
-offset_top = 440.0
-offset_right = 796.0
-offset_bottom = 456.0
-theme_override_constants/center_grabber = 1
-theme_override_styles/slider = SubResource("StyleBoxFlat_7fpik")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lakpe")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_lakpe")
-max_value = 1.0
-step = 0.05
-
-[node name="MasterSliderLabel" type="Label" parent="Control" unique_id=1073572153]
-layout_mode = 0
-offset_left = 184.0
-offset_top = 290.0
-offset_right = 365.0
-offset_bottom = 335.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
-theme_override_fonts/font = ExtResource("3_7fpik")
-theme_override_font_sizes/font_size = 30
-text = "Master Volume"
-
-[node name="MasterSlider" type="HSlider" parent="Control" unique_id=323228197]
-layout_mode = 0
-offset_left = 410.0
-offset_top = 304.0
-offset_right = 796.0
-offset_bottom = 322.0
-theme_override_constants/center_grabber = 1
-theme_override_styles/slider = SubResource("StyleBoxFlat_7fpik")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lakpe")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_lakpe")
-max_value = 1.0
-step = 0.05
-
 [node name="HelpButton" type="TextureButton" parent="Control" unique_id=1972575945]
 layout_mode = 0
 offset_left = 795.0
@@ -186,8 +111,71 @@ texture_hover = ExtResource("7_lakpe")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1140852188]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 236.0
+offset_right = 779.0
+offset_bottom = 563.0
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="MasterSliderLabel" type="Label" parent="Control/VBoxContainer" unique_id=1073572153]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
+theme_override_fonts/font = ExtResource("3_7fpik")
+theme_override_font_sizes/font_size = 30
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=323228197]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7fpik")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lakpe")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_grabber_hl")
+max_value = 1.0
+step = 0.01
+
+[node name="MusicSliderLabel" type="Label" parent="Control/VBoxContainer" unique_id=624624575]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
+theme_override_fonts/font = ExtResource("3_7fpik")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=1378049898]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7fpik")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lakpe")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_grabber_hl")
+max_value = 1.0
+step = 0.01
+
+[node name="SfxSliderLabel" type="Label" parent="Control/VBoxContainer" unique_id=1429145969]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
+theme_override_fonts/font = ExtResource("3_7fpik")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+
+[node name="SfxSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=150762281]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7fpik")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lakpe")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_grabber_hl")
+max_value = 1.0
+step = 0.01
+
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="value_changed" from="Control/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="Control/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="Control/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="pressed" from="Control/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="value_changed" from="Control/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]

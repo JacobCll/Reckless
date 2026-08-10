@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var master_slider = $Control/MasterSlider
-@onready var music_slider = $Control/MusicSlider
-@onready var sfx_slider = $Control/SfxSlider
+@onready var master_slider = $Control/VBoxContainer/MasterSlider
+@onready var music_slider = $Control/VBoxContainer/MusicSlider
+@onready var sfx_slider = $Control/VBoxContainer/SfxSlider
 
 var HELP_MANUAL = preload("res://settings/helpmanual.tscn")
 

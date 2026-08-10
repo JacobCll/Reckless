@@ -84,7 +84,7 @@ var countdown_value := countdown_value_original
 @onready var pause_screen = $CanvasLayer/PauseScreen
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
 @onready var win_screen = $CanvasLayer/WinLevelScreen
-@onready var next_level_button = $CanvasLayer/WinLevelScreen/NextLevelButton
+@onready var next_level_button = $CanvasLayer/WinLevelScreen/HBoxContainer/NextLevelButton
 @onready var settings_menu = $SettingsMenu
 @onready var progress_bar = $CanvasLayer/HUD/LevelProgressBar
 

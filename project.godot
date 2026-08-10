@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 [audio]
 
 buses/default_bus_layout="uid://bxvlra1iaiacs"
+general/default_playback_type.web=0
 
 [autoload]
 

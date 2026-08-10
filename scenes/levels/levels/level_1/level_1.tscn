@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://wuowvfoe3qjj" path="res://entities/blue/water_bottle_sprite/water_bottle_sprite.tscn" id="9_ttfuh"]
 [ext_resource type="PackedScene" uid="uid://cg5li7jnelrrb" path="res://entities/blue/ruler_sprite/ruler_sprite.tscn" id="10_3nfdo"]
 [ext_resource type="PackedScene" uid="uid://dxx8vkgi3gqyp" path="res://entities/blue/book_sprite/book_sprite.tscn" id="11_bs5e3"]
-[ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="11_ttfuh"]
 [ext_resource type="PackedScene" uid="uid://ccppvfemaswh" path="res://entities/blue/soap_sprite/soap_sprite.tscn" id="12_pejkb"]
 [ext_resource type="PackedScene" uid="uid://wv7gwide34f0" path="res://entities/blue/napkin_sprite/napkin_sprite.tscn" id="13_34jxk"]
 [ext_resource type="PackedScene" uid="uid://cik6hjm5mjsf5" path="res://entities/blue/wrapper_sprite/wrapper_sprite.tscn" id="14_f8rpw"]
@@ -22,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://c62kkkxipswa2" path="res://entities/blue/mop_sprite/mop_sprite.tscn" id="17_t3t5x"]
 [ext_resource type="PackedScene" uid="uid://bxqe82ls10u5r" path="res://entities/blue/shovel_sprite/shovel_sprite.tscn" id="18_nx1hc"]
 [ext_resource type="PackedScene" uid="uid://bjw7qjviebcx" path="res://entities/blue/uniform_sprite/uniform_sprite.tscn" id="19_qxbsn"]
+[ext_resource type="PackedScene" uid="uid://iord184vd4cq" path="res://entities/red/iron_sprite/iron_sprite.tscn" id="21_nx1hc"]
+[ext_resource type="PackedScene" uid="uid://of8e84uxb3jw" path="res://entities/red/clock_sprite/clock_sprite.tscn" id="22_56agv"]
 
 [sub_resource type="Curve2D" id="Curve2D_k0gby"]
 _data = {
@@ -53,7 +54,7 @@ texture = ExtResource("4_h0wnc")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="WaveManager" parent="." index="3" unique_id=805755620 node_paths=PackedStringArray("waves")]
+[node name="WaveManager" parent="." index="4" unique_id=805755620 node_paths=PackedStringArray("waves")]
 waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2"), NodePath("../Waves/Wave3")]
 
 [node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=1698944547]
@@ -65,7 +66,7 @@ spawner_name = "Wave 1 Spawner 1"
 spawn_delay_min = 2.0
 burst_spread = 1.0
 blue_scenes = Array[PackedScene]([ExtResource("4_eq1f0"), ExtResource("5_8ftis"), ExtResource("9_ttfuh"), ExtResource("10_3nfdo"), ExtResource("11_bs5e3"), ExtResource("12_pejkb"), ExtResource("13_34jxk"), ExtResource("14_f8rpw"), ExtResource("15_f8rpw"), ExtResource("16_qxbsn"), ExtResource("17_t3t5x"), ExtResource("18_nx1hc"), ExtResource("19_qxbsn")])
-red_scenes = Array[PackedScene]([ExtResource("6_l4mnh")])
+red_scenes = Array[PackedScene]([ExtResource("6_l4mnh"), ExtResource("21_nx1hc"), ExtResource("22_56agv")])
 red_weight = 0.0
 green_scenes = Array[PackedScene]([ExtResource("7_yasux")])
 green_weight = 0.0
@@ -84,7 +85,7 @@ spawn_delay_min = 2.0
 burst_spread = 0.7
 blue_scenes = Array[PackedScene]([ExtResource("4_eq1f0"), ExtResource("5_8ftis")])
 blue_weight = 0.0
-red_scenes = Array[PackedScene]([ExtResource("6_l4mnh")])
+red_scenes = Array[PackedScene]([ExtResource("6_l4mnh"), ExtResource("21_nx1hc"), ExtResource("22_56agv")])
 red_max_alive = 2
 green_scenes = Array[PackedScene]([ExtResource("7_yasux")])
 green_weight = 0.0
@@ -101,7 +102,7 @@ script = ExtResource("9_l4mnh")
 spawner_name = "Wave 3 Spawner 1"
 spawn_delay_min = 2.0
 blue_scenes = Array[PackedScene]([ExtResource("5_8ftis"), ExtResource("4_eq1f0")])
-red_scenes = Array[PackedScene]([ExtResource("6_l4mnh")])
+red_scenes = Array[PackedScene]([ExtResource("6_l4mnh"), ExtResource("21_nx1hc"), ExtResource("22_56agv")])
 green_scenes = Array[PackedScene]([ExtResource("7_yasux")])
 green_weight = 0.3
 green_max_alive = 1
@@ -109,69 +110,6 @@ path = NodePath("../EntitySpawner1Path")
 
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave3" index="1" unique_id=1988290731]
 curve = SubResource("Curve2D_l4mnh")
-
-[node name="GameoverText" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="1" unique_id=1750382725]
-offset_left = 130.0
-offset_top = 184.0
-offset_right = 925.0
-offset_bottom = 476.0
-theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
-theme_override_fonts/font = ExtResource("11_ttfuh")
-theme_override_font_sizes/font_size = 200
-text = ""
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MainMenuButton" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="2" unique_id=1841760714]
-offset_left = 252.0
-offset_top = 428.0
-offset_right = 472.0
-offset_bottom = 531.0
-
-[node name="RetryButton" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="3" unique_id=1343218882]
-offset_left = 563.0
-offset_top = 429.0
-offset_right = 756.0
-offset_bottom = 528.0
-
-[node name="WinText" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="1" unique_id=196137116]
-offset_left = 294.0
-offset_top = 196.0
-offset_right = 797.0
-offset_bottom = 430.0
-theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
-theme_override_fonts/font = ExtResource("11_ttfuh")
-theme_override_font_sizes/font_size = 200
-text = ""
-
-[node name="MainMenuButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="2" unique_id=609095930]
-offset_left = 185.0
-offset_top = 449.0
-offset_right = 407.0
-offset_bottom = 616.0
-
-[node name="PlayAgainButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="3" unique_id=1823004954]
-offset_left = 456.0
-offset_top = 491.0
-offset_right = 618.0
-
-[node name="PlayAgainLabel" parent="CanvasLayer/WinLevelScreen/PlayAgainButton" index="0" unique_id=1578382659]
-offset_left = 8.0
-offset_top = -8.0
-offset_right = 160.0
-offset_bottom = 76.0
-theme_override_font_sizes/font_size = 30
-
-[node name="NextLevelButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="4" unique_id=957213080]
-offset_left = 691.0
-offset_top = 488.0
-offset_right = 855.0
-offset_bottom = 561.0
-
-[node name="NextLevelLabel" parent="CanvasLayer/WinLevelScreen/NextLevelButton" index="0" unique_id=1356031313]
-offset_left = 18.0
-offset_right = 154.0
-theme_override_font_sizes/font_size = 30
 
 [node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=483354666]
 grow_horizontal = 2

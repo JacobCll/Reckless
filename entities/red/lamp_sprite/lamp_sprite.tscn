@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b7vq536cdn772"]
+
+[ext_resource type="PackedScene" uid="uid://ce4vdrqxwqa5n" path="res://entities/base_entities/red_entity_base.tscn" id="1_q86mg"]
+[ext_resource type="Script" uid="uid://cfkgfnca7qw1a" path="res://entities/red/lamp_sprite/lamp_sprite.gd" id="2_qsaro"]
+[ext_resource type="Texture2D" uid="uid://kpdtx6s3j4vr" path="res://entities/red/lamp_sprite/lamp_sprite.png" id="3_fwfw2"]
+[ext_resource type="Texture2D" uid="uid://cesiwsuqojp1j" path="res://entities/red/lamp_sprite/lamp_sprite_smashed.png" id="4_o7eb7"]
+
+[node name="LampSprite" unique_id=735652724 instance=ExtResource("1_q86mg")]
+script = ExtResource("2_qsaro")
+
+[node name="GlowCircle" parent="." index="1" unique_id=2087975921]
+position = Vector2(-3.0000012, 3.5000057)
+scale = Vector2(0.22754492, 0.4347305)
+
+[node name="Sprite2D" parent="." index="2" unique_id=495998550]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_fwfw2")
+
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=2029557851]
+polygon = PackedVector2Array(-49, -79, 52, -84, 60, 86, -60, 87)
+
+[node name="SmashPolygons" type="Node2D" parent="." index="5" unique_id=1584124947]
+visible = false
+
+[node name="TopLeftPiece" type="Polygon2D" parent="SmashPolygons" index="0" unique_id=918930040]
+texture = ExtResource("4_o7eb7")
+polygon = PackedVector2Array(522.94543, 389.16846, 532.6747, 38.91667, 250.52747, 58.375107, 158.09985, 401.32996, 445.1117, 462.1375, 355.11646, 377.0069, 493.7578, 467.00214, 459.70557, 301.60547)
+uv = PackedVector2Array(522.94543, 389.16846, 532.6747, 38.91667, 250.52747, 58.375107, 158.09985, 401.32996, 445.1117, 462.1375, 355.11646, 377.0069, 493.7578, 467.00214, 459.70557, 301.60547)
+
+[node name="TopRightPiece" type="Polygon2D" parent="SmashPolygons" index="1" unique_id=1383819447]
+texture = ExtResource("4_o7eb7")
+polygon = PackedVector2Array(525.3778, 398.89746, 535.10693, 4.864208, 851.3065, 97.29175, 829.4158, 367.2775, 773.4728, 571.591, 664.01904, 549.7003, 700.50366, 520.51263, 554.5654, 491.325, 685.9098, 459.70508, 671.31604, 362.4129, 595.91455, 420.78818, 610.5084, 357.54828)
+uv = PackedVector2Array(525.3778, 398.89746, 535.10693, 4.864208, 851.3065, 97.29175, 829.4158, 367.2775, 773.4728, 571.591, 664.01904, 549.7003, 700.50366, 520.51263, 554.5654, 491.325, 685.9098, 459.70508, 651.85754, 418.3559, 595.91455, 420.78818, 610.5084, 357.54828)
+
+[node name="BottomLeftPiece" type="Polygon2D" parent="SmashPolygons" index="2" unique_id=1835738905]
+texture = ExtResource("4_o7eb7")
+polygon = PackedVector2Array(510.78394, 423.2205, 182.42285, 595.91406, 133.77686, 968.0565, 394.03333, 1006.9734, 532.6747, 678.6124, 457.2732, 727.2585, 527.81006, 576.4556, 386.73645, 683.477, 591.0499, 476.7312, 457.2732, 522.94495)
+uv = PackedVector2Array(510.78394, 423.2205, 182.42285, 595.91406, 133.77686, 968.0565, 394.03333, 1006.9734, 532.6747, 678.6124, 457.2732, 727.2585, 527.81006, 576.4556, 386.73645, 683.477, 591.0499, 476.7312, 457.2732, 522.94495)
+
+[node name="BottomRightPiece" type="Polygon2D" parent="SmashPolygons" index="3" unique_id=2110047418]
+texture = ExtResource("4_o7eb7")
+polygon = PackedVector2Array(530.24243, 411.05896, 544.8362, 987.515, 897.52026, 824.55066, 882.9264, 520.51263, 758.8789, 411.05896, 671.31604, 406.19437, 751.58203, 535.10645, 622.6699, 447.54352, 700.50366, 620.2371)
+uv = PackedVector2Array(530.24243, 411.05896, 544.8362, 987.515, 897.52026, 824.55066, 882.9264, 520.51263, 758.8789, 411.05896, 671.31604, 406.19437, 751.58203, 535.10645, 622.6699, 447.54352, 700.50366, 620.2371)
