@@ -95,7 +95,8 @@ var countdown_value := countdown_value_original
 var countdown_sfx := preload("res://sfx/time_beep.wav")
 var heart_scene := preload("res://hud_elements/hearts/heart.tscn")
 var shield_scene := preload("res://hud_elements/shields/shield.tscn")
-var entity_particles_scene := preload("res://effects/entity_particles/entity_particles.tscn")
+var entity_slash_particles_scene := preload("res://effects/entity_particles_slash/entity_particles_slash.tscn")
+var entity_smash_particles_scene := preload("res://effects/entity_particles_smash/entity_particles_smash.tscn")
 
 # =========================================================
 # READY
@@ -179,13 +180,14 @@ func _setup_ui() -> void:
 
 # prevents particle lag when level is loaded for the first time
 func _prewarm_particles() -> void:
-	if entity_particles_scene == null:
-		return
+	for scene in [entity_slash_particles_scene, entity_smash_particles_scene]:
+		if scene == null:
+			continue
 
-	var p = entity_particles_scene.instantiate()
-	add_child(p)
-	p.modulate.a = 0.0
-	p.spawn_particles(Vector2.ZERO, Color.WHITE)
+		var p = scene.instantiate()
+		add_child(p)
+		p.modulate.a = 0.0
+		p.spawn_particles(Vector2.ZERO, Color.WHITE)
 
 func _setup_spawners() -> void:
 	for wave in wave_manager.waves:

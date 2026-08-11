@@ -2,7 +2,7 @@ class_name RedEntityBase
 extends RigidBody2D
 
 @export var particles_scene: PackedScene
-@export var particle_color := Color("6f6f6fff")
+@export var particle_color := Color("dc9494")
 
 signal despawned
 signal smashed

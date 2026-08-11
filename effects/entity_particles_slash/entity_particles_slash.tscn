@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://effects/entity_particles_slash/entity_particles_slash.gd" id="1_streak"]
+
+[sub_resource type="Curve" id="Curve_scale"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="EntityParticlesSlash" type="CPUParticles2D"]
+emitting = false
+amount = 12
+lifetime = 0.45
+one_shot = true
+explosiveness = 1.0
+randomness = 0.15
+lifetime_randomness = 0.3
+direction = Vector2(0, -1)
+spread = 65.0
+gravity = Vector2(0, 260)
+initial_velocity_min = 260.0
+initial_velocity_max = 720.0
+damping_min = 90.0
+damping_max = 220.0
+scale_amount_min = 0.8
+scale_amount_max = 1.6
+scale_amount_curve = SubResource("Curve_scale")
+particle_flag_align_y = true
+script = ExtResource("1_streak")
