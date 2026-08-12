@@ -116,5 +116,8 @@ path = NodePath("../../Wave1/EntitySpawner1Path")
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave2" index="1" unique_id=1515629054]
 curve = SubResource("Curve2D_1l0jw")
 
-[node name="WinText" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="1" unique_id=463316806]
-text = ""
+[node name="GameoverScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="2" unique_id=914947514]
+visible = false
+
+[node name="WinLevelScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="3" unique_id=800143018]
+visible = true

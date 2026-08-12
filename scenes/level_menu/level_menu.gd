@@ -41,7 +41,7 @@ func _on_level_selected(path) -> void:
 	populate_powerups()
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	LoadingScreen.transition_to(get_tree(), "res://scenes/main_menu.tscn")
 	selected_level_path = ""
 	selected_powerup_card = null
 	GameManager.selected_powerup = ""
@@ -50,11 +50,7 @@ func _on_start_button_pressed() -> void:
 	if selected_level_path == "":
 		return
 		
-	var loading = preload("res://loading_screen/loading_screen.tscn").instantiate()
-	loading.next_scene_path = selected_level_path
-	
-	get_tree().root.add_child(loading)
-	get_tree().current_scene.queue_free()
+	LoadingScreen.transition_to(get_tree(), selected_level_path)
 
 func _on_cancel_button_pressed() -> void:
 	selected_level_path = ""

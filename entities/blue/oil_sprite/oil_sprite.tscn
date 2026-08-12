@@ -4,9 +4,12 @@
 [ext_resource type="Script" uid="uid://bnw8d105bfojt" path="res://entities/blue/oil_sprite/oil_sprite.gd" id="2_i7yqe"]
 [ext_resource type="Texture2D" uid="uid://84on770ffcy5" path="res://entities/blue/oil_sprite/oil_sprite.png" id="3_i7yqe"]
 [ext_resource type="Texture2D" uid="uid://b8bu2bmere21p" path="res://entities/blue/oil_sprite/oil_sprite_slashed.png" id="4_skj1y"]
+[ext_resource type="PackedScene" path="res://effects/entity_particles_liquid/entity_particles_liquid.tscn" id="5_liquid"]
 
 [node name="OilSprite" unique_id=1198263616 instance=ExtResource("1_rj6b1")]
 script = ExtResource("2_i7yqe")
+particles_scene = ExtResource("5_liquid")
+particle_color = Color(0.9294118, 0.627451, 0.0509804, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

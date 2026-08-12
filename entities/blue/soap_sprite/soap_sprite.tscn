@@ -4,9 +4,12 @@
 [ext_resource type="Script" uid="uid://w1uw5kpy8wa3" path="res://entities/blue/soap_sprite/soap_sprite.gd" id="2_360uv"]
 [ext_resource type="Texture2D" uid="uid://clsfvi87caule" path="res://entities/blue/soap_sprite/soap_sprite.png" id="3_tsd54"]
 [ext_resource type="Texture2D" uid="uid://dkcu3qpj8q8du" path="res://entities/blue/soap_sprite/soap_sprite_slashed.png" id="4_rwyki"]
+[ext_resource type="PackedScene" path="res://effects/entity_particles_liquid/entity_particles_liquid.tscn" id="5_liquid"]
 
 [node name="SoapSprite" unique_id=1198263616 instance=ExtResource("1_n0qma")]
 script = ExtResource("2_360uv")
+particles_scene = ExtResource("5_liquid")
+particle_color = Color(0.4078431, 0.6705883, 0.4235294, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

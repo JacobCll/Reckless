@@ -62,4 +62,4 @@ func buy_item(item_id: String, cost: int) -> bool:
 	return true
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	LoadingScreen.transition_to(get_tree(), "res://scenes/main_menu.tscn")

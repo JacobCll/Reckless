@@ -1,9 +1,25 @@
+class_name LoadingScreen
 extends CanvasLayer
 
 @export var next_scene_path := ""
 
 @onready var progress_bar = $ProgressBar
 @onready var label = $Label
+
+static var _scene: PackedScene
+
+# Swaps in the loading screen, which streams target_scene_path in the background
+# and switches to it once loaded. Use this instead of change_scene_to_file/
+# change_scene_to_packed wherever a scene change should show a loading screen.
+static func transition_to(tree: SceneTree, target_scene_path: String) -> void:
+	if _scene == null:
+		_scene = load("res://loading_screen/loading_screen.tscn")
+
+	var loading = _scene.instantiate()
+	loading.next_scene_path = target_scene_path
+
+	tree.root.add_child(loading)
+	tree.current_scene.queue_free()
 
 func _ready():
 	ResourceLoader.load_threaded_request(next_scene_path)

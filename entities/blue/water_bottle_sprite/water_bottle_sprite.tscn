@@ -4,9 +4,12 @@
 [ext_resource type="Script" uid="uid://duvc4b05qs8ak" path="res://entities/blue/water_bottle_sprite/water_bottle_sprite.gd" id="2_h4a2p"]
 [ext_resource type="Texture2D" uid="uid://dip5wsfwj261v" path="res://entities/blue/water_bottle_sprite/water_bottle_sprite.png" id="3_hghin"]
 [ext_resource type="Texture2D" uid="uid://brmyehd76xw2" path="res://entities/blue/water_bottle_sprite/water_bottle_sprite_slashed.png" id="4_47bd0"]
+[ext_resource type="PackedScene" path="res://effects/entity_particles_liquid/entity_particles_liquid.tscn" id="5_liquid"]
 
 [node name="WaterBottleSprite" unique_id=1198263616 instance=ExtResource("1_x2mty")]
 script = ExtResource("2_h4a2p")
+particles_scene = ExtResource("5_liquid")
+particle_color = Color(0.5568628, 0.7529412, 0.8627451, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

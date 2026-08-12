@@ -429,8 +429,8 @@ func _on_main_menu_button_pressed() -> void:
 	
 	AudioManager.stop_music()
 	AudioManager.disable_mouse_sfx()
-	
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+	LoadingScreen.transition_to(get_tree(), "res://scenes/main_menu.tscn")
 
 func _on_level_menu_button_pressed() -> void:
 	get_tree().paused = false

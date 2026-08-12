@@ -69,4 +69,4 @@ func _on_read_full_screen_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	current_message_selected = ""
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	LoadingScreen.transition_to(get_tree(), "res://scenes/main_menu.tscn")
