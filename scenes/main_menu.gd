@@ -12,6 +12,8 @@ extends Control
 @onready var background: TextureRect = $Background
 @onready var reckless_logo: TextureRect = $RecklessLogo
 
+@onready var cutscene = $CanvasLayer/Cutscene
+
 var _background_base_position: Vector2
 var _logo_base_position: Vector2
 var _parallax_offset: Vector2 = Vector2.ZERO
@@ -22,6 +24,11 @@ func _ready() -> void:
 	MouseManager.show_mouse_trail()
 	AudioManager.disable_mouse_sfx()
 	
+	if GameManager.show_cutscene:
+		cutscene.show()
+	else:
+		cutscene.hide()
+		
 	_background_base_position = background.position
 	_logo_base_position = reckless_logo.position
 
@@ -52,3 +59,6 @@ func _on_tutorial_button_pressed() -> void:
 
 func _on_notification_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://notification/notificationscreen.tscn")
+
+func _on_cutscene_continue_button_pressed() -> void:
+	cutscene.hide()

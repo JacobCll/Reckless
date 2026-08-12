@@ -325,10 +325,9 @@ func _on_progress_changed(progress: float) -> void:
 	level_progress_bar.value = progress
 
 func _on_all_waves_completed() -> void:
-	print("You win!")
-
 	pause_button.hide()
 	hud.hide()
+	AudioManager.stop_music()
 
 	# unlock next level
 	GameManager.unlock_level(LEVEL_NUMBER)
@@ -389,6 +388,7 @@ func _lose_heart() -> void:
 func game_over() -> void:
 	pause_button.hide()
 	hud.hide()
+	AudioManager.stop_music()
 
 	wave_manager.game_over()
 

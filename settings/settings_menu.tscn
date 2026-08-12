@@ -1,12 +1,23 @@
 [gd_scene format=3 uid="uid://xwlp1sys1el8"]
 
 [ext_resource type="Script" uid="uid://dcx64rypbcnd7" path="res://settings/settings_menu.gd" id="1_k814s"]
-[ext_resource type="Texture2D" uid="uid://x163outx8wdu" path="res://backgrounds/settings_background.png" id="1_pp1gt"]
-[ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="3_7fpik"]
+[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="2_oy4mk"]
 [ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="4_76kmu"]
 [ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="5_oy4mk"]
-[ext_resource type="Texture2D" uid="uid://xbwlaujpgy4a" path="res://buttons/help-default.png" id="6_oy4mk"]
-[ext_resource type="Texture2D" uid="uid://bfsl5fgu82ry5" path="res://buttons/help-hover.png" id="7_lakpe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76kmu"]
+bg_color = Color(0.39308554, 0.39308554, 0.39308533, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy4mk"]
+bg_color = Color(0.5053437, 0.5053442, 0.50534385, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fpik"]
 content_margin_top = 5.0
@@ -44,41 +55,49 @@ corner_radius_bottom_left = 5
 process_mode = 3
 script = ExtResource("1_k814s")
 
-[node name="Control" type="Control" parent="." unique_id=2011659729]
-layout_mode = 3
+[node name="Background" type="Panel" parent="." unique_id=929288488]
+modulate = Color(0.5176471, 0.5176471, 0.5176471, 0.6627451)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Background" type="TextureRect" parent="Control" unique_id=868934826]
-modulate = Color(0.78775924, 0.78775924, 0.78775924, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_pp1gt")
+mouse_force_pass_scroll_events = false
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
-[node name="SettingsLabel" type="Label" parent="Control" unique_id=858273375]
+[node name="Control" type="Panel" parent="." unique_id=1292264375]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 225.0
+offset_right = -129.0
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_76kmu")
+
+[node name="Panel" type="Panel" parent="Control" unique_id=972636248]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3671875
-anchor_top = 0.083333336
-anchor_right = 0.609375
-anchor_bottom = 0.22135417
+anchor_left = 0.3483871
+anchor_top = -0.08801956
+anchor_right = 0.6464516
+anchor_bottom = 0.14914425
+theme_override_styles/panel = SubResource("StyleBoxFlat_oy4mk")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="SettingsLabel" type="Label" parent="Control/Panel" unique_id=858273375]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.13402061
+anchor_right = 0.9987097
+anchor_bottom = 0.8969072
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.7294118, 0.7294118, 0.7294118, 0.90588236)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 3
-theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("3_7fpik")
-theme_override_font_sizes/font_size = 72
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_oy4mk")
+theme_override_font_sizes/font_size = 50
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -87,10 +106,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BackButton" type="TextureButton" parent="Control" unique_id=880642886]
 layout_mode = 1
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 210.0
-offset_bottom = 152.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 180.0
+offset_bottom = 80.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_76kmu")
 texture_pressed = ExtResource("5_oy4mk")
@@ -98,35 +117,21 @@ texture_hover = ExtResource("5_oy4mk")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="HelpButton" type="TextureButton" parent="Control" unique_id=1972575945]
-layout_mode = 0
-offset_left = 795.0
-offset_top = 64.0
-offset_right = 986.0
-offset_bottom = 135.0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("6_oy4mk")
-texture_pressed = ExtResource("7_lakpe")
-texture_hover = ExtResource("7_lakpe")
-ignore_texture_size = true
-stretch_mode = 5
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1140852188]
 layout_mode = 0
-offset_left = 221.0
-offset_top = 236.0
-offset_right = 779.0
-offset_bottom = 563.0
+offset_left = 131.0
+offset_top = 92.0
+offset_right = 656.0
+offset_bottom = 362.0
 theme_override_constants/separation = 6
 alignment = 1
 
 [node name="MasterSliderLabel" type="Label" parent="Control/VBoxContainer" unique_id=1073572153]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
-theme_override_fonts/font = ExtResource("3_7fpik")
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_oy4mk")
+theme_override_font_sizes/font_size = 24
 text = "Master"
 
 [node name="MasterSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=323228197]
@@ -141,10 +146,9 @@ step = 0.01
 [node name="MusicSliderLabel" type="Label" parent="Control/VBoxContainer" unique_id=624624575]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
-theme_override_fonts/font = ExtResource("3_7fpik")
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_oy4mk")
+theme_override_font_sizes/font_size = 24
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=1378049898]
@@ -159,10 +163,9 @@ step = 0.01
 [node name="SfxSliderLabel" type="Label" parent="Control/VBoxContainer" unique_id=1429145969]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
-theme_override_fonts/font = ExtResource("3_7fpik")
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_oy4mk")
+theme_override_font_sizes/font_size = 24
 text = "SFX"
 
 [node name="SfxSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=150762281]
@@ -175,7 +178,6 @@ max_value = 1.0
 step = 0.01
 
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="Control/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="value_changed" from="Control/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Control/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Control/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]

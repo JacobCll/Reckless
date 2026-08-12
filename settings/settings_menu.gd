@@ -32,7 +32,3 @@ func _on_back_button_pressed() -> void:
 	Settings.apply_settings()
 	MouseManager.show_mouse_trail()
 	hide()
-
-func _on_help_button_pressed() -> void:
-	var help_manual_scene = HELP_MANUAL.instantiate()
-	get_tree().current_scene.add_child(help_manual_scene)

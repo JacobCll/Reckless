@@ -13,6 +13,7 @@ var level_1_tutorial_seen := false
 var from_level := 0 # 0 is default (none)
 var selected_powerup := ""
 var selected_notification := ""
+var show_cutscene := true
 
 # dictionary of {item_id: amount owned}
 var inventory := {

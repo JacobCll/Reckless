@@ -58,7 +58,7 @@ texture = ExtResource("4_4cyum")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="WaveManager" parent="." index="2" unique_id=805755620 node_paths=PackedStringArray("waves")]
+[node name="WaveManager" parent="." index="4" unique_id=805755620 node_paths=PackedStringArray("waves")]
 waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2")]
 
 [node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=1299203071]
@@ -116,52 +116,5 @@ path = NodePath("../../Wave1/EntitySpawner1Path")
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave2" index="1" unique_id=1515629054]
 curve = SubResource("Curve2D_1l0jw")
 
-[node name="GameoverText" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="1" unique_id=1750382725]
+[node name="WinText" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="1" unique_id=463316806]
 text = ""
-
-[node name="MainMenuButton" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="2" unique_id=1841760714]
-offset_left = 250.0
-offset_top = 434.0
-offset_right = 495.0
-offset_bottom = 515.0
-
-[node name="RetryButton" parent="CanvasLayer/GameoverScreen" parent_id_path=PackedInt32Array(914947514) index="3" unique_id=1343218882]
-offset_left = 566.0
-offset_top = 428.0
-offset_right = 757.0
-offset_bottom = 525.0
-
-[node name="WinText" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="1" unique_id=196137116]
-text = ""
-
-[node name="MainMenuButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="2" unique_id=609095930]
-offset_left = 198.0
-offset_top = 445.0
-offset_right = 416.0
-offset_bottom = 592.0
-
-[node name="PlayAgainButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="3" unique_id=1823004954]
-offset_left = 431.0
-offset_top = 492.0
-offset_right = 624.0
-offset_bottom = 553.0
-
-[node name="PlayAgainLabel" parent="CanvasLayer/WinLevelScreen/PlayAgainButton" index="0" unique_id=1578382659]
-offset_left = 20.0
-offset_top = -11.0
-offset_right = 172.0
-offset_bottom = 73.0
-theme_override_font_sizes/font_size = 28
-
-[node name="NextLevelButton" parent="CanvasLayer/WinLevelScreen" parent_id_path=PackedInt32Array(800143018) index="4" unique_id=957213080]
-offset_left = 672.0
-offset_top = 475.0
-offset_right = 835.0
-offset_bottom = 565.0
-
-[node name="NextLevelLabel" parent="CanvasLayer/WinLevelScreen/NextLevelButton" index="0" unique_id=1356031313]
-offset_left = 16.0
-offset_top = 20.0
-offset_right = 152.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 28

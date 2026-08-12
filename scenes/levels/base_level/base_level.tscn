@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cdncd7g2fei8p" path="res://scenes/levels/base_level/wave_manager.tscn" id="6_1txf7"]
 [ext_resource type="PackedScene" uid="uid://d1i7pcl5yqc8b" path="res://hud_elements/shields/shield.tscn" id="14_875bv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
-bg_color = Color(0.1, 0.1, 0.1, 0.5)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou3as"]
+bg_color = Color(0.30980393, 0.30980393, 0.30980393, 0.6666667)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
 bg_color = Color(0.93, 0.65, 0.13, 1)
@@ -77,26 +77,12 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="GameoverScreen" type="Control" parent="CanvasLayer" unique_id=914947514]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="GameoverText" type="Label" parent="CanvasLayer/GameoverScreen" unique_id=1939481173]
-layout_mode = 0
-offset_top = 267.0
-offset_right = 1024.0
-offset_bottom = 459.0
-theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
-theme_override_constants/shadow_offset_x = 8
-theme_override_fonts/font = ExtResource("3_uay4d")
-theme_override_font_sizes/font_size = 200
-text = "Game Over"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameoverScreen" unique_id=789618396]
 layout_mode = 0
@@ -122,26 +108,40 @@ theme_override_fonts/font = ExtResource("3_uay4d")
 theme_override_font_sizes/font_size = 30
 text = "Retry"
 
+[node name="GameoverText" type="Label" parent="CanvasLayer/GameoverScreen" unique_id=1939481173]
+layout_mode = 0
+offset_top = 267.0
+offset_right = 1024.0
+offset_bottom = 459.0
+theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_fonts/font = ExtResource("3_uay4d")
+theme_override_font_sizes/font_size = 200
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="CanvasLayer/GameoverScreen" unique_id=201031048]
+layout_mode = 0
+offset_top = 415.0
+offset_right = 1024.0
+offset_bottom = 459.0
+theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_fonts/font = ExtResource("3_uay4d")
+theme_override_font_sizes/font_size = 45
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="WinLevelScreen" type="Control" parent="CanvasLayer" unique_id=800143018]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="WinText" type="Label" parent="CanvasLayer/WinLevelScreen" unique_id=463316806]
-layout_mode = 0
-offset_top = 267.0
-offset_right = 1024.0
-offset_bottom = 459.0
-theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_fonts/font = ExtResource("3_uay4d")
-theme_override_font_sizes/font_size = 200
-text = "You Win!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WinLevelScreen" unique_id=734195754]
 layout_mode = 0
@@ -174,6 +174,19 @@ mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("3_uay4d")
 theme_override_font_sizes/font_size = 30
 text = "Next Level"
+
+[node name="WinText" type="Label" parent="CanvasLayer/WinLevelScreen" unique_id=463316806]
+layout_mode = 0
+offset_top = 267.0
+offset_right = 1024.0
+offset_bottom = 459.0
+theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_fonts/font = ExtResource("3_uay4d")
+theme_override_font_sizes/font_size = 200
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HUD" type="Control" parent="CanvasLayer" unique_id=1244923538]
 layout_mode = 3
@@ -234,7 +247,7 @@ offset_top = 37.0
 offset_right = 660.0
 offset_bottom = 68.0
 grow_horizontal = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
+theme_override_styles/background = SubResource("StyleBoxFlat_ou3as")
 theme_override_styles/fill = SubResource("StyleBoxFlat_progress_fill")
 max_value = 1.0
 step = 0.001

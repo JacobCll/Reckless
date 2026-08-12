@@ -14,10 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://guou7mfaftr4" path="res://buttons/red-button-hover.tres" id="13_5pajh"]
 [ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="14_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cuv5vtkxraocv" path="res://buttons/walkietalky-normal.tres" id="15_j7ex8"]
+[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="16_5pajh"]
 [ext_resource type="Texture2D" uid="uid://del61yhuotki" path="res://buttons/walkietalky-hover.tres" id="17_a8gd2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7b55j"]
 load_path = "res://.godot/imported/reckless_logo.png-972b7fe81e6b54fb3cb00bc557544482.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b55j"]
 
 [node name="MainMenu" type="Control" unique_id=184496763]
 z_index = -1
@@ -61,10 +64,10 @@ stretch_mode = 5
 
 [node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=520339295]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 306.0
-offset_right = 350.0
-offset_bottom = 737.0
+offset_left = 82.0
+offset_top = 201.0
+offset_right = 360.0
+offset_bottom = 632.0
 theme_override_constants/separation = 4
 
 [node name="PlayButton" type="TextureButton" parent="ButtonContainer" unique_id=1347030637]
@@ -138,8 +141,52 @@ texture_hover = ExtResource("17_a8gd2")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1774330237]
+layer = 999
+visible = false
+
+[node name="Cutscene" type="Control" parent="CanvasLayer" unique_id=446883537]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer/Cutscene" unique_id=153181908]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autoplay = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Cutscene" unique_id=2066843295]
+modulate = Color(0.67597353, 0.67080903, 0.656766, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7b55j")
+
+[node name="CutsceneContinueButton" type="Button" parent="CanvasLayer/Cutscene" unique_id=1255984940]
+layout_mode = 0
+offset_left = 794.0
+offset_top = 670.0
+offset_right = 970.0
+offset_bottom = 723.0
+theme_override_fonts/font = ExtResource("16_5pajh")
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+
 [connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="NotificationButton" to="." method="_on_notification_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Cutscene/CutsceneContinueButton" to="." method="_on_cutscene_continue_button_pressed"]

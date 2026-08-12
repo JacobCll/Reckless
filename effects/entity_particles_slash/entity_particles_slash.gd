@@ -17,6 +17,7 @@ func _get_texture() -> ImageTexture:
 	const HEIGHT := 26
 	var image := Image.create(WIDTH, HEIGHT, false, Image.FORMAT_RGBA8)
 	var center := Vector2(WIDTH, HEIGHT) / 2.0
+	
 	for x in WIDTH:
 		for y in HEIGHT:
 			var dx := absf(x + 0.5 - center.x) / (WIDTH / 2.0)

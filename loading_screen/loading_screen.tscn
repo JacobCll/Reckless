@@ -1,18 +1,24 @@
 [gd_scene format=3 uid="uid://bi2l0v8niu2x4"]
 
 [ext_resource type="Script" uid="uid://c5lmqq7t7l7ny" path="res://loading_screen/loading_screen.gd" id="1_knpss"]
+[ext_resource type="Texture2D" uid="uid://dqqrcdto4k2qw" path="res://backgrounds/main_menu/dumpster_bg.jpg" id="2_c2t5a"]
 
 [node name="LoadingScreen" type="CanvasLayer" unique_id=1197436183]
 layer = 100
 script = ExtResource("1_knpss")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=941185139]
+[node name="Background" type="TextureRect" parent="." unique_id=1749392907]
+modulate = Color(0.3515629, 0.3515629, 0.35156286, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -526.0
+offset_top = -288.0
+offset_right = 370.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_c2t5a")
 
 [node name="Label" type="Label" parent="." unique_id=1978238294]
 anchors_preset = 8

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c814kjblemkqi" path="res://entities/base_entities/red_entity_base.gd" id="1_7ohfh"]
 [ext_resource type="Texture2D" uid="uid://b0lhwkxocc4y8" path="res://effects/entity_glow/blue_glow.png" id="1_malni"]
-[ext_resource type="PackedScene" path="res://effects/entity_particles_smash/entity_particles_smash.tscn" id="2_7ohfh"]
+[ext_resource type="PackedScene" uid="uid://daednjasvlkts" path="res://effects/entity_particles_smash/entity_particles_smash.tscn" id="2_7ohfh"]
 [ext_resource type="PackedScene" uid="uid://cuvq6iixtky20" path="res://effects/entity_half_effect/entity_sprite_halves.tscn" id="4_ei70u"]
 [ext_resource type="PackedScene" uid="uid://ch22tmstisw2p" path="res://effects/entity_trail/entity_line_trail.tscn" id="5_am58m"]
 
@@ -17,6 +17,7 @@ collision_mask = 0
 input_pickable = true
 script = ExtResource("1_7ohfh")
 particles_scene = ExtResource("2_7ohfh")
+particle_color = Color(1, 0.5672581, 0.5060328, 1)
 
 [node name="EntityLineTrail" parent="." unique_id=2004345689 instance=ExtResource("5_am58m")]
 gradient = SubResource("Gradient_am58m")
