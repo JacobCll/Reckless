@@ -7,6 +7,7 @@
 
 [node name="LampSprite" unique_id=735652724 instance=ExtResource("1_q86mg")]
 script = ExtResource("2_qsaro")
+particle_color = Color(0.345098, 0.2666667, 0.2313725, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=2087975921]
 position = Vector2(-3.0000012, 3.5000057)

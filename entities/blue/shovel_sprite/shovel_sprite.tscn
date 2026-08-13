@@ -7,6 +7,7 @@
 
 [node name="ShovelSprite" unique_id=1198263616 instance=ExtResource("1_k5o08")]
 script = ExtResource("2_bdgv8")
+particle_color = Color(0.7686275, 0.7607843, 0.7333333, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

@@ -7,6 +7,7 @@
 
 [node name="LightbulbSprite" unique_id=735652724 instance=ExtResource("1_cb7k1")]
 script = ExtResource("2_dk3gn")
+particle_color = Color(0.772549, 0.7411765, 0.6352941, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=2087975921]
 position = Vector2(0, -10.000001)

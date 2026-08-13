@@ -7,6 +7,7 @@
 
 [node name="IronSprite" unique_id=735652724 instance=ExtResource("1_r2b3c")]
 script = ExtResource("2_w1nqs")
+particle_color = Color(0.8039216, 0.8039216, 0.8039216, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=2087975921]
 position = Vector2(-3.0000012, 3.5000057)

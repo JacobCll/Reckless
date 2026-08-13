@@ -7,6 +7,7 @@
 
 [node name="MugSprite" unique_id=735652724 instance=ExtResource("1_q74u6")]
 script = ExtResource("2_crd6p")
+particle_color = Color(0.9294118, 0.8901961, 0.8235294, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=2087975921]
 position = Vector2(-8.124996, 3)

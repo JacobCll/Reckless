@@ -7,6 +7,7 @@
 
 [node name="WrapperSprite" unique_id=1198263616 instance=ExtResource("1_tgwhu")]
 script = ExtResource("2_4i7yb")
+particle_color = Color(0.8823529, 0.8901961, 0.8470588, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

@@ -8,6 +8,7 @@
 
 [node name="BroomSprite" unique_id=1198263616 instance=ExtResource("1_b32v7")]
 script = ExtResource("2_cysdy")
+particle_color = Color(0.8431373, 0.7843137, 0.6078431, 1)
 left_half_texture = ExtResource("3_ye0mt")
 right_half_texture = ExtResource("4_q865p")
 

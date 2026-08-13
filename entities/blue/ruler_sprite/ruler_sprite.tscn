@@ -6,6 +6,7 @@
 
 [node name="RulerSprite" unique_id=1198263616 instance=ExtResource("1_hlxj0")]
 script = ExtResource("2_niclg")
+particle_color = Color(0.7647059, 0.6431373, 0.4745098, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

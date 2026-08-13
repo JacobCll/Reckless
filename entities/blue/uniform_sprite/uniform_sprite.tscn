@@ -9,6 +9,7 @@ load_path = "res://.godot/imported/uniform_sprite_slashed.png-85f1a01ac047641c23
 
 [node name="UniformSprite" unique_id=1198263616 instance=ExtResource("1_jqxee")]
 script = ExtResource("2_iebcq")
+particle_color = Color(0.9019608, 0.945098, 0.9490196, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

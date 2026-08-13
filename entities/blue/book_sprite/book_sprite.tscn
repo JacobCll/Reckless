@@ -7,6 +7,7 @@
 
 [node name="BookSprite" unique_id=1198263616 instance=ExtResource("1_lotm0")]
 script = ExtResource("2_bmcyb")
+particle_color = Color(0.254902, 0.1294118, 0.1058824, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

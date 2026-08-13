@@ -15,7 +15,7 @@ func spawn_particles(pos: Vector2, c: Color, hit_direction := Vector2.ZERO) -> v
 	global_position = pos
 	_orient(hit_direction)
 
-	#color = c
+	color = c
 
 	emitting = true
 

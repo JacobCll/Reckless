@@ -7,6 +7,7 @@
 
 [node name="ExamSprite" unique_id=1198263616 instance=ExtResource("1_rc6rq")]
 script = ExtResource("2_e1bbf")
+particle_color = Color(0.945098, 0.9176471, 0.8, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

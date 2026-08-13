@@ -7,6 +7,7 @@
 
 [node name="MopSprite" unique_id=1198263616 instance=ExtResource("1_frmds")]
 script = ExtResource("2_fa4od")
+particle_color = Color(0.7803922, 0.7960784, 0.827451, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0

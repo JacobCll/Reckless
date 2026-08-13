@@ -7,6 +7,7 @@
 
 [node name="NapkinSprite" unique_id=1198263616 instance=ExtResource("1_5f1ce")]
 script = ExtResource("2_y3rg4")
+particle_color = Color(0.9294118, 0.8980392, 0.8235294, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1188814709]
 z_index = 0
