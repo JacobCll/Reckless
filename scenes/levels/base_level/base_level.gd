@@ -19,6 +19,13 @@ var _parallax_offset: Vector2 = Vector2.ZERO
 var _harm_flash_tween: Tween
 var _shake_time_left := 0.0
 
+@export_group("Spawn Glow Effect")
+@export var spawn_glow_alpha: float = 0.25
+@export var spawn_glow_fade_duration: float = 0.6
+@export_group("")
+
+var _spawn_glow_tween: Tween
+
 # --------------------
 # POWER UP FLAGS
 # --------------------
@@ -67,6 +74,7 @@ var countdown_value := countdown_value_original
 # camera / screen effects
 @onready var camera: Camera2D = $Camera2D
 @onready var harm_effect: ColorRect = $CanvasLayer/HarmEffect
+@onready var spawn_glow: TextureRect = $CanvasLayer/SpawnGlow
 
 # --------------------
 # UI (shared HUD)
@@ -83,7 +91,9 @@ var countdown_value := countdown_value_original
 @onready var pause_button = $CanvasLayer/PauseButton
 @onready var pause_screen = $CanvasLayer/PauseScreen
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
+@onready var gameover_score_text = $CanvasLayer/GameoverScreen/ScoreText
 @onready var win_screen = $CanvasLayer/WinLevelScreen
+@onready var win_score_text = $CanvasLayer/WinLevelScreen/ScoreText
 @onready var next_level_button = $CanvasLayer/WinLevelScreen/HBoxContainer/NextLevelButton
 @onready var settings_menu = $SettingsMenu
 @onready var progress_bar = $CanvasLayer/HUD/LevelProgressBar
@@ -240,6 +250,7 @@ func _on_level_start() -> void:
 # =========================================================
 func _on_entity_spawned(entity_type: String) -> void:
 	CombatAudioSystem.play_throw(entity_type)
+	_trigger_spawn_glow(entity_type)
 
 func _on_entity_slashed(entity_type: String) -> void:
 	_default_score_logic(entity_type, "slash")
@@ -334,6 +345,7 @@ func _on_all_waves_completed() -> void:
 
 	await get_tree().create_timer(win_screen_delay).timeout
 
+	win_score_text.text = "Score: %d" % score
 	win_screen.show()
 
 	# show next level button if there is a next level
@@ -360,6 +372,27 @@ func _update_shields_ui():
 	for i in current_shields:
 		var shield = shield_scene.instantiate()
 		shields_container.add_child(shield)
+
+func _spawn_glow_color(entity_type: String) -> Color:
+	match entity_type:
+		"blue":
+			return Color(0.3254902, 0.65882355, 0.9529412)
+		"red":
+			return Color(0.9607843, 0.019607844, 0.023529412)
+		"green":
+			return Color(0.0, 0.5818609, 0.059796207)
+		_:
+			return Color.WHITE
+
+func _trigger_spawn_glow(entity_type: String) -> void:
+	if _spawn_glow_tween:
+		_spawn_glow_tween.kill()
+
+	var glow_color := _spawn_glow_color(entity_type)
+	spawn_glow.modulate = Color(glow_color.r, glow_color.g, glow_color.b, spawn_glow_alpha)
+
+	_spawn_glow_tween = create_tween()
+	_spawn_glow_tween.tween_property(spawn_glow, "modulate:a", 0.0, spawn_glow_fade_duration)
 
 func _trigger_harm_effect() -> void:
 	if _harm_flash_tween:
@@ -394,6 +427,7 @@ func game_over() -> void:
 
 	await get_tree().create_timer(game_over_screen_delay).timeout
 
+	gameover_score_text.text = "Score: %d" % score
 	gameover_screen.show()
 
 # =========================================================

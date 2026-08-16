@@ -8,6 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://cdncd7g2fei8p" path="res://scenes/levels/base_level/wave_manager.tscn" id="6_1txf7"]
 [ext_resource type="PackedScene" uid="uid://d1i7pcl5yqc8b" path="res://hud_elements/shields/shield.tscn" id="14_875bv"]
 
+[sub_resource type="Gradient" id="Gradient_spawn_glow"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_spawn_glow"]
+gradient = SubResource("Gradient_spawn_glow")
+fill = 1
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.55)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou3as"]
 bg_color = Color(0.30980393, 0.30980393, 0.30980393, 0.6666667)
 
@@ -22,6 +31,7 @@ shader_parameter/darkness = 0.1
 [node name="BaseLevel" type="Node" unique_id=818516806]
 process_mode = 3
 script = ExtResource("1_rwgnx")
+spawn_glow_alpha = 0.2
 
 [node name="Background" type="TextureRect" parent="." unique_id=1388791812]
 z_index = -1
@@ -47,6 +57,22 @@ bus = &"Sfx"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1956116786]
 process_mode = 3
+
+[node name="SpawnGlow" type="TextureRect" parent="CanvasLayer" unique_id=721627687]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -110.0
+offset_right = 260.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_spawn_glow")
+expand_mode = 1
 
 [node name="HarmEffect" type="ColorRect" parent="CanvasLayer" unique_id=721627686]
 anchors_preset = 15
@@ -77,6 +103,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="GameoverScreen" type="Control" parent="CanvasLayer" unique_id=914947514]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,9 +113,9 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameoverScreen" unique_id=789618396]
 layout_mode = 0
-offset_top = 476.0
+offset_top = 513.0
 offset_right = 1024.0
-offset_bottom = 529.0
+offset_bottom = 566.0
 theme_override_constants/separation = 30
 alignment = 1
 
@@ -123,19 +150,18 @@ vertical_alignment = 1
 
 [node name="ScoreText" type="Label" parent="CanvasLayer/GameoverScreen" unique_id=201031048]
 layout_mode = 0
-offset_top = 415.0
+offset_top = 448.0
 offset_right = 1024.0
-offset_bottom = 459.0
+offset_bottom = 492.0
 theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
 theme_override_constants/shadow_offset_x = 8
 theme_override_fonts/font = ExtResource("3_uay4d")
-theme_override_font_sizes/font_size = 45
-text = "Score: "
+theme_override_font_sizes/font_size = 34
+text = "Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WinLevelScreen" type="Control" parent="CanvasLayer" unique_id=800143018]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,9 +171,9 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WinLevelScreen" unique_id=734195754]
 layout_mode = 0
-offset_top = 476.0
+offset_top = 513.0
 offset_right = 1024.0
-offset_bottom = 529.0
+offset_bottom = 566.0
 theme_override_constants/separation = 30
 alignment = 1
 
@@ -174,6 +200,19 @@ mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("3_uay4d")
 theme_override_font_sizes/font_size = 30
 text = "Next Level"
+
+[node name="ScoreText" type="Label" parent="CanvasLayer/WinLevelScreen" unique_id=2098923905]
+layout_mode = 0
+offset_top = 440.0
+offset_right = 1024.0
+offset_bottom = 483.0
+theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_fonts/font = ExtResource("3_uay4d")
+theme_override_font_sizes/font_size = 34
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="WinText" type="Label" parent="CanvasLayer/WinLevelScreen" unique_id=463316806]
 layout_mode = 0
@@ -262,13 +301,31 @@ anchor_right = 0.49300003
 anchor_bottom = 0.095000006
 offset_left = 368.0
 offset_top = 72.0
-offset_right = 622.0
+offset_right = 637.0
 offset_bottom = 161.33334
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_uay4d")
 theme_override_font_sizes/font_size = 64
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=1652738209]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 20.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 44)
+theme_override_fonts/font = ExtResource("3_uay4d")
+theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -335,24 +392,6 @@ offset_bottom = 88.0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 16
 text = "Pause"
-
-[node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=1652738209]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -45.0
-offset_right = 20.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(20, 44)
-theme_override_fonts/font = ExtResource("3_uay4d")
-theme_override_font_sizes/font_size = 64
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("5_1txf7")]
 visible = false
