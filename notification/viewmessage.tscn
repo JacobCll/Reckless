@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c2a6g0pr87hi7" path="res://notification/viewmessage.gd" id="1_gaynu"]
 [ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="1_i67lv"]
-[ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="2_1oxut"]
-[ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="3_gaynu"]
+[ext_resource type="Texture2D" uid="uid://bs2r4uhuh8jk2" path="res://buttons/navigation_buttons/Button_Back.png" id="2_1oxut"]
+[ext_resource type="Texture2D" uid="uid://chp1md3jj3ecs" path="res://buttons/navigation_buttons/Button_Back_Hover.png" id="3_gaynu"]
+[ext_resource type="Texture2D" uid="uid://bnynhnwfh3fdb" path="res://buttons/navigation_buttons/Button_Back_Active.png" id="3_back_active"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vy5wx"]
 
@@ -98,7 +99,9 @@ offset_bottom = 244.0
 scale = Vector2(0.4, 0.4)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_1oxut")
+texture_pressed = ExtResource("3_back_active")
 texture_hover = ExtResource("3_gaynu")
+ignore_texture_size = true
 stretch_mode = 4
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

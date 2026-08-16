@@ -7,6 +7,17 @@
 [ext_resource type="Shader" uid="uid://cu6iypa0yqnl5" path="res://scenes/levels/base_level/base_level.gdshader" id="5_y3fao"]
 [ext_resource type="PackedScene" uid="uid://cdncd7g2fei8p" path="res://scenes/levels/base_level/wave_manager.tscn" id="6_1txf7"]
 [ext_resource type="PackedScene" uid="uid://d1i7pcl5yqc8b" path="res://hud_elements/shields/shield.tscn" id="14_875bv"]
+[ext_resource type="Texture2D" uid="uid://bpxpc70bdbl1e" path="res://buttons/pause_menu/Button_Pause.png" id="15_pause"]
+[ext_resource type="Texture2D" uid="uid://h5g5to1wtsql" path="res://buttons/pause_menu/Button_Pause_Active.png" id="16_pause_active"]
+[ext_resource type="Texture2D" uid="uid://cpq0ugc1gqrn5" path="res://buttons/pause_menu/Button_Resume.png" id="17_resume"]
+[ext_resource type="Texture2D" uid="uid://bti7u2mig1t2k" path="res://buttons/pause_menu/Button_Resume_Active.png" id="18_resume_active"]
+[ext_resource type="Texture2D" uid="uid://byx1h8mi2bjt1" path="res://buttons/pause_menu/Button_Resume_Hover.png" id="19_resume_hover"]
+[ext_resource type="Texture2D" uid="uid://bfuwgrvytr760" path="res://buttons/pause_menu/Button_BackToMenu.png" id="20_backtomenu"]
+[ext_resource type="Texture2D" uid="uid://cogk3w83bgon" path="res://buttons/pause_menu/Button_BackToMenu_Active.png" id="21_backtomenu_active"]
+[ext_resource type="Texture2D" uid="uid://b5e8ie6wts1ve" path="res://buttons/pause_menu/Button_BackToMenu_Hover.png" id="22_backtomenu_hover"]
+[ext_resource type="Texture2D" uid="uid://cuuav8s0q6gi0" path="res://buttons/main_menu_buttons/Button_Settings.png" id="23_settings"]
+[ext_resource type="Texture2D" uid="uid://brkdwk2jdlima" path="res://buttons/main_menu_buttons/Button_Settings_Active.png" id="24_settings_active"]
+[ext_resource type="Texture2D" uid="uid://ciog617bu68k1" path="res://buttons/main_menu_buttons/Button_Settings_Hover.png" id="25_settings_hover"]
 
 [sub_resource type="Gradient" id="Gradient_spawn_glow"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -19,6 +30,10 @@ fill_to = Vector2(0.5, 0.55)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou3as"]
 bg_color = Color(0.30980393, 0.30980393, 0.30980393, 0.6666667)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
 bg_color = Color(0.93, 0.65, 0.13, 1)
@@ -111,6 +126,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="DimBg" type="ColorRect" parent="CanvasLayer/GameoverScreen" unique_id=273751085]
+modulate = Color(0, 0, 0, 0.5568628)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameoverScreen" unique_id=789618396]
 layout_mode = 0
 offset_top = 513.0
@@ -143,7 +168,7 @@ offset_bottom = 459.0
 theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
 theme_override_constants/shadow_offset_x = 8
 theme_override_fonts/font = ExtResource("3_uay4d")
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 180
 text = "Game Over!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -162,12 +187,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WinLevelScreen" type="Control" parent="CanvasLayer" unique_id=800143018]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DimBg" type="ColorRect" parent="CanvasLayer/WinLevelScreen" unique_id=1604952285]
+modulate = Color(0, 0, 0, 0.5568628)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WinLevelScreen" unique_id=734195754]
 layout_mode = 0
@@ -299,7 +335,7 @@ anchor_left = 0.49300003
 anchor_top = 0.095000006
 anchor_right = 0.49300003
 anchor_bottom = 0.095000006
-offset_left = 368.0
+offset_left = 364.0
 offset_top = 72.0
 offset_right = 637.0
 offset_bottom = 161.33334
@@ -361,37 +397,46 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 7
 
-[node name="ResumeButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=549232154]
+[node name="ResumeButton" type="TextureButton" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=549232154]
+custom_minimum_size = Vector2(260, 106)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Resume"
+texture_normal = ExtResource("17_resume")
+texture_pressed = ExtResource("18_resume_active")
+texture_hover = ExtResource("19_resume_hover")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=335949845]
+[node name="SettingsButton" type="TextureButton" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=335949845]
+custom_minimum_size = Vector2(260, 106)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Settings"
+texture_normal = ExtResource("23_settings")
+texture_pressed = ExtResource("24_settings_active")
+texture_hover = ExtResource("25_settings_hover")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="LevelMenuButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=424600411]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Level Menu"
-
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=1295048651]
+[node name="MainMenuButton" type="TextureButton" parent="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer" unique_id=1295048651]
+custom_minimum_size = Vector2(260, 106)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Main Menu"
+texture_normal = ExtResource("20_backtomenu")
+texture_pressed = ExtResource("21_backtomenu_active")
+texture_hover = ExtResource("22_backtomenu_hover")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=383113909]
-offset_left = 32.0
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer" unique_id=383113909]
+offset_left = 34.0
 offset_top = 32.0
-offset_right = 87.0
-offset_bottom = 88.0
+offset_right = 103.0
+offset_bottom = 97.0
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 16
-text = "Pause"
+texture_normal = ExtResource("15_pause")
+texture_pressed = ExtResource("16_pause_active")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("5_1txf7")]
 visible = false
@@ -404,6 +449,5 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/WinLevelScreen/HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/LevelMenuButton" to="." method="_on_level_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]

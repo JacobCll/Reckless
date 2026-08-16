@@ -226,9 +226,10 @@ func _handle_tutorial_all():
 	
 func _handle_tutorial_complete():
 	continue_button.hide()
+	pause_button.hide()
 	tutorial_modal.show()
 	main_modal.show()
-	
+
 	blue_spawner.stop()
 	red_spawner.stop()
 	green_spawner.stop()

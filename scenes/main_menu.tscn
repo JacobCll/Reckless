@@ -1,18 +1,17 @@
 [gd_scene format=3 uid="uid://duogth2i1fmrf"]
 
-[ext_resource type="Texture2D" uid="uid://crysq2vt1huvk" path="res://buttons/play_button.png" id="2_8ln24"]
 [ext_resource type="Script" uid="uid://g38ghibrcydq" path="res://scenes/main_menu.gd" id="2_jk1qb"]
-[ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/menu_BGM1.mp3" id="3_5dd4i"]
-[ext_resource type="Texture2D" uid="uid://dqqrcdto4k2qw" path="res://backgrounds/main_menu/dumpster_bg.jpg" id="3_5pajh"]
-[ext_resource type="Texture2D" uid="uid://dmnearlm67egk" path="res://buttons/shop_button.png" id="4_oa1go"]
-[ext_resource type="Texture2D" uid="uid://b3yg68encyyy4" path="res://buttons/settings_button.png" id="5_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://kb26ty78af78" path="res://buttons/play-hover.png" id="7_rcqid"]
-[ext_resource type="Texture2D" uid="uid://c7lylr4oh33u4" path="res://buttons/shop-hover.png" id="9_1ajci"]
-[ext_resource type="Texture2D" uid="uid://bswcbt536ffsw" path="res://buttons/setting-hover.png" id="11_7b55j"]
+[ext_resource type="AudioStream" uid="uid://or536ndi685" path="res://music/main_menu/menu_BGM1.mp3" id="3_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://ccbr0e5gevxup" path="res://backgrounds/main_menu/MainMenu_Background.jpg" id="3_j7ex8"]
+[ext_resource type="Texture2D" uid="uid://cig166q03fqja" path="res://buttons/main_menu_buttons/Button_Play_Active.png" id="5_play_active"]
+[ext_resource type="Texture2D" uid="uid://51bufenk46y2" path="res://buttons/main_menu_buttons/Button_Play_Hover.png" id="5_play_hover"]
+[ext_resource type="Texture2D" uid="uid://85daacxmwy4i" path="res://buttons/main_menu_buttons/Button_Play.png" id="5_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://cuuav8s0q6gi0" path="res://buttons/main_menu_buttons/Button_Settings.png" id="6_settings"]
+[ext_resource type="Texture2D" uid="uid://brkdwk2jdlima" path="res://buttons/main_menu_buttons/Button_Settings_Active.png" id="6_settings_active"]
+[ext_resource type="Texture2D" uid="uid://ciog617bu68k1" path="res://buttons/main_menu_buttons/Button_Settings_Hover.png" id="6_settings_hover"]
+[ext_resource type="Texture2D" uid="uid://cfdcfvnh507wx" path="res://buttons/main_menu_buttons/Button_Shop.png" id="7_shop"]
+[ext_resource type="Texture2D" uid="uid://beygqwtla087" path="res://buttons/main_menu_buttons/Button_Shop_Active.png" id="7_shop_active"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="11_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://cw3jk45k2c2h3" path="res://buttons/red-button.tres" id="12_7b55j"]
-[ext_resource type="Texture2D" uid="uid://guou7mfaftr4" path="res://buttons/red-button-hover.tres" id="13_5pajh"]
-[ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="14_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cuv5vtkxraocv" path="res://buttons/walkietalky-normal.tres" id="15_j7ex8"]
 [ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="16_5pajh"]
 [ext_resource type="Texture2D" uid="uid://del61yhuotki" path="res://buttons/walkietalky-hover.tres" id="17_a8gd2"]
@@ -38,19 +37,37 @@ offset_bottom = 768.0
 script = ExtResource("2_jk1qb")
 music = ExtResource("3_5dd4i")
 
+[node name="Background2" type="TextureRect" parent="." unique_id=179779716]
+visible = false
+modulate = Color(0.7750634, 0.7750634, 0.7750634, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -53.0
+offset_right = 106.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_j7ex8")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Background" type="TextureRect" parent="." unique_id=1715176793]
 modulate = Color(0.7750634, 0.7750634, 0.7750634, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -135.0
-offset_top = -27.0
-offset_right = 247.0
-offset_bottom = 15.0
+offset_left = -84.0
+offset_top = -48.0
+offset_right = -84.0
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_5pajh")
+scale = Vector2(1.149458, 1.1324579)
+texture = ExtResource("3_j7ex8")
 expand_mode = 1
 stretch_mode = 5
 
@@ -59,10 +76,10 @@ visible = false
 
 [node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
 layout_mode = 0
-offset_left = 418.0
-offset_top = 172.0
-offset_right = 1096.0756
-offset_bottom = 805.3334
+offset_left = 271.0
+offset_top = 118.00001
+offset_right = 877.69916
+offset_bottom = 684.6667
 scale = Vector2(0.75, 0.75)
 mouse_filter = 2
 texture = SubResource("CompressedTexture2D_7b55j")
@@ -88,8 +105,8 @@ initial_velocity_min = 3.0
 initial_velocity_max = 12.0
 angular_velocity_min = -30.0
 angular_velocity_max = 30.0
-scale_amount_min = 0.18
-scale_amount_max = 0.4
+scale_amount_min = 0.36
+scale_amount_max = 0.8
 color = Color(0.4039216, 0.9686275, 0.9686275, 1)
 color_ramp = SubResource("Gradient_flare_twinkle")
 
@@ -110,83 +127,56 @@ initial_velocity_min = 3.0
 initial_velocity_max = 12.0
 angular_velocity_min = -30.0
 angular_velocity_max = 30.0
-scale_amount_min = 0.18
-scale_amount_max = 0.4
+scale_amount_min = 0.36
+scale_amount_max = 0.8
 color = Color(0.9921569, 0.9843137, 0.5411765, 1)
 color_ramp = SubResource("Gradient_flare_twinkle")
 
-[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=520339295]
+[node name="ButtonContainer" type="HBoxContainer" parent="." unique_id=1448997862]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 201.0
-offset_right = 360.0
-offset_bottom = 632.0
-theme_override_constants/separation = 4
+offset_left = 188.0
+offset_top = 558.0
+offset_right = 818.0
+offset_bottom = 658.0
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="PlayButton" type="TextureButton" parent="ButtonContainer" unique_id=1347030637]
-custom_minimum_size = Vector2(0, 102)
+[node name="SettingsButton" type="TextureButton" parent="ButtonContainer" unique_id=1804297541]
+custom_minimum_size = Vector2(244, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_8ln24")
-texture_pressed = ExtResource("7_rcqid")
-texture_hover = ExtResource("7_rcqid")
+texture_normal = ExtResource("6_settings")
+texture_pressed = ExtResource("6_settings_active")
+texture_hover = ExtResource("6_settings_hover")
 ignore_texture_size = true
-stretch_mode = 5
+stretch_mode = 0
 
-[node name="ShopButton" type="TextureButton" parent="ButtonContainer" unique_id=2024617283]
-custom_minimum_size = Vector2(0, 103)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_oa1go")
-texture_pressed = ExtResource("9_1ajci")
-texture_hover = ExtResource("9_1ajci")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="SettingsButton" type="TextureButton" parent="ButtonContainer" unique_id=49510251]
-custom_minimum_size = Vector2(0, 104)
+[node name="PlayButton" type="TextureButton" parent="ButtonContainer" unique_id=963561782]
+custom_minimum_size = Vector2(244, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_tbmy8")
-texture_pressed = ExtResource("11_7b55j")
-texture_hover = ExtResource("11_7b55j")
+texture_pressed = ExtResource("5_play_active")
+texture_hover = ExtResource("5_play_hover")
 ignore_texture_size = true
-stretch_mode = 5
+stretch_mode = 0
 
-[node name="TutorialButton" type="TextureButton" parent="ButtonContainer" unique_id=1098944751]
-custom_minimum_size = Vector2(86, 86)
+[node name="ShopButton" type="TextureButton" parent="ButtonContainer" unique_id=1002064591]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("12_7b55j")
-texture_pressed = ExtResource("13_5pajh")
-texture_hover = ExtResource("13_5pajh")
+texture_normal = ExtResource("7_shop")
+texture_pressed = ExtResource("7_shop_active")
 ignore_texture_size = true
-stretch_mode = 5
-
-[node name="TutorialLabel" type="Label" parent="ButtonContainer/TutorialButton" unique_id=1223120818]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = 8.0
-offset_right = -30.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("14_j7ex8")
-theme_override_font_sizes/font_size = 42
-text = "tutorial"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+stretch_mode = 0
 
 [node name="NotificationButton" type="TextureButton" parent="." unique_id=327508239]
+visible = false
 layout_mode = 0
-offset_left = 908.0
-offset_top = 25.0
-offset_right = 983.0
-offset_bottom = 163.0
+offset_left = 31.0
+offset_top = 603.0
+offset_right = 106.0
+offset_bottom = 741.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("15_j7ex8")
 texture_pressed = ExtResource("17_a8gd2")
@@ -237,9 +227,8 @@ theme_override_fonts/font = ExtResource("16_5pajh")
 theme_override_font_sizes/font_size = 32
 text = "Continue"
 
+[connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ShopButton" to="." method="_on_shop_button_pressed"]
-[connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="ButtonContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="NotificationButton" to="." method="_on_notification_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Cutscene/CutsceneContinueButton" to="." method="_on_cutscene_continue_button_pressed"]

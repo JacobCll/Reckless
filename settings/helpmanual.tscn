@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c6o04di73s80a" path="res://settings/helpmanual.gd" id="1_lmv0r"]
 [ext_resource type="Texture2D" uid="uid://cmd57qnn61sda" path="res://backgrounds/levels_menu_background.png" id="2_6wfyy"]
-[ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="3_ed3c8"]
-[ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="4_0xjd1"]
+[ext_resource type="Texture2D" uid="uid://bs2r4uhuh8jk2" path="res://buttons/navigation_buttons/Button_Back.png" id="3_ed3c8"]
+[ext_resource type="Texture2D" uid="uid://bnynhnwfh3fdb" path="res://buttons/navigation_buttons/Button_Back_Active.png" id="4_0xjd1"]
+[ext_resource type="Texture2D" uid="uid://chp1md3jj3ecs" path="res://buttons/navigation_buttons/Button_Back_Hover.png" id="4_back_hover"]
 [ext_resource type="Texture2D" uid="uid://t6snai06s3ti" path="res://backgrounds/elements/wanted-punchedholes.png" id="5_0xjd1"]
 [ext_resource type="FontFile" uid="uid://cdg3gpv5wfbj8" path="res://fonts/Serialpublicationdemo-qxo1.ttf" id="6_hpluh"]
 
@@ -24,7 +25,7 @@ mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = ExtResource("3_ed3c8")
 texture_pressed = ExtResource("4_0xjd1")
-texture_hover = ExtResource("4_0xjd1")
+texture_hover = ExtResource("4_back_hover")
 ignore_texture_size = true
 stretch_mode = 5
 

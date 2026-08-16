@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://coakfx185iji5"]
 
-[ext_resource type="Texture2D" uid="uid://cmd57qnn61sda" path="res://backgrounds/levels_menu_background.png" id="1_yl4fo"]
 [ext_resource type="Script" uid="uid://clkrhe502hgy6" path="res://scenes/level_menu/level_menu.gd" id="2_8xmkv"]
-[ext_resource type="Texture2D" uid="uid://bvab11xsyobni" path="res://buttons/back_left_button.png" id="2_jqwib"]
+[ext_resource type="Texture2D" uid="uid://bnynhnwfh3fdb" path="res://buttons/navigation_buttons/Button_Back_Active.png" id="2_back_active"]
+[ext_resource type="Texture2D" uid="uid://bs2r4uhuh8jk2" path="res://buttons/navigation_buttons/Button_Back.png" id="2_jqwib"]
 [ext_resource type="Texture2D" uid="uid://ctkkbptbg7kif" path="res://logo/levels_text.png" id="3_7obll"]
 [ext_resource type="PackedScene" uid="uid://bwdvqid0hbikl" path="res://scenes/level_menu/level_button.tscn" id="3_bvllw"]
-[ext_resource type="AudioStream" uid="uid://bqs5p1p7c7p3h" path="res://music/main_menu/menu_BGM1.mp3" id="4_jw3qw"]
-[ext_resource type="Texture2D" uid="uid://dnjawwkgueuy" path="res://buttons/back_left_hover.png" id="6_5gure"]
+[ext_resource type="AudioStream" uid="uid://or536ndi685" path="res://music/main_menu/menu_BGM1.mp3" id="4_jw3qw"]
+[ext_resource type="Texture2D" uid="uid://bnnvkf7ny3fh6" path="res://backgrounds/level_menu/LevelMenu_Background.png" id="5_l55ic"]
+[ext_resource type="Texture2D" uid="uid://chp1md3jj3ecs" path="res://buttons/navigation_buttons/Button_Back_Hover.png" id="6_5gure"]
 [ext_resource type="Texture2D" uid="uid://dmee4cu7xcab" path="res://buttons/cancel-default.png" id="8_j8mn1"]
 [ext_resource type="Texture2D" uid="uid://c43ct5m0j1duq" path="res://buttons/start-default.png" id="8_xsnhl"]
 [ext_resource type="Texture2D" uid="uid://el1nh5cb8jrt" path="res://buttons/levelbuttons-brg/level1.tres" id="9_hxshe"]
@@ -61,25 +62,45 @@ corner_radius_top_right = 24
 corner_radius_bottom_right = 24
 corner_radius_bottom_left = 24
 
-[node name="LevelMenu" type="TextureRect" unique_id=1450082209]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_yl4fo")
+[node name="LevelMenu" type="Control" unique_id=1795282986]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 768.0
 script = ExtResource("2_8xmkv")
 level_button = ExtResource("3_bvllw")
 level_menu_music = ExtResource("4_jw3qw")
+background_parallax_strength = Vector2(6, 5)
 powerup_card_scene = ExtResource("12_uxs4i")
+
+[node name="Background" type="TextureRect" parent="." unique_id=568148464]
+modulate = Color(0.8047426, 0.80474263, 0.8047426, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -46.999992
+offset_right = 69.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.96697396, 0.9897745)
+pivot_offset = Vector2(568.8359, 417.6546)
+texture = ExtResource("5_l55ic")
 
 [node name="BackButton" type="TextureButton" parent="." unique_id=612589866]
 layout_mode = 0
 offset_left = 41.0
 offset_top = 62.0
-offset_right = 591.0
-offset_bottom = 264.0
+offset_right = 500.99994
+offset_bottom = 251.99998
 scale = Vector2(0.4, 0.4)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_jqwib")
+texture_pressed = ExtResource("2_back_active")
 texture_hover = ExtResource("6_5gure")
+ignore_texture_size = true
 stretch_mode = 4
 
 [node name="LevelsText" type="TextureRect" parent="." unique_id=1342054559]
@@ -191,6 +212,7 @@ level_number = 10
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064702113]
 
 [node name="PowerupModal" type="Panel" parent="CanvasLayer" unique_id=1807815975]
+visible = false
 anchors_preset = -1
 anchor_left = 0.49300003
 anchor_top = 0.523

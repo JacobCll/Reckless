@@ -6,11 +6,13 @@ extends Control
 @export_group("Mouse Parallax")
 @export var background_parallax_strength: Vector2 = Vector2(10.0, 5.0)
 @export var logo_parallax_strength: Vector2 = Vector2(6.0, 3.0)
+@export var buttons_parallax_strength: Vector2 = Vector2(3.0, 1.5)
 @export var parallax_smoothing: float = 5.0
 
 @onready var settings_menu = $SettingsMenu
 @onready var background: TextureRect = $Background
 @onready var reckless_logo: TextureRect = $RecklessLogo
+@onready var button_container: HBoxContainer = $ButtonContainer
 
 @onready var cutscene = $CanvasLayer/Cutscene
 @onready var flare_cyan: CPUParticles2D = $RecklessLogo/LogoFlare/FlareCyan
@@ -18,6 +20,7 @@ extends Control
 
 var _background_base_position: Vector2
 var _logo_base_position: Vector2
+var _button_container_base_position: Vector2
 var _parallax_offset: Vector2 = Vector2.ZERO
 
 # Shared across reloads so the flare's soft glow dot is only ever rasterized once.
@@ -36,6 +39,7 @@ func _ready() -> void:
 
 	_background_base_position = background.position
 	_logo_base_position = reckless_logo.position
+	_button_container_base_position = button_container.position
 
 	var flare_texture := _get_flare_texture()
 	flare_cyan.texture = flare_texture
@@ -51,6 +55,7 @@ func _process(delta: float) -> void:
 
 	background.position = _background_base_position + _parallax_offset * background_parallax_strength
 	reckless_logo.position = _logo_base_position + _parallax_offset * logo_parallax_strength
+	button_container.position = _button_container_base_position + _parallax_offset * buttons_parallax_strength
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_menu/level_menu.tscn")
