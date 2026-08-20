@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_nw3yw"]
 [ext_resource type="Script" uid="uid://b87t8mxgjju4" path="res://scenes/levels/tutorial_level/tutorial_level.gd" id="2_h8moi"]
-[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_1xsvc"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_knk6l"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_haaw4"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_l7ta3"]
@@ -38,11 +37,59 @@ script = ExtResource("2_h8moi")
 max_lives = 0
 countdown_value_original = 0
 
-[node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=483354666]
-visible = false
+[node name="BlueSpawner" parent="." index="6" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
+spawn_delay_max = 1.0
+spawn_count_max = 1
+throw_force_max = 1000.0
+spread_min = 0.0
+spread_max = 0.0
+spin_min = 1.0
+spin_max = 1.0
+blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4")])
+green_weight = 0.0
+path = NodePath("../BlueSpawnerPath")
 
-[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="4" unique_id=656952242]
-visible = false
+[node name="BlueSpawnerPath" type="Path2D" parent="." index="7" unique_id=1429210558]
+position = Vector2(-24, 0)
+curve = SubResource("Curve2D_asvqm")
+
+[node name="RedSpawner" parent="." index="8" unique_id=46997689 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
+spawn_delay_max = 1.0
+spawn_count_max = 1
+throw_force_max = 1000.0
+spread_min = 0.0
+spread_max = 0.0
+blue_weight = 0.0
+red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
+green_weight = 0.0
+path = NodePath("../RedSpawnerPath")
+
+[node name="RedSpawnerPath" type="Path2D" parent="." index="9" unique_id=1069834548]
+position = Vector2(-23, 0)
+curve = SubResource("Curve2D_1xsvc")
+
+[node name="GreenSpawner" parent="." index="10" unique_id=458903256 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
+spawn_delay_max = 1.0
+spawn_count_max = 1
+throw_force_max = 1000.0
+blue_weight = 0.0
+red_weight = 0.0
+green_scenes = Array[PackedScene]([ExtResource("7_1xsvc")])
+path = NodePath("../GreenSpawnerPath")
+
+[node name="GreenSpawnerPath" type="Path2D" parent="." index="11" unique_id=427356094]
+curve = SubResource("Curve2D_haaw4")
+
+[node name="AllSpawner" parent="." index="12" unique_id=1407576723 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
+blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4")])
+red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
+green_scenes = Array[PackedScene]([ExtResource("7_1xsvc")])
+green_weight = 0.3
+green_max_alive = 1
+path = NodePath("../AllSpawnerPath")
+
+[node name="AllSpawnerPath" type="Path2D" parent="." index="13" unique_id=1248008055]
+curve = SubResource("Curve2D_l7ta3")
 
 [node name="TutorialModal" type="Control" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="4" unique_id=1326149685]
 layout_mode = 3
@@ -145,63 +192,14 @@ theme_override_font_sizes/font_size = 32
 text = "Continue"
 metadata/_edit_use_anchors_ = true
 
+[node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=483354666]
+visible = false
+
+[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="4" unique_id=656952242]
+visible = false
+
 [node name="CountdownLabel" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="7" unique_id=1652738209]
 visible = false
-theme_override_fonts/font = ExtResource("3_1xsvc")
-
-[node name="BlueSpawner" parent="." index="6" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
-spawn_delay_max = 1.0
-spawn_count_max = 1
-throw_force_max = 1000.0
-spread_min = 0.0
-spread_max = 0.0
-spin_min = 1.0
-spin_max = 1.0
-blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4")])
-green_weight = 0.0
-path = NodePath("../BlueSpawnerPath")
-
-[node name="BlueSpawnerPath" type="Path2D" parent="." index="7" unique_id=1429210558]
-position = Vector2(-24, 0)
-curve = SubResource("Curve2D_asvqm")
-
-[node name="RedSpawner" parent="." index="8" unique_id=46997689 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
-spawn_delay_max = 1.0
-spawn_count_max = 1
-throw_force_max = 1000.0
-spread_min = 0.0
-spread_max = 0.0
-blue_weight = 0.0
-red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
-green_weight = 0.0
-path = NodePath("../RedSpawnerPath")
-
-[node name="RedSpawnerPath" type="Path2D" parent="." index="9" unique_id=1069834548]
-position = Vector2(-23, 0)
-curve = SubResource("Curve2D_1xsvc")
-
-[node name="GreenSpawner" parent="." index="10" unique_id=458903256 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
-spawn_delay_max = 1.0
-spawn_count_max = 1
-throw_force_max = 1000.0
-blue_weight = 0.0
-red_weight = 0.0
-green_scenes = Array[PackedScene]([ExtResource("7_1xsvc")])
-path = NodePath("../GreenSpawnerPath")
-
-[node name="GreenSpawnerPath" type="Path2D" parent="." index="11" unique_id=427356094]
-curve = SubResource("Curve2D_haaw4")
-
-[node name="AllSpawner" parent="." index="12" unique_id=1407576723 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
-blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4")])
-red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
-green_scenes = Array[PackedScene]([ExtResource("7_1xsvc")])
-green_weight = 0.3
-green_max_alive = 1
-path = NodePath("../AllSpawnerPath")
-
-[node name="AllSpawnerPath" type="Path2D" parent="." index="13" unique_id=1248008055]
-curve = SubResource("Curve2D_l7ta3")
 
 [connection signal="pressed" from="CanvasLayer/TutorialModal/MainModal/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TutorialModal/ContinueButton" to="." method="_on_continue_button_pressed"]

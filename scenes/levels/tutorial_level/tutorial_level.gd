@@ -52,6 +52,8 @@ func _ready() -> void:
 	red_spawner.entity_slashed.connect(_on_entity_slashed)
 	red_spawner.entity_smashed.connect(_on_entity_smashed)
 	
+	green_spawner.entity_slashed.connect(_on_entity_slashed)
+	green_spawner.entity_smashed.connect(_on_entity_smashed)
 	green_spawner.entity_killed.connect(_on_entity_killed)
 	green_spawner.entity_despawned.connect(_on_entity_despawned)
 	
@@ -142,14 +144,6 @@ func _on_entity_despawned(entity_type: String) -> void:
 		if despawned_count >= 3:
 			continue_button.show()
 
-func _on_entity_slashed(entity_type: String) -> void:
-	super(entity_type)
-	
-	slashed_count += 1
-	
-	if slashed_count >= 5:
-		continue_button.show()
-
 # overriden, no entity drops in tutorial
 func _entity_drop(entity_type: String):
 	return
@@ -158,9 +152,23 @@ func _entity_drop(entity_type: String):
 func _default_score_logic(entity_type: String, action: String) -> void:
 	return
 
+func _on_entity_slashed(entity_type: String) -> void:
+	super(entity_type)
+	
+	if entity_type == "green":
+		return
+	
+	slashed_count += 1
+	
+	if slashed_count >= 5:
+		continue_button.show()
+		
 func _on_entity_smashed(entity_type: String) -> void:
 	super(entity_type)
 	
+	if entity_type == "green":
+		return
+		
 	smashed_count += 1
 	
 	if smashed_count >= 5:
@@ -184,8 +192,6 @@ func _handle_tutorial_slash():
 	
 	blue_spawner.start()
 	blue_spawner.start_spawn_loop()
-	
-
 func _handle_tutorial_smash():
 	continue_button.hide()
 	text_modal.show()
@@ -196,8 +202,6 @@ func _handle_tutorial_smash():
 	
 	red_spawner.start()
 	red_spawner.start_spawn_loop()
-	
-
 func _handle_tutorial_avoid():
 	continue_button.hide()
 	text_modal.show()
@@ -208,8 +212,6 @@ func _handle_tutorial_avoid():
 	
 	green_spawner.start()
 	green_spawner.start_spawn_loop()
-	
-
 func _handle_tutorial_all():
 	continue_button.hide()
 	text_modal.show()
@@ -223,7 +225,6 @@ func _handle_tutorial_all():
 	
 	all_spawner.start()
 	all_spawner.start_spawn_loop()
-	
 func _handle_tutorial_complete():
 	continue_button.hide()
 	pause_button.hide()

@@ -55,6 +55,7 @@ func _set_score(value: int) -> void:
 # pause
 var is_paused := false
 var _resume_countdown_active := false
+var _intro_countdown_active := false
 @export var resume_countdown_seconds := 3
 
 # lives
@@ -219,6 +220,7 @@ func _apply_no_green_powerup() -> void:
 # COUNTDOWN
 # =========================================================
 func start_countdown() -> void:
+	_intro_countdown_active = true
 	countdown_value = countdown_value_original
 	countdown_label.text = str(countdown_value)
 	_play_countdown_sfx()
@@ -233,6 +235,7 @@ func _on_countdown_timer_timeout() -> void:
 	else:
 		countdown_timer.stop()
 		countdown_label.hide()
+		_intro_countdown_active = false
 
 		_on_level_start()
 
@@ -500,6 +503,9 @@ func _handle_pause_input() -> void:
 		_pause_game()
 
 func _pause_game() -> void:
+	if _intro_countdown_active:
+		return
+
 	is_paused = true
 	get_tree().paused = true
 
