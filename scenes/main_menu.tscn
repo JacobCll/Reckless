@@ -171,12 +171,11 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="NotificationButton" type="TextureButton" parent="." unique_id=327508239]
-visible = false
 layout_mode = 0
-offset_left = 31.0
-offset_top = 603.0
-offset_right = 106.0
-offset_bottom = 741.0
+offset_left = 900.0
+offset_top = 37.0
+offset_right = 975.0
+offset_bottom = 175.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("15_j7ex8")
 texture_pressed = ExtResource("17_a8gd2")

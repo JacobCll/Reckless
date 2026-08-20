@@ -37,6 +37,10 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
 bg_color = Color(0.93, 0.65, 0.13, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1txf7"]
 shader = ExtResource("5_y3fao")
@@ -46,7 +50,7 @@ shader_parameter/darkness = 0.1
 [node name="BaseLevel" type="Node" unique_id=818516806]
 process_mode = 3
 script = ExtResource("1_rwgnx")
-spawn_glow_alpha = 0.2
+spawn_glow_alpha = 0.5
 
 [node name="Background" type="TextureRect" parent="." unique_id=1388791812]
 z_index = -1

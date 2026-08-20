@@ -8,11 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://or536ndi685" path="res://music/main_menu/menu_BGM1.mp3" id="4_jw3qw"]
 [ext_resource type="Texture2D" uid="uid://bnnvkf7ny3fh6" path="res://backgrounds/level_menu/LevelMenu_Background.png" id="5_l55ic"]
 [ext_resource type="Texture2D" uid="uid://chp1md3jj3ecs" path="res://buttons/navigation_buttons/Button_Back_Hover.png" id="6_5gure"]
-[ext_resource type="Texture2D" uid="uid://dmee4cu7xcab" path="res://buttons/cancel-default.png" id="8_j8mn1"]
-[ext_resource type="Texture2D" uid="uid://c43ct5m0j1duq" path="res://buttons/start-default.png" id="8_xsnhl"]
 [ext_resource type="Texture2D" uid="uid://el1nh5cb8jrt" path="res://buttons/levelbuttons-brg/level1.tres" id="9_hxshe"]
-[ext_resource type="Texture2D" uid="uid://ce8xds135yrpo" path="res://buttons/start-hover.png" id="9_j8mn1"]
-[ext_resource type="Texture2D" uid="uid://c72jkmm00uux" path="res://buttons/cancel-hover.png" id="9_ri0ji"]
 [ext_resource type="Texture2D" uid="uid://daif7q7fnu3sb" path="res://buttons/levelbuttons-brg/level1-hover.tres" id="10_4yaje"]
 [ext_resource type="Texture2D" uid="uid://buicr74j1u5tq" path="res://buttons/levelbuttons-brg/pressed-level1.tres" id="10_fv47d"]
 [ext_resource type="Texture2D" uid="uid://b0lersv0xjmhb" path="res://buttons/levelbuttons-brg/disable_level1.tres" id="11_qqymp"]
@@ -53,7 +49,13 @@
 [ext_resource type="Texture2D" uid="uid://ivpygwfungc8" path="res://buttons/levelbuttons-brg/pressed-level10.tres" id="46_jhchr"]
 [ext_resource type="Texture2D" uid="uid://va5s2fr71bqu" path="res://buttons/levelbuttons-brg/level10-hover.tres" id="47_a4ij0"]
 [ext_resource type="Texture2D" uid="uid://bbrx30c7famjj" path="res://buttons/levelbuttons-brg/disable_level10.tres" id="48_edey8"]
-[ext_resource type="Texture2D" uid="uid://d0pa51uu8a6xe" path="res://text_labels/poweruptitle.tres" id="49_lcikx"]
+[ext_resource type="FontFile" uid="uid://cquq0jd5fl8ey" path="res://fonts/Odinson.ttf" id="50_5j1mp"]
+[ext_resource type="Texture2D" uid="uid://dm734c80e3ijq" path="res://buttons/navigation_buttons/Button_Start.png" id="51_5j1mp"]
+[ext_resource type="Texture2D" uid="uid://g0h520dq0nk7" path="res://buttons/navigation_buttons/Button_Start_Active.png" id="52_n67cf"]
+[ext_resource type="Texture2D" uid="uid://dksweipnp0phc" path="res://buttons/navigation_buttons/Button_Start_Hover.png" id="53_chobt"]
+[ext_resource type="Texture2D" uid="uid://dxgrbhgl045bg" path="res://buttons/navigation_buttons/Button_Cancel.png" id="53_kkgl1"]
+[ext_resource type="Texture2D" uid="uid://dh8gsrvmv0ag2" path="res://buttons/navigation_buttons/Button_Cancel_Active.png" id="54_5j1mp"]
+[ext_resource type="Texture2D" uid="uid://dpv103snw8y2n" path="res://buttons/navigation_buttons/Button_Cancel_Hover.png" id="55_n67cf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri0ji"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8745098)
@@ -212,7 +214,6 @@ level_number = 10
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064702113]
 
 [node name="PowerupModal" type="Panel" parent="CanvasLayer" unique_id=1807815975]
-visible = false
 anchors_preset = -1
 anchor_left = 0.49300003
 anchor_top = 0.523
@@ -240,14 +241,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5137255)
 
-[node name="ModalLabel" type="TextureRect" parent="CanvasLayer/PowerupModal" unique_id=1638090128]
+[node name="Text" type="Label" parent="CanvasLayer/PowerupModal" unique_id=1203427186]
 layout_mode = 0
-offset_top = 20.0
+offset_top = 8.0
 offset_right = 734.0
-offset_bottom = 83.0
-texture = ExtResource("49_lcikx")
-expand_mode = 3
-stretch_mode = 5
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(0.8602115, 0.7377411, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("50_5j1mp")
+theme_override_font_sizes/font_size = 70
+text = "Power Ups"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/PowerupModal" unique_id=1802302523]
 layout_mode = 1
@@ -277,28 +282,28 @@ columns = 3
 [node name="StartButton" type="TextureButton" parent="CanvasLayer/PowerupModal" unique_id=920378249]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 390.0
-offset_top = 379.0
-offset_right = 595.0
-offset_bottom = 458.0
+offset_left = 417.0
+offset_top = 387.0
+offset_right = 600.0
+offset_bottom = 453.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("8_xsnhl")
-texture_pressed = ExtResource("9_j8mn1")
-texture_hover = ExtResource("9_j8mn1")
+texture_normal = ExtResource("51_5j1mp")
+texture_pressed = ExtResource("52_n67cf")
+texture_hover = ExtResource("53_chobt")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="CancelButton" type="TextureButton" parent="CanvasLayer/PowerupModal" unique_id=900316808]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 150.0
+offset_left = 108.0
 offset_top = 386.99997
-offset_right = 333.0
+offset_right = 291.0
 offset_bottom = 452.08102
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("8_j8mn1")
-texture_pressed = ExtResource("9_ri0ji")
-texture_hover = ExtResource("9_ri0ji")
+texture_normal = ExtResource("53_kkgl1")
+texture_pressed = ExtResource("54_5j1mp")
+texture_hover = ExtResource("55_n67cf")
 ignore_texture_size = true
 stretch_mode = 5
 
