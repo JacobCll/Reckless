@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ba1e7paoe0ufw" path="res://backgrounds/level/home_bg.jpg" id="4_h0wnc"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_8ftis"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="6_l4mnh"]
-[ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="7_yasux"]
 [ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="9_l4mnh"]
 [ext_resource type="PackedScene" uid="uid://wuowvfoe3qjj" path="res://entities/blue/water_bottle_sprite/water_bottle_sprite.tscn" id="9_ttfuh"]
 [ext_resource type="PackedScene" uid="uid://cg5li7jnelrrb" path="res://entities/blue/ruler_sprite/ruler_sprite.tscn" id="10_3nfdo"]
@@ -23,6 +22,22 @@
 [ext_resource type="PackedScene" uid="uid://bjw7qjviebcx" path="res://entities/blue/uniform_sprite/uniform_sprite.tscn" id="19_qxbsn"]
 [ext_resource type="PackedScene" uid="uid://iord184vd4cq" path="res://entities/red/iron_sprite/iron_sprite.tscn" id="21_nx1hc"]
 [ext_resource type="PackedScene" uid="uid://of8e84uxb3jw" path="res://entities/red/clock_sprite/clock_sprite.tscn" id="22_56agv"]
+[ext_resource type="PackedScene" uid="uid://b7vq536cdn772" path="res://entities/red/lamp_sprite/lamp_sprite.tscn" id="23_sre8f"]
+[ext_resource type="PackedScene" uid="uid://b164jnlc0g8xi" path="res://entities/red/lightbulb_sprite/lightbulb_sprite.tscn" id="24_c25gr"]
+[ext_resource type="PackedScene" uid="uid://dcjq8ktxqh80g" path="res://entities/red/mug_sprite/mug_sprite.tscn" id="25_lyyow"]
+[ext_resource type="PackedScene" uid="uid://fxf1ybn0gpbk" path="res://entities/red/plate_sprite/plate_sprite.tscn" id="26_dq2q4"]
+[ext_resource type="PackedScene" uid="uid://dbb4v5qg854yy" path="res://entities/red/pot_sprite/pot_sprite.tscn" id="27_dq2q4"]
+[ext_resource type="PackedScene" uid="uid://cjcxl4k6po8rg" path="res://entities/red/projector_sprite/projector_sprite.tscn" id="28_y3uyk"]
+[ext_resource type="PackedScene" uid="uid://cbmaujnk1myif" path="res://entities/red/tv_sprite/tv_sprite.tscn" id="29_qrkwr"]
+[ext_resource type="PackedScene" uid="uid://i5dd6ijxoqp21" path="res://entities/green/cash_sprite/cash_sprite.tscn" id="30_cash1"]
+[ext_resource type="PackedScene" uid="uid://7lhk8msh4ivbr" path="res://entities/green/diploma_sprite/diploma_sprite.tscn" id="31_dipl1"]
+[ext_resource type="PackedScene" uid="uid://tt70enigeq4iq" path="res://entities/green/frame_sprite/frame_sprite.tscn" id="32_frm01"]
+[ext_resource type="PackedScene" uid="uid://9l9f8d8bfd3ju" path="res://entities/green/id_sprite/id_sprite.tscn" id="33_idb001"]
+[ext_resource type="PackedScene" uid="uid://r2cdmi2fpqpnb" path="res://entities/green/isaw_sprite/isaw_sprite.tscn" id="34_isaw01"]
+[ext_resource type="PackedScene" uid="uid://2jksud1id68o9" path="res://entities/green/kwek_sprite/kwek_sprite.tscn" id="35_kwek01"]
+[ext_resource type="PackedScene" uid="uid://h2fdf3hkvg414" path="res://entities/green/lily_sprite/lily_sprite.tscn" id="36_lily01"]
+[ext_resource type="PackedScene" uid="uid://lgakvjrxboqmj" path="res://entities/green/rose_sprite/rose_sprite.tscn" id="37_rose01"]
+[ext_resource type="PackedScene" uid="uid://phcdv3oc0zzba" path="res://entities/green/sunflower_sprite/sunflower_sprite.tscn" id="38_sunf01"]
 
 [sub_resource type="Curve2D" id="Curve2D_k0gby"]
 _data = {
@@ -63,9 +78,9 @@ spawner_name = "Wave 1 Spawner 1"
 spawn_delay_min = 2.0
 burst_spread = 1.0
 blue_scenes = Array[PackedScene]([ExtResource("4_eq1f0"), ExtResource("5_8ftis"), ExtResource("9_ttfuh"), ExtResource("10_3nfdo"), ExtResource("11_bs5e3"), ExtResource("12_pejkb"), ExtResource("13_34jxk"), ExtResource("14_f8rpw"), ExtResource("15_f8rpw"), ExtResource("16_qxbsn"), ExtResource("17_t3t5x"), ExtResource("18_nx1hc"), ExtResource("19_qxbsn")])
-red_scenes = Array[PackedScene]([ExtResource("6_l4mnh"), ExtResource("21_nx1hc"), ExtResource("22_56agv")])
+red_scenes = Array[PackedScene]([ExtResource("6_l4mnh"), ExtResource("22_56agv"), ExtResource("21_nx1hc"), ExtResource("23_sre8f"), ExtResource("24_c25gr"), ExtResource("25_lyyow"), ExtResource("26_dq2q4"), ExtResource("27_dq2q4"), ExtResource("28_y3uyk"), ExtResource("29_qrkwr")])
 red_weight = 0.0
-green_scenes = Array[PackedScene]([ExtResource("7_yasux")])
+green_scenes = Array[PackedScene]([ExtResource("30_cash1"), ExtResource("31_dipl1"), ExtResource("32_frm01"), ExtResource("33_idb001"), ExtResource("34_isaw01"), ExtResource("35_kwek01"), ExtResource("36_lily01"), ExtResource("37_rose01"), ExtResource("38_sunf01")])
 green_weight = 0.0
 green_max_alive = 1
 path = NodePath("../EntitySpawner1Path")
@@ -82,9 +97,9 @@ spawn_delay_min = 2.0
 burst_spread = 0.7
 blue_scenes = Array[PackedScene]([ExtResource("4_eq1f0"), ExtResource("5_8ftis")])
 blue_weight = 0.0
-red_scenes = Array[PackedScene]([ExtResource("6_l4mnh"), ExtResource("21_nx1hc"), ExtResource("22_56agv")])
+red_scenes = Array[PackedScene]([ExtResource("6_l4mnh"), ExtResource("22_56agv"), ExtResource("21_nx1hc"), ExtResource("23_sre8f"), ExtResource("24_c25gr"), ExtResource("25_lyyow"), ExtResource("26_dq2q4"), ExtResource("27_dq2q4"), ExtResource("28_y3uyk"), ExtResource("29_qrkwr")])
 red_max_alive = 2
-green_scenes = Array[PackedScene]([ExtResource("7_yasux")])
+green_scenes = Array[PackedScene]([ExtResource("30_cash1"), ExtResource("31_dipl1"), ExtResource("32_frm01"), ExtResource("33_idb001"), ExtResource("34_isaw01"), ExtResource("35_kwek01"), ExtResource("36_lily01"), ExtResource("37_rose01"), ExtResource("38_sunf01")])
 green_weight = 0.0
 green_max_alive = 1
 path = NodePath("../../Wave1/EntitySpawner1Path")
@@ -99,8 +114,8 @@ script = ExtResource("9_l4mnh")
 spawner_name = "Wave 3 Spawner 1"
 spawn_delay_min = 2.0
 blue_scenes = Array[PackedScene]([ExtResource("5_8ftis"), ExtResource("4_eq1f0")])
-red_scenes = Array[PackedScene]([ExtResource("6_l4mnh"), ExtResource("21_nx1hc"), ExtResource("22_56agv")])
-green_scenes = Array[PackedScene]([ExtResource("7_yasux")])
+red_scenes = Array[PackedScene]([ExtResource("6_l4mnh"), ExtResource("22_56agv"), ExtResource("21_nx1hc"), ExtResource("23_sre8f"), ExtResource("24_c25gr"), ExtResource("25_lyyow"), ExtResource("26_dq2q4"), ExtResource("27_dq2q4"), ExtResource("28_y3uyk"), ExtResource("29_qrkwr")])
+green_scenes = Array[PackedScene]([ExtResource("30_cash1"), ExtResource("31_dipl1"), ExtResource("32_frm01"), ExtResource("33_idb001"), ExtResource("34_isaw01"), ExtResource("35_kwek01"), ExtResource("36_lily01"), ExtResource("37_rose01"), ExtResource("38_sunf01")])
 green_weight = 0.3
 green_max_alive = 1
 path = NodePath("../EntitySpawner1Path")

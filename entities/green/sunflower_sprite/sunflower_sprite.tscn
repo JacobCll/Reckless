@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://phcdv3oc0zzba"]
+
+[ext_resource type="PackedScene" uid="uid://craodccs2qt3l" path="res://entities/base_entities/green_entity_base.tscn" id="1_sunf01"]
+[ext_resource type="Script" uid="uid://3z3bcnyl33eut" path="res://entities/green/sunflower_sprite/sunflower_sprite.gd" id="2_sunf01"]
+[ext_resource type="Texture2D" uid="uid://bqfnaukj61tyd" path="res://entities/green/sunflower_sprite/sunflower_sprite.png" id="3_sunf01"]
+
+[node name="SunflowerSprite" unique_id=1331156639 instance=ExtResource("1_sunf01")]
+script = ExtResource("2_sunf01")
+particle_color = Color(0.5764706, 0.4627451, 0.1882353, 1)
+
+[node name="GlowCircle" parent="." index="1" unique_id=1100081190]
+position = Vector2(-4.32, 0.18)
+scale = Vector2(0.1681, 0.1466)
+
+[node name="Sprite2D" parent="." index="2" unique_id=789523869]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_sunf01")
+
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=1239123806]
+polygon = PackedVector2Array(-45, -35.28, 36.36, -35.28, 36.36, 35.64, -45, 35.64)
+
+[node name="SmashPolygons" type="Node2D" parent="." index="6" unique_id=1584124947]
+visible = false
+
+[node name="TopLeftPiece" type="Polygon2D" parent="SmashPolygons" index="0" unique_id=918930040]
+texture = ExtResource("3_sunf01")
+polygon = PackedVector2Array(262, 316, 488, 316, 476, 414.5, 488, 513, 375, 525, 262, 513)
+uv = PackedVector2Array(262, 316, 488, 316, 476, 414.5, 488, 513, 375, 525, 262, 513)
+
+[node name="TopRightPiece" type="Polygon2D" parent="SmashPolygons" index="1" unique_id=1383819447]
+texture = ExtResource("3_sunf01")
+polygon = PackedVector2Array(488, 316, 714, 316, 714, 513, 601, 501, 488, 513, 500, 414.5)
+uv = PackedVector2Array(488, 316, 714, 316, 714, 513, 601, 501, 488, 513, 500, 414.5)
+
+[node name="BottomLeftPiece" type="Polygon2D" parent="SmashPolygons" index="2" unique_id=1835738905]
+texture = ExtResource("3_sunf01")
+polygon = PackedVector2Array(488, 710, 262, 710, 262, 513, 375, 501, 488, 513, 500, 611.5)
+uv = PackedVector2Array(488, 710, 262, 710, 262, 513, 375, 501, 488, 513, 500, 611.5)
+
+[node name="BottomRightPiece" type="Polygon2D" parent="SmashPolygons" index="3" unique_id=2110047418]
+texture = ExtResource("3_sunf01")
+polygon = PackedVector2Array(714, 513, 714, 710, 488, 710, 500, 611.5, 488, 513, 601, 525)
+uv = PackedVector2Array(714, 513, 714, 710, 488, 710, 500, 611.5, 488, 513, 601, 525)

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://fxf1ybn0gpbk"]
+
+[ext_resource type="PackedScene" uid="uid://ce4vdrqxwqa5n" path="res://entities/base_entities/red_entity_base.tscn" id="1_pl8t3"]
+[ext_resource type="Script" uid="uid://c5a1usvclmnpa" path="res://entities/red/plate_sprite/plate_sprite.gd" id="2_pl8t3"]
+[ext_resource type="Texture2D" uid="uid://cufd1ixebrds8" path="res://entities/red/plate_sprite/plate_sprite.png" id="3_pl8t3"]
+[ext_resource type="Texture2D" uid="uid://2dlpduc7pljo" path="res://entities/red/plate_sprite/plate_sprite_smashed.png" id="4_pl8t3"]
+
+[node name="PlateSprite" unique_id=735652724 instance=ExtResource("1_pl8t3")]
+script = ExtResource("2_pl8t3")
+particle_color = Color(0.7764706, 0.78039217, 0.7607843, 1)
+
+[node name="GlowCircle" parent="." index="1" unique_id=2087975921]
+position = Vector2(-0.72, 0.54)
+scale = Vector2(0.2946, 0.2954)
+
+[node name="Sprite2D" parent="." index="2" unique_id=495998550]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_pl8t3")
+
+[node name="CollisionPolygon2D" parent="." index="3" unique_id=2029557851]
+polygon = PackedVector2Array(-72, -70.92, 70.56, -70.92, 70.56, 72, -72, 72)
+
+[node name="SmashPolygons" type="Node2D" parent="." index="5" unique_id=1584124947]
+visible = false
+
+[node name="TopLeftPiece" type="Polygon2D" parent="SmashPolygons" index="0" unique_id=918930040]
+texture = ExtResource("4_pl8t3")
+polygon = PackedVector2Array(112, 118, 508, 118, 501.18, 222.89, 560, 310, 350.15, 443.42, 112, 515)
+uv = PackedVector2Array(112, 118, 508, 118, 501.18, 222.89, 560, 310, 350.15, 443.42, 112, 515)
+
+[node name="TopRightPiece" type="Polygon2D" parent="SmashPolygons" index="1" unique_id=1383819447]
+texture = ExtResource("4_pl8t3")
+polygon = PackedVector2Array(508, 118, 904, 118, 904, 515, 749.41, 383.29, 560, 310, 566.82, 205.11)
+uv = PackedVector2Array(508, 118, 904, 118, 904, 515, 749.41, 383.29, 560, 310, 566.82, 205.11)
+
+[node name="BottomLeftPiece" type="Polygon2D" parent="SmashPolygons" index="2" unique_id=1835738905]
+texture = ExtResource("4_pl8t3")
+polygon = PackedVector2Array(508, 912, 112, 912, 112, 515, 321.85, 381.58, 560, 310, 567.87, 613.93)
+uv = PackedVector2Array(508, 912, 112, 912, 112, 515, 321.85, 381.58, 560, 310, 567.87, 613.93)
+
+[node name="BottomRightPiece" type="Polygon2D" parent="SmashPolygons" index="3" unique_id=2110047418]
+texture = ExtResource("4_pl8t3")
+polygon = PackedVector2Array(904, 515, 904, 912, 508, 912, 567.87, 613.93, 560, 310, 714.59, 441.71)
+uv = PackedVector2Array(904, 515, 904, 912, 508, 912, 567.87, 613.93, 560, 310, 714.59, 441.71)

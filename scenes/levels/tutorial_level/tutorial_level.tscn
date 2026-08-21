@@ -5,8 +5,28 @@
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_knk6l"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_haaw4"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_l7ta3"]
-[ext_resource type="PackedScene" uid="uid://mpmu2b43qs7v" path="res://entities/green/tv_sprite/tv_sprite.tscn" id="7_1xsvc"]
+[ext_resource type="PackedScene" uid="uid://of8e84uxb3jw" path="res://entities/red/clock_sprite/clock_sprite.tscn" id="7_66for"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="7_l7ta3"]
+[ext_resource type="PackedScene" uid="uid://iord184vd4cq" path="res://entities/red/iron_sprite/iron_sprite.tscn" id="8_52j2n"]
+[ext_resource type="Texture2D" uid="uid://qvwhav3fftnj" path="res://buttons/navigation_buttons/Button_Continue.png" id="8_continue"]
+[ext_resource type="Texture2D" uid="uid://sk2h50y01go4" path="res://buttons/navigation_buttons/Button_Continue_Active.png" id="9_continue_active"]
+[ext_resource type="PackedScene" uid="uid://b7vq536cdn772" path="res://entities/red/lamp_sprite/lamp_sprite.tscn" id="9_ushv3"]
+[ext_resource type="Texture2D" uid="uid://dbr6aaf04akl5" path="res://buttons/navigation_buttons/Button_Continue_Hover.png" id="10_continue_hover"]
+[ext_resource type="PackedScene" uid="uid://b164jnlc0g8xi" path="res://entities/red/lightbulb_sprite/lightbulb_sprite.tscn" id="10_vivj8"]
+[ext_resource type="PackedScene" uid="uid://dcjq8ktxqh80g" path="res://entities/red/mug_sprite/mug_sprite.tscn" id="11_ynb5x"]
+[ext_resource type="PackedScene" uid="uid://fxf1ybn0gpbk" path="res://entities/red/plate_sprite/plate_sprite.tscn" id="12_bgboc"]
+[ext_resource type="PackedScene" uid="uid://dbb4v5qg854yy" path="res://entities/red/pot_sprite/pot_sprite.tscn" id="13_s5vk7"]
+[ext_resource type="PackedScene" uid="uid://cjcxl4k6po8rg" path="res://entities/red/projector_sprite/projector_sprite.tscn" id="14_bl26d"]
+[ext_resource type="PackedScene" uid="uid://cbmaujnk1myif" path="res://entities/red/tv_sprite/tv_sprite.tscn" id="15_e6kmb"]
+[ext_resource type="PackedScene" uid="uid://i5dd6ijxoqp21" path="res://entities/green/cash_sprite/cash_sprite.tscn" id="16_cash1"]
+[ext_resource type="PackedScene" uid="uid://7lhk8msh4ivbr" path="res://entities/green/diploma_sprite/diploma_sprite.tscn" id="17_dipl1"]
+[ext_resource type="PackedScene" uid="uid://tt70enigeq4iq" path="res://entities/green/frame_sprite/frame_sprite.tscn" id="18_frm01"]
+[ext_resource type="PackedScene" uid="uid://9l9f8d8bfd3ju" path="res://entities/green/id_sprite/id_sprite.tscn" id="19_idb001"]
+[ext_resource type="PackedScene" uid="uid://r2cdmi2fpqpnb" path="res://entities/green/isaw_sprite/isaw_sprite.tscn" id="20_isaw01"]
+[ext_resource type="PackedScene" uid="uid://2jksud1id68o9" path="res://entities/green/kwek_sprite/kwek_sprite.tscn" id="21_kwek01"]
+[ext_resource type="PackedScene" uid="uid://h2fdf3hkvg414" path="res://entities/green/lily_sprite/lily_sprite.tscn" id="22_lily01"]
+[ext_resource type="PackedScene" uid="uid://lgakvjrxboqmj" path="res://entities/green/rose_sprite/rose_sprite.tscn" id="23_rose01"]
+[ext_resource type="PackedScene" uid="uid://phcdv3oc0zzba" path="res://entities/green/sunflower_sprite/sunflower_sprite.tscn" id="24_sunf01"]
 
 [sub_resource type="Curve2D" id="Curve2D_asvqm"]
 _data = {
@@ -60,7 +80,7 @@ throw_force_max = 1000.0
 spread_min = 0.0
 spread_max = 0.0
 blue_weight = 0.0
-red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
+red_scenes = Array[PackedScene]([ExtResource("7_l7ta3"), ExtResource("7_66for"), ExtResource("8_52j2n"), ExtResource("9_ushv3"), ExtResource("10_vivj8"), ExtResource("11_ynb5x"), ExtResource("12_bgboc"), ExtResource("13_s5vk7"), ExtResource("14_bl26d"), ExtResource("15_e6kmb")])
 green_weight = 0.0
 path = NodePath("../RedSpawnerPath")
 
@@ -74,7 +94,7 @@ spawn_count_max = 1
 throw_force_max = 1000.0
 blue_weight = 0.0
 red_weight = 0.0
-green_scenes = Array[PackedScene]([ExtResource("7_1xsvc")])
+green_scenes = Array[PackedScene]([ExtResource("16_cash1"), ExtResource("17_dipl1"), ExtResource("18_frm01"), ExtResource("19_idb001"), ExtResource("20_isaw01"), ExtResource("21_kwek01"), ExtResource("22_lily01"), ExtResource("23_rose01"), ExtResource("24_sunf01")])
 path = NodePath("../GreenSpawnerPath")
 
 [node name="GreenSpawnerPath" type="Path2D" parent="." index="11" unique_id=427356094]
@@ -82,8 +102,8 @@ curve = SubResource("Curve2D_haaw4")
 
 [node name="AllSpawner" parent="." index="12" unique_id=1407576723 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
 blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4")])
-red_scenes = Array[PackedScene]([ExtResource("7_l7ta3")])
-green_scenes = Array[PackedScene]([ExtResource("7_1xsvc")])
+red_scenes = Array[PackedScene]([ExtResource("7_l7ta3"), ExtResource("7_66for"), ExtResource("8_52j2n"), ExtResource("9_ushv3"), ExtResource("10_vivj8"), ExtResource("11_ynb5x"), ExtResource("12_bgboc"), ExtResource("13_s5vk7"), ExtResource("14_bl26d"), ExtResource("15_e6kmb")])
+green_scenes = Array[PackedScene]([ExtResource("16_cash1"), ExtResource("17_dipl1"), ExtResource("18_frm01"), ExtResource("19_idb001"), ExtResource("20_isaw01"), ExtResource("21_kwek01"), ExtResource("22_lily01"), ExtResource("23_rose01"), ExtResource("24_sunf01")])
 green_weight = 0.3
 green_max_alive = 1
 path = NodePath("../AllSpawnerPath")
@@ -141,7 +161,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="TutorialButton" type="Button" parent="CanvasLayer/TutorialModal/MainModal" index="1" unique_id=537960690]
+[node name="TutorialButton" type="TextureButton" parent="CanvasLayer/TutorialModal/MainModal" index="1" unique_id=537960690]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.37849778
@@ -151,8 +171,11 @@ anchor_bottom = 0.93317974
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Continue"
+texture_normal = ExtResource("8_continue")
+texture_pressed = ExtResource("9_continue_active")
+texture_hover = ExtResource("10_continue_hover")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="TextModal" type="Panel" parent="CanvasLayer/TutorialModal" index="2" unique_id=1392499488]
 visible = false
@@ -181,15 +204,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="ContinueButton" type="Button" parent="CanvasLayer/TutorialModal" index="3" unique_id=941577549]
-layout_mode = 0
-anchor_left = 0.7734375
-anchor_top = 0.8645833
-anchor_right = 0.93652344
+[node name="ContinueButton" type="TextureButton" parent="CanvasLayer/TutorialModal" index="3" unique_id=941577549]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7871094
+anchor_top = 0.8567708
+anchor_right = 0.9248047
 anchor_bottom = 0.93359375
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-text = "Continue"
+texture_normal = ExtResource("8_continue")
+texture_pressed = ExtResource("9_continue_active")
+texture_hover = ExtResource("10_continue_hover")
+ignore_texture_size = true
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=483354666]
