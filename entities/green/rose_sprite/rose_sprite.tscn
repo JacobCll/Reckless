@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://lgakvjrxboqmj"]
+[gd_scene format=3 uid="uid://dpgtpfxf6ay30"]
 
 [ext_resource type="PackedScene" uid="uid://craodccs2qt3l" path="res://entities/base_entities/green_entity_base.tscn" id="1_rose01"]
-[ext_resource type="Script" uid="uid://3h1daxvhvwr56" path="res://entities/green/rose_sprite/rose_sprite.gd" id="2_rose01"]
+[ext_resource type="Script" uid="uid://bf585kgpxinut" path="res://entities/green/rose_sprite/rose_sprite.gd" id="2_rose01"]
 [ext_resource type="Texture2D" uid="uid://c0oxpxm60d7r7" path="res://entities/green/rose_sprite/rose_sprite.png" id="3_rose01"]
 
 [node name="RoseSprite" unique_id=1331156639 instance=ExtResource("1_rose01")]
@@ -9,14 +9,15 @@ script = ExtResource("2_rose01")
 particle_color = Color(0.5843138, 0.14117648, 0.17254902, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1100081190]
-position = Vector2(2.34, 0.36)
-scale = Vector2(0.2076, 0.3065)
+position = Vector2(-3.9999998, -11)
+scale = Vector2(0.1950362, 0.21779439)
 
 [node name="Sprite2D" parent="." index="2" unique_id=789523869]
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_rose01")
 
 [node name="CollisionPolygon2D" parent="." index="3" unique_id=1239123806]
+visible = false
 polygon = PackedVector2Array(-47.88, -73.8, 52.56, -73.8, 52.56, 74.52, -47.88, 74.52)
 
 [node name="SmashPolygons" type="Node2D" parent="." index="6" unique_id=1584124947]

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://h2fdf3hkvg414"]
+[gd_scene format=3 uid="uid://cll8ym2q2ejl"]
 
 [ext_resource type="PackedScene" uid="uid://craodccs2qt3l" path="res://entities/base_entities/green_entity_base.tscn" id="1_lily01"]
-[ext_resource type="Script" uid="uid://f5exn8hzm3gss" path="res://entities/green/lily_sprite/lily_sprite.gd" id="2_lily01"]
+[ext_resource type="Script" uid="uid://cay226kq2vk11" path="res://entities/green/lily_sprite/lily_sprite.gd" id="2_lily01"]
 [ext_resource type="Texture2D" uid="uid://c477etvb1oivl" path="res://entities/green/lily_sprite/lily_sprite.png" id="3_lily01"]
 
 [node name="LilySprite" unique_id=1331156639 instance=ExtResource("1_lily01")]
@@ -9,14 +9,15 @@ script = ExtResource("2_lily01")
 particle_color = Color(0.7882353, 0.60784316, 0.6313726, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1100081190]
-position = Vector2(-0.18, 0.36)
-scale = Vector2(0.2701, 0.308)
+position = Vector2(-4, -10)
+scale = Vector2(0.23350818, 0.20977268)
 
 [node name="Sprite2D" parent="." index="2" unique_id=789523869]
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.14, 0.14)
 texture = ExtResource("3_lily01")
 
 [node name="CollisionPolygon2D" parent="." index="3" unique_id=1239123806]
+visible = false
 polygon = PackedVector2Array(-65.52, -74.16, 65.16, -74.16, 65.16, 74.88, -65.52, 74.88)
 
 [node name="SmashPolygons" type="Node2D" parent="." index="6" unique_id=1584124947]

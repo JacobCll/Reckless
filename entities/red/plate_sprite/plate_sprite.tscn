@@ -11,13 +11,14 @@ particle_color = Color(0.7764706, 0.78039217, 0.7607843, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=2087975921]
 position = Vector2(-0.72, 0.54)
-scale = Vector2(0.2946, 0.2954)
+scale = Vector2(0.34258395, 0.3523427)
 
 [node name="Sprite2D" parent="." index="2" unique_id=495998550]
-scale = Vector2(0.18, 0.18)
+scale = Vector2(0.14830373, 0.15)
 texture = ExtResource("3_pl8t3")
 
 [node name="CollisionPolygon2D" parent="." index="3" unique_id=2029557851]
+visible = false
 polygon = PackedVector2Array(-72, -70.92, 70.56, -70.92, 70.56, 72, -72, 72)
 
 [node name="SmashPolygons" type="Node2D" parent="." index="5" unique_id=1584124947]

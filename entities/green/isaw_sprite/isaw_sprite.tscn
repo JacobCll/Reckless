@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://r2cdmi2fpqpnb"]
+[gd_scene format=3 uid="uid://clovabefgw7l8"]
 
 [ext_resource type="PackedScene" uid="uid://craodccs2qt3l" path="res://entities/base_entities/green_entity_base.tscn" id="1_isaw01"]
-[ext_resource type="Script" uid="uid://rosflj8sshqmd" path="res://entities/green/isaw_sprite/isaw_sprite.gd" id="2_isaw01"]
+[ext_resource type="Script" uid="uid://b75w8cksjn8lb" path="res://entities/green/isaw_sprite/isaw_sprite.gd" id="2_isaw01"]
 [ext_resource type="Texture2D" uid="uid://bn2vw8ugv2o13" path="res://entities/green/isaw_sprite/isaw_sprite.png" id="3_isaw01"]
 
 [node name="IsawSprite" unique_id=1331156639 instance=ExtResource("1_isaw01")]
@@ -10,14 +10,15 @@ particle_color = Color(0.5137255, 0.27450982, 0.1254902, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1100081190]
 position = Vector2(0, 2.34)
-scale = Vector2(0.3199, 0.3162)
+rotation = 0.7484646
+scale = Vector2(0.13323194, 0.3319877)
 
 [node name="Sprite2D" parent="." index="2" unique_id=789523869]
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_isaw01")
 
 [node name="CollisionPolygon2D" parent="." index="3" unique_id=1239123806]
-polygon = PackedVector2Array(-77.4, -74.16, 77.4, -74.16, 77.4, 78.84, -77.4, 78.84)
+polygon = PackedVector2Array(-42, -44, 91, -93, 48, 49, -97, 99)
 
 [node name="SmashPolygons" type="Node2D" parent="." index="6" unique_id=1584124947]
 visible = false

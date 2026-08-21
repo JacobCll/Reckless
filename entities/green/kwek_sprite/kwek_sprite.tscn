@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://2jksud1id68o9"]
+[gd_scene format=3 uid="uid://hpppylqfr4ew"]
 
 [ext_resource type="PackedScene" uid="uid://craodccs2qt3l" path="res://entities/base_entities/green_entity_base.tscn" id="1_kwek01"]
-[ext_resource type="Script" uid="uid://zaycqr8qgb5gz" path="res://entities/green/kwek_sprite/kwek_sprite.gd" id="2_kwek01"]
+[ext_resource type="Script" uid="uid://b3i37gp713vwf" path="res://entities/green/kwek_sprite/kwek_sprite.gd" id="2_kwek01"]
 [ext_resource type="Texture2D" uid="uid://bd7mf2742sd70" path="res://entities/green/kwek_sprite/kwek_sprite.png" id="3_kwek01"]
 
 [node name="KwekSprite" unique_id=1331156639 instance=ExtResource("1_kwek01")]
@@ -10,14 +10,16 @@ particle_color = Color(0.6901961, 0.32156864, 0.13333334, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1100081190]
 position = Vector2(-0.9, -0.72)
-scale = Vector2(0.2968, 0.2961)
+rotation = 0.71217996
+scale = Vector2(0.11874462, 0.25577694)
 
 [node name="Sprite2D" parent="." index="2" unique_id=789523869]
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_kwek01")
 
 [node name="CollisionPolygon2D" parent="." index="3" unique_id=1239123806]
-polygon = PackedVector2Array(-72.72, -72.36, 70.92, -72.36, 70.92, 70.92, -72.72, 70.92)
+visible = false
+polygon = PackedVector2Array(-37, -45, 95, -97, 36, 55, -90, 91)
 
 [node name="SmashPolygons" type="Node2D" parent="." index="6" unique_id=1584124947]
 visible = false

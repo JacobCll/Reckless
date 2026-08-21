@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://phcdv3oc0zzba"]
+[gd_scene format=3 uid="uid://du3q4wwlcfd0y"]
 
 [ext_resource type="PackedScene" uid="uid://craodccs2qt3l" path="res://entities/base_entities/green_entity_base.tscn" id="1_sunf01"]
-[ext_resource type="Script" uid="uid://3z3bcnyl33eut" path="res://entities/green/sunflower_sprite/sunflower_sprite.gd" id="2_sunf01"]
+[ext_resource type="Script" uid="uid://bx767ajt5oakh" path="res://entities/green/sunflower_sprite/sunflower_sprite.gd" id="2_sunf01"]
 [ext_resource type="Texture2D" uid="uid://bqfnaukj61tyd" path="res://entities/green/sunflower_sprite/sunflower_sprite.png" id="3_sunf01"]
 
 [node name="SunflowerSprite" unique_id=1331156639 instance=ExtResource("1_sunf01")]
@@ -9,14 +9,17 @@ script = ExtResource("2_sunf01")
 particle_color = Color(0.5764706, 0.4627451, 0.1882353, 1)
 
 [node name="GlowCircle" parent="." index="1" unique_id=1100081190]
-position = Vector2(-4.32, 0.18)
-scale = Vector2(0.1681, 0.1466)
+position = Vector2(1, 1.9999998)
+scale = Vector2(0.15149911, 0.1413479)
 
 [node name="Sprite2D" parent="." index="2" unique_id=789523869]
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_sunf01")
 
 [node name="CollisionPolygon2D" parent="." index="3" unique_id=1239123806]
+visible = false
+position = Vector2(3.9249725, 0)
+scale = Vector2(0.9354105, 1)
 polygon = PackedVector2Array(-45, -35.28, 36.36, -35.28, 36.36, 35.64, -45, 35.64)
 
 [node name="SmashPolygons" type="Node2D" parent="." index="6" unique_id=1584124947]
