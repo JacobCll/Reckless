@@ -37,23 +37,6 @@ offset_bottom = 768.0
 script = ExtResource("2_jk1qb")
 music = ExtResource("3_5dd4i")
 
-[node name="Background2" type="TextureRect" parent="." unique_id=179779716]
-visible = false
-modulate = Color(0.7750634, 0.7750634, 0.7750634, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -111.0
-offset_top = -53.0
-offset_right = 106.0
-offset_bottom = 52.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_j7ex8")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="Background" type="TextureRect" parent="." unique_id=1715176793]
 modulate = Color(0.7750634, 0.7750634, 0.7750634, 1)
 layout_mode = 1

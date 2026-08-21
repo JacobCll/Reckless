@@ -44,6 +44,11 @@ var _wave_complete_tween: Tween
 @export var win_screen_delay := 1.2
 
 # --------------------
+# WAVE TRANSITION DELAY
+# --------------------
+@export var wave_end_spawn_delay := 1.5
+
+# --------------------
 # CORE GAME STATE
 # --------------------
 # score
@@ -305,11 +310,15 @@ func _default_score_logic(entity_type: String, action: String) -> void:
 # =========================================================
 func _on_wave_started() -> void:
 	var current_wave = wave_manager.current_wave + 1
-	
+
 	print("wave ", current_wave, " started")
-	
+
 	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave: %d" % (current_wave)
-	
+
+	# skip the delay for the very first wave, only pause between a completed wave and the next
+	if wave_manager.current_wave > 0:
+		await get_tree().create_timer(wave_end_spawn_delay, false).timeout
+
 	wave_manager.start_spawn_loops()
 	
 func _on_wave_completed() -> void:
