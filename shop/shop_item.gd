@@ -24,5 +24,6 @@ func _on_buy_button_pressed() -> void:
 
 	if success:
 		print("Successfully bought")
+		shop.play_buy_sfx()
 	else:
 		print("Failed to buy ")

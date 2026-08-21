@@ -10,12 +10,18 @@
 [ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="7_2wf2a"]
 [ext_resource type="Texture2D" uid="uid://dalergjb5t8rk" path="res://buttons/powerups-buttons/wizard.tres" id="8_xad5q"]
 [ext_resource type="Texture2D" uid="uid://cdnpygwcbk4tg" path="res://backgrounds/elements/shelves.tres" id="9_ljlg5"]
+[ext_resource type="AudioStream" uid="uid://ewo17lgu7ls7" path="res://sfx/shop_sfx/Shop_BGM.mp3" id="10_shopbgm"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ljlg5"]
 
 [node name="Shop" type="Node" unique_id=1750255976]
 script = ExtResource("1_sxvro")
 shop_item_scene = ExtResource("5_gy7ao")
+shop_music = ExtResource("10_shopbgm")
+
+[node name="BuySfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042519]
+volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Background" type="TextureRect" parent="." unique_id=21323181]
 modulate = Color(0.8732984, 0.8732984, 0.8732984, 1)

@@ -3,8 +3,11 @@ extends Node
 
 @onready var orb_count_label := $PanelContainer/OrbCount
 @onready var items_container := $ScrollContainer/VBoxContainer
+@onready var buy_sfx_player := $BuySfxPlayer
 
 @export var shop_item_scene: PackedScene
+@export var shop_music: AudioStream
+var buy_sfx := preload("res://sfx/shop_sfx/Buy_1.mp3")
 
 # items to sell
 var items := {
@@ -30,7 +33,8 @@ func _process(_delta):
 
 func _ready() -> void:
 	MouseManager.hide_mouse_trail()
-	
+	AudioManager.play_music(shop_music)
+
 	for item_id in items.keys():
 		var item_data = items[item_id]
 	
@@ -61,5 +65,10 @@ func buy_item(item_id: String, cost: int) -> bool:
 	
 	return true
 
+func play_buy_sfx() -> void:
+	buy_sfx_player.stream = buy_sfx
+	buy_sfx_player.play()
+
 func _on_back_button_pressed() -> void:
+	AudioManager.stop_music()
 	LoadingScreen.transition_to(get_tree(), "res://scenes/main_menu.tscn")

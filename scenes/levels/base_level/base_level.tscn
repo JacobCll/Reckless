@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://cuuav8s0q6gi0" path="res://buttons/main_menu_buttons/Button_Settings.png" id="23_settings"]
 [ext_resource type="Texture2D" uid="uid://brkdwk2jdlima" path="res://buttons/main_menu_buttons/Button_Settings_Active.png" id="24_settings_active"]
 [ext_resource type="Texture2D" uid="uid://ciog617bu68k1" path="res://buttons/main_menu_buttons/Button_Settings_Hover.png" id="25_settings_hover"]
+[ext_resource type="AudioStream" uid="uid://cwvhjfvjkbtit" path="res://sfx/victory_and_gameover_sfx/Defeat _5.mp3" id="26_defeat5"]
+[ext_resource type="AudioStream" uid="uid://dermtftfiqq52" path="res://sfx/victory_and_gameover_sfx/Defeat _8.mp3" id="27_defeat8"]
 
 [sub_resource type="Gradient" id="Gradient_spawn_glow"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -51,6 +53,7 @@ shader_parameter/darkness = 0.1
 process_mode = 3
 script = ExtResource("1_rwgnx")
 spawn_glow_alpha = 0.5
+defeat_sfx = Array[AudioStream]([ExtResource("26_defeat5"), ExtResource("27_defeat8")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1388791812]
 z_index = -1
@@ -68,6 +71,14 @@ process_mode = 1
 
 [node name="CountdownSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042516]
 volume_db = -15.0
+bus = &"Sfx"
+
+[node name="VictorySfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042517]
+volume_db = -10.0
+bus = &"Sfx"
+
+[node name="DefeatSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042518]
+volume_db = -10.0
 bus = &"Sfx"
 
 [node name="WaveManager" parent="." unique_id=805755620 instance=ExtResource("6_1txf7")]

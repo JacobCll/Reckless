@@ -94,6 +94,8 @@ var countdown_value := countdown_value_original
 @onready var countdown_timer = $CountdownTimer
 @onready var countdown_label = $CanvasLayer/CountdownLabel
 @onready var countdown_sfx_player = $CountdownSfxPlayer
+@onready var victory_sfx_player = $VictorySfxPlayer
+@onready var defeat_sfx_player = $DefeatSfxPlayer
 @onready var pause_button = $CanvasLayer/PauseButton
 @onready var pause_screen = $CanvasLayer/PauseScreen
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
@@ -109,6 +111,8 @@ var countdown_value := countdown_value_original
 # --------------------
 @export var level_music: AudioStream
 var countdown_sfx := preload("res://sfx/time_beep.wav")
+var victory_sfx := preload("res://sfx/victory_and_gameover_sfx/Victory_2.mp3")
+@export var defeat_sfx: Array[AudioStream]
 var heart_scene := preload("res://hud_elements/hearts/heart.tscn")
 var shield_scene := preload("res://hud_elements/shields/shield.tscn")
 var entity_slash_particles_scene := preload("res://effects/entity_particles_slash/entity_particles_slash.tscn")
@@ -248,6 +252,16 @@ func _play_countdown_sfx() -> void:
 	countdown_sfx_player.stream = countdown_sfx
 	countdown_sfx_player.play()
 
+func _play_victory_sfx() -> void:
+	victory_sfx_player.stream = victory_sfx
+	victory_sfx_player.play()
+
+func _play_defeat_sfx() -> void:
+	if defeat_sfx.is_empty():
+		return
+	defeat_sfx_player.stream = defeat_sfx.pick_random()
+	defeat_sfx_player.play()
+
 # override hook
 func _on_level_start() -> void:
 	hud.show()
@@ -359,6 +373,7 @@ func _on_all_waves_completed() -> void:
 
 	win_score_text.text = "Score: %d" % score
 	win_screen.show()
+	_play_victory_sfx()
 
 	# show next level button if there is a next level
 	if LEVEL_NUMBER < GameManager.MAX_UNLOCKABLE_LEVEL:
@@ -441,6 +456,7 @@ func game_over() -> void:
 
 	gameover_score_text.text = "Score: %d" % score
 	gameover_screen.show()
+	_play_defeat_sfx()
 
 # =========================================================
 # UI ACTIONS
