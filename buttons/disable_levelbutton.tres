@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://br4o326rlcova"]
-
-[ext_resource type="Texture2D" uid="uid://256y3topotrv" path="res://buttons/disable-level.png" id="1_qmyda"]
-
-[resource]
-atlas = ExtResource("1_qmyda")
-region = Rect2(39, 84, 567.3179, 205.78937)

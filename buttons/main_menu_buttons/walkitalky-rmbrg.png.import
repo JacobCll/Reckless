@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doftodnqhmsk"
-path="res://.godot/imported/empty-buttons-rmbg.png-048eb04b3f6dcbc1dda8f43139fa2fe4.ctex"
+uid="uid://co8xow35612ft"
+path="res://.godot/imported/walkitalky-rmbrg.png-eaba4d088a96780a13cf772a9996694e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://buttons/empty-buttons-rmbg.png"
-dest_files=["res://.godot/imported/empty-buttons-rmbg.png-048eb04b3f6dcbc1dda8f43139fa2fe4.ctex"]
+source_file="res://buttons/main_menu_buttons/walkitalky-rmbrg.png"
+dest_files=["res://.godot/imported/walkitalky-rmbrg.png-eaba4d088a96780a13cf772a9996694e.ctex"]
 
 [params]
 
