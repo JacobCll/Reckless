@@ -71,4 +71,4 @@ func play_buy_sfx() -> void:
 
 func _on_back_button_pressed() -> void:
 	AudioManager.stop_music()
-	LoadingScreen.transition_to(get_tree(), "res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

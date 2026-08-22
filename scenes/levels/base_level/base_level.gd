@@ -270,9 +270,9 @@ func _on_level_start() -> void:
 # =========================================================
 # SPAWNER EVENTS (override logic allowed)
 # =========================================================
-func _on_entity_spawned(entity_type: String) -> void:
+func _on_entity_spawned(entity_type: String, spawn_position: Vector2) -> void:
 	CombatAudioSystem.play_throw(entity_type)
-	_trigger_spawn_glow(entity_type)
+	_trigger_spawn_glow(entity_type, spawn_position)
 
 func _on_entity_slashed(entity_type: String) -> void:
 	_default_score_logic(entity_type, "slash")
@@ -411,12 +411,15 @@ func _spawn_glow_color(entity_type: String) -> Color:
 		_:
 			return Color.WHITE
 
-func _trigger_spawn_glow(entity_type: String) -> void:
+func _trigger_spawn_glow(entity_type: String, spawn_position: Vector2) -> void:
 	if _spawn_glow_tween:
 		_spawn_glow_tween.kill()
 
 	var glow_color := _spawn_glow_color(entity_type)
 	spawn_glow.modulate = Color(glow_color.r, glow_color.g, glow_color.b, spawn_glow_alpha)
+
+	var screen_position: Vector2 = get_viewport().canvas_transform * spawn_position
+	spawn_glow.position.x = screen_position.x - spawn_glow.size.x / 2.0
 
 	_spawn_glow_tween = create_tween()
 	_spawn_glow_tween.tween_property(spawn_glow, "modulate:a", 0.0, spawn_glow_fade_duration)
@@ -492,7 +495,7 @@ func _on_main_menu_button_pressed() -> void:
 	AudioManager.stop_music()
 	AudioManager.disable_mouse_sfx()
 
-	LoadingScreen.transition_to(get_tree(), "res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_level_menu_button_pressed() -> void:
 	get_tree().paused = false

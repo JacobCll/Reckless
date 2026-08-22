@@ -53,7 +53,7 @@ class EntityType:
 # ─────────────────────────────────────────────
 # ENTITY SIGNALS
 # ─────────────────────────────────────────────
-signal entity_spawned(entity_type: String)
+signal entity_spawned(entity_type: String, spawn_position: Vector2)
 signal entity_killed(entity_type: String)
 signal entity_slashed(entity_type: String)
 signal entity_smashed(entity_type: String)
@@ -221,7 +221,7 @@ func _spawn_from_type(type: EntityType, throw_function: Callable):
 			entity.slashed.connect(_on_slashed.bind(type))
 			entity.smashed.connect(_on_smashed.bind(type))
 	
-	entity_spawned.emit(type.entity_type)
+	entity_spawned.emit(type.entity_type, entity.global_position)
 	
 	throw_function.call(entity)
 	

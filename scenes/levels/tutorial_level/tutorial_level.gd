@@ -92,7 +92,7 @@ func _on_tutorial_button_pressed():
 			GameManager.save_data()
 			get_tree().change_scene_to_file("res://scenes/levels/levels/level_1/level_1.tscn")
 		else:
-			LoadingScreen.transition_to(get_tree(), "res://scenes/main_menu.tscn")
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 		return
 	
 	current_page += 1
