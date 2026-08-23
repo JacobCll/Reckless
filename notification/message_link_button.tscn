@@ -4,11 +4,7 @@
 [ext_resource type="Script" uid="uid://6a24kucait52" path="res://notification/message_link_button.gd" id="2_abqw8"]
 
 [node name="MessageLinkButton" type="LinkButton" unique_id=1731157046]
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.42339557, 0.63292414, 0.07483374, 1)
-theme_override_colors/font_hover_color = Color(0.827451, 0.5803922, 0.09019608, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.26800025, 0.40697095, 0.97330374, 1)
-theme_override_colors/font_disabled_color = Color(0.899626, 0.00041365973, 0.00022698462, 1)
+theme_override_colors/font_color = Color(0.5803922, 0.90588236, 0.50980395, 1)
 theme_override_fonts/font = ExtResource("1_50dm5")
 theme_override_font_sizes/font_size = 22
 text = "Lorem Ipsum"

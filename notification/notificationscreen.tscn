@@ -1,28 +1,48 @@
 [gd_scene format=3 uid="uid://e3lqhrllyrhm"]
 
 [ext_resource type="Script" uid="uid://d01yh6a6vbkqd" path="res://notification/notificationscreen.gd" id="1_hkot4"]
-[ext_resource type="Texture2D" uid="uid://b2qsyxc0cnsfy" path="res://backgrounds/updated-notification-brg.png" id="1_p2uf4"]
+[ext_resource type="Texture2D" uid="uid://dwv4841jrlfm4" path="res://backgrounds/notification_menu/notification_background.png" id="2_l3ck7"]
 [ext_resource type="Texture2D" uid="uid://bs2r4uhuh8jk2" path="res://buttons/navigation_buttons/Button_Back.png" id="3_ixy60"]
-[ext_resource type="Texture2D" uid="uid://chp1md3jj3ecs" path="res://buttons/navigation_buttons/Button_Back_Hover.png" id="4_sjudy"]
 [ext_resource type="Texture2D" uid="uid://bnynhnwfh3fdb" path="res://buttons/navigation_buttons/Button_Back_Active.png" id="4_back_active"]
+[ext_resource type="Texture2D" uid="uid://chp1md3jj3ecs" path="res://buttons/navigation_buttons/Button_Back_Hover.png" id="4_sjudy"]
 [ext_resource type="FontFile" uid="uid://fki3uwkkcd8s" path="res://fonts/Anton-Regular.ttf" id="6_l3ck7"]
 [ext_resource type="PackedScene" uid="uid://ckkknbeiur8rb" path="res://notification/message_link_button.tscn" id="6_sjudy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ck7"]
-bg_color = Color(0.24840015, 0.24840021, 0.24840006, 1)
+bg_color = Color(0.24705882, 0.24705882, 0.24705882, 0)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scrollbar"]
+bg_color = Color(0.5803922, 0.9058824, 0.5098039, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_msgcontent_scroll"]
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_scrollbar")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_scrollbar")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_scrollbar")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_scrollbar")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_scrollbar")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_scrollbar")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_scrollbar")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_scrollbar")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_scrollbar")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_scrollbar")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjudy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbe4v"]
-bg_color = Color(0.61621636, 0.640181, 0.49582338, 1)
+bg_color = Color(0.6313726, 1, 0.6, 1)
 border_blend = true
 corner_radius_top_left = 7
 corner_radius_top_right = 7
@@ -49,16 +69,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_p2uf4")
+texture = ExtResource("2_l3ck7")
 expand_mode = 2
 
 [node name="NotificationLabel" type="Label" parent="." unique_id=220160792]
 layout_mode = 0
-offset_left = 281.0
-offset_top = 88.0
-offset_right = 789.0
-offset_bottom = 181.0
-theme_override_colors/font_color = Color(0.19415873, 0.29256728, 0.10537874, 1)
+offset_left = 277.0
+offset_top = 81.0
+offset_right = 766.0
+offset_bottom = 174.0
+theme_override_colors/font_color = Color(0.6313726, 1, 0.6, 1)
 theme_override_fonts/font = ExtResource("6_l3ck7")
 theme_override_font_sizes/font_size = 58
 text = "NOTIFICATION INBOX"
@@ -101,10 +121,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_l3ck7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MessageSelectContainer/MessageSelect" unique_id=956331269]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 19.0
-offset_right = 249.0
-offset_bottom = 485.0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 261.0
+offset_bottom = 482.0
 
 [node name="Message2" parent="MessageSelectContainer/MessageSelect/VBoxContainer" unique_id=1731157046 instance=ExtResource("6_sjudy")]
 layout_mode = 2
@@ -133,6 +153,7 @@ offset_left = -284.36005
 offset_top = -269.208
 offset_right = 283.63995
 offset_bottom = 231.79199
+theme = SubResource("Theme_msgcontent_scroll")
 
 [node name="MessageContentPanel" type="Panel" parent="MessageContentContainer" unique_id=563660719]
 self_modulate = Color(0.35686275, 0.38039216, 0.25490198, 1)
@@ -142,16 +163,18 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_sjudy")
 
 [node name="Message2Content" type="RichTextLabel" parent="MessageContentContainer/MessageContentPanel" unique_id=1354752158]
+theme = SubResource("Theme_msgcontent_scroll")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
 offset_top = 19.0
-offset_right = -24.0
-offset_bottom = -63.0
+offset_right = -15.0
+offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0.6313726, 1, 0.6, 1)
 theme_override_font_sizes/normal_font_size = 16
 text = "Placeholder for text for messages. 
 
@@ -168,6 +191,7 @@ Etiam id iaculis tellus, nec congue mauris. Fusce turpis quam, iaculis vitae fac
 Phasellus cursus scelerisque tellus. Vivamus in placerat nunc. Phasellus libero justo, tincidunt nec condimentum a, ornare non risus. Proin imperdiet, tortor eget ornare porta, ligula nulla finibus dui, in venenatis elit dolor at nunc. Vestibulum mattis urna ut ultrices pharetra. Proin convallis sem ultrices purus hendrerit finibus. Duis dui orci, rutrum et molestie nec, pulvinar quis mi. Nulla aliquam nisi non purus feugiat ornare. Nulla at efficitur lacus."
 
 [node name="Message1Content" type="RichTextLabel" parent="MessageContentContainer/MessageContentPanel" unique_id=100115762]
+theme = SubResource("Theme_msgcontent_scroll")
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -179,6 +203,7 @@ offset_right = -24.0
 offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0.6313726, 1, 0.6, 1)
 theme_override_font_sizes/normal_font_size = 16
 text = "Placeholder for text for messages. 
 
@@ -194,10 +219,10 @@ Phasellus cursus scelerisque tellus. Vivamus in placerat nunc. Phasellus libero 
 
 [node name="ReadFullScreenButton" type="Button" parent="MessageContentContainer/MessageContentPanel" unique_id=2067604156]
 layout_mode = 0
-offset_left = 399.0
-offset_top = 456.0
-offset_right = 553.0
-offset_bottom = 487.0
+offset_left = 408.0
+offset_top = 453.0
+offset_right = 552.0
+offset_bottom = 484.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
 theme_override_colors/font_focus_color = Color(0.13755056, 0.13755059, 0.13755101, 1)
