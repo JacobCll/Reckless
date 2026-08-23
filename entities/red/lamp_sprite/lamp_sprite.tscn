@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ce4vdrqxwqa5n" path="res://entities/base_entities/red_entity_base.tscn" id="1_q86mg"]
 [ext_resource type="Script" uid="uid://cfkgfnca7qw1a" path="res://entities/red/lamp_sprite/lamp_sprite.gd" id="2_qsaro"]
-[ext_resource type="Texture2D" uid="uid://kpdtx6s3j4vr" path="res://entities/red/lamp_sprite/lamp_sprite.png" id="3_fwfw2"]
+[ext_resource type="Texture2D" uid="uid://dtvdj448yei5i" path="res://entities/red/lamp_sprite/lamp_sprite.png" id="3_fwfw2"]
 [ext_resource type="Texture2D" uid="uid://cesiwsuqojp1j" path="res://entities/red/lamp_sprite/lamp_sprite_smashed.png" id="4_o7eb7"]
 
 [node name="LampSprite" unique_id=735652724 instance=ExtResource("1_q86mg")]
