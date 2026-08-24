@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_lajwx"]
 [ext_resource type="Script" uid="uid://rdxejfrn5x8g" path="res://scenes/levels/levels/level_2/level_2.gd" id="2_v6o0a"]
 [ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/in_game_BGM2.mp3" id="3_0rd2h"]
-[ext_resource type="Texture2D" uid="uid://bi7vm81n3enj5" path="res://backgrounds/level/home_2.jpg" id="4_4cyum"]
+[ext_resource type="Texture2D" uid="uid://d0uq8jat4daah" path="res://backgrounds/level/background_backyard.jpg" id="4_ippji"]
 [ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="4_yuhpf"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="5_xx7qf"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_u6ogp"]
@@ -29,15 +29,15 @@
 [ext_resource type="PackedScene" uid="uid://dbb4v5qg854yy" path="res://entities/red/pot_sprite/pot_sprite.tscn" id="28_4f3cj"]
 [ext_resource type="PackedScene" uid="uid://cjcxl4k6po8rg" path="res://entities/red/projector_sprite/projector_sprite.tscn" id="29_7kile"]
 [ext_resource type="PackedScene" uid="uid://cbmaujnk1myif" path="res://entities/red/tv_sprite/tv_sprite.tscn" id="30_ippji"]
-[ext_resource type="PackedScene" uid="uid://i5dd6ijxoqp21" path="res://entities/green/cash_sprite/cash_sprite.tscn" id="31_cash1"]
-[ext_resource type="PackedScene" uid="uid://7lhk8msh4ivbr" path="res://entities/green/diploma_sprite/diploma_sprite.tscn" id="32_dipl1"]
-[ext_resource type="PackedScene" uid="uid://tt70enigeq4iq" path="res://entities/green/frame_sprite/frame_sprite.tscn" id="33_frm01"]
-[ext_resource type="PackedScene" uid="uid://9l9f8d8bfd3ju" path="res://entities/green/id_sprite/id_sprite.tscn" id="34_idb001"]
-[ext_resource type="PackedScene" uid="uid://r2cdmi2fpqpnb" path="res://entities/green/isaw_sprite/isaw_sprite.tscn" id="35_isaw01"]
-[ext_resource type="PackedScene" uid="uid://2jksud1id68o9" path="res://entities/green/kwek_sprite/kwek_sprite.tscn" id="36_kwek01"]
-[ext_resource type="PackedScene" uid="uid://h2fdf3hkvg414" path="res://entities/green/lily_sprite/lily_sprite.tscn" id="37_lily01"]
-[ext_resource type="PackedScene" uid="uid://lgakvjrxboqmj" path="res://entities/green/rose_sprite/rose_sprite.tscn" id="38_rose01"]
-[ext_resource type="PackedScene" uid="uid://phcdv3oc0zzba" path="res://entities/green/sunflower_sprite/sunflower_sprite.tscn" id="39_sunf01"]
+[ext_resource type="PackedScene" uid="uid://bfjm0epgkcyki" path="res://entities/green/cash_sprite/cash_sprite.tscn" id="31_cash1"]
+[ext_resource type="PackedScene" uid="uid://bn7mi6ghlvu8n" path="res://entities/green/diploma_sprite/diploma_sprite.tscn" id="32_dipl1"]
+[ext_resource type="PackedScene" uid="uid://i6ngdv6kqqpw" path="res://entities/green/frame_sprite/frame_sprite.tscn" id="33_frm01"]
+[ext_resource type="PackedScene" uid="uid://do0hiwvavq3hq" path="res://entities/green/id_sprite/id_sprite.tscn" id="34_idb001"]
+[ext_resource type="PackedScene" uid="uid://clovabefgw7l8" path="res://entities/green/isaw_sprite/isaw_sprite.tscn" id="35_isaw01"]
+[ext_resource type="PackedScene" uid="uid://hpppylqfr4ew" path="res://entities/green/kwek_sprite/kwek_sprite.tscn" id="36_kwek01"]
+[ext_resource type="PackedScene" uid="uid://cll8ym2q2ejl" path="res://entities/green/lily_sprite/lily_sprite.tscn" id="37_lily01"]
+[ext_resource type="PackedScene" uid="uid://dpgtpfxf6ay30" path="res://entities/green/rose_sprite/rose_sprite.tscn" id="38_rose01"]
+[ext_resource type="PackedScene" uid="uid://du3q4wwlcfd0y" path="res://entities/green/sunflower_sprite/sunflower_sprite.tscn" id="39_sunf01"]
 
 [sub_resource type="Curve2D" id="Curve2D_u6ogp"]
 _data = {
@@ -66,16 +66,16 @@ level_music = ExtResource("3_0rd2h")
 
 [node name="Background" parent="." index="0" unique_id=1388791812]
 modulate = Color(0.83033526, 0.83033514, 0.83033514, 1)
-offset_left = -420.0
-offset_top = -463.0
-offset_right = 190.47058
-offset_bottom = 339.0
+offset_left = -116.0
+offset_top = -103.0
+offset_right = 102.07788
+offset_bottom = 123.0
 scale = Vector2(1.0015476, 1)
-texture = ExtResource("4_4cyum")
+texture = ExtResource("4_ippji")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="WaveManager" parent="." index="4" unique_id=805755620 node_paths=PackedStringArray("waves")]
+[node name="WaveManager" parent="." index="6" unique_id=805755620 node_paths=PackedStringArray("waves")]
 waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2")]
 
 [node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=1299203071]
@@ -132,6 +132,3 @@ path = NodePath("../../Wave1/EntitySpawner1Path")
 
 [node name="EntitySpawner1Path" type="Path2D" parent="Waves/Wave2" index="1" unique_id=1515629054]
 curve = SubResource("Curve2D_1l0jw")
-
-[node name="WinLevelScreen" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="4" unique_id=800143018]
-visible = true

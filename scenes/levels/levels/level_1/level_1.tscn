@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/in_game_BGM2.mp3" id="3_8ftis"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_b8e02"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="4_eq1f0"]
-[ext_resource type="Texture2D" uid="uid://ba1e7paoe0ufw" path="res://backgrounds/level/home_bg.jpg" id="4_h0wnc"]
+[ext_resource type="Texture2D" uid="uid://d0uq8jat4daah" path="res://backgrounds/level/background_backyard.jpg" id="4_ulf8h"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_8ftis"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="6_l4mnh"]
 [ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="9_l4mnh"]
@@ -29,15 +29,15 @@
 [ext_resource type="PackedScene" uid="uid://dbb4v5qg854yy" path="res://entities/red/pot_sprite/pot_sprite.tscn" id="27_dq2q4"]
 [ext_resource type="PackedScene" uid="uid://cjcxl4k6po8rg" path="res://entities/red/projector_sprite/projector_sprite.tscn" id="28_y3uyk"]
 [ext_resource type="PackedScene" uid="uid://cbmaujnk1myif" path="res://entities/red/tv_sprite/tv_sprite.tscn" id="29_qrkwr"]
-[ext_resource type="PackedScene" uid="uid://i5dd6ijxoqp21" path="res://entities/green/cash_sprite/cash_sprite.tscn" id="30_cash1"]
-[ext_resource type="PackedScene" uid="uid://7lhk8msh4ivbr" path="res://entities/green/diploma_sprite/diploma_sprite.tscn" id="31_dipl1"]
-[ext_resource type="PackedScene" uid="uid://tt70enigeq4iq" path="res://entities/green/frame_sprite/frame_sprite.tscn" id="32_frm01"]
-[ext_resource type="PackedScene" uid="uid://9l9f8d8bfd3ju" path="res://entities/green/id_sprite/id_sprite.tscn" id="33_idb001"]
-[ext_resource type="PackedScene" uid="uid://r2cdmi2fpqpnb" path="res://entities/green/isaw_sprite/isaw_sprite.tscn" id="34_isaw01"]
-[ext_resource type="PackedScene" uid="uid://2jksud1id68o9" path="res://entities/green/kwek_sprite/kwek_sprite.tscn" id="35_kwek01"]
-[ext_resource type="PackedScene" uid="uid://h2fdf3hkvg414" path="res://entities/green/lily_sprite/lily_sprite.tscn" id="36_lily01"]
-[ext_resource type="PackedScene" uid="uid://lgakvjrxboqmj" path="res://entities/green/rose_sprite/rose_sprite.tscn" id="37_rose01"]
-[ext_resource type="PackedScene" uid="uid://phcdv3oc0zzba" path="res://entities/green/sunflower_sprite/sunflower_sprite.tscn" id="38_sunf01"]
+[ext_resource type="PackedScene" uid="uid://bfjm0epgkcyki" path="res://entities/green/cash_sprite/cash_sprite.tscn" id="30_cash1"]
+[ext_resource type="PackedScene" uid="uid://bn7mi6ghlvu8n" path="res://entities/green/diploma_sprite/diploma_sprite.tscn" id="31_dipl1"]
+[ext_resource type="PackedScene" uid="uid://i6ngdv6kqqpw" path="res://entities/green/frame_sprite/frame_sprite.tscn" id="32_frm01"]
+[ext_resource type="PackedScene" uid="uid://do0hiwvavq3hq" path="res://entities/green/id_sprite/id_sprite.tscn" id="33_idb001"]
+[ext_resource type="PackedScene" uid="uid://clovabefgw7l8" path="res://entities/green/isaw_sprite/isaw_sprite.tscn" id="34_isaw01"]
+[ext_resource type="PackedScene" uid="uid://hpppylqfr4ew" path="res://entities/green/kwek_sprite/kwek_sprite.tscn" id="35_kwek01"]
+[ext_resource type="PackedScene" uid="uid://cll8ym2q2ejl" path="res://entities/green/lily_sprite/lily_sprite.tscn" id="36_lily01"]
+[ext_resource type="PackedScene" uid="uid://dpgtpfxf6ay30" path="res://entities/green/rose_sprite/rose_sprite.tscn" id="37_rose01"]
+[ext_resource type="PackedScene" uid="uid://du3q4wwlcfd0y" path="res://entities/green/sunflower_sprite/sunflower_sprite.tscn" id="38_sunf01"]
 
 [sub_resource type="Curve2D" id="Curve2D_k0gby"]
 _data = {
@@ -62,11 +62,11 @@ offset_left = -264.0
 offset_top = -77.0
 offset_right = 239.0
 offset_bottom = 39.5
-texture = ExtResource("4_h0wnc")
+texture = ExtResource("4_ulf8h")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="WaveManager" parent="." index="4" unique_id=805755620 node_paths=PackedStringArray("waves")]
+[node name="WaveManager" parent="." index="6" unique_id=805755620 node_paths=PackedStringArray("waves")]
 waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2"), NodePath("../Waves/Wave3")]
 
 [node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=1698944547]
