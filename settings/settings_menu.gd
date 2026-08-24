@@ -32,3 +32,8 @@ func _on_back_button_pressed() -> void:
 	Settings.apply_settings()
 	MouseManager.show_mouse_trail()
 	hide()
+
+var tutorial_level_path := "res://scenes/levels/tutorial_level/tutorial_level.tscn"
+
+func _on_tutorial_button_pressed() -> void:
+	LoadingScreen.transition_to(get_tree(), tutorial_level_path)

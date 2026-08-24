@@ -3,12 +3,11 @@
 [ext_resource type="Script" uid="uid://g38ghibrcydq" path="res://scenes/main_menu.gd" id="2_jk1qb"]
 [ext_resource type="AudioStream" uid="uid://or536ndi685" path="res://music/main_menu/menu_BGM1.mp3" id="3_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://ccbr0e5gevxup" path="res://backgrounds/main_menu/MainMenu_Background.jpg" id="3_j7ex8"]
+[ext_resource type="Texture2D" uid="uid://d2h3lcvnhvbsc" path="res://buttons/navigation_buttons/Button_SettingIcon_Hover.png" id="5_5pajh"]
+[ext_resource type="Texture2D" uid="uid://cwsbob5iojbpa" path="res://buttons/navigation_buttons/Button_SettingIcon.png" id="5_7b55j"]
 [ext_resource type="Texture2D" uid="uid://cig166q03fqja" path="res://buttons/main_menu_buttons/Button_Play_Active.png" id="5_play_active"]
 [ext_resource type="Texture2D" uid="uid://51bufenk46y2" path="res://buttons/main_menu_buttons/Button_Play_Hover.png" id="5_play_hover"]
 [ext_resource type="Texture2D" uid="uid://85daacxmwy4i" path="res://buttons/main_menu_buttons/Button_Play.png" id="5_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://cuuav8s0q6gi0" path="res://buttons/main_menu_buttons/Button_Settings.png" id="6_settings"]
-[ext_resource type="Texture2D" uid="uid://brkdwk2jdlima" path="res://buttons/main_menu_buttons/Button_Settings_Active.png" id="6_settings_active"]
-[ext_resource type="Texture2D" uid="uid://ciog617bu68k1" path="res://buttons/main_menu_buttons/Button_Settings_Hover.png" id="6_settings_hover"]
 [ext_resource type="Texture2D" uid="uid://cfdcfvnh507wx" path="res://buttons/main_menu_buttons/Button_Shop.png" id="7_shop"]
 [ext_resource type="Texture2D" uid="uid://beygqwtla087" path="res://buttons/main_menu_buttons/Button_Shop_Active.png" id="7_shop_active"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="11_lgwnu"]
@@ -126,13 +125,12 @@ offset_bottom = 658.0
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="SettingsButton" type="TextureButton" parent="ButtonContainer" unique_id=1804297541]
-custom_minimum_size = Vector2(244, 100)
+[node name="SettingsButton" type="TextureButton" parent="ButtonContainer" unique_id=862557833]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("6_settings")
-texture_pressed = ExtResource("6_settings_active")
-texture_hover = ExtResource("6_settings_hover")
+texture_normal = ExtResource("5_5pajh")
+texture_pressed = ExtResource("5_7b55j")
 ignore_texture_size = true
 stretch_mode = 0
 

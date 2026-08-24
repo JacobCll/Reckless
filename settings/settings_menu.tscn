@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bs2r4uhuh8jk2" path="res://buttons/navigation_buttons/Button_Back.png" id="4_76kmu"]
 [ext_resource type="Texture2D" uid="uid://chp1md3jj3ecs" path="res://buttons/navigation_buttons/Button_Back_Hover.png" id="5_back_hover"]
 [ext_resource type="Texture2D" uid="uid://bnynhnwfh3fdb" path="res://buttons/navigation_buttons/Button_Back_Active.png" id="5_oy4mk"]
+[ext_resource type="Texture2D" uid="uid://bhtrn7uux4uxi" path="res://buttons/navigation_buttons/Button_Tutorial_Hover.png" id="6_oy4mk"]
+[ext_resource type="Texture2D" uid="uid://cuk8ervn3hyav" path="res://buttons/navigation_buttons/Button_Tutorial_Active.png" id="7_lakpe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76kmu"]
 bg_color = Color(0.39308554, 0.39308554, 0.39308533, 1)
@@ -183,7 +185,26 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_grabber
 max_value = 1.0
 step = 0.01
 
+[node name="TutorialButton" type="TextureButton" parent="Control" unique_id=462141618]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.119
+anchor_top = 0.125
+anchor_right = 0.119
+anchor_bottom = 0.125
+offset_left = 510.775
+offset_top = -31.625
+offset_right = 662.775
+offset_bottom = 29.375
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_oy4mk")
+texture_pressed = ExtResource("7_lakpe")
+texture_hover = ExtResource("6_oy4mk")
+ignore_texture_size = true
+stretch_mode = 5
+
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="value_changed" from="Control/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Control/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Control/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="Control/TutorialButton" to="." method="_on_tutorial_button_pressed"]
