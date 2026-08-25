@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://rp4f8mgfom0j"]
+
+[ext_resource type="Script" uid="uid://ei4h1f7cqbom9" path="res://buttons/main_menu_buttons/music_toggle_button.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bc51p6a3skuhf" path="res://buttons/main_menu_buttons/Button_MusicOn.png" id="2_on_normal"]
+[ext_resource type="Texture2D" uid="uid://d3uje7bwmptrh" path="res://buttons/main_menu_buttons/Button_MusicOn_Hover.png" id="3_on_hover"]
+[ext_resource type="Texture2D" uid="uid://bfe8pbwe7wx52" path="res://buttons/main_menu_buttons/Button_MusicOn_Active.png" id="4_on_active"]
+[ext_resource type="Texture2D" uid="uid://cw6aytwpwxcno" path="res://buttons/main_menu_buttons/Button_MusicOff.png" id="5_off_normal"]
+[ext_resource type="Texture2D" uid="uid://c1rq6shhtc8ct" path="res://buttons/main_menu_buttons/Button_MusicOff_Hover.png" id="6_off_hover"]
+[ext_resource type="Texture2D" uid="uid://b26kdqosqcoil" path="res://buttons/main_menu_buttons/Button_MusicOff_Active.png" id="7_off_active"]
+
+[node name="MusicToggleButton" type="TextureButton"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 80.0
+offset_bottom = 80.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_on_normal")
+texture_hover = ExtResource("3_on_hover")
+texture_pressed = ExtResource("4_on_active")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_script")
+texture_on_normal = ExtResource("2_on_normal")
+texture_on_hover = ExtResource("3_on_hover")
+texture_on_pressed = ExtResource("4_on_active")
+texture_off_normal = ExtResource("5_off_normal")
+texture_off_hover = ExtResource("6_off_hover")
+texture_off_pressed = ExtResource("7_off_active")

@@ -454,6 +454,7 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("5_1txf7")]
+show_tutorial_button = false
 visible = false
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]

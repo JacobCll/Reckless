@@ -3,15 +3,17 @@ extends CanvasLayer
 @onready var master_slider = $Control/VBoxContainer/MasterSlider
 @onready var music_slider = $Control/VBoxContainer/MusicSlider
 @onready var sfx_slider = $Control/VBoxContainer/SfxSlider
-@onready var tutorial_toggle = $Control/VBoxContainer/TutorialToggle
+@onready var tutorial_toggle = $Control/VBoxContainer/TutorialToggleContainer/TutorialToggle
+@onready var tutorial_button = $Control/TutorialButton
 
-var HELP_MANUAL = preload("res://settings/helpmanual.tscn")
+@export var show_tutorial_button := true
 
 func _ready():
 	master_slider.value = Settings.master_volume
 	music_slider.value = Settings.music_volume
 	sfx_slider.value = Settings.sfx_volume
 	tutorial_toggle.button_pressed = GameManager.level_1_step_tutorial_enabled
+	tutorial_button.visible = show_tutorial_button
 
 	Settings.apply_settings()
 

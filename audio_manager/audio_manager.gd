@@ -1,5 +1,7 @@
 extends Node
 
+const MAIN_MENU_MUSIC: AudioStream = preload("res://music/main_menu/menu_BGM1.mp3")
+
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var button_sfx_player: AudioStreamPlayer = $ButtonSfxPlayer
 
@@ -19,11 +21,25 @@ func play_button_click() -> void:
 	button_sfx_player.play()
 
 func play_music(stream: AudioStream):
+	if stream == MAIN_MENU_MUSIC and Settings.main_menu_music_muted:
+		music_player.stream = stream
+		music_player.stop()
+		return
+
 	if music_player.stream == stream and music_player.playing:
 		return
-	
+
 	music_player.stream = stream
 	music_player.play()
+
+func set_main_menu_music_muted(muted: bool) -> void:
+	if music_player.stream != MAIN_MENU_MUSIC:
+		return
+
+	if muted:
+		music_player.stop()
+	else:
+		music_player.play()
 
 func stop_music():
 	music_player.stop()

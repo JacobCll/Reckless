@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://dxgrbhgl045bg" path="res://buttons/navigation_buttons/Button_Cancel.png" id="53_kkgl1"]
 [ext_resource type="Texture2D" uid="uid://dh8gsrvmv0ag2" path="res://buttons/navigation_buttons/Button_Cancel_Active.png" id="54_5j1mp"]
 [ext_resource type="Texture2D" uid="uid://dpv103snw8y2n" path="res://buttons/navigation_buttons/Button_Cancel_Hover.png" id="55_n67cf"]
+[ext_resource type="PackedScene" path="res://buttons/main_menu_buttons/music_toggle_button.tscn" id="56_music_toggle"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri0ji"]
 bg_color = Color(0.6, 0.6, 0.6, 0.8745098)
@@ -210,6 +211,13 @@ texture_pressed = ExtResource("46_jhchr")
 texture_hover = ExtResource("47_a4ij0")
 texture_disabled = ExtResource("48_edey8")
 level_number = 10
+
+[node name="MusicToggleButton" parent="." unique_id=1350925578 instance=ExtResource("56_music_toggle")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 664.0
+offset_right = 104.0
+offset_bottom = 744.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064702113]
 

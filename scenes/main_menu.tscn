@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://qvwhav3fftnj" path="res://buttons/navigation_buttons/Button_Continue.png" id="18_continue"]
 [ext_resource type="Texture2D" uid="uid://sk2h50y01go4" path="res://buttons/navigation_buttons/Button_Continue_Active.png" id="19_continue_active"]
 [ext_resource type="Texture2D" uid="uid://dbr6aaf04akl5" path="res://buttons/navigation_buttons/Button_Continue_Hover.png" id="20_continue_hover"]
+[ext_resource type="PackedScene" uid="uid://rp4f8mgfom0j" path="res://buttons/main_menu_buttons/music_toggle_button.tscn" id="21_music_toggle"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7b55j"]
 load_path = "res://.godot/imported/reckless_logo.png-972b7fe81e6b54fb3cb00bc557544482.ctex"
@@ -152,6 +153,13 @@ texture_normal = ExtResource("7_shop")
 texture_pressed = ExtResource("7_shop_active")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="MusicToggleButton" parent="." unique_id=1732412922 instance=ExtResource("21_music_toggle")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 664.0
+offset_right = 104.0
+offset_bottom = 744.0
 
 [node name="NotificationButton" type="TextureButton" parent="." unique_id=327508239]
 layout_mode = 0
