@@ -8,6 +8,7 @@ var user_orbs := 0 # user currency
 var highest_unlocked_level := 1 # highest level the player has unlocked
 var MAX_UNLOCKABLE_LEVEL := 2 # max level that can be unlocked
 var level_1_tutorial_seen := false
+var level_1_step_tutorial_enabled := true
 
 # DO NOT SAVE TO FILE
 var from_level := 0 # 0 is default (none)
@@ -58,6 +59,7 @@ func reset():
 		"powerup_double_orbs": 0
 	}
 	level_1_tutorial_seen = false
+	level_1_step_tutorial_enabled = true
 	save_data()
 
 func is_level_unlocked(level: int) -> bool:
@@ -75,7 +77,8 @@ func save_data() -> void:
 		"highest_unlocked_level": highest_unlocked_level,
 		"user_orbs": user_orbs,
 		"inventory": inventory,
-		"level_1_tutorial_seen": level_1_tutorial_seen
+		"level_1_tutorial_seen": level_1_tutorial_seen,
+		"level_1_step_tutorial_enabled": level_1_step_tutorial_enabled
 	}
 
 	var file := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
@@ -99,3 +102,4 @@ func load_data() -> void:
 		"powerup_double_orbs": 0
 	})
 	level_1_tutorial_seen = saved_data.get("level_1_tutorial_seen", false)
+	level_1_step_tutorial_enabled = saved_data.get("level_1_step_tutorial_enabled", true)

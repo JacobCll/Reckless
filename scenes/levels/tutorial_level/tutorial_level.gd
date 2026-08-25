@@ -237,9 +237,3 @@ func _handle_tutorial_complete():
 	all_spawner.stop()
 	
 	tutorial_body_text.text = "Congratulations! You have completed the tutorial level!"
-	
-	tutorial_button.text = "Main Menu"
-	
-	if GameManager.from_level == 1:
-		tutorial_button.text = "Continue to Level 1"
-		GameManager.from_level = 0

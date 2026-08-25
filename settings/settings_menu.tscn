@@ -185,6 +185,19 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_grabber
 max_value = 1.0
 step = 0.01
 
+[node name="TutorialToggleLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_oy4mk")
+theme_override_font_sizes/font_size = 24
+text = "Level 1 Tutorial"
+
+[node name="TutorialToggle" type="CheckButton" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_horizontal = 4
+
 [node name="TutorialButton" type="TextureButton" parent="Control" unique_id=462141618]
 layout_mode = 1
 anchors_preset = -1
@@ -208,3 +221,4 @@ stretch_mode = 5
 [connection signal="value_changed" from="Control/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Control/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="Control/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="toggled" from="Control/VBoxContainer/TutorialToggle" to="." method="_on_tutorial_toggle_toggled"]

@@ -150,6 +150,12 @@ func spawn_entity(n: int = 1, b_spread: float = 0):
 	
 	return entities
 
+func spawn_specific(entity_type: String) -> Node:
+	for type in _entity_types:
+		if type.entity_type == entity_type:
+			return _spawn_from_type(type, throw_entity_up)
+	return null
+
 func _trigger_spawn() -> void:
 	var count := randi_range(spawn_count_min, spawn_count_max)
 

@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var master_slider = $Control/VBoxContainer/MasterSlider
 @onready var music_slider = $Control/VBoxContainer/MusicSlider
 @onready var sfx_slider = $Control/VBoxContainer/SfxSlider
+@onready var tutorial_toggle = $Control/VBoxContainer/TutorialToggle
 
 var HELP_MANUAL = preload("res://settings/helpmanual.tscn")
 
@@ -10,10 +11,15 @@ func _ready():
 	master_slider.value = Settings.master_volume
 	music_slider.value = Settings.music_volume
 	sfx_slider.value = Settings.sfx_volume
+	tutorial_toggle.button_pressed = GameManager.level_1_step_tutorial_enabled
 
 	Settings.apply_settings()
-	
+
 	hide()
+
+func _on_tutorial_toggle_toggled(pressed: bool) -> void:
+	GameManager.level_1_step_tutorial_enabled = pressed
+	GameManager.save_data()
 
 func _on_music_slider_value_changed(value: float) -> void:
 	Settings.music_volume = value

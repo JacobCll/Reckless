@@ -132,6 +132,10 @@ func _ready() -> void:
 	wave_manager.all_waves_completed.connect(_on_all_waves_completed)
 	wave_manager.progress_changed.connect(_on_progress_changed)
 
+	_begin_intro()
+
+# override hook
+func _begin_intro() -> void:
 	start_countdown()
 
 func _process(delta: float) -> void:
@@ -333,8 +337,12 @@ func _on_wave_started() -> void:
 	if wave_manager.current_wave > 0:
 		await get_tree().create_timer(wave_end_spawn_delay, false).timeout
 
+	_start_wave_spawning()
+
+# override hook
+func _start_wave_spawning() -> void:
 	wave_manager.start_spawn_loops()
-	
+
 func _on_wave_completed() -> void:
 	var current_wave = wave_manager.current_wave + 1
 	var is_last_wave := wave_manager.current_wave >= wave_manager.waves.size() - 1
