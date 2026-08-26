@@ -382,7 +382,6 @@ vertical_alignment = 1
 
 [node name="PauseScreen" type="Control" parent="CanvasLayer" unique_id=1455857404]
 process_mode = 2
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -454,8 +453,8 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("5_1txf7")]
-show_tutorial_button = false
 visible = false
+show_tutorial_button = false
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GameoverScreen/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_nw3yw"]
 [ext_resource type="Script" uid="uid://b87t8mxgjju4" path="res://scenes/levels/tutorial_level/tutorial_level.gd" id="2_h8moi"]
+[ext_resource type="Texture2D" uid="uid://kp1kib62eak6" path="res://backgrounds/Background_tutorial.png" id="3_sd6r6"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_knk6l"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_haaw4"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_l7ta3"]
@@ -56,6 +57,10 @@ point_count = 2
 script = ExtResource("2_h8moi")
 max_lives = 0
 countdown_value_original = 0
+
+[node name="Background" parent="." index="0" unique_id=1388791812]
+modulate = Color(0.86036915, 0.8603692, 0.8603692, 1)
+texture = ExtResource("3_sd6r6")
 
 [node name="BlueSpawner" parent="." index="6" unique_id=1783648034 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
 spawn_delay_max = 1.0

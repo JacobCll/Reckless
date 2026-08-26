@@ -61,9 +61,9 @@ visible = false
 
 [node name="RecklessLogo" type="TextureRect" parent="." unique_id=1185686573]
 layout_mode = 0
-offset_left = 271.0
+offset_left = 259.0
 offset_top = 118.00001
-offset_right = 877.69916
+offset_right = 881.69916
 offset_bottom = 684.6667
 scale = Vector2(0.75, 0.75)
 mouse_filter = 2
@@ -156,10 +156,11 @@ stretch_mode = 0
 
 [node name="MusicToggleButton" parent="." unique_id=1732412922 instance=ExtResource("21_music_toggle")]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 664.0
-offset_right = 104.0
-offset_bottom = 744.0
+offset_left = 968.0
+offset_top = 712.00006
+offset_right = 1048.0
+offset_bottom = 792.00006
+scale = Vector2(0.5302761, 0.5353836)
 
 [node name="NotificationButton" type="TextureButton" parent="." unique_id=327508239]
 layout_mode = 0
