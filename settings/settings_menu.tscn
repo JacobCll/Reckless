@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bnynhnwfh3fdb" path="res://buttons/navigation_buttons/Button_Back_Active.png" id="5_oy4mk"]
 [ext_resource type="Texture2D" uid="uid://bhtrn7uux4uxi" path="res://buttons/navigation_buttons/Button_Tutorial_Hover.png" id="6_oy4mk"]
 [ext_resource type="Texture2D" uid="uid://cuk8ervn3hyav" path="res://buttons/navigation_buttons/Button_Tutorial_Active.png" id="7_lakpe"]
+[ext_resource type="Texture2D" uid="uid://dg3xwpi2s060e" path="res://buttons/navigation_buttons/Button_Tutorial.png" id="7_r82a5"]
 [ext_resource type="PackedScene" uid="uid://rp4f8mgfom0j" path="res://buttons/main_menu_buttons/music_toggle_button.tscn" id="8_music_toggle"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76kmu"]
@@ -236,7 +237,7 @@ offset_top = -31.625
 offset_right = 662.775
 offset_bottom = 29.375
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("6_oy4mk")
+texture_normal = ExtResource("7_r82a5")
 texture_pressed = ExtResource("7_lakpe")
 texture_hover = ExtResource("6_oy4mk")
 ignore_texture_size = true

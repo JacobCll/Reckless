@@ -21,25 +21,24 @@ func play_button_click() -> void:
 	button_sfx_player.play()
 
 func play_music(stream: AudioStream):
-	if stream == MAIN_MENU_MUSIC and Settings.main_menu_music_muted:
-		music_player.stream = stream
-		music_player.stop()
-		return
-
 	if music_player.stream == stream and music_player.playing:
+		if stream == MAIN_MENU_MUSIC:
+			music_player.stream_paused = Settings.main_menu_music_muted
 		return
 
 	music_player.stream = stream
 	music_player.play()
+	if stream == MAIN_MENU_MUSIC:
+		music_player.stream_paused = Settings.main_menu_music_muted
 
 func set_main_menu_music_muted(muted: bool) -> void:
 	if music_player.stream != MAIN_MENU_MUSIC:
 		return
 
 	if muted:
-		music_player.stop()
+		pause_music()
 	else:
-		music_player.play()
+		resume_music()
 
 func stop_music():
 	music_player.stop()
