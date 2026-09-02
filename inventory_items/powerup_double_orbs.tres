@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://dhcmhv5d08yur"]
-
-[ext_resource type="Texture2D" uid="uid://ciexvjiamp4x1" path="res://inventory_items/fonts-poweup-button-rmbg.png" id="1_dwt0c"]
-
-[resource]
-atlas = ExtResource("1_dwt0c")
-region = Rect2(105.89255, 113.19008, 114.87604, 102.479324)

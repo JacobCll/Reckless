@@ -29,19 +29,19 @@ var item_info := {
 		"display_name": "Shields",
 		"cost": 15,
 		"description": "Adds +2 shields at the start of the run",
-		"texture": "res://inventory_items/powerup_shields.tres"
+		"texture": "res://buttons/powerups-buttons/powerup_shield.png"
 	},
 	"powerup_double_orbs": {
 		"display_name": "Double Orbs",
 		"cost": 50,
 		"description": "Higher chance of double orb drops",
-		"texture": "res://inventory_items/powerup_double_orbs.tres"
+		"texture": "res://buttons/powerups-buttons/poweup_double_orbs.png"
 	},
 	"powerup_no_green": {
 		"display_name": "No Green!",
 		"cost": 1000,
 		"description": "Eliminate the chance of green entities spawning",
-		"texture": "res://buttons/powerups-buttons/target.tres"
+		"texture": "res://buttons/powerups-buttons/powerup_ nogreen.png"
 	}
 }
 

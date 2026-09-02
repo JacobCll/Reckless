@@ -91,6 +91,11 @@ var countdown_value := countdown_value_original
 @onready var shields_container = $CanvasLayer/HUD/ShieldsContainer
 @onready var score_label = $CanvasLayer/HUD/ScoreLabel
 @onready var level_progress_bar = $CanvasLayer/HUD/LevelProgressBar
+@onready var emoji_states = $CanvasLayer/HUD/EmojiStates
+@onready var emoji_stressed = $CanvasLayer/HUD/EmojiStates/EmojiStressed
+@onready var emoji_neutral = $CanvasLayer/HUD/EmojiStates/EmojiNeutral
+@onready var emoji_happy = $CanvasLayer/HUD/EmojiStates/EmojiHappy
+var _emoji_index := 0
 @onready var countdown_timer = $CountdownTimer
 @onready var countdown_label = $CanvasLayer/CountdownLabel
 @onready var countdown_sfx_player = $CountdownSfxPlayer
@@ -201,6 +206,8 @@ func _setup_ui() -> void:
 	_update_hearts_ui()
 	_update_shields_ui()
 	level_progress_bar.value = 0.0
+	level_progress_bar.material.set_shader_parameter("progress_ratio", 0.0)
+	_reset_emoji()
 
 # prevents particle lag when level is loaded for the first time
 func _prewarm_particles() -> void:
@@ -331,7 +338,7 @@ func _on_wave_started() -> void:
 
 	print("wave ", current_wave, " started")
 
-	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave: %d" % (current_wave)
+	$CanvasLayer/HUD/CurrentWaveLabel.text = "Wave %d" % (current_wave)
 
 	# skip the delay for the very first wave, only pause between a completed wave and the next
 	if wave_manager.current_wave > 0:
@@ -367,7 +374,50 @@ func _show_wave_complete_banner(wave_number: int) -> void:
 	_wave_complete_tween.finished.connect(wave_complete_label.hide)
 
 func _on_progress_changed(progress: float) -> void:
+	var ratio = progress / level_progress_bar.max_value
 	level_progress_bar.value = progress
+	level_progress_bar.material.set_shader_parameter("progress_ratio", ratio)
+	_update_emoji(ratio)
+
+func _update_emoji(ratio: float) -> void:
+	var travel_width = emoji_states.size.x - emoji_stressed.size.x
+	var x_pos = ratio * travel_width
+	emoji_stressed.position.x = x_pos
+	emoji_neutral.position.x = x_pos
+	emoji_happy.position.x = x_pos
+
+	var target_index := 0
+	if ratio >= 0.7:
+		target_index = 2
+	elif ratio >= 0.4:
+		target_index = 1
+
+	if target_index != _emoji_index:
+		_emoji_index = target_index
+		_pop_emoji()
+
+func _pop_emoji() -> void:
+	emoji_stressed.modulate.a = 1.0 if _emoji_index == 0 else 0.0
+	emoji_neutral.modulate.a = 1.0 if _emoji_index == 1 else 0.0
+	emoji_happy.modulate.a = 1.0 if _emoji_index == 2 else 0.0
+
+	var popped_emoji = [emoji_stressed, emoji_neutral, emoji_happy][_emoji_index]
+	popped_emoji.pivot_offset = popped_emoji.size / 2.0
+	popped_emoji.scale = Vector2(1.5, 1.5)
+	var tween = create_tween()
+	tween.tween_property(popped_emoji, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func _reset_emoji() -> void:
+	_emoji_index = 0
+	emoji_stressed.position.x = 0.0
+	emoji_neutral.position.x = 0.0
+	emoji_happy.position.x = 0.0
+	emoji_stressed.modulate.a = 1.0
+	emoji_stressed.scale = Vector2.ONE
+	emoji_neutral.modulate.a = 0.0
+	emoji_neutral.scale = Vector2.ONE
+	emoji_happy.modulate.a = 0.0
+	emoji_happy.scale = Vector2.ONE
 
 func _on_all_waves_completed() -> void:
 	pause_button.hide()

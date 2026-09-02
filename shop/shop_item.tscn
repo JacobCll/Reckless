@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bqbjr1ufdmurf"]
 
 [ext_resource type="Script" uid="uid://ciyvdgue7bsd1" path="res://shop/shop_item.gd" id="1_rchi8"]
-[ext_resource type="FontFile" uid="uid://cl7bqjmhvg4oh" path="res://fonts/Enchanted Land.otf" id="2_rdxfv"]
+[ext_resource type="Texture2D" uid="uid://c4v7xbdhpgqi8" path="res://buttons/powerups-buttons/poweup_double_orbs.png" id="2_rdxfv"]
 [ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="3_u3fxv"]
-[ext_resource type="Texture2D" uid="uid://dhcmhv5d08yur" path="res://inventory_items/powerup_double_orbs.tres" id="4_rdxfv"]
-[ext_resource type="Texture2D" uid="uid://ckelwqyj5oua7" path="res://buttons/buy-default.png" id="5_rdqe2"]
-[ext_resource type="Texture2D" uid="uid://ca2ivs1fgl8tt" path="res://buttons/buy-hover.png" id="6_k16ug"]
+[ext_resource type="Texture2D" uid="uid://pt7n17cx2quk" path="res://buttons/shop_buttons/Button_Buy.png" id="5_u3fxv"]
+[ext_resource type="Texture2D" uid="uid://b466ll8ncvdo6" path="res://buttons/shop_buttons/Button_Buy_Active.png" id="6_uxktj"]
+[ext_resource type="Texture2D" uid="uid://duc6y7ohx16bs" path="res://buttons/shop_buttons/Button_Buy_Hover.png" id="7_rdqe2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrnko"]
 bg_color = Color(0.14901961, 0.14901961, 0.14901961, 0.85490197)
@@ -29,7 +29,7 @@ offset_left = -74.920006
 offset_top = -56.0
 offset_right = 75.079994
 offset_bottom = 64.0
-texture = ExtResource("4_rdxfv")
+texture = ExtResource("2_rdxfv")
 expand_mode = 3
 stretch_mode = 5
 
@@ -40,11 +40,11 @@ anchor_left = 0.95000005
 anchor_top = 0.149
 anchor_right = 0.95000005
 anchor_bottom = 0.149
-offset_left = -189.10004
-offset_top = -24.992
-offset_right = -0.10003662
-offset_bottom = 25.008
-theme_override_fonts/font = ExtResource("2_rdxfv")
+offset_left = -213.10004
+offset_top = -10.992001
+offset_right = -24.100037
+offset_bottom = 39.008
+theme_override_fonts/font = ExtResource("3_u3fxv")
 theme_override_font_sizes/font_size = 42
 text = "Shields"
 
@@ -55,11 +55,11 @@ anchor_left = 0.93900007
 anchor_top = 0.86800003
 anchor_right = 0.93900007
 anchor_bottom = 0.86800003
-offset_left = -59.84204
-offset_top = -7.5440063
-offset_right = -7.842041
-offset_bottom = 17.455994
-theme_override_fonts/font = ExtResource("2_rdxfv")
+offset_left = -82.84204
+offset_top = -11.544006
+offset_right = -11.842041
+offset_bottom = 13.455994
+theme_override_fonts/font = ExtResource("3_u3fxv")
 theme_override_font_sizes/font_size = 20
 text = "Owned: 0"
 horizontal_alignment = 1
@@ -72,11 +72,11 @@ anchor_left = 0.952
 anchor_top = 0.873
 anchor_right = 0.952
 anchor_bottom = 0.873
-offset_left = -184.056
-offset_top = -8.584
-offset_right = -153.056
-offset_bottom = 16.416
-theme_override_fonts/font = ExtResource("2_rdxfv")
+offset_left = -207.056
+offset_top = -12.584
+offset_right = -155.056
+offset_bottom = 12.416
+theme_override_fonts/font = ExtResource("3_u3fxv")
 theme_override_font_sizes/font_size = 20
 text = "0 orbs"
 horizontal_alignment = 1
@@ -89,10 +89,10 @@ anchor_left = 0.95000005
 anchor_top = 0.363
 anchor_right = 0.95000005
 anchor_bottom = 0.363
-offset_left = -183.10004
-offset_top = -23.503998
-offset_right = -0.20004272
-offset_bottom = 25.496002
+offset_left = -211.10004
+offset_top = -21.503998
+offset_right = -23.200043
+offset_bottom = 29.496002
 theme_override_fonts/font = ExtResource("3_u3fxv")
 theme_override_font_sizes/font_size = 16
 text = "+2 additional health"
@@ -106,14 +106,14 @@ anchor_left = 0.93100005
 anchor_top = 0.68700004
 anchor_right = 0.93100005
 anchor_bottom = 0.68700004
-offset_left = -180.01804
-offset_top = -33.89601
-offset_right = -7.018036
-offset_bottom = 28.103989
+offset_left = -184.01804
+offset_top = -41.89601
+offset_right = -32.018036
+offset_bottom = 23.103989
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_rdqe2")
-texture_pressed = ExtResource("6_k16ug")
-texture_hover = ExtResource("6_k16ug")
+texture_normal = ExtResource("5_u3fxv")
+texture_pressed = ExtResource("6_uxktj")
+texture_hover = ExtResource("7_rdqe2")
 ignore_texture_size = true
 stretch_mode = 5
 

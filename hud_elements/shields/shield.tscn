@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1i7pcl5yqc8b"]
 
-[ext_resource type="Texture2D" uid="uid://e02bifejcx6p" path="res://hud_elements/shields/shield.tres" id="1_a7hdi"]
+[ext_resource type="Texture2D" uid="uid://4qiifldg76c1" path="res://hud_elements/shields/shield.png" id="1_a7hdi"]
 
 [node name="Shield" type="Control" unique_id=749911334]
 custom_minimum_size = Vector2(30, 30)

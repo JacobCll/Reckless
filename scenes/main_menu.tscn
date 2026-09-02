@@ -8,11 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cig166q03fqja" path="res://buttons/main_menu_buttons/Button_Play_Active.png" id="5_play_active"]
 [ext_resource type="Texture2D" uid="uid://51bufenk46y2" path="res://buttons/main_menu_buttons/Button_Play_Hover.png" id="5_play_hover"]
 [ext_resource type="Texture2D" uid="uid://85daacxmwy4i" path="res://buttons/main_menu_buttons/Button_Play.png" id="5_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://cfdcfvnh507wx" path="res://buttons/main_menu_buttons/Button_Shop.png" id="7_shop"]
-[ext_resource type="Texture2D" uid="uid://beygqwtla087" path="res://buttons/main_menu_buttons/Button_Shop_Active.png" id="7_shop_active"]
+[ext_resource type="Texture2D" uid="uid://csyd8qjxing7x" path="res://buttons/main_menu_buttons/Button_ShopUpdated.png" id="10_hstxw"]
+[ext_resource type="Texture2D" uid="uid://d0ygnb13y0ff6" path="res://buttons/main_menu_buttons/Button_ShopUpdated_Active.png" id="11_8egab"]
 [ext_resource type="PackedScene" uid="uid://xwlp1sys1el8" path="res://settings/settings_menu.tscn" id="11_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://cuv5vtkxraocv" path="res://buttons/main_menu_buttons/walkietalky-normal.tres" id="15_j7ex8"]
-[ext_resource type="Texture2D" uid="uid://del61yhuotki" path="res://buttons/main_menu_buttons/walkietalky-hover.tres" id="17_a8gd2"]
+[ext_resource type="Texture2D" uid="uid://b77u1llq5nx3r" path="res://buttons/main_menu_buttons/Button_ShopUpdated_Hover.png" id="12_gw5y6"]
+[ext_resource type="Texture2D" uid="uid://dsw22r1xdb8fe" path="res://buttons/main_menu_buttons/Button_Notification_Hover.png" id="13_j7ex8"]
+[ext_resource type="Texture2D" uid="uid://61wgqf8kdy23" path="res://buttons/main_menu_buttons/Button_Notification_Active.png" id="14_a8gd2"]
+[ext_resource type="Texture2D" uid="uid://bi0k45cbanc2t" path="res://buttons/main_menu_buttons/Button_Notification.png" id="15_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://qvwhav3fftnj" path="res://buttons/navigation_buttons/Button_Continue.png" id="18_continue"]
 [ext_resource type="Texture2D" uid="uid://sk2h50y01go4" path="res://buttons/navigation_buttons/Button_Continue_Active.png" id="19_continue_active"]
 [ext_resource type="Texture2D" uid="uid://dbr6aaf04akl5" path="res://buttons/navigation_buttons/Button_Continue_Hover.png" id="20_continue_hover"]
@@ -149,8 +151,9 @@ stretch_mode = 0
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("7_shop")
-texture_pressed = ExtResource("7_shop_active")
+texture_normal = ExtResource("10_hstxw")
+texture_pressed = ExtResource("11_8egab")
+texture_hover = ExtResource("12_gw5y6")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -164,14 +167,14 @@ scale = Vector2(0.5302761, 0.5353836)
 
 [node name="NotificationButton" type="TextureButton" parent="." unique_id=327508239]
 layout_mode = 0
-offset_left = 900.0
-offset_top = 37.0
-offset_right = 975.0
-offset_bottom = 175.0
+offset_left = 921.0
+offset_top = 24.0
+offset_right = 1003.0
+offset_bottom = 107.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("15_j7ex8")
-texture_pressed = ExtResource("17_a8gd2")
-texture_hover = ExtResource("17_a8gd2")
+texture_normal = ExtResource("13_j7ex8")
+texture_pressed = ExtResource("14_a8gd2")
+texture_hover = ExtResource("15_a8gd2")
 ignore_texture_size = true
 stretch_mode = 5
 
