@@ -4,8 +4,11 @@
 [ext_resource type="Script" uid="uid://b87t8mxgjju4" path="res://scenes/levels/tutorial_level/tutorial_level.gd" id="2_h8moi"]
 [ext_resource type="Texture2D" uid="uid://kp1kib62eak6" path="res://backgrounds/Background_tutorial.png" id="3_sd6r6"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_knk6l"]
+[ext_resource type="AudioStream" uid="uid://hlogw2d357ox" path="res://music/tutorial_bgm/Tutorial_BGM2.mp3" id="4_tutorialbgm"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_haaw4"]
+[ext_resource type="Texture2D" uid="uid://dwiwa23vxvnur" path="res://backgrounds/overlay_backgrounds/Overlay_TutorialLevel.png" id="5_overlay_main"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_l7ta3"]
+[ext_resource type="Texture2D" uid="uid://buufclfpfwd3q" path="res://backgrounds/overlay_backgrounds/Overlay_TutorialLevel_Text_V2.png" id="6_overlay_text"]
 [ext_resource type="PackedScene" uid="uid://of8e84uxb3jw" path="res://entities/red/clock_sprite/clock_sprite.tscn" id="7_66for"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="7_l7ta3"]
 [ext_resource type="PackedScene" uid="uid://iord184vd4cq" path="res://entities/red/iron_sprite/iron_sprite.tscn" id="8_52j2n"]
@@ -28,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cll8ym2q2ejl" path="res://entities/green/lily_sprite/lily_sprite.tscn" id="22_lily01"]
 [ext_resource type="PackedScene" uid="uid://dpgtpfxf6ay30" path="res://entities/green/rose_sprite/rose_sprite.tscn" id="23_rose01"]
 [ext_resource type="PackedScene" uid="uid://du3q4wwlcfd0y" path="res://entities/green/sunflower_sprite/sunflower_sprite.tscn" id="24_sunf01"]
+[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="28_xdmwr"]
 
 [sub_resource type="Curve2D" id="Curve2D_asvqm"]
 _data = {
@@ -53,10 +57,17 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_main_modal"]
+texture = ExtResource("5_overlay_main")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_text_modal"]
+texture = ExtResource("6_overlay_text")
+
 [node name="TutorialLevel" unique_id=818516806 instance=ExtResource("1_nw3yw")]
 script = ExtResource("2_h8moi")
 max_lives = 0
 countdown_value_original = 0
+level_music = ExtResource("4_tutorialbgm")
 
 [node name="Background" parent="." index="0" unique_id=1388791812]
 modulate = Color(0.86036915, 0.8603692, 0.8603692, 1)
@@ -149,6 +160,7 @@ anchor_bottom = 0.7838542
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_main_modal")
 metadata/_edit_use_anchors_ = true
 
 [node name="TutorialBodyText" type="Label" parent="CanvasLayer/TutorialModal/MainModal" index="0" unique_id=1085651810]
@@ -158,13 +170,18 @@ anchor_left = 0.048600882
 anchor_top = 0.05529954
 anchor_right = 0.9558174
 anchor_bottom = 0.7557604
+offset_left = 16.0
+offset_top = 28.0
+offset_right = -21.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.15620124, 0.16530883, 0.10751491, 1)
+theme_override_fonts/font = ExtResource("28_xdmwr")
+theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="TutorialButton" type="TextureButton" parent="CanvasLayer/TutorialModal/MainModal" index="1" unique_id=537960690]
 layout_mode = 1
@@ -173,6 +190,10 @@ anchor_left = 0.37849778
 anchor_top = 0.8110599
 anchor_right = 0.6259205
 anchor_bottom = 0.93317974
+offset_left = -7.0
+offset_top = -30.0
+offset_right = -7.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -183,15 +204,16 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="TextModal" type="Panel" parent="CanvasLayer/TutorialModal" index="2" unique_id=1392499488]
-visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.26953125
-anchor_top = 0.041666668
-anchor_right = 0.71875
-anchor_bottom = 0.14583333
+anchor_left = 0.23730469
+anchor_top = 0.032552082
+anchor_right = 0.76953125
+anchor_bottom = 0.17578125
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_text_modal")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="Text" type="Label" parent="CanvasLayer/TutorialModal/TextModal" index="0" unique_id=397745463]
 layout_mode = 1
@@ -199,12 +221,15 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 13.0
-offset_top = 11.0
-offset_right = -15.0
-offset_bottom = -13.0
+offset_top = 19.0
+offset_right = -25.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.13119087, 0.13923523, 0.08815945, 1)
+theme_override_fonts/font = ExtResource("28_xdmwr")
 theme_override_font_sizes/font_size = 24
+text = " "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -224,10 +249,13 @@ ignore_texture_size = true
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="CurrentWaveLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="2" unique_id=483354666]
+[node name="HUD" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="6" unique_id=1244923538]
 visible = false
 
-[node name="ScoreLabel" parent="CanvasLayer/HUD" parent_id_path=PackedInt32Array(1244923538) index="4" unique_id=656952242]
+[node name="CurrentWaveLabel" parent="CanvasLayer/HUD" index="2" unique_id=483354666]
+visible = false
+
+[node name="ScoreLabel" parent="CanvasLayer/HUD" index="5" unique_id=656952242]
 visible = false
 
 [node name="CountdownLabel" parent="CanvasLayer" parent_id_path=PackedInt32Array(1956116786) index="7" unique_id=1652738209]

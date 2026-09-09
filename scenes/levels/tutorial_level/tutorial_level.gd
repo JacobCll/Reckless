@@ -66,6 +66,7 @@ func _ready() -> void:
 # override - show hud
 func _setup_ui() -> void:
 	progress_bar.hide()
+	emoji_states.hide()
 	pause_screen.hide()
 	gameover_screen.hide()
 	win_screen.hide()

@@ -9,20 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://cuk8ervn3hyav" path="res://buttons/navigation_buttons/Button_Tutorial_Active.png" id="7_lakpe"]
 [ext_resource type="Texture2D" uid="uid://dg3xwpi2s060e" path="res://buttons/navigation_buttons/Button_Tutorial.png" id="7_r82a5"]
 [ext_resource type="PackedScene" uid="uid://rp4f8mgfom0j" path="res://buttons/main_menu_buttons/music_toggle_button.tscn" id="8_music_toggle"]
+[ext_resource type="Texture2D" uid="uid://cticpbplpxyo4" path="res://backgrounds/overlay_backgrounds/Overlay_Setting.png" id="9_overlay"]
+[ext_resource type="Texture2D" uid="uid://dccbvx5vwe7ui" path="res://backgrounds/overlay_backgrounds/Overlay_Settings_Text.png" id="10_overlay_text"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76kmu"]
-bg_color = Color(0.39308554, 0.39308554, 0.39308533, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_76kmu"]
+texture = ExtResource("9_overlay")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy4mk"]
-bg_color = Color(0.5053437, 0.5053442, 0.50534385, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oy4mk"]
+texture = ExtResource("10_overlay_text")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fpik"]
 content_margin_top = 5.0
@@ -74,22 +68,22 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 121.0
-offset_top = 168.0
+offset_left = 114.0
+offset_top = 133.0
 offset_right = -128.0
-offset_bottom = -166.0
+offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_76kmu")
+theme_override_styles/panel = SubResource("StyleBoxTexture_76kmu")
 
 [node name="Panel" type="Panel" parent="Control" unique_id=972636248]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3483871
-anchor_top = -0.08801956
-anchor_right = 0.6464516
-anchor_bottom = 0.14914425
-theme_override_styles/panel = SubResource("StyleBoxFlat_oy4mk")
+anchor_left = 0.34910485
+anchor_top = -0.013645217
+anchor_right = 0.64716935
+anchor_bottom = 0.2235186
+theme_override_styles/panel = SubResource("StyleBoxTexture_oy4mk")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
@@ -100,7 +94,7 @@ anchor_top = 0.13402061
 anchor_right = 0.9987097
 anchor_bottom = 0.8969072
 grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
 theme_override_fonts/font = ExtResource("2_oy4mk")
 theme_override_font_sizes/font_size = 50
 text = "Settings"
@@ -112,14 +106,14 @@ metadata/_edit_use_anchors_ = true
 [node name="BackButton" type="TextureButton" parent="Control" unique_id=880642886]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.119
-anchor_top = 0.125
-anchor_right = 0.119
-anchor_bottom = 0.125
-offset_left = -75.225
-offset_top = -32.625
-offset_right = 76.775
-offset_bottom = 28.375
+anchor_left = 0.171
+anchor_top = 0.2
+anchor_right = 0.171
+anchor_bottom = 0.2
+offset_left = -75.72201
+offset_top = -30.599998
+offset_right = 76.278
+offset_bottom = 30.400002
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_76kmu")
 texture_pressed = ExtResource("5_oy4mk")
@@ -129,17 +123,17 @@ stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1140852188]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 105.0
-offset_right = 655.0
-offset_bottom = 375.0
+offset_left = 128.0
+offset_top = 156.0
+offset_right = 653.0
+offset_bottom = 426.0
 theme_override_constants/separation = 6
 alignment = 1
 
 [node name="MasterSliderLabel" type="Label" parent="Control/VBoxContainer" unique_id=1073572153]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
 theme_override_fonts/font = ExtResource("2_oy4mk")
 theme_override_font_sizes/font_size = 24
 text = "Master"
@@ -156,7 +150,7 @@ step = 0.01
 [node name="MusicSliderLabel" type="Label" parent="Control/VBoxContainer" unique_id=624624575]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
 theme_override_fonts/font = ExtResource("2_oy4mk")
 theme_override_font_sizes/font_size = 24
 text = "Music"
@@ -173,7 +167,7 @@ step = 0.01
 [node name="SfxSliderLabel" type="Label" parent="Control/VBoxContainer" unique_id=1429145969]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
 theme_override_fonts/font = ExtResource("2_oy4mk")
 theme_override_font_sizes/font_size = 24
 text = "SFX"
@@ -194,7 +188,7 @@ size_flags_vertical = 2
 [node name="TutorialToggleLabel" type="Label" parent="Control/VBoxContainer/TutorialToggleContainer" unique_id=712334529]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
 theme_override_fonts/font = ExtResource("2_oy4mk")
 theme_override_font_sizes/font_size = 24
 text = "Level 1 Tutorial"
@@ -213,7 +207,7 @@ layout_mode = 2
 [node name="MusicToggleLabel" type="Label" parent="Control/VBoxContainer/MusicToggleContainer" unique_id=1730416457]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
 theme_override_fonts/font = ExtResource("2_oy4mk")
 theme_override_font_sizes/font_size = 24
 text = "Main Menu Music"
@@ -232,10 +226,10 @@ anchor_left = 0.119
 anchor_top = 0.125
 anchor_right = 0.119
 anchor_bottom = 0.125
-offset_left = 510.775
-offset_top = -31.625
-offset_right = 662.775
-offset_bottom = 29.375
+offset_left = 480.94202
+offset_top = 8.875
+offset_right = 632.942
+offset_bottom = 69.875
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("7_r82a5")
 texture_pressed = ExtResource("7_lakpe")

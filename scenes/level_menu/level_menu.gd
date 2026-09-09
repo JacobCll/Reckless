@@ -7,6 +7,7 @@ extends Control
 @export_group("Mouse Parallax")
 @export var background_parallax_strength: Vector2 = Vector2(10.0, 5.0)
 @export var logo_parallax_strength: Vector2 = Vector2(6.0, 3.0)
+@export var buttons_parallax_strength: Vector2 = Vector2(3.0, 1.5)
 @export var parallax_smoothing: float = 5.0
 @export_group("")
 
@@ -14,6 +15,7 @@ extends Control
 
 @onready var background: TextureRect = $Background
 @onready var levels_text: TextureRect = $LevelsText
+@onready var back_button: TextureButton = $BackButton
 
 @export var powerup_card_scene: PackedScene
 @onready var powerup_modal := $CanvasLayer/PowerupModal
@@ -26,6 +28,8 @@ var selected_powerup_card: PowerupCard = null
 
 var _background_base_position: Vector2
 var _logo_base_position: Vector2
+var _level_grid_base_position: Vector2
+var _back_button_base_position: Vector2
 var _parallax_offset: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
@@ -48,6 +52,8 @@ func _ready() -> void:
 
 	_background_base_position = background.position
 	_logo_base_position = levels_text.position
+	_level_grid_base_position = level_grid.position
+	_back_button_base_position = back_button.position
 
 func _process(delta: float) -> void:
 	var viewport_size := get_viewport_rect().size
@@ -59,6 +65,8 @@ func _process(delta: float) -> void:
 
 	background.position = _background_base_position + _parallax_offset * background_parallax_strength
 	levels_text.position = _logo_base_position + _parallax_offset * logo_parallax_strength
+	level_grid.position = _level_grid_base_position + _parallax_offset * buttons_parallax_strength
+	back_button.position = _back_button_base_position + _parallax_offset * buttons_parallax_strength
 
 func _on_level_selected(path) -> void:
 	selected_level_path = path

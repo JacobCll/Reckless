@@ -23,9 +23,6 @@ var _logo_base_position: Vector2
 var _button_container_base_position: Vector2
 var _parallax_offset: Vector2 = Vector2.ZERO
 
-# Shared across reloads so the flare's soft glow dot is only ever rasterized once.
-static var _flare_texture: ImageTexture
-
 func _ready() -> void:
 	GameManager.current_scene = "main_menu"
 	AudioManager.play_music(music)
@@ -41,7 +38,7 @@ func _ready() -> void:
 	_logo_base_position = reckless_logo.position
 	_button_container_base_position = button_container.position
 
-	var flare_texture := _get_flare_texture()
+	var flare_texture := IconFlare.get_flare_texture()
 	flare_cyan.texture = flare_texture
 	flare_yellow.texture = flare_texture
 
@@ -76,20 +73,3 @@ func _on_notification_button_pressed() -> void:
 
 func _on_cutscene_continue_button_pressed() -> void:
 	cutscene.hide()
-
-static func _get_flare_texture() -> ImageTexture:
-	if _flare_texture:
-		return _flare_texture
-
-	const SIZE := 24
-	var image := Image.create(SIZE, SIZE, false, Image.FORMAT_RGBA8)
-	var center := Vector2(SIZE, SIZE) / 2.0
-	var radius := SIZE / 2.0
-	for x in SIZE:
-		for y in SIZE:
-			var dist := (Vector2(x + 0.5, y + 0.5) - center).length() / radius
-			var alpha := clampf(1.0 - dist, 0.0, 1.0)
-			image.set_pixel(x, y, Color(1.0, 1.0, 1.0, alpha * alpha))
-
-	_flare_texture = ImageTexture.create_from_image(image)
-	return _flare_texture

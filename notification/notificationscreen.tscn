@@ -163,7 +163,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_sjudy")
 
 [node name="Message2Content" type="RichTextLabel" parent="MessageContentContainer/MessageContentPanel" unique_id=1354752158]
-theme = SubResource("Theme_msgcontent_scroll")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -174,6 +173,7 @@ offset_right = -15.0
 offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_msgcontent_scroll")
 theme_override_colors/default_color = Color(0.6313726, 1, 0.6, 1)
 theme_override_font_sizes/normal_font_size = 16
 text = "Placeholder for text for messages. 
@@ -191,7 +191,6 @@ Etiam id iaculis tellus, nec congue mauris. Fusce turpis quam, iaculis vitae fac
 Phasellus cursus scelerisque tellus. Vivamus in placerat nunc. Phasellus libero justo, tincidunt nec condimentum a, ornare non risus. Proin imperdiet, tortor eget ornare porta, ligula nulla finibus dui, in venenatis elit dolor at nunc. Vestibulum mattis urna ut ultrices pharetra. Proin convallis sem ultrices purus hendrerit finibus. Duis dui orci, rutrum et molestie nec, pulvinar quis mi. Nulla aliquam nisi non purus feugiat ornare. Nulla at efficitur lacus."
 
 [node name="Message1Content" type="RichTextLabel" parent="MessageContentContainer/MessageContentPanel" unique_id=100115762]
-theme = SubResource("Theme_msgcontent_scroll")
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -203,6 +202,7 @@ offset_right = -24.0
 offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_msgcontent_scroll")
 theme_override_colors/default_color = Color(0.6313726, 1, 0.6, 1)
 theme_override_font_sizes/normal_font_size = 16
 text = "Placeholder for text for messages. 

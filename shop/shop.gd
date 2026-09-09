@@ -1,20 +1,22 @@
 class_name Shop
 extends Node
 
-@onready var orb_count_label := $PanelContainer/OrbCount
+@onready var orb_count_label := $OrbCount
 @onready var items_container := $ScrollContainer/VBoxContainer
 @onready var buy_sfx_player := $BuySfxPlayer
+@onready var insufficient_funds_sfx_player := $InsufficientFundsSfxPlayer
 
 @export var shop_item_scene: PackedScene
 @export var shop_music: AudioStream
 var buy_sfx := preload("res://sfx/shop_sfx/Buy_1.mp3")
+var insufficient_funds_sfx := preload("res://sfx/entity_sfx/despawned/despawned_sfx.wav")
 
 # items to sell
 var items := {
 	"powerup_shields": {
 		"display_name": "Shields",
 		"cost": 15,
-		"description": "+2 shields"
+		"description": "+2 shields that take the damage for you"
 	},
 	"powerup_double_orbs": {
 		"display_name": "Double orbs",
@@ -44,6 +46,7 @@ func _ready() -> void:
 		item.shop = self
 		item.item_id = item_id
 		item.cost = item_data["cost"]
+		item.icon_flare.visible = item_id == "powerup_double_orbs"
 	
 		item.name_label.text = item_data["display_name"]
 		item.desc_label.text = item_data["description"]
@@ -68,6 +71,10 @@ func buy_item(item_id: String, cost: int) -> bool:
 func play_buy_sfx() -> void:
 	buy_sfx_player.stream = buy_sfx
 	buy_sfx_player.play()
+
+func play_insufficient_funds_sfx() -> void:
+	insufficient_funds_sfx_player.stream = insufficient_funds_sfx
+	insufficient_funds_sfx_player.play()
 
 func _on_back_button_pressed() -> void:
 	AudioManager.stop_music()

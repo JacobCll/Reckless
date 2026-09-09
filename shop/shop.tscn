@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b6vim53gm80pq" path="res://buttons/powerups-buttons/orbcount.png" id="8_mmyc1"]
 [ext_resource type="AudioStream" uid="uid://ewo17lgu7ls7" path="res://sfx/shop_sfx/Shop_BGM.mp3" id="10_shopbgm"]
 [ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="11_mmyc1"]
+[ext_resource type="PackedScene" path="res://effects/icon_flare/icon_flare.tscn" id="12_flare"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ljlg5"]
 
@@ -19,6 +20,10 @@ shop_music = ExtResource("10_shopbgm")
 
 [node name="BuySfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042519]
 volume_db = -10.0
+bus = &"Sfx"
+
+[node name="InsufficientFundsSfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1219042520]
+volume_db = -18.0
 bus = &"Sfx"
 
 [node name="Background" type="TextureRect" parent="." unique_id=21323181]
@@ -53,36 +58,33 @@ texture = ExtResource("8_mmyc1")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1029697808]
-anchors_preset = -1
-anchor_left = 0.961
-anchor_top = 0.178
-anchor_right = 0.961
-anchor_bottom = 0.178
-offset_left = -80.064026
-offset_top = -15.70401
-offset_right = -0.06402588
-offset_bottom = 16.29599
-grow_horizontal = 0
-grow_vertical = 2
-metadata/_edit_group_ = true
+[node name="IconFlare" parent="OrbBag" unique_id=1847087290 instance=ExtResource("12_flare")]
+emission_coverage = Vector2(0.6, 0.5)
 
-[node name="OrbCount" type="Label" parent="PanelContainer" unique_id=969332268]
-layout_mode = 2
+[node name="OrbCount" type="Label" parent="." unique_id=969332268]
+anchors_preset = -1
+anchor_left = 0.957
+anchor_top = 0.172
+anchor_right = 0.957
+anchor_bottom = 0.172
+offset_left = -158.96802
+offset_top = -11.096008
+offset_right = 0.031982422
+offset_bottom = 10.903992
 theme_override_fonts/font = ExtResource("11_mmyc1")
 theme_override_font_sizes/font_size = 22
 text = "Orbs: 0"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=198930216]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 72.0
-offset_top = 208.0
-offset_right = -454.0
-offset_bottom = -118.0
+offset_left = 71.0
+offset_top = 203.0
+offset_right = -455.0
+offset_bottom = -123.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 3
