@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b87t8mxgjju4" path="res://scenes/levels/tutorial_level/tutorial_level.gd" id="2_h8moi"]
 [ext_resource type="Texture2D" uid="uid://kp1kib62eak6" path="res://backgrounds/Background_tutorial.png" id="3_sd6r6"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="4_knk6l"]
-[ext_resource type="AudioStream" uid="uid://hlogw2d357ox" path="res://music/tutorial_bgm/Tutorial_BGM2.mp3" id="4_tutorialbgm"]
+[ext_resource type="AudioStream" uid="uid://hlogw2d357ox" path="res://music/tutorial_bgm/Tutorial_BGM3.mp3" id="4_tutorialbgm"]
 [ext_resource type="PackedScene" uid="uid://b4mk3uqqpa5ix" path="res://entities/blue/exam_sprite/exam_sprite.tscn" id="5_haaw4"]
 [ext_resource type="Texture2D" uid="uid://dwiwa23vxvnur" path="res://backgrounds/overlay_backgrounds/Overlay_TutorialLevel.png" id="5_overlay_main"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_l7ta3"]
