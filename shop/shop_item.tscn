@@ -88,7 +88,7 @@ offset_bottom = 1.4160004
 theme_override_colors/font_color = Color(0.071870394, 0.049564317, 0, 1)
 theme_override_fonts/font = ExtResource("3_u3fxv")
 theme_override_font_sizes/font_size = 14
-text = "0 orbs"
+text = "0 gems"
 horizontal_alignment = 1
 vertical_alignment = 1
 

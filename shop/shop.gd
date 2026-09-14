@@ -1,7 +1,7 @@
 class_name Shop
 extends Node
 
-@onready var orb_count_label := $OrbCount
+@onready var gem_count_label := $GemCount
 @onready var items_container := $ScrollContainer/VBoxContainer
 @onready var buy_sfx_player := $BuySfxPlayer
 @onready var insufficient_funds_sfx_player := $InsufficientFundsSfxPlayer
@@ -18,10 +18,10 @@ var items := {
 		"cost": 15,
 		"description": "+2 shields that take the damage for you"
 	},
-	"powerup_double_orbs": {
-		"display_name": "Double orbs",
+	"powerup_double_gems": {
+		"display_name": "Double gems",
 		"cost": 50,
-		"description": "Higher chance of double orb drops"
+		"description": "Higher chance of double gem drops"
 	},
 	"powerup_no_green": {
 		"display_name": "No Green!",
@@ -31,7 +31,7 @@ var items := {
 }
 
 func _process(_delta):
-	orb_count_label.text = "Orbs: " + str(GameManager.user_orbs)
+	gem_count_label.text = "Gems: " + str(GameManager.user_gems)
 
 func _ready() -> void:
 	MouseManager.hide_mouse_trail()
@@ -46,11 +46,11 @@ func _ready() -> void:
 		item.shop = self
 		item.item_id = item_id
 		item.cost = item_data["cost"]
-		item.icon_flare.visible = item_id == "powerup_double_orbs"
-	
+		item.icon_flare.visible = item_id == "powerup_double_gems"
+
 		item.name_label.text = item_data["display_name"]
 		item.desc_label.text = item_data["description"]
-		item.cost_label.text = str(item_data["cost"]) + " orbs"
+		item.cost_label.text = str(item_data["cost"]) + " gems"
 		
 		var item_texture_path = GameManager.item_info[item_id]["texture"]
 		var item_texture = load(item_texture_path)
@@ -58,10 +58,10 @@ func _ready() -> void:
 		
 
 func buy_item(item_id: String, cost: int) -> bool:
-	if GameManager.user_orbs < cost:
+	if GameManager.user_gems < cost:
 		return false
-	
-	GameManager.user_orbs -= cost
+
+	GameManager.user_gems -= cost
 	GameManager.inventory[item_id] += 1
 	
 	GameManager.save_data()

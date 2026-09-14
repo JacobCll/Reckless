@@ -101,7 +101,9 @@ func populate_powerups():
 	for item_id in GameManager.inventory:
 		if GameManager.inventory[item_id] <= 0:
 			continue
-		
+		if not GameManager.item_info.has(item_id):
+			continue
+
 		var card = powerup_card_scene.instantiate()
 		
 		card.item_id = item_id

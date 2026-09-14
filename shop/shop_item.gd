@@ -14,7 +14,7 @@ var item_id: String
 var cost: int
 
 func _process(_delta: float) -> void:
-	var can_afford := GameManager.user_orbs >= cost
+	var can_afford := GameManager.user_gems >= cost
 	# stays clickable (rather than truly disabled) so an insufficient-funds click
 	# still registers and can play the denial sfx below; dimmed to read as disabled
 	buy_button.modulate.a = 1.0 if can_afford else 0.5

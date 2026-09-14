@@ -29,7 +29,7 @@ var _spawn_glow_tween: Tween
 # --------------------
 # POWER UP FLAGS
 # --------------------
-var double_orbs_active := false # modify in entity_drop()
+var double_gems_active := false # modify in entity_drop()
 var current_shields := 0
 
 # --------------------
@@ -186,8 +186,8 @@ func _apply_selected_powerup():
 			_update_shields_ui()
 		"powerup_no_green":
 			_apply_no_green_powerup()
-		"powerup_double_orbs": 
-			double_orbs_active = true
+		"powerup_double_gems":
+			double_gems_active = true
 		"": # no powerup selected
 			return
 			
@@ -310,13 +310,13 @@ func _entity_drop(entity_type: String):
 	if entity_type == "green":
 		return
 	
-	var orbs_to_drop = 5
-	
-	# double orbs power-up
-	if double_orbs_active:
-		orbs_to_drop *= 2
-		
-	GameManager.user_orbs += orbs_to_drop
+	var gems_to_drop = 5
+
+	# double gems power-up
+	if double_gems_active:
+		gems_to_drop *= 2
+
+	GameManager.user_gems += gems_to_drop
 	GameManager.save_data()
 
 # override if needed

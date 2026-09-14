@@ -4,7 +4,7 @@ const SAVE_FILE := "user://game_manager_state.dat"
 
 # SAVE TO FILE
 var current_scene := "main_menu"
-var user_orbs := 0 # user currency
+var user_gems := 0 # user currency
 var highest_unlocked_level := 1 # highest level the player has unlocked
 var MAX_UNLOCKABLE_LEVEL := 2 # max level that can be unlocked
 var level_1_tutorial_seen := false
@@ -20,7 +20,7 @@ var show_cutscene := true
 var inventory := {
 	"powerup_shields": 0,
 	"powerup_no_green": 0,
-	"powerup_double_orbs": 0
+	"powerup_double_gems": 0
 }
 
 # dictionary of all item information, access with item_id
@@ -31,10 +31,10 @@ var item_info := {
 		"description": "Adds +2 shields at the start of the run",
 		"texture": "res://buttons/powerups-buttons/powerup_shield.png"
 	},
-	"powerup_double_orbs": {
-		"display_name": "Double Orbs",
+	"powerup_double_gems": {
+		"display_name": "Double Gems",
 		"cost": 50,
-		"description": "Higher chance of double orb drops",
+		"description": "Higher chance of double gem drops",
 		"texture": "res://buttons/powerups-buttons/poweup_double_orbs.png"
 	},
 	"powerup_no_green": {
@@ -51,12 +51,12 @@ func _ready():
 
 # for debugging
 func reset():
-	user_orbs = 0
+	user_gems = 0
 	highest_unlocked_level = 1
 	inventory = {
 		"powerup_shields": 0,
 		"powerup_no_green": 0,
-		"powerup_double_orbs": 0
+		"powerup_double_gems": 0
 	}
 	level_1_tutorial_seen = false
 	level_1_step_tutorial_enabled = true
@@ -75,7 +75,7 @@ func unlock_level(level_completed: int) -> void:
 func save_data() -> void:
 	var data := {
 		"highest_unlocked_level": highest_unlocked_level,
-		"user_orbs": user_orbs,
+		"user_gems": user_gems,
 		"inventory": inventory,
 		"level_1_tutorial_seen": level_1_tutorial_seen,
 		"level_1_step_tutorial_enabled": level_1_step_tutorial_enabled
@@ -95,11 +95,11 @@ func load_data() -> void:
 		return
 
 	highest_unlocked_level = saved_data.get("highest_unlocked_level", 1)
-	user_orbs = saved_data.get("user_orbs", 0)
+	user_gems = saved_data.get("user_gems", 0)
 	inventory = saved_data.get("inventory", {
 		"powerup_shields": 0,
 		"powerup_no_green": 0,
-		"powerup_double_orbs": 0
+		"powerup_double_gems": 0
 	})
 	level_1_tutorial_seen = saved_data.get("level_1_tutorial_seen", false)
 	level_1_step_tutorial_enabled = saved_data.get("level_1_step_tutorial_enabled", true)
