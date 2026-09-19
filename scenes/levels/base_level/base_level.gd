@@ -32,6 +32,10 @@ var _spawn_glow_tween: Tween
 var double_gems_active := false # modify in entity_drop()
 var current_shields := 0
 
+# the powerup this run was started with; GameManager.selected_powerup is cleared
+# once consumed, so keep our own copy for the HUD indicator
+var active_powerup := ""
+
 # --------------------
 # WAVE COMPLETE BANNER
 # --------------------
@@ -110,6 +114,8 @@ var _emoji_index := 0
 @onready var next_level_button = $CanvasLayer/WinLevelScreen/HBoxContainer/NextLevelButton
 @onready var settings_menu = $SettingsMenu
 @onready var progress_bar = $CanvasLayer/HUD/LevelProgressBar
+@onready var powerup_indicator = $CanvasLayer/HUD/PowerupIndicator
+@onready var powerup_indicator_icon = $CanvasLayer/HUD/PowerupIndicator/Icon
 
 # --------------------
 # RESOURCES
@@ -180,7 +186,9 @@ func _setup_level() -> void:
 	_background_base_position = background.position
 
 func _apply_selected_powerup():
-	match GameManager.selected_powerup:
+	active_powerup = GameManager.selected_powerup
+
+	match active_powerup:
 		"powerup_shields":
 			current_shields = 2
 			_update_shields_ui()
@@ -189,12 +197,35 @@ func _apply_selected_powerup():
 		"powerup_double_gems":
 			double_gems_active = true
 		"": # no powerup selected
+			_update_powerup_indicator()
 			return
-			
-	if GameManager.selected_powerup != "":
-		GameManager.inventory[GameManager.selected_powerup] -= 1
-		GameManager.selected_powerup = ""
-		GameManager.save_data()
+
+	GameManager.inventory[active_powerup] -= 1
+	GameManager.selected_powerup = ""
+	GameManager.save_data()
+
+	_update_powerup_indicator()
+
+# shows which powerup the run is using; hidden when none was selected
+func _update_powerup_indicator() -> void:
+	if active_powerup == "" or not GameManager.item_info.has(active_powerup):
+		powerup_indicator.hide()
+		return
+
+	var info: Dictionary = GameManager.item_info[active_powerup]
+	powerup_indicator_icon.texture = load(info["texture"])
+	powerup_indicator.show()
+	_pulse_powerup_indicator()
+
+func _pulse_powerup_indicator() -> void:
+	# runs during _ready(), before layout has resolved the icon's size — without
+	# this the pivot would be (0, 0) and the pop would scale from the corner
+	await get_tree().process_frame
+
+	powerup_indicator_icon.pivot_offset = powerup_indicator_icon.size / 2.0
+	powerup_indicator_icon.scale = Vector2(1.4, 1.4)
+	var tween = create_tween()
+	tween.tween_property(powerup_indicator_icon, "scale", Vector2.ONE, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _setup_ui() -> void:
 	pause_screen.hide()

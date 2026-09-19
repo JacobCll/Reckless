@@ -29,6 +29,30 @@ extends Node2D
 @export var gravity_max := 1.0
 
 # ─────────────────────────────────────────────
+# SPAWN MODE
+# ─────────────────────────────────────────────
+enum SpawnMode {
+	BOTTOM_UP, # spawn along `path`, throw upward
+	SIDES, # spawn off the left/right screen edges, throw inward and up
+}
+
+@export var spawn_mode: SpawnMode = SpawnMode.BOTTOM_UP
+
+@export_group("Side Spawn Settings")
+@export var side_spawn_margin := 100.0
+@export var side_spawn_y_min := 220.0
+@export var side_spawn_y_max := 650.0
+
+@export var side_throw_force_min := 1100.0
+@export var side_throw_force_max := 1300.0
+
+# vertical component of the throw direction (negative = upward); randomized per-throw
+@export var side_tilt_min := -0.9
+@export var side_tilt_max := -0.5
+
+@export_group("")
+
+# ─────────────────────────────────────────────
 # ENTITY TYPE CONFIG
 # ─────────────────────────────────────────────
 class EntityType:
@@ -142,18 +166,18 @@ func spawn_entity(n: int = 1, b_spread: float = 0):
 	var entities = []
 	for i in n: # number of entities to spawn
 		var type := _pick_type() #  pick type
-		if type == null: 
+		if type == null:
 			break
 		await get_tree().create_timer(b_spread * i, false).timeout
-		var entity = _spawn_from_type(type, throw_entity_up)
+		var entity = _spawn_from_type(type)
 		entities.append(entity)
-	
+
 	return entities
 
 func spawn_specific(entity_type: String) -> Node:
 	for type in _entity_types:
 		if type.entity_type == entity_type:
-			return _spawn_from_type(type, throw_entity_up)
+			return _spawn_from_type(type)
 	return null
 
 func _trigger_spawn() -> void:
@@ -171,7 +195,7 @@ func _trigger_spawn() -> void:
 			await get_tree().create_timer(burst_spread * i, false).timeout
 			if not active:
 				return
-		_spawn_from_type(type, throw_entity_up)
+		_spawn_from_type(type)
 
 # ─────────────────────────────────────────────
 # WEIGHTED PICK
@@ -203,14 +227,11 @@ func _pick_type() -> EntityType:
 # SPAWNING
 # ─────────────────────────────────────────────
 
-func _spawn_from_type(type: EntityType, throw_function: Callable):
+func _spawn_from_type(type: EntityType):
 	var scene: PackedScene = type.scenes.pick_random()
 	var entity = scene.instantiate()
 
-	# spawn on path
-	var curve := path.curve
-	var offset := randf_range(0.0, curve.get_baked_length())
-	entity.position = curve.sample_baked(offset)
+	entity.position = _pick_spawn_position()
 
 	add_child(entity)
 
@@ -228,11 +249,34 @@ func _spawn_from_type(type: EntityType, throw_function: Callable):
 			entity.smashed.connect(_on_smashed.bind(type))
 	
 	entity_spawned.emit(type.entity_type, entity.global_position)
-	
-	throw_function.call(entity)
-	
+
+	match spawn_mode:
+		SpawnMode.SIDES:
+			throw_entity_from_side(entity)
+		_:
+			throw_entity_up(entity)
+
 	return entity
 
+
+# ─────────────────────────────────────────────
+# SPAWN POSITIONING
+# ─────────────────────────────────────────────
+func _pick_spawn_position() -> Vector2:
+	match spawn_mode:
+		SpawnMode.SIDES:
+			return _random_side_position()
+		_:
+			var curve := path.curve
+			var offset := randf_range(0.0, curve.get_baked_length())
+			return curve.sample_baked(offset)
+
+func _random_side_position() -> Vector2:
+	var viewport_width := get_viewport_rect().size.x
+	var from_left := randf() < 0.5
+	var x := -side_spawn_margin if from_left else viewport_width + side_spawn_margin
+	var y := randf_range(side_spawn_y_min, side_spawn_y_max)
+	return Vector2(x, y)
 
 # ─────────────────────────────────────────────
 # PHYSICS THROW
@@ -240,6 +284,17 @@ func _spawn_from_type(type: EntityType, throw_function: Callable):
 func throw_entity_up(entity: RigidBody2D) -> void:
 	var force := randf_range(throw_force_min, throw_force_max)
 	var dir := Vector2(randf_range(spread_min, spread_max), -1.0).normalized()
+
+	entity.angular_velocity = randf_range(spin_min, spin_max)
+	entity.gravity_scale = randf_range(gravity_min, gravity_max)
+	entity.apply_central_impulse(dir * force)
+
+func throw_entity_from_side(entity: RigidBody2D) -> void:
+	var force := randf_range(side_throw_force_min, side_throw_force_max)
+	var viewport_width := get_viewport_rect().size.x
+	var horizontal := 1.0 if entity.position.x < viewport_width / 2.0 else -1.0
+	var vertical := randf_range(side_tilt_min, side_tilt_max)
+	var dir := Vector2(horizontal, vertical).normalized()
 
 	entity.angular_velocity = randf_range(spin_min, spin_max)
 	entity.gravity_scale = randf_range(gravity_min, gravity_max)

@@ -6,7 +6,7 @@ const SAVE_FILE := "user://game_manager_state.dat"
 var current_scene := "main_menu"
 var user_gems := 0 # user currency
 var highest_unlocked_level := 1 # highest level the player has unlocked
-var MAX_UNLOCKABLE_LEVEL := 2 # max level that can be unlocked
+var MAX_UNLOCKABLE_LEVEL := 6 # max level that can be unlocked
 var level_1_tutorial_seen := false
 var level_1_step_tutorial_enabled := true
 

@@ -151,6 +151,7 @@ texture_normal = ExtResource("17_jicxw")
 texture_pressed = ExtResource("18_fu625")
 texture_hover = ExtResource("19_dfng4")
 texture_disabled = ExtResource("20_nsy7d")
+level_path = "uid://gyrq11e8td495"
 level_number = 3
 
 [node name="Level4Button" parent="LevelGrid" unique_id=196909909 instance=ExtResource("3_bvllw")]
@@ -159,6 +160,7 @@ texture_normal = ExtResource("21_xr8l2")
 texture_pressed = ExtResource("22_kvjpb")
 texture_hover = ExtResource("23_hf2qt")
 texture_disabled = ExtResource("24_tfkek")
+level_path = "uid://dq3m8vt5kxr71"
 level_number = 4
 
 [node name="Level5Button" parent="LevelGrid" unique_id=1882643206 instance=ExtResource("3_bvllw")]
@@ -167,6 +169,7 @@ texture_normal = ExtResource("25_0hlaf")
 texture_pressed = ExtResource("26_p7g7j")
 texture_hover = ExtResource("27_r0alg")
 texture_disabled = ExtResource("28_q87vn")
+level_path = "uid://c8hx2ptv6mqzd"
 level_number = 5
 
 [node name="Level6Button" parent="LevelGrid" unique_id=429947267 instance=ExtResource("3_bvllw")]
@@ -175,6 +178,7 @@ texture_normal = ExtResource("29_v8526")
 texture_pressed = ExtResource("30_khfbq")
 texture_hover = ExtResource("31_0jfdj")
 texture_disabled = ExtResource("32_bl8af")
+level_path = "uid://b2vqm9xfj4slc"
 level_number = 6
 
 [node name="Level7Button" parent="LevelGrid" unique_id=1923168705 instance=ExtResource("3_bvllw")]

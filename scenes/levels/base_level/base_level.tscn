@@ -426,6 +426,22 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="PowerupIndicator" type="Control" parent="CanvasLayer/HUD" unique_id=715856507]
+visible = false
+anchors_preset = 0
+offset_left = 120.0
+offset_top = 34.0
+offset_right = 164.0
+offset_bottom = 82.0
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/HUD/PowerupIndicator" unique_id=1362269942]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 44.0
+offset_bottom = 46.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=1652738209]
 anchors_preset = 8
 anchor_left = 0.5
