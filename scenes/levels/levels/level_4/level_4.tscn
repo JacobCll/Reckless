@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_base"]
 [ext_resource type="Script" uid="uid://bk4n7wsc2fjpe" path="res://scenes/levels/levels/level_4/level_4.gd" id="2_script"]
 [ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/in_game_BGM2.mp3" id="3_music"]
-[ext_resource type="Texture2D" uid="uid://02xpmknqee47" path="res://backgrounds/level/school_1_bg.jpg" id="4_bg"]
+[ext_resource type="Texture2D" uid="uid://dkacxlnyv0vdb" path="res://backgrounds/level/Background_LivingRoom.jpg" id="4_dy7dw"]
 [ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="4_yuhpf"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="5_xx7qf"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_u6ogp"]
@@ -87,7 +87,7 @@ offset_top = -103.0
 offset_right = 102.07788
 offset_bottom = 123.0
 scale = Vector2(1.0015476, 1)
-texture = ExtResource("4_bg")
+texture = ExtResource("4_dy7dw")
 expand_mode = 1
 stretch_mode = 5
 
@@ -97,7 +97,7 @@ waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2"), NodePath("../Wa
 [node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=666789753]
 script = ExtResource("4_yuhpf")
 wave_number = 1
-kill_requirement = 20
+kill_requirement = 15
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="MainSpawner" parent="Waves/Wave1" index="0" unique_id=300162411 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
@@ -135,11 +135,8 @@ metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="MainSpawner" parent="Waves/Wave2" index="0" unique_id=741241253 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
 spawner_name = "Wave2 Main Spawner"
-spawn_delay_min = 0.9
-spawn_delay_max = 1.5
 spawn_count_min = 2
-burst_spread = 0.2
-throw_force_max = 1120.0
+burst_spread = 0.7
 blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5"), ExtResource("8_1l0jw"), ExtResource("9_xnx7l"), ExtResource("10_4cyum"), ExtResource("11_16fks"), ExtResource("12_o1wrm"), ExtResource("13_0bfa8"), ExtResource("14_mvryr"), ExtResource("15_qwle5"), ExtResource("16_ws47o"), ExtResource("17_vue6h"), ExtResource("18_tsurt")])
 red_scenes = Array[PackedScene]([ExtResource("9_bel7p"), ExtResource("22_c0gsn"), ExtResource("23_1io5y"), ExtResource("24_4heoq"), ExtResource("25_vg8gq"), ExtResource("26_15kbb"), ExtResource("27_b3eu8"), ExtResource("28_4f3cj"), ExtResource("29_7kile"), ExtResource("30_ippji")])
 green_scenes = Array[PackedScene]([ExtResource("31_cash1"), ExtResource("32_dipl1"), ExtResource("33_frm01"), ExtResource("34_idb001"), ExtResource("35_isaw01"), ExtResource("36_kwek01"), ExtResource("37_lily01"), ExtResource("38_rose01"), ExtResource("39_sunf01")])
@@ -186,15 +183,10 @@ metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="MainSpawner" parent="Waves/Wave3" index="0" unique_id=1907927072 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
 spawner_name = "Wave3 Main Spawner"
-spawn_delay_min = 0.6
-spawn_delay_max = 1.0
+spawn_delay_min = 2.0
 spawn_count_min = 2
 spawn_count_max = 3
-burst_spread = 0.15
 throw_force_min = 1100.0
-throw_force_max = 1250.0
-spin_min = -4.0
-spin_max = 4.0
 blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5"), ExtResource("8_1l0jw"), ExtResource("9_xnx7l"), ExtResource("10_4cyum"), ExtResource("11_16fks"), ExtResource("12_o1wrm"), ExtResource("13_0bfa8"), ExtResource("14_mvryr"), ExtResource("15_qwle5"), ExtResource("16_ws47o"), ExtResource("17_vue6h"), ExtResource("18_tsurt")])
 red_scenes = Array[PackedScene]([ExtResource("9_bel7p"), ExtResource("22_c0gsn"), ExtResource("23_1io5y"), ExtResource("24_4heoq"), ExtResource("25_vg8gq"), ExtResource("26_15kbb"), ExtResource("27_b3eu8"), ExtResource("28_4f3cj"), ExtResource("29_7kile"), ExtResource("30_ippji")])
 green_scenes = Array[PackedScene]([ExtResource("31_cash1"), ExtResource("32_dipl1"), ExtResource("33_frm01"), ExtResource("34_idb001"), ExtResource("35_isaw01"), ExtResource("36_kwek01"), ExtResource("37_lily01"), ExtResource("38_rose01"), ExtResource("39_sunf01")])
@@ -223,7 +215,7 @@ green_weight = 0.0
 [node name="GreenSpawner" parent="Waves/Wave3" index="3" unique_id=1898772182 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
 spawner_name = "Wave3 Green Spawner"
 spawn_loop_wait = true
-spawn_delay_min = 2.5
+spawn_delay_min = 4.0
 spawn_delay_max = 4.0
 spawn_count_max = 1
 blue_weight = 0.0

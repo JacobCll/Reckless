@@ -91,7 +91,7 @@ waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2"), NodePath("../Wa
 [node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=1729526405]
 script = ExtResource("4_yuhpf")
 wave_number = 1
-kill_requirement = 0
+kill_requirement = 15
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="BlueSpawner" parent="Waves/Wave1" index="0" unique_id=599635468 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
@@ -126,7 +126,7 @@ curve = SubResource("Curve2D_w1green")
 [node name="Wave2" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="1" unique_id=1271165722]
 script = ExtResource("4_yuhpf")
 wave_number = 2
-kill_requirement = 0
+kill_requirement = 15
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="MixSpawner" parent="Waves/Wave2" index="0" unique_id=1392825378 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]

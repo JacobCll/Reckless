@@ -78,8 +78,7 @@ func _on_level_selected(path) -> void:
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	selected_level_path = ""
-	selected_powerup_card = null
-	GameManager.selected_powerup = ""
+	_clear_powerup_selection()
 
 func _on_start_button_pressed() -> void:
 	if selected_level_path == "":
@@ -89,12 +88,14 @@ func _on_start_button_pressed() -> void:
 
 func _on_cancel_button_pressed() -> void:
 	selected_level_path = ""
-	selected_powerup_card = null
-	GameManager.selected_powerup = ""
+	_clear_powerup_selection()
 	
 	powerup_modal.hide()
 	
 func populate_powerups():
+	# the cards below are rebuilt from scratch, so any previous pick is gone
+	_clear_powerup_selection()
+
 	for child in powerup_grid.get_children():
 		child.queue_free()
 		
@@ -119,7 +120,7 @@ func select_powerup(card: PowerupCard):
 	# deselects it if you click the same card
 	if selected_powerup_card == card:
 		card.set_selected(false)
-		selected_powerup_card = null
+		_clear_powerup_selection()
 		return
 	
 	if selected_powerup_card:
@@ -129,3 +130,7 @@ func select_powerup(card: PowerupCard):
 	selected_powerup_card.set_selected(true)
 
 	GameManager.selected_powerup = card.item_id
+
+func _clear_powerup_selection() -> void:
+	selected_powerup_card = null
+	GameManager.selected_powerup = ""

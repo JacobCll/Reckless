@@ -16,12 +16,21 @@ var selected_powerup := ""
 var selected_notification := ""
 var show_cutscene := true
 
-# dictionary of {item_id: amount owned}
-var inventory := {
+# every item_id the game knows about, with the amount owned when starting fresh
+const DEFAULT_INVENTORY := {
 	"powerup_shields": 0,
 	"powerup_no_green": 0,
 	"powerup_double_gems": 0
 }
+
+# item_ids that have been renamed, as {old_id: current_id}, so saves written
+# before the rename keep the items the player paid for
+const RENAMED_ITEM_IDS := {
+	"powerup_double_orbs": "powerup_double_gems"
+}
+
+# dictionary of {item_id: amount owned}
+var inventory := DEFAULT_INVENTORY.duplicate()
 
 # dictionary of all item information, access with item_id
 var item_info := {
@@ -53,11 +62,7 @@ func _ready():
 func reset():
 	user_gems = 0
 	highest_unlocked_level = 1
-	inventory = {
-		"powerup_shields": 0,
-		"powerup_no_green": 0,
-		"powerup_double_gems": 0
-	}
+	inventory = DEFAULT_INVENTORY.duplicate()
 	level_1_tutorial_seen = false
 	level_1_step_tutorial_enabled = true
 	save_data()
@@ -95,11 +100,27 @@ func load_data() -> void:
 		return
 
 	highest_unlocked_level = saved_data.get("highest_unlocked_level", 1)
-	user_gems = saved_data.get("user_gems", 0)
-	inventory = saved_data.get("inventory", {
-		"powerup_shields": 0,
-		"powerup_no_green": 0,
-		"powerup_double_gems": 0
-	})
+	# "user_orbs" is the pre-rename name for the currency
+	user_gems = saved_data.get("user_gems", saved_data.get("user_orbs", 0))
+	inventory = _migrated_inventory(saved_data.get("inventory", {}))
 	level_1_tutorial_seen = saved_data.get("level_1_tutorial_seen", false)
 	level_1_step_tutorial_enabled = saved_data.get("level_1_step_tutorial_enabled", true)
+
+# Builds an inventory that always has every current item_id, carrying over the
+# amounts from a saved dictionary that may predate an item rename or a new item.
+func _migrated_inventory(saved_inventory) -> Dictionary:
+	var result := DEFAULT_INVENTORY.duplicate()
+
+	if typeof(saved_inventory) != TYPE_DICTIONARY:
+		return result
+
+	for saved_id in saved_inventory:
+		var item_id = RENAMED_ITEM_IDS.get(saved_id, saved_id)
+		if not result.has(item_id):
+			continue
+
+		var amount = saved_inventory[saved_id]
+		if typeof(amount) == TYPE_INT or typeof(amount) == TYPE_FLOAT:
+			result[item_id] += int(amount)
+
+	return result
