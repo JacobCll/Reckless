@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://hqi2vneqra8o" path="res://buttons/new_level_buttons/Button_Level1.png" id="9_hxshe"]
 [ext_resource type="Texture2D" uid="uid://b5ro376qjd8k7" path="res://buttons/new_level_buttons/Button_Level1_Hover.png" id="10_4yaje"]
 [ext_resource type="Texture2D" uid="uid://uua7tavydlav" path="res://buttons/new_level_buttons/Button_Level1_Active.png" id="10_fv47d"]
-[ext_resource type="Texture2D" uid="uid://bh7uu6ljibbdb" path="res://buttons/new_level_buttons/Button_Level1-2_Locked.png" id="11_qqymp"]
 [ext_resource type="PackedScene" uid="uid://dnrnq2clsmdkk" path="res://scenes/level_menu/powerup_card.tscn" id="12_uxs4i"]
 [ext_resource type="Texture2D" uid="uid://b857e2jjhxyru" path="res://buttons/new_level_buttons/Button_Level2.png" id="13_ho8ji"]
 [ext_resource type="Texture2D" uid="uid://5oeph3egnqr2" path="res://buttons/new_level_buttons/Button_Level2_Active.png" id="14_a2vxr"]
@@ -20,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://vshas3wi56m7" path="res://buttons/new_level_buttons/Button_Level3.png" id="17_jicxw"]
 [ext_resource type="Texture2D" uid="uid://c3nyjumqvqje8" path="res://buttons/new_level_buttons/Button_Level3_Active.png" id="18_fu625"]
 [ext_resource type="Texture2D" uid="uid://bmc4hq5hjh68b" path="res://buttons/new_level_buttons/Button_Level3_Hover.png" id="19_dfng4"]
-[ext_resource type="Texture2D" uid="uid://bieqe5ydaema0" path="res://buttons/new_level_buttons/Button_Level3-4_Locked.png" id="20_nsy7d"]
 [ext_resource type="Texture2D" uid="uid://b4kqb3oh5seq2" path="res://buttons/new_level_buttons/Button_Level4.png" id="21_xr8l2"]
 [ext_resource type="Texture2D" uid="uid://7f3jv04ymr6t" path="res://buttons/new_level_buttons/Button_Level4_Active.png" id="22_kvjpb"]
 [ext_resource type="Texture2D" uid="uid://dr4hvyuhuxg28" path="res://buttons/new_level_buttons/Button_Level4_Hover.png" id="23_hf2qt"]
@@ -32,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://b0hc6mcj4ytvs" path="res://buttons/new_level_buttons/Button_Level6.png" id="29_v8526"]
 [ext_resource type="Texture2D" uid="uid://d4g6q2n1e3vpv" path="res://buttons/new_level_buttons/Button_Level6_Active.png" id="30_khfbq"]
 [ext_resource type="Texture2D" uid="uid://bgkol4t5ffa55" path="res://buttons/new_level_buttons/Button_Level6_Hover.png" id="31_0jfdj"]
-[ext_resource type="Texture2D" uid="uid://bp3xttogktnt4" path="res://buttons/new_level_buttons/Button_Level6-7_Locked.png" id="32_bl8af"]
 [ext_resource type="Texture2D" uid="uid://b3re6p70upaln" path="res://buttons/new_level_buttons/Button_Level7.png" id="33_khfbq"]
 [ext_resource type="Texture2D" uid="uid://dwph1w62uqn2v" path="res://buttons/new_level_buttons/Button_Level7_Active.png" id="34_ve5mc"]
 [ext_resource type="Texture2D" uid="uid://b4bxrkso08f1h" path="res://buttons/new_level_buttons/Button_Level7_Hover.png" id="35_lgsuu"]
@@ -40,7 +37,6 @@
 [ext_resource type="Texture2D" uid="uid://dcrae0tk7w1r0" path="res://buttons/new_level_buttons/Button_Level8.png" id="37_52qnn"]
 [ext_resource type="Texture2D" uid="uid://bys0td685x3xe" path="res://buttons/new_level_buttons/Button_Level8_Active.png" id="38_lcikx"]
 [ext_resource type="Texture2D" uid="uid://vlis2rctnppd" path="res://buttons/new_level_buttons/Button_Level8_Hover.png" id="39_l55ic"]
-[ext_resource type="Texture2D" uid="uid://cu0mx0wclnrm8" path="res://buttons/new_level_buttons/Button_Level8-9_Locked.png" id="40_kkgl1"]
 [ext_resource type="Texture2D" uid="uid://bp6prttk8vxdq" path="res://buttons/new_level_buttons/Button_Level9.png" id="41_5j1mp"]
 [ext_resource type="Texture2D" uid="uid://bn7k4ihjto3y1" path="res://buttons/new_level_buttons/Button_Level9_Active.png" id="42_n67cf"]
 [ext_resource type="Texture2D" uid="uid://bpr541xxfk0f4" path="res://buttons/new_level_buttons/Button_Level9_Hover.png" id="43_chobt"]
@@ -132,7 +128,7 @@ layout_mode = 2
 texture_normal = ExtResource("9_hxshe")
 texture_pressed = ExtResource("10_fv47d")
 texture_hover = ExtResource("10_4yaje")
-texture_disabled = ExtResource("11_qqymp")
+texture_disabled = ExtResource("16_xdurn")
 level_path = "uid://b74jsgn1rm2d7"
 level_number = 1
 
@@ -150,8 +146,8 @@ layout_mode = 2
 texture_normal = ExtResource("17_jicxw")
 texture_pressed = ExtResource("18_fu625")
 texture_hover = ExtResource("19_dfng4")
-texture_disabled = ExtResource("20_nsy7d")
-level_path = "uid://gyrq11e8td495"
+texture_disabled = ExtResource("24_tfkek")
+level_path = "res://scenes/levels/levels/level_3/level_3.tscn"
 level_number = 3
 
 [node name="Level4Button" parent="LevelGrid" unique_id=196909909 instance=ExtResource("3_bvllw")]
@@ -169,7 +165,7 @@ texture_normal = ExtResource("25_0hlaf")
 texture_pressed = ExtResource("26_p7g7j")
 texture_hover = ExtResource("27_r0alg")
 texture_disabled = ExtResource("28_q87vn")
-level_path = "uid://c8hx2ptv6mqzd"
+level_path = "res://scenes/levels/levels/level_5/level_5.tscn"
 level_number = 5
 
 [node name="Level6Button" parent="LevelGrid" unique_id=429947267 instance=ExtResource("3_bvllw")]
@@ -177,8 +173,8 @@ layout_mode = 2
 texture_normal = ExtResource("29_v8526")
 texture_pressed = ExtResource("30_khfbq")
 texture_hover = ExtResource("31_0jfdj")
-texture_disabled = ExtResource("32_bl8af")
-level_path = "uid://b2vqm9xfj4slc"
+texture_disabled = ExtResource("36_4jhlu")
+level_path = "res://scenes/levels/levels/level_6/level_6.tscn"
 level_number = 6
 
 [node name="Level7Button" parent="LevelGrid" unique_id=1923168705 instance=ExtResource("3_bvllw")]
@@ -187,6 +183,7 @@ texture_normal = ExtResource("33_khfbq")
 texture_pressed = ExtResource("34_ve5mc")
 texture_hover = ExtResource("35_lgsuu")
 texture_disabled = ExtResource("36_4jhlu")
+level_path = "res://scenes/levels/levels/level_7/level_7.tscn"
 level_number = 7
 
 [node name="Level8Button" parent="LevelGrid" unique_id=228970928 instance=ExtResource("3_bvllw")]
@@ -194,7 +191,8 @@ layout_mode = 2
 texture_normal = ExtResource("37_52qnn")
 texture_pressed = ExtResource("38_lcikx")
 texture_hover = ExtResource("39_l55ic")
-texture_disabled = ExtResource("40_kkgl1")
+texture_disabled = ExtResource("44_aa1ng")
+level_path = "res://scenes/levels/levels/level_8/level_8.tscn"
 level_number = 8
 
 [node name="Level9Button" parent="LevelGrid" unique_id=1578585791 instance=ExtResource("3_bvllw")]
@@ -203,6 +201,7 @@ texture_normal = ExtResource("41_5j1mp")
 texture_pressed = ExtResource("42_n67cf")
 texture_hover = ExtResource("43_chobt")
 texture_disabled = ExtResource("44_aa1ng")
+level_path = "res://scenes/levels/levels/level_9/level_9.tscn"
 level_number = 9
 
 [node name="Level10Button" parent="LevelGrid" unique_id=1794927642 instance=ExtResource("3_bvllw")]
@@ -211,6 +210,7 @@ texture_normal = ExtResource("45_8pyte")
 texture_pressed = ExtResource("46_jhchr")
 texture_hover = ExtResource("47_a4ij0")
 texture_disabled = ExtResource("48_edey8")
+level_path = "res://scenes/levels/levels/level_10/level_10.tscn"
 level_number = 10
 
 [node name="MusicToggleButton" parent="." unique_id=1350925578 instance=ExtResource("56_music_toggle")]
@@ -224,6 +224,7 @@ scale = Vector2(0.5302761, 0.5353836)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064702113]
 
 [node name="PowerupModal" type="Panel" parent="CanvasLayer" unique_id=1807815975]
+visible = false
 anchors_preset = -1
 anchor_left = 0.49300003
 anchor_top = 0.523

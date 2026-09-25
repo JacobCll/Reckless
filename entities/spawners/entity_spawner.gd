@@ -16,6 +16,10 @@ extends Node2D
 
 @export var burst_spread := 0.5
 
+# spread a burst evenly along `path` in curve order instead of picking random
+# offsets, so the entities come out as a sweep from one end to the other
+@export var burst_along_path := false
+
 @export var throw_force_min := 1000.0
 @export var throw_force_max := 1100.0
 
@@ -182,6 +186,7 @@ func spawn_specific(entity_type: String) -> Node:
 
 func _trigger_spawn() -> void:
 	var count := randi_range(spawn_count_min, spawn_count_max)
+	var burst_positions := _burst_path_positions(count)
 
 	for i in count:
 		if not active:
@@ -195,7 +200,11 @@ func _trigger_spawn() -> void:
 			await get_tree().create_timer(burst_spread * i, false).timeout
 			if not active:
 				return
-		_spawn_from_type(type)
+
+		if burst_positions.is_empty():
+			_spawn_from_type(type)
+		else:
+			_spawn_from_type(type, burst_positions[i])
 
 # ─────────────────────────────────────────────
 # WEIGHTED PICK
@@ -227,11 +236,11 @@ func _pick_type() -> EntityType:
 # SPAWNING
 # ─────────────────────────────────────────────
 
-func _spawn_from_type(type: EntityType):
+func _spawn_from_type(type: EntityType, spawn_position = null):
 	var scene: PackedScene = type.scenes.pick_random()
 	var entity = scene.instantiate()
 
-	entity.position = _pick_spawn_position()
+	entity.position = spawn_position if spawn_position != null else _pick_spawn_position()
 
 	add_child(entity)
 
@@ -270,6 +279,23 @@ func _pick_spawn_position() -> Vector2:
 			var curve := path.curve
 			var offset := randf_range(0.0, curve.get_baked_length())
 			return curve.sample_baked(offset)
+
+# evenly spaced points along `path`, ordered from the curve's start to its end;
+# empty when the burst should fall back to random offsets
+func _burst_path_positions(count: int) -> Array[Vector2]:
+	var positions: Array[Vector2] = []
+
+	if not burst_along_path or spawn_mode != SpawnMode.BOTTOM_UP or path == null or count <= 0:
+		return positions
+
+	var curve := path.curve
+	var length := curve.get_baked_length()
+
+	for i in count:
+		var t := 0.0 if count == 1 else float(i) / float(count - 1)
+		positions.append(curve.sample_baked(length * t))
+
+	return positions
 
 func _random_side_position() -> Vector2:
 	var viewport_width := get_viewport_rect().size.x

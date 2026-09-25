@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2qsyxc0cnsfy"
-path="res://.godot/imported/updated-notification-brg.png-6a1426ccd8d55038f7d116f1f9586903.ctex"
+uid="uid://dnnridg3fy5v2"
+path="res://.godot/imported/Background_Classroom.jpg-5d06cf01d2d6e4a477291f26d9fefec0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backgrounds/updated-notification-brg.png"
-dest_files=["res://.godot/imported/updated-notification-brg.png-6a1426ccd8d55038f7d116f1f9586903.ctex"]
+source_file="res://backgrounds/level/Background_Classroom.jpg"
+dest_files=["res://.godot/imported/Background_Classroom.jpg-5d06cf01d2d6e4a477291f26d9fefec0.ctex"]
 
 [params]
 

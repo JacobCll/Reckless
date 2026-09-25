@@ -6,7 +6,7 @@ const SAVE_FILE := "user://game_manager_state.dat"
 var current_scene := "main_menu"
 var user_gems := 0 # user currency
 var highest_unlocked_level := 1 # highest level the player has unlocked
-var MAX_UNLOCKABLE_LEVEL := 6 # max level that can be unlocked
+var MAX_UNLOCKABLE_LEVEL := 10 # max level that can be unlocked
 var level_1_tutorial_seen := false
 var level_1_step_tutorial_enabled := true
 
@@ -15,6 +15,7 @@ var from_level := 0 # 0 is default (none)
 var selected_powerup := ""
 var selected_notification := ""
 var show_cutscene := true
+var open_settings_on_main_menu := false # reopen the settings overlay when the main menu loads
 
 # every item_id the game knows about, with the amount owned when starting fresh
 const DEFAULT_INVENTORY := {

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpgtpfxf6ay30"]
 
 [ext_resource type="PackedScene" uid="uid://craodccs2qt3l" path="res://entities/base_entities/green_entity_base.tscn" id="1_rose01"]
-[ext_resource type="Script" uid="uid://bf585kgpxinut" path="res://entities/green/rose_sprite/rose_sprite.gd" id="2_rose01"]
+[ext_resource type="Script" uid="uid://3h1daxvhvwr56" path="res://entities/green/rose_sprite/rose_sprite.gd" id="2_rose01"]
 [ext_resource type="Texture2D" uid="uid://c0oxpxm60d7r7" path="res://entities/green/rose_sprite/rose_sprite.png" id="3_rose01"]
 
 [node name="RoseSprite" unique_id=1331156639 instance=ExtResource("1_rose01")]

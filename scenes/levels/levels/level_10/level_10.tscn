@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://dq3m8vt5kxr71"]
+[gd_scene format=3 uid="uid://c6pjd0trwl8hy"]
 
 [ext_resource type="PackedScene" uid="uid://bhglmgyjw2lsv" path="res://scenes/levels/base_level/base_level.tscn" id="1_base"]
-[ext_resource type="Script" uid="uid://bk4n7wsc2fjpe" path="res://scenes/levels/levels/level_4/level_4.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://bwaxq3lm7sdkn" path="res://scenes/levels/levels/level_10/level_10.gd" id="2_script"]
 [ext_resource type="AudioStream" uid="uid://cr57reckjbuh4" path="res://music/level_bgm/in_game_BGM2.mp3" id="3_music"]
-[ext_resource type="Texture2D" uid="uid://dkacxlnyv0vdb" path="res://backgrounds/level/Background_LivingRoom.jpg" id="4_dy7dw"]
+[ext_resource type="Texture2D" uid="uid://dnnridg3fy5v2" path="res://backgrounds/level/Background_Classroom.jpg" id="4_sdh67"]
 [ext_resource type="Script" uid="uid://dxcjb187qfvfc" path="res://scenes/levels/base_level/wave.gd" id="4_yuhpf"]
 [ext_resource type="PackedScene" uid="uid://63204h1uvjk7" path="res://entities/spawners/entity_spawner.tscn" id="5_xx7qf"]
 [ext_resource type="PackedScene" uid="uid://5bc67785mqsh" path="res://entities/blue/broom_sprite/broom_sprite.tscn" id="6_u6ogp"]
@@ -39,45 +39,51 @@
 [ext_resource type="PackedScene" uid="uid://dpgtpfxf6ay30" path="res://entities/green/rose_sprite/rose_sprite.tscn" id="38_rose01"]
 [ext_resource type="PackedScene" uid="uid://du3q4wwlcfd0y" path="res://entities/green/sunflower_sprite/sunflower_sprite.tscn" id="39_sunf01"]
 
-[sub_resource type="Curve2D" id="Curve2D_l4w1main"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 900, 820, 0, 0, 0, 0, 130, 820)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_l4w1green"]
+[sub_resource type="Curve2D" id="Curve2D_l10w1greenspawner"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 850, 850, 0, 0, 0, 0, 180, 850)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_l4w2main"]
+[sub_resource type="Curve2D" id="Curve2D_l10w2blueburstspawner"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 930, 815, 0, 0, 0, 0, 100, 815)
+"points": PackedVector2Array(0, 0, 0, 0, 120, 820, 0, 0, 0, 0, 904, 820)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_l4w2green"]
+[sub_resource type="Curve2D" id="Curve2D_l10w2greenspawner"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 830, 850, 0, 0, 0, 0, 200, 850)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_l4w3main"]
+[sub_resource type="Curve2D" id="Curve2D_l10w3mainspawner"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 930, 815, 0, 0, 0, 0, 100, 815)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_l10w3greenspawner"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 840, 848, 0, 0, 0, 0, 210, 848)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_l10w4mainspawner"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 950, 820, 0, 0, 0, 0, 90, 820)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_l4w3green"]
+[sub_resource type="Curve2D" id="Curve2D_l10w4greenspawner"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 820, 845, 0, 0, 0, 0, 220, 845)
 }
 point_count = 2
 
-[node name="Level4" unique_id=2006102058 instance=ExtResource("1_base")]
+[node name="Level10" unique_id=252587870 instance=ExtResource("1_base")]
 script = ExtResource("2_script")
-LEVEL_NUMBER = 4
+LEVEL_NUMBER = 10
 level_music = ExtResource("3_music")
 
 [node name="Background" parent="." index="0" unique_id=1388791812]
@@ -87,37 +93,39 @@ offset_top = -103.0
 offset_right = 102.07788
 offset_bottom = 123.0
 scale = Vector2(1.0015476, 1)
-texture = ExtResource("4_dy7dw")
+texture = ExtResource("4_sdh67")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="WaveManager" parent="." index="6" unique_id=805755620 node_paths=PackedStringArray("waves")]
-waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2"), NodePath("../Waves/Wave3")]
+waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2"), NodePath("../Waves/Wave3"), NodePath("../Waves/Wave4")]
 
-[node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=666789753]
+[node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=1972401461]
 script = ExtResource("4_yuhpf")
 wave_number = 1
-kill_requirement = 15
+kill_requirement = 20
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
-[node name="MainSpawner" parent="Waves/Wave1" index="0" unique_id=300162411 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
-spawner_name = "Wave1 Main Spawner"
-spawn_delay_min = 1.5
-spawn_delay_max = 2.0
-spawn_count_min = 2
-burst_spread = 0.4
+[node name="SideSpawner" parent="Waves/Wave1" index="0" unique_id=540578691 instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave1 Side Spawner"
+spawn_delay_min = 1.3
+spawn_delay_max = 1.8
+burst_spread = 0.3
+spawn_mode = 1
+side_spawn_margin = 0.0
+side_spawn_y_min = 650.0
+side_throw_force_min = 1000.0
+side_throw_force_max = 1030.0
+side_tilt_min = -2.0
+side_tilt_max = -2.0
 blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5"), ExtResource("8_1l0jw"), ExtResource("9_xnx7l"), ExtResource("10_4cyum"), ExtResource("11_16fks"), ExtResource("12_o1wrm"), ExtResource("13_0bfa8"), ExtResource("14_mvryr"), ExtResource("15_qwle5"), ExtResource("16_ws47o"), ExtResource("17_vue6h"), ExtResource("18_tsurt")])
 red_scenes = Array[PackedScene]([ExtResource("9_bel7p"), ExtResource("22_c0gsn"), ExtResource("23_1io5y"), ExtResource("24_4heoq"), ExtResource("25_vg8gq"), ExtResource("26_15kbb"), ExtResource("27_b3eu8"), ExtResource("28_4f3cj"), ExtResource("29_7kile"), ExtResource("30_ippji")])
 green_weight = 0.0
-path = NodePath("../MainSpawnerPath")
 
-[node name="MainSpawnerPath" type="Path2D" parent="Waves/Wave1" index="1" unique_id=52261386]
-curve = SubResource("Curve2D_l4w1main")
-
-[node name="GreenSpawner" parent="Waves/Wave1" index="2" unique_id=272773755 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+[node name="GreenSpawner" parent="Waves/Wave1" index="1" unique_id=1513772355 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
 spawner_name = "Wave1 Green Spawner"
 spawn_loop_wait = true
-spawn_delay_min = 3.0
+spawn_delay_min = 4.5
 spawn_delay_max = 6.0
 spawn_count_max = 1
 blue_weight = 0.0
@@ -125,32 +133,77 @@ red_weight = 0.0
 green_scenes = Array[PackedScene]([ExtResource("31_cash1"), ExtResource("32_dipl1"), ExtResource("33_frm01"), ExtResource("34_idb001"), ExtResource("35_isaw01"), ExtResource("36_kwek01"), ExtResource("37_lily01"), ExtResource("38_rose01"), ExtResource("39_sunf01")])
 path = NodePath("../GreenSpawnerPath")
 
-[node name="GreenSpawnerPath" type="Path2D" parent="Waves/Wave1" index="3" unique_id=1867452337]
-curve = SubResource("Curve2D_l4w1green")
+[node name="GreenSpawnerPath" type="Path2D" parent="Waves/Wave1" index="2" unique_id=1616625401]
+curve = SubResource("Curve2D_l10w1greenspawner")
 
-[node name="Wave2" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="1" unique_id=1052194499]
+[node name="Wave2" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="1" unique_id=474003545]
 script = ExtResource("4_yuhpf")
 wave_number = 2
-kill_requirement = 15
+kill_requirement = 20
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
-[node name="MainSpawner" parent="Waves/Wave2" index="0" unique_id=741241253 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
-spawner_name = "Wave2 Main Spawner"
+[node name="BlueBurstSpawner" parent="Waves/Wave2" index="0" unique_id=924447782 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave2 Blue Burst Spawner"
+spawn_delay_min = 2.8
+spawn_delay_max = 3.6
+spawn_count_min = 5
+spawn_count_max = 5
+burst_spread = 0.045
+burst_along_path = true
+throw_force_min = 1040.0
+throw_force_max = 1060.0
+spread_min = 0.0
+spread_max = 0.0
+spin_min = -1.5
+spin_max = 1.5
+blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5"), ExtResource("8_1l0jw"), ExtResource("9_xnx7l"), ExtResource("10_4cyum"), ExtResource("11_16fks"), ExtResource("12_o1wrm"), ExtResource("13_0bfa8"), ExtResource("14_mvryr"), ExtResource("15_qwle5"), ExtResource("16_ws47o"), ExtResource("17_vue6h"), ExtResource("18_tsurt")])
+red_weight = 0.0
+green_weight = 0.0
+path = NodePath("../BlueBurstSpawnerPath")
+
+[node name="BlueBurstSpawnerPath" type="Path2D" parent="Waves/Wave2" index="1" unique_id=1416996370]
+curve = SubResource("Curve2D_l10w2blueburstspawner")
+
+[node name="GreenSpawner" parent="Waves/Wave2" index="2" unique_id=1849264875 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave2 Green Spawner"
+spawn_loop_wait = true
+spawn_delay_min = 4.5
+spawn_delay_max = 6.0
+spawn_count_max = 1
+blue_weight = 0.0
+red_weight = 0.0
+green_scenes = Array[PackedScene]([ExtResource("31_cash1"), ExtResource("32_dipl1"), ExtResource("33_frm01"), ExtResource("34_idb001"), ExtResource("35_isaw01"), ExtResource("36_kwek01"), ExtResource("37_lily01"), ExtResource("38_rose01"), ExtResource("39_sunf01")])
+path = NodePath("../GreenSpawnerPath")
+
+[node name="GreenSpawnerPath" type="Path2D" parent="Waves/Wave2" index="3" unique_id=47366207]
+curve = SubResource("Curve2D_l10w2greenspawner")
+
+[node name="Wave3" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="2" unique_id=375313452]
+script = ExtResource("4_yuhpf")
+wave_number = 3
+kill_requirement = 25
+metadata/_custom_type_script = "uid://dxcjb187qfvfc"
+
+[node name="MainSpawner" parent="Waves/Wave3" index="0" unique_id=1377300475 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave3 Main Spawner"
+spawn_delay_min = 1.7
+spawn_delay_max = 2.3
+spawn_count_min = 2
 spawn_count_max = 3
-throw_force_min = 1100.0
+burst_spread = 0.4
 blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5"), ExtResource("8_1l0jw"), ExtResource("9_xnx7l"), ExtResource("10_4cyum"), ExtResource("11_16fks"), ExtResource("12_o1wrm"), ExtResource("13_0bfa8"), ExtResource("14_mvryr"), ExtResource("15_qwle5"), ExtResource("16_ws47o"), ExtResource("17_vue6h"), ExtResource("18_tsurt")])
 red_scenes = Array[PackedScene]([ExtResource("9_bel7p"), ExtResource("22_c0gsn"), ExtResource("23_1io5y"), ExtResource("24_4heoq"), ExtResource("25_vg8gq"), ExtResource("26_15kbb"), ExtResource("27_b3eu8"), ExtResource("28_4f3cj"), ExtResource("29_7kile"), ExtResource("30_ippji")])
 green_scenes = Array[PackedScene]([ExtResource("31_cash1"), ExtResource("32_dipl1"), ExtResource("33_frm01"), ExtResource("34_idb001"), ExtResource("35_isaw01"), ExtResource("36_kwek01"), ExtResource("37_lily01"), ExtResource("38_rose01"), ExtResource("39_sunf01")])
-green_weight = 0.4
+green_weight = 0.5
 path = NodePath("../MainSpawnerPath")
 
-[node name="MainSpawnerPath" type="Path2D" parent="Waves/Wave2" index="1" unique_id=1351035278]
-curve = SubResource("Curve2D_l4w2main")
+[node name="MainSpawnerPath" type="Path2D" parent="Waves/Wave3" index="1" unique_id=1004599755]
+curve = SubResource("Curve2D_l10w3mainspawner")
 
-[node name="SideSpawner" parent="Waves/Wave2" index="2" unique_id=1868309917 instance=ExtResource("5_xx7qf")]
-spawner_name = "Wave2 Side Spawner"
-spawn_delay_min = 3.0
-spawn_delay_max = 5.0
+[node name="SideSpawner" parent="Waves/Wave3" index="2" unique_id=1404572671 instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave3 Side Spawner"
+spawn_delay_min = 2.0
+spawn_delay_max = 2.7
 spawn_count_max = 1
 spawn_mode = 1
 side_spawn_margin = 0.0
@@ -163,45 +216,47 @@ blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5")
 red_scenes = Array[PackedScene]([ExtResource("9_bel7p"), ExtResource("22_c0gsn"), ExtResource("23_1io5y"), ExtResource("24_4heoq"), ExtResource("25_vg8gq"), ExtResource("26_15kbb"), ExtResource("27_b3eu8"), ExtResource("28_4f3cj"), ExtResource("29_7kile"), ExtResource("30_ippji")])
 green_weight = 0.0
 
-[node name="GreenSpawner" parent="Waves/Wave2" index="3" unique_id=1814239136 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
-spawner_name = "Wave2 Green Spawner"
+[node name="GreenSpawner" parent="Waves/Wave3" index="3" unique_id=662778949 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave3 Green Spawner"
 spawn_loop_wait = true
-spawn_delay_min = 4.0
-spawn_delay_max = 5.5
+spawn_delay_min = 4.5
+spawn_delay_max = 6.0
 spawn_count_max = 1
 blue_weight = 0.0
 red_weight = 0.0
 green_scenes = Array[PackedScene]([ExtResource("31_cash1"), ExtResource("32_dipl1"), ExtResource("33_frm01"), ExtResource("34_idb001"), ExtResource("35_isaw01"), ExtResource("36_kwek01"), ExtResource("37_lily01"), ExtResource("38_rose01"), ExtResource("39_sunf01")])
 path = NodePath("../GreenSpawnerPath")
 
-[node name="GreenSpawnerPath" type="Path2D" parent="Waves/Wave2" index="4" unique_id=97112787]
-curve = SubResource("Curve2D_l4w2green")
+[node name="GreenSpawnerPath" type="Path2D" parent="Waves/Wave3" index="4" unique_id=1711165987]
+curve = SubResource("Curve2D_l10w3greenspawner")
 
-[node name="Wave3" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="2" unique_id=1236272725]
+[node name="Wave4" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="3" unique_id=1614355301]
 script = ExtResource("4_yuhpf")
-wave_number = 3
-kill_requirement = 15
+wave_number = 4
+kill_requirement = 35
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
-[node name="MainSpawner" parent="Waves/Wave3" index="0" unique_id=1907927072 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
-spawner_name = "Wave3 Main Spawner"
-spawn_delay_min = 2.0
+[node name="MainSpawner" parent="Waves/Wave4" index="0" unique_id=1412750114 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave4 Main Spawner"
+spawn_delay_min = 1.7
+spawn_delay_max = 2.3
+spawn_count_min = 2
 spawn_count_max = 3
-burst_spread = 0.7
+burst_spread = 0.4
 blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5"), ExtResource("8_1l0jw"), ExtResource("9_xnx7l"), ExtResource("10_4cyum"), ExtResource("11_16fks"), ExtResource("12_o1wrm"), ExtResource("13_0bfa8"), ExtResource("14_mvryr"), ExtResource("15_qwle5"), ExtResource("16_ws47o"), ExtResource("17_vue6h"), ExtResource("18_tsurt")])
 red_scenes = Array[PackedScene]([ExtResource("9_bel7p"), ExtResource("22_c0gsn"), ExtResource("23_1io5y"), ExtResource("24_4heoq"), ExtResource("25_vg8gq"), ExtResource("26_15kbb"), ExtResource("27_b3eu8"), ExtResource("28_4f3cj"), ExtResource("29_7kile"), ExtResource("30_ippji")])
 green_scenes = Array[PackedScene]([ExtResource("31_cash1"), ExtResource("32_dipl1"), ExtResource("33_frm01"), ExtResource("34_idb001"), ExtResource("35_isaw01"), ExtResource("36_kwek01"), ExtResource("37_lily01"), ExtResource("38_rose01"), ExtResource("39_sunf01")])
 green_weight = 0.6
 path = NodePath("../MainSpawnerPath")
 
-[node name="MainSpawnerPath" type="Path2D" parent="Waves/Wave3" index="1" unique_id=1461838541]
-curve = SubResource("Curve2D_l4w3main")
+[node name="MainSpawnerPath" type="Path2D" parent="Waves/Wave4" index="1" unique_id=1352541599]
+curve = SubResource("Curve2D_l10w4mainspawner")
 
-[node name="SideSpawner" parent="Waves/Wave3" index="2" unique_id=852163608 instance=ExtResource("5_xx7qf")]
-spawner_name = "Wave3 Side Spawner"
-spawn_delay_min = 1.5
-spawn_delay_max = 2.4
-spawn_count_max = 1
+[node name="SideSpawner" parent="Waves/Wave4" index="2" unique_id=143663932 instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave4 Side Spawner"
+spawn_delay_min = 2.2
+spawn_delay_max = 2.9
+burst_spread = 0.3
 spawn_mode = 1
 side_spawn_margin = 0.0
 side_spawn_y_min = 650.0
@@ -213,16 +268,16 @@ blue_scenes = Array[PackedScene]([ExtResource("6_u6ogp"), ExtResource("7_jc4j5")
 red_scenes = Array[PackedScene]([ExtResource("9_bel7p"), ExtResource("22_c0gsn"), ExtResource("23_1io5y"), ExtResource("24_4heoq"), ExtResource("25_vg8gq"), ExtResource("26_15kbb"), ExtResource("27_b3eu8"), ExtResource("28_4f3cj"), ExtResource("29_7kile"), ExtResource("30_ippji")])
 green_weight = 0.0
 
-[node name="GreenSpawner" parent="Waves/Wave3" index="3" unique_id=1898772182 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
-spawner_name = "Wave3 Green Spawner"
+[node name="GreenSpawner" parent="Waves/Wave4" index="3" unique_id=552111502 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
+spawner_name = "Wave4 Green Spawner"
 spawn_loop_wait = true
-spawn_delay_min = 4.0
-spawn_delay_max = 4.0
+spawn_delay_min = 3.8
+spawn_delay_max = 4.8
 spawn_count_max = 1
 blue_weight = 0.0
 red_weight = 0.0
 green_scenes = Array[PackedScene]([ExtResource("31_cash1"), ExtResource("32_dipl1"), ExtResource("33_frm01"), ExtResource("34_idb001"), ExtResource("35_isaw01"), ExtResource("36_kwek01"), ExtResource("37_lily01"), ExtResource("38_rose01"), ExtResource("39_sunf01")])
 path = NodePath("../GreenSpawnerPath")
 
-[node name="GreenSpawnerPath" type="Path2D" parent="Waves/Wave3" index="4" unique_id=1788568626]
-curve = SubResource("Curve2D_l4w3green")
+[node name="GreenSpawnerPath" type="Path2D" parent="Waves/Wave4" index="4" unique_id=1365123948]
+curve = SubResource("Curve2D_l10w4greenspawner")

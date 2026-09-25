@@ -42,6 +42,10 @@ func _ready() -> void:
 	flare_cyan.texture = flare_texture
 	flare_yellow.texture = flare_texture
 
+	if GameManager.open_settings_on_main_menu:
+		GameManager.open_settings_on_main_menu = false
+		_on_settings_button_pressed()
+
 func _process(delta: float) -> void:
 	var viewport_size := get_viewport_rect().size
 	var mouse_pos := get_viewport().get_mouse_position()

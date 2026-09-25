@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b0lhwkxocc4y8" path="res://effects/entity_glow/blue_glow.png" id="1_57rf5"]
 [ext_resource type="Script" uid="uid://cxvmq0y3bxufr" path="res://entities/base_entities/green_entity_base.gd" id="1_xfh22"]
-[ext_resource type="PackedScene" path="res://effects/entity_particles_slash/entity_particles_slash.tscn" id="2_a4xyk"]
-[ext_resource type="PackedScene" path="res://effects/entity_particles_smash/entity_particles_smash.tscn" id="2_smash"]
+[ext_resource type="PackedScene" uid="uid://crufgawh06l6" path="res://effects/entity_particles_slash/entity_particles_slash.tscn" id="2_a4xyk"]
+[ext_resource type="PackedScene" uid="uid://daednjasvlkts" path="res://effects/entity_particles_smash/entity_particles_smash.tscn" id="2_smash"]
 [ext_resource type="PackedScene" uid="uid://cuvq6iixtky20" path="res://effects/entity_half_effect/entity_sprite_halves.tscn" id="4_rvl3p"]
 [ext_resource type="PackedScene" uid="uid://ch22tmstisw2p" path="res://effects/entity_trail/entity_line_trail.tscn" id="5_4b1cy"]
 

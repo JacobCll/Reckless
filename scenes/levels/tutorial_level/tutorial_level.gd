@@ -109,6 +109,11 @@ func _on_tutorial_button_pressed():
 func _on_level_start() -> void:
 	show_page()
 
+# override - the tutorial is launched from the settings overlay, so go back to it
+func _on_main_menu_button_pressed() -> void:
+	GameManager.open_settings_on_main_menu = true
+	super()
+
 func next_step():
 	slashed_count = 0
 	smashed_count = 0

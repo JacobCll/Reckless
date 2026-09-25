@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwdvqid0hbikl"]
 
 [ext_resource type="Script" uid="uid://bn6jem22wli6k" path="res://scenes/level_menu/level_button.gd" id="1_i82w3"]
-[ext_resource type="Shader" path="res://scenes/level_menu/rounded_corners.gdshader" id="2_rounded"]
+[ext_resource type="Shader" uid="uid://4f1n1fle22ov" path="res://scenes/level_menu/rounded_corners.gdshader" id="2_rounded"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rounded"]
 shader = ExtResource("2_rounded")

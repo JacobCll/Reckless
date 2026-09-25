@@ -392,6 +392,7 @@ texture = ExtResource("18_x40wx")
 expand_mode = 1
 
 [node name="EmojiNeutral" type="TextureRect" parent="CanvasLayer/HUD/EmojiStates" unique_id=395568291]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
@@ -399,9 +400,9 @@ offset_right = 25.0
 offset_bottom = 25.0
 texture = ExtResource("19_fta7o")
 expand_mode = 1
-modulate = Color(1, 1, 1, 0)
 
 [node name="EmojiHappy" type="TextureRect" parent="CanvasLayer/HUD/EmojiStates" unique_id=1008278474]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
@@ -409,7 +410,6 @@ offset_right = 25.0
 offset_bottom = 25.0
 texture = ExtResource("20_fta7o")
 expand_mode = 1
-modulate = Color(1, 1, 1, 0)
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/HUD" unique_id=656952242]
 layout_mode = 1
@@ -441,6 +441,18 @@ offset_right = 44.0
 offset_bottom = 46.0
 expand_mode = 1
 stretch_mode = 5
+
+[node name="CurrentLevelLabel" type="Label" parent="CanvasLayer/HUD" unique_id=1587342691]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 106.0
+offset_right = 134.0
+offset_bottom = 134.0
+theme_override_fonts/font = ExtResource("3_uay4d")
+theme_override_font_sizes/font_size = 20
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CountdownLabel" type="Label" parent="CanvasLayer" unique_id=1652738209]
 anchors_preset = 8

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmd57qnn61sda"
-path="res://.godot/imported/levels_menu_background.png-48278b88a1698cd609f237584c1ab38c.ctex"
+uid="uid://behkwwtm1yksd"
+path="res://.godot/imported/Background_SchoolEntrance.jpg-9e7b55aa097236f2ef7a4adc5c066660.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backgrounds/levels_menu_background.png"
-dest_files=["res://.godot/imported/levels_menu_background.png-48278b88a1698cd609f237584c1ab38c.ctex"]
+source_file="res://backgrounds/level/Background_SchoolEntrance.jpg"
+dest_files=["res://.godot/imported/Background_SchoolEntrance.jpg-9e7b55aa097236f2ef7a4adc5c066660.ctex"]
 
 [params]
 

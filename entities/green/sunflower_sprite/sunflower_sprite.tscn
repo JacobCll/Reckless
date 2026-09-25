@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://du3q4wwlcfd0y"]
 
 [ext_resource type="PackedScene" uid="uid://craodccs2qt3l" path="res://entities/base_entities/green_entity_base.tscn" id="1_sunf01"]
-[ext_resource type="Script" uid="uid://bx767ajt5oakh" path="res://entities/green/sunflower_sprite/sunflower_sprite.gd" id="2_sunf01"]
+[ext_resource type="Script" uid="uid://3z3bcnyl33eut" path="res://entities/green/sunflower_sprite/sunflower_sprite.gd" id="2_sunf01"]
 [ext_resource type="Texture2D" uid="uid://bqfnaukj61tyd" path="res://entities/green/sunflower_sprite/sunflower_sprite.png" id="3_sunf01"]
 
 [node name="SunflowerSprite" unique_id=1331156639 instance=ExtResource("1_sunf01")]

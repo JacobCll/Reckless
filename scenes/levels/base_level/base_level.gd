@@ -94,6 +94,7 @@ var countdown_value := countdown_value_original
 @onready var hearts_container = $CanvasLayer/HUD/HeartsContainer
 @onready var shields_container = $CanvasLayer/HUD/ShieldsContainer
 @onready var score_label = $CanvasLayer/HUD/ScoreLabel
+@onready var level_label = $CanvasLayer/HUD/CurrentLevelLabel
 @onready var level_progress_bar = $CanvasLayer/HUD/LevelProgressBar
 @onready var emoji_states = $CanvasLayer/HUD/EmojiStates
 @onready var emoji_stressed = $CanvasLayer/HUD/EmojiStates/EmojiStressed
@@ -177,6 +178,8 @@ func _setup_level() -> void:
 	# appy powerups
 	_apply_selected_powerup()
 
+	_update_level_indicator()
+
 	AudioManager.play_music(level_music)
 	AudioManager.enable_mouse_sfx()
 	MouseManager.show_mouse_trail()
@@ -226,6 +229,15 @@ func _pulse_powerup_indicator() -> void:
 	powerup_indicator_icon.scale = Vector2(1.4, 1.4)
 	var tween = create_tween()
 	tween.tween_property(powerup_indicator_icon, "scale", Vector2.ONE, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+# the tutorial has no level number, so it gets no indicator
+func _update_level_indicator() -> void:
+	if LEVEL_NUMBER <= 0:
+		level_label.hide()
+		return
+
+	level_label.text = "Level %d" % LEVEL_NUMBER
+	level_label.show()
 
 func _setup_ui() -> void:
 	pause_screen.hide()

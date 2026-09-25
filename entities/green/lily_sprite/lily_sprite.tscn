@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cll8ym2q2ejl"]
 
 [ext_resource type="PackedScene" uid="uid://craodccs2qt3l" path="res://entities/base_entities/green_entity_base.tscn" id="1_lily01"]
-[ext_resource type="Script" uid="uid://cay226kq2vk11" path="res://entities/green/lily_sprite/lily_sprite.gd" id="2_lily01"]
+[ext_resource type="Script" uid="uid://f5exn8hzm3gss" path="res://entities/green/lily_sprite/lily_sprite.gd" id="2_lily01"]
 [ext_resource type="Texture2D" uid="uid://c477etvb1oivl" path="res://entities/green/lily_sprite/lily_sprite.png" id="3_lily01"]
 
 [node name="LilySprite" unique_id=1331156639 instance=ExtResource("1_lily01")]
