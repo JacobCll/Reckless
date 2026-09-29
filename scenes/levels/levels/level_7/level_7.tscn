@@ -41,43 +41,43 @@
 
 [sub_resource type="Curve2D" id="Curve2D_l7w1greenspawner"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 850, 850, 0, 0, 0, 0, 180, 850)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 850, 0, 0, 0, 0, 270, 850)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_l7w2blueburstspawner"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 120, 820, 0, 0, 0, 0, 904, 820)
+"points": PackedVector2Array(0, 0, 0, 0, 200, 820, 0, 0, 0, 0, 824, 820)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_l7w2greenspawner"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 830, 850, 0, 0, 0, 0, 200, 850)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 850, 0, 0, 0, 0, 270, 850)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_l7w3mainspawner"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 930, 815, 0, 0, 0, 0, 100, 815)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 815, 0, 0, 0, 0, 270, 815)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_l7w3greenspawner"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 840, 848, 0, 0, 0, 0, 210, 848)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 848, 0, 0, 0, 0, 270, 848)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_l7w4mainspawner"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 950, 820, 0, 0, 0, 0, 90, 820)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 820, 0, 0, 0, 0, 270, 820)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_l7w4greenspawner"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 820, 845, 0, 0, 0, 0, 220, 845)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 845, 0, 0, 0, 0, 270, 845)
 }
 point_count = 2
 

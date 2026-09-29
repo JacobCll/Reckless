@@ -46,6 +46,17 @@ func _begin_intro() -> void:
 
 	start_countdown()
 
+# with the step tutorial enabled level 1 is played without powerups, so drop any
+# selection without consuming it
+func _apply_selected_powerup() -> void:
+	if GameManager.level_allows_powerups(LEVEL_NUMBER):
+		super()
+		return
+
+	GameManager.selected_powerup = ""
+	active_powerup = ""
+	_update_powerup_indicator()
+
 func _start_wave_spawning() -> void:
 	if not tutorial_active:
 		super()

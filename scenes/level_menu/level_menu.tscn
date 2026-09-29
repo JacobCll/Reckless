@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://hqi2vneqra8o" path="res://buttons/new_level_buttons/Button_Level1.png" id="9_hxshe"]
 [ext_resource type="Texture2D" uid="uid://b5ro376qjd8k7" path="res://buttons/new_level_buttons/Button_Level1_Hover.png" id="10_4yaje"]
 [ext_resource type="Texture2D" uid="uid://uua7tavydlav" path="res://buttons/new_level_buttons/Button_Level1_Active.png" id="10_fv47d"]
-[ext_resource type="PackedScene" uid="uid://dnrnq2clsmdkk" path="res://scenes/level_menu/powerup_card.tscn" id="12_uxs4i"]
+[ext_resource type="PackedScene" uid="uid://dq6xpqav37j10" path="res://scenes/level_menu/powerup_modal.tscn" id="12_modal"]
 [ext_resource type="Texture2D" uid="uid://b857e2jjhxyru" path="res://buttons/new_level_buttons/Button_Level2.png" id="13_ho8ji"]
 [ext_resource type="Texture2D" uid="uid://5oeph3egnqr2" path="res://buttons/new_level_buttons/Button_Level2_Active.png" id="14_a2vxr"]
 [ext_resource type="Texture2D" uid="uid://depd724ekppnp" path="res://buttons/new_level_buttons/Button_Level2_Hover.png" id="15_2x002"]
@@ -45,18 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://dg6bujrlk4h0w" path="res://buttons/new_level_buttons/Button_Level10_Active.png" id="46_jhchr"]
 [ext_resource type="Texture2D" uid="uid://bdo7mvl714ydv" path="res://buttons/new_level_buttons/Button_Level10_Hover.png" id="47_a4ij0"]
 [ext_resource type="Texture2D" uid="uid://c2uspkq55cpi4" path="res://buttons/new_level_buttons/Button_Level10_Locked.png" id="48_edey8"]
-[ext_resource type="FontFile" uid="uid://cquq0jd5fl8ey" path="res://fonts/Odinson.ttf" id="50_5j1mp"]
-[ext_resource type="Texture2D" uid="uid://dm734c80e3ijq" path="res://buttons/navigation_buttons/Button_Start.png" id="51_5j1mp"]
-[ext_resource type="Texture2D" uid="uid://g0h520dq0nk7" path="res://buttons/navigation_buttons/Button_Start_Active.png" id="52_n67cf"]
-[ext_resource type="Texture2D" uid="uid://dksweipnp0phc" path="res://buttons/navigation_buttons/Button_Start_Hover.png" id="53_chobt"]
-[ext_resource type="Texture2D" uid="uid://dxgrbhgl045bg" path="res://buttons/navigation_buttons/Button_Cancel.png" id="53_kkgl1"]
-[ext_resource type="Texture2D" uid="uid://dh8gsrvmv0ag2" path="res://buttons/navigation_buttons/Button_Cancel_Active.png" id="54_5j1mp"]
-[ext_resource type="Texture2D" uid="uid://dpv103snw8y2n" path="res://buttons/navigation_buttons/Button_Cancel_Hover.png" id="55_n67cf"]
 [ext_resource type="PackedScene" uid="uid://rp4f8mgfom0j" path="res://buttons/main_menu_buttons/music_toggle_button.tscn" id="56_music_toggle"]
-[ext_resource type="Texture2D" uid="uid://bvd80bkv27wwg" path="res://backgrounds/overlay_backgrounds/Overlay_Powerup.png" id="57_overlay"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ri0ji"]
-texture = ExtResource("57_overlay")
 
 [node name="LevelMenu" type="Control" unique_id=1795282986]
 layout_mode = 3
@@ -67,7 +56,6 @@ script = ExtResource("2_8xmkv")
 level_button = ExtResource("3_bvllw")
 level_menu_music = ExtResource("4_jw3qw")
 background_parallax_strength = Vector2(6, 5)
-powerup_card_scene = ExtResource("12_uxs4i")
 
 [node name="Background" type="TextureRect" parent="." unique_id=568148464]
 modulate = Color(0.8047426, 0.80474263, 0.8047426, 1)
@@ -221,104 +209,6 @@ offset_right = 1048.0
 offset_bottom = 792.00006
 scale = Vector2(0.5302761, 0.5353836)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064702113]
-
-[node name="PowerupModal" type="Panel" parent="CanvasLayer" unique_id=1807815975]
-visible = false
-anchors_preset = -1
-anchor_left = 0.49300003
-anchor_top = 0.523
-anchor_right = 0.49300003
-anchor_bottom = 0.523
-offset_left = -358.83203
-offset_top = -242.664
-offset_right = 374.16797
-offset_bottom = 243.336
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_ri0ji")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PowerupModal" unique_id=437110974]
-z_index = -999
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -241.0
-offset_top = -277.0
-offset_right = 281.0
-offset_bottom = 253.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.5137255)
-
-[node name="Text" type="Label" parent="CanvasLayer/PowerupModal" unique_id=1203427186]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 47.0
-offset_right = 705.0
-offset_bottom = 135.0
-theme_override_colors/font_color = Color(0.97573715, 0.7593907, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("50_5j1mp")
-theme_override_font_sizes/font_size = 75
-text = "Power Ups"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/PowerupModal" unique_id=1802302523]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.503
-anchor_top = 0.5
-anchor_right = 0.503
-anchor_bottom = 0.5
-offset_left = -246.699
-offset_top = -101.0
-offset_right = 248.301
-offset_bottom = 94.0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PowerupModal/ScrollContainer" unique_id=1094850720]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="PowerupGrid" type="GridContainer" parent="CanvasLayer/PowerupModal/ScrollContainer/MarginContainer" unique_id=633945927]
-layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 3
-
-[node name="StartButton" type="TextureButton" parent="CanvasLayer/PowerupModal" unique_id=920378249]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 448.0
-offset_top = 347.0
-offset_right = 631.0
-offset_bottom = 413.0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("51_5j1mp")
-texture_pressed = ExtResource("52_n67cf")
-texture_hover = ExtResource("53_chobt")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="CancelButton" type="TextureButton" parent="CanvasLayer/PowerupModal" unique_id=900316808]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 118.0
-offset_top = 347.0
-offset_right = 301.0
-offset_bottom = 412.08105
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("53_kkgl1")
-texture_pressed = ExtResource("54_5j1mp")
-texture_hover = ExtResource("55_n67cf")
-ignore_texture_size = true
-stretch_mode = 5
+[node name="PowerupModal" parent="." unique_id=1064702113 instance=ExtResource("12_modal")]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PowerupModal/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PowerupModal/CancelButton" to="." method="_on_cancel_button_pressed"]

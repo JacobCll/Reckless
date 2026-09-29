@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://dq6xpqav37j10"]
+
+[ext_resource type="Script" uid="uid://d1n3qs422bdv4" path="res://scenes/level_menu/powerup_modal.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://dnrnq2clsmdkk" path="res://scenes/level_menu/powerup_card.tscn" id="2_card"]
+[ext_resource type="FontFile" uid="uid://cquq0jd5fl8ey" path="res://fonts/Odinson.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://dm734c80e3ijq" path="res://buttons/navigation_buttons/Button_Start.png" id="4_start"]
+[ext_resource type="Texture2D" uid="uid://g0h520dq0nk7" path="res://buttons/navigation_buttons/Button_Start_Active.png" id="5_start_active"]
+[ext_resource type="Texture2D" uid="uid://dksweipnp0phc" path="res://buttons/navigation_buttons/Button_Start_Hover.png" id="6_start_hover"]
+[ext_resource type="Texture2D" uid="uid://dxgrbhgl045bg" path="res://buttons/navigation_buttons/Button_Cancel.png" id="7_cancel"]
+[ext_resource type="Texture2D" uid="uid://dh8gsrvmv0ag2" path="res://buttons/navigation_buttons/Button_Cancel_Active.png" id="8_cancel_active"]
+[ext_resource type="Texture2D" uid="uid://dpv103snw8y2n" path="res://buttons/navigation_buttons/Button_Cancel_Hover.png" id="9_cancel_hover"]
+[ext_resource type="Texture2D" uid="uid://bvd80bkv27wwg" path="res://backgrounds/overlay_backgrounds/Overlay_Powerup.png" id="10_overlay"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ri0ji"]
+texture = ExtResource("10_overlay")
+
+[node name="PowerupModal" type="CanvasLayer" unique_id=1064702113]
+process_mode = 3
+layer = 2
+script = ExtResource("1_script")
+powerup_card_scene = ExtResource("2_card")
+
+[node name="Modal" type="Panel" parent="." unique_id=1807815975]
+anchors_preset = -1
+anchor_left = 0.49300003
+anchor_top = 0.523
+anchor_right = 0.49300003
+anchor_bottom = 0.523
+offset_left = -358.83203
+offset_top = -242.664
+offset_right = 374.16797
+offset_bottom = 243.336
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ri0ji")
+
+[node name="ColorRect" type="ColorRect" parent="Modal" unique_id=437110974]
+z_index = -999
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -277.0
+offset_right = 281.0
+offset_bottom = 253.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5137255)
+
+[node name="Text" type="Label" parent="Modal" unique_id=1203427186]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 53.0
+offset_right = 724.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(0.97573715, 0.7593907, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 75
+text = "Power Ups"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Modal" unique_id=1802302523]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.5
+anchor_right = 0.503
+anchor_bottom = 0.5
+offset_left = -246.699
+offset_top = -101.0
+offset_right = 248.301
+offset_bottom = 94.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Modal/ScrollContainer" unique_id=1094850720]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PowerupGrid" type="GridContainer" parent="Modal/ScrollContainer/MarginContainer" unique_id=633945927]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="StartButton" type="TextureButton" parent="Modal" unique_id=920378249]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 448.0
+offset_top = 347.0
+offset_right = 631.0
+offset_bottom = 413.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_start")
+texture_pressed = ExtResource("5_start_active")
+texture_hover = ExtResource("6_start_hover")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CancelButton" type="TextureButton" parent="Modal" unique_id=900316808]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 118.0
+offset_top = 347.0
+offset_right = 301.0
+offset_bottom = 412.08105
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_cancel")
+texture_pressed = ExtResource("8_cancel_active")
+texture_hover = ExtResource("9_cancel_hover")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="Modal/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Modal/CancelButton" to="." method="_on_cancel_button_pressed"]

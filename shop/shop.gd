@@ -23,10 +23,10 @@ var items := {
 		"cost": 50,
 		"description": "Higher chance of double gem drops"
 	},
-	"powerup_no_green": {
-		"display_name": "No Green!",
+	"powerup_less_green": {
+		"display_name": "Less Green",
 		"cost": 40,
-		"description": "Eliminate the chance of green entities spawning",
+		"description": "Fewer green entities spawn for the whole level",
 	}
 }
 

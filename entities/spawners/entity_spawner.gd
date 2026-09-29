@@ -78,6 +78,11 @@ class EntityType:
 @export var green_weight := 1.0
 @export var green_max_alive := 0
 
+# chance (0-1) that a random green pick goes through; otherwise the spawner
+# rerolls among the other types, or skips the spawn if green is all it has.
+# lowered by the Less Green powerup; spawn_specific() ignores it
+var green_spawn_chance := 1.0
+
 # ─────────────────────────────────────────────
 # ENTITY SIGNALS
 # ─────────────────────────────────────────────
@@ -106,10 +111,6 @@ func _build_entity_types() -> void:
 	_add_group(blue_scenes, "blue", blue_weight, blue_max_alive)
 	_add_group(red_scenes, "red", red_weight, red_max_alive)
 	_add_group(green_scenes, "green", green_weight, green_max_alive)
-
-func set_green_weight(new_weight: float) -> void:
-	green_weight = new_weight
-	_build_entity_types()
 
 func _add_group(scenes: Array, type: String, weight: float, max_alive: int) -> void:
 	if scenes.is_empty() or weight <= 0.0:
@@ -217,6 +218,14 @@ func _pick_type() -> EntityType:
 	if available.is_empty():
 		return null
 
+	var picked := _weighted_pick(available)
+	if picked.entity_type == "green" and randf() >= green_spawn_chance:
+		var non_green := available.filter(func(e): return e.entity_type != "green")
+		return null if non_green.is_empty() else _weighted_pick(non_green)
+
+	return picked
+
+func _weighted_pick(available: Array) -> EntityType:
 	var total_weight := 0.0
 	for e in available:
 		total_weight += e.weight

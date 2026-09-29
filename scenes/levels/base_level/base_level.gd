@@ -32,6 +32,9 @@ var _spawn_glow_tween: Tween
 var double_gems_active := false # modify in entity_drop()
 var current_shields := 0
 
+# chance that a random green spawn still happens while Less Green is active
+@export_range(0.0, 1.0) var less_green_spawn_chance := 0.5
+
 # the powerup this run was started with; GameManager.selected_powerup is cleared
 # once consumed, so keep our own copy for the HUD indicator
 var active_powerup := ""
@@ -114,6 +117,7 @@ var _emoji_index := 0
 @onready var win_score_text = $CanvasLayer/WinLevelScreen/ScoreText
 @onready var next_level_button = $CanvasLayer/WinLevelScreen/HBoxContainer/NextLevelButton
 @onready var settings_menu = $SettingsMenu
+@onready var powerup_modal: PowerupModal = $PowerupModal
 @onready var progress_bar = $CanvasLayer/HUD/LevelProgressBar
 @onready var powerup_indicator = $CanvasLayer/HUD/PowerupIndicator
 @onready var powerup_indicator_icon = $CanvasLayer/HUD/PowerupIndicator/Icon
@@ -195,8 +199,8 @@ func _apply_selected_powerup():
 		"powerup_shields":
 			current_shields = 2
 			_update_shields_ui()
-		"powerup_no_green":
-			_apply_no_green_powerup()
+		"powerup_less_green":
+			_apply_less_green_powerup()
 		"powerup_double_gems":
 			double_gems_active = true
 		"": # no powerup selected
@@ -273,11 +277,11 @@ func _setup_spawners() -> void:
 				child.entity_spawned.connect(_on_entity_spawned)
 				child.entity_despawned.connect(_on_entity_despawned)
 
-func _apply_no_green_powerup() -> void:
+func _apply_less_green_powerup() -> void:
 	for wave in wave_manager.waves:
 		for child in wave.get_children():
 			if child is EntitySpawner:
-				child.set_green_weight(0.0)
+				child.green_spawn_chance = less_green_spawn_chance
 
 # =========================================================
 # COUNTDOWN
@@ -572,8 +576,8 @@ func _on_pause_button_pressed() -> void:
 		_start_resume_countdown()
 	
 func _unhandled_input(event: InputEvent) -> void:
-	# don't do anything if settings menu is shown
-	if settings_menu.visible:
+	# don't do anything if settings menu or powerup modal is shown
+	if settings_menu.visible or powerup_modal.visible:
 		return
 	
 	if event.is_action_pressed("Pause"):
@@ -583,7 +587,12 @@ func _on_resume_button_pressed() -> void:
 	if not _resume_countdown_active:
 		_start_resume_countdown()
 
+# levels pick a powerup before every start; the tutorial (no level number) has none
 func restart_level() -> void:
+	if LEVEL_NUMBER > 0:
+		powerup_modal.open(LEVEL_NUMBER, scene_file_path)
+		return
+
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
@@ -607,21 +616,20 @@ func _on_level_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_menu/level_menu.tscn")
 
 func _on_play_again_button_pressed() -> void:
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+	restart_level()
 
 func _on_settings_button_pressed() -> void:
 	MouseManager.hide_mouse_trail()
 	settings_menu.show()
 
-# go to next level in win screen
+# pick a powerup for the next level from the win screen
 func _on_next_level_button_pressed() -> void:
 	if LEVEL_NUMBER == GameManager.MAX_UNLOCKABLE_LEVEL:
 		return
 
-	var next_level_scene = "res://scenes/levels/levels/level_" + str(LEVEL_NUMBER + 1) + "/level_" + str(LEVEL_NUMBER + 1) + ".tscn"
-	get_tree().paused = false
-	get_tree().change_scene_to_file(next_level_scene)
+	var next_level := LEVEL_NUMBER + 1
+	var next_level_scene = "res://scenes/levels/levels/level_" + str(next_level) + "/level_" + str(next_level) + ".tscn"
+	powerup_modal.open(next_level, next_level_scene)
 	
 # PAUSE
 func _handle_pause_input() -> void:

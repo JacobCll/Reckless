@@ -61,6 +61,10 @@ func _ready() -> void:
 	all_spawner.entity_slashed.connect(_on_entity_slashed)
 	all_spawner.entity_smashed.connect(_on_entity_smashed)
 	
+	# same throw sound and spawn glow the levels play when an entity is thrown in
+	for spawner in [blue_spawner, red_spawner, green_spawner, all_spawner]:
+		spawner.entity_spawned.connect(_on_entity_spawned)
+
 	_on_level_start()
 
 # override - show hud
@@ -91,7 +95,7 @@ func _on_tutorial_button_pressed():
 			GameManager.level_1_tutorial_seen = true
 			GameManager.from_level = 0
 			GameManager.save_data()
-			get_tree().change_scene_to_file("res://scenes/levels/levels/level_1/level_1.tscn")
+			powerup_modal.open(1, "res://scenes/levels/levels/level_1/level_1.tscn")
 		else:
 			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 		return

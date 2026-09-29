@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://cwvhjfvjkbtit" path="res://sfx/victory_and_gameover_sfx/Defeat _5.mp3" id="26_defeat5"]
 [ext_resource type="AudioStream" uid="uid://dermtftfiqq52" path="res://sfx/victory_and_gameover_sfx/Defeat _8.mp3" id="27_defeat8"]
 [ext_resource type="Shader" path="res://scenes/levels/base_level/progress_bar_gradient.gdshader" id="28_progress_gradient"]
+[ext_resource type="PackedScene" uid="uid://dq6xpqav37j10" path="res://scenes/level_menu/powerup_modal.tscn" id="29_powerup_modal"]
 
 [sub_resource type="Gradient" id="Gradient_spawn_glow"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -548,6 +549,8 @@ stretch_mode = 5
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("5_1txf7")]
 visible = false
 show_tutorial_button = false
+
+[node name="PowerupModal" parent="." unique_id=1873402951 instance=ExtResource("29_powerup_modal")]
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GameoverScreen/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

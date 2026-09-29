@@ -17,14 +17,9 @@ extends Control
 @onready var levels_text: TextureRect = $LevelsText
 @onready var back_button: TextureButton = $BackButton
 
-@export var powerup_card_scene: PackedScene
-@onready var powerup_modal := $CanvasLayer/PowerupModal
-@onready var powerup_grid := $CanvasLayer/PowerupModal/ScrollContainer/MarginContainer/PowerupGrid
+@onready var powerup_modal: PowerupModal = $PowerupModal
 
 var levels = 10
-var selected_level_path := ""
-
-var selected_powerup_card: PowerupCard = null
 
 var _background_base_position: Vector2
 var _logo_base_position: Vector2
@@ -36,14 +31,12 @@ func _ready() -> void:
 	AudioManager.play_music(level_menu_music)
 	AudioManager.disable_mouse_sfx()
 	GameManager.current_scene = "level_menu"
-	
-	powerup_modal.hide()
 
 	var grid = $LevelGrid
 	grid.columns = 5
 
 	for button in level_grid.get_children():
-		button.level_selected.connect(_on_level_selected)
+		button.level_selected.connect(_on_level_selected.bind(button.level_number))
 
 		# disable if not unlocked
 		if not GameManager.is_level_unlocked(button.level_number):
@@ -68,69 +61,9 @@ func _process(delta: float) -> void:
 	level_grid.position = _level_grid_base_position + _parallax_offset * buttons_parallax_strength
 	back_button.position = _back_button_base_position + _parallax_offset * buttons_parallax_strength
 
-func _on_level_selected(path) -> void:
-	selected_level_path = path
-	
-	powerup_modal.show()
-	
-	populate_powerups()
+func _on_level_selected(path, level_number: int) -> void:
+	powerup_modal.open(level_number, path)
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	selected_level_path = ""
-	_clear_powerup_selection()
-
-func _on_start_button_pressed() -> void:
-	if selected_level_path == "":
-		return
-		
-	LoadingScreen.transition_to(get_tree(), selected_level_path)
-
-func _on_cancel_button_pressed() -> void:
-	selected_level_path = ""
-	_clear_powerup_selection()
-	
-	powerup_modal.hide()
-	
-func populate_powerups():
-	# the cards below are rebuilt from scratch, so any previous pick is gone
-	_clear_powerup_selection()
-
-	for child in powerup_grid.get_children():
-		child.queue_free()
-		
-	for item_id in GameManager.inventory:
-		if GameManager.inventory[item_id] <= 0:
-			continue
-		if not GameManager.item_info.has(item_id):
-			continue
-
-		var card = powerup_card_scene.instantiate()
-		
-		card.item_id = item_id
-		card.powerup_name = GameManager.item_info[item_id]["display_name"]
-		card.quantity_owned = GameManager.inventory[item_id]
-		card.texture_path = GameManager.item_info[item_id]["texture"]
-		
-		card.selected.connect(select_powerup)
-		
-		powerup_grid.add_child(card)
-
-func select_powerup(card: PowerupCard):
-	# deselects it if you click the same card
-	if selected_powerup_card == card:
-		card.set_selected(false)
-		_clear_powerup_selection()
-		return
-	
-	if selected_powerup_card:
-		selected_powerup_card.set_selected(false) 
-
-	selected_powerup_card = card
-	selected_powerup_card.set_selected(true)
-
-	GameManager.selected_powerup = card.item_id
-
-func _clear_powerup_selection() -> void:
-	selected_powerup_card = null
-	GameManager.selected_powerup = ""
+	powerup_modal.close()

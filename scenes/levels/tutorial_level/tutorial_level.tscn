@@ -11,21 +11,32 @@
 [ext_resource type="Texture2D" uid="uid://buufclfpfwd3q" path="res://backgrounds/overlay_backgrounds/Overlay_TutorialLevel_Text_V2.png" id="6_overlay_text"]
 [ext_resource type="PackedScene" uid="uid://of8e84uxb3jw" path="res://entities/red/clock_sprite/clock_sprite.tscn" id="7_66for"]
 [ext_resource type="PackedScene" uid="uid://crvvtldlh0rbp" path="res://entities/red/calculator_sprite/calculator_sprite.tscn" id="7_l7ta3"]
+[ext_resource type="PackedScene" uid="uid://wuowvfoe3qjj" path="res://entities/blue/water_bottle_sprite/water_bottle_sprite.tscn" id="8_20xnb"]
 [ext_resource type="PackedScene" uid="uid://iord184vd4cq" path="res://entities/red/iron_sprite/iron_sprite.tscn" id="8_52j2n"]
 [ext_resource type="Texture2D" uid="uid://qvwhav3fftnj" path="res://buttons/navigation_buttons/Button_Continue.png" id="8_continue"]
 [ext_resource type="Texture2D" uid="uid://sk2h50y01go4" path="res://buttons/navigation_buttons/Button_Continue_Active.png" id="9_continue_active"]
+[ext_resource type="PackedScene" uid="uid://cg5li7jnelrrb" path="res://entities/blue/ruler_sprite/ruler_sprite.tscn" id="9_ih2an"]
 [ext_resource type="PackedScene" uid="uid://b7vq536cdn772" path="res://entities/red/lamp_sprite/lamp_sprite.tscn" id="9_ushv3"]
 [ext_resource type="Texture2D" uid="uid://dbr6aaf04akl5" path="res://buttons/navigation_buttons/Button_Continue_Hover.png" id="10_continue_hover"]
+[ext_resource type="PackedScene" uid="uid://dxx8vkgi3gqyp" path="res://entities/blue/book_sprite/book_sprite.tscn" id="10_unq1j"]
 [ext_resource type="PackedScene" uid="uid://b164jnlc0g8xi" path="res://entities/red/lightbulb_sprite/lightbulb_sprite.tscn" id="10_vivj8"]
+[ext_resource type="PackedScene" uid="uid://ccppvfemaswh" path="res://entities/blue/soap_sprite/soap_sprite.tscn" id="11_4y4qe"]
 [ext_resource type="PackedScene" uid="uid://dcjq8ktxqh80g" path="res://entities/red/mug_sprite/mug_sprite.tscn" id="11_ynb5x"]
+[ext_resource type="PackedScene" uid="uid://wv7gwide34f0" path="res://entities/blue/napkin_sprite/napkin_sprite.tscn" id="12_aim3o"]
 [ext_resource type="PackedScene" uid="uid://fxf1ybn0gpbk" path="res://entities/red/plate_sprite/plate_sprite.tscn" id="12_bgboc"]
 [ext_resource type="PackedScene" uid="uid://dbb4v5qg854yy" path="res://entities/red/pot_sprite/pot_sprite.tscn" id="13_s5vk7"]
+[ext_resource type="PackedScene" uid="uid://cik6hjm5mjsf5" path="res://entities/blue/wrapper_sprite/wrapper_sprite.tscn" id="13_sl1ko"]
 [ext_resource type="PackedScene" uid="uid://cjcxl4k6po8rg" path="res://entities/red/projector_sprite/projector_sprite.tscn" id="14_bl26d"]
+[ext_resource type="PackedScene" uid="uid://igw5xap2k8at" path="res://entities/blue/oil_sprite/oil_sprite.tscn" id="14_m2pc4"]
 [ext_resource type="PackedScene" uid="uid://cbmaujnk1myif" path="res://entities/red/tv_sprite/tv_sprite.tscn" id="15_e6kmb"]
-[ext_resource type="PackedScene" uid="uid://i5dd6ijxoqp21" path="res://entities/green/cash_sprite/cash_sprite.tscn" id="16_cash1"]
-[ext_resource type="PackedScene" uid="uid://7lhk8msh4ivbr" path="res://entities/green/diploma_sprite/diploma_sprite.tscn" id="17_dipl1"]
-[ext_resource type="PackedScene" uid="uid://tt70enigeq4iq" path="res://entities/green/frame_sprite/frame_sprite.tscn" id="18_frm01"]
-[ext_resource type="PackedScene" uid="uid://9l9f8d8bfd3ju" path="res://entities/green/id_sprite/id_sprite.tscn" id="19_idb001"]
+[ext_resource type="PackedScene" uid="uid://cr425f73cqaeo" path="res://entities/blue/pencil_sprite/pencil_sprite.tscn" id="15_ls80i"]
+[ext_resource type="PackedScene" uid="uid://bfjm0epgkcyki" path="res://entities/green/cash_sprite/cash_sprite.tscn" id="16_cash1"]
+[ext_resource type="PackedScene" uid="uid://c62kkkxipswa2" path="res://entities/blue/mop_sprite/mop_sprite.tscn" id="16_qv78u"]
+[ext_resource type="PackedScene" uid="uid://bn7mi6ghlvu8n" path="res://entities/green/diploma_sprite/diploma_sprite.tscn" id="17_dipl1"]
+[ext_resource type="PackedScene" uid="uid://bxqe82ls10u5r" path="res://entities/blue/shovel_sprite/shovel_sprite.tscn" id="17_p6ya0"]
+[ext_resource type="PackedScene" uid="uid://i6ngdv6kqqpw" path="res://entities/green/frame_sprite/frame_sprite.tscn" id="18_frm01"]
+[ext_resource type="PackedScene" uid="uid://bjw7qjviebcx" path="res://entities/blue/uniform_sprite/uniform_sprite.tscn" id="18_jjt1o"]
+[ext_resource type="PackedScene" uid="uid://do0hiwvavq3hq" path="res://entities/green/id_sprite/id_sprite.tscn" id="19_idb001"]
 [ext_resource type="PackedScene" uid="uid://clovabefgw7l8" path="res://entities/green/isaw_sprite/isaw_sprite.tscn" id="20_isaw01"]
 [ext_resource type="PackedScene" uid="uid://hpppylqfr4ew" path="res://entities/green/kwek_sprite/kwek_sprite.tscn" id="21_kwek01"]
 [ext_resource type="PackedScene" uid="uid://cll8ym2q2ejl" path="res://entities/green/lily_sprite/lily_sprite.tscn" id="22_lily01"]
@@ -81,7 +92,7 @@ spread_min = 0.0
 spread_max = 0.0
 spin_min = 1.0
 spin_max = 1.0
-blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4")])
+blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4"), ExtResource("8_20xnb"), ExtResource("9_ih2an"), ExtResource("10_unq1j"), ExtResource("11_4y4qe"), ExtResource("12_aim3o"), ExtResource("13_sl1ko"), ExtResource("14_m2pc4"), ExtResource("15_ls80i"), ExtResource("16_qv78u"), ExtResource("17_p6ya0"), ExtResource("18_jjt1o")])
 green_weight = 0.0
 path = NodePath("../BlueSpawnerPath")
 
@@ -117,7 +128,7 @@ path = NodePath("../GreenSpawnerPath")
 curve = SubResource("Curve2D_haaw4")
 
 [node name="AllSpawner" parent="." index="12" unique_id=1407576723 node_paths=PackedStringArray("path") instance=ExtResource("4_knk6l")]
-blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4")])
+blue_scenes = Array[PackedScene]([ExtResource("6_l7ta3"), ExtResource("5_haaw4"), ExtResource("8_20xnb"), ExtResource("9_ih2an"), ExtResource("10_unq1j"), ExtResource("11_4y4qe"), ExtResource("12_aim3o"), ExtResource("13_sl1ko"), ExtResource("14_m2pc4"), ExtResource("15_ls80i"), ExtResource("16_qv78u"), ExtResource("17_p6ya0"), ExtResource("18_jjt1o")])
 red_scenes = Array[PackedScene]([ExtResource("7_l7ta3"), ExtResource("7_66for"), ExtResource("8_52j2n"), ExtResource("9_ushv3"), ExtResource("10_vivj8"), ExtResource("11_ynb5x"), ExtResource("12_bgboc"), ExtResource("13_s5vk7"), ExtResource("14_bl26d"), ExtResource("15_e6kmb")])
 green_scenes = Array[PackedScene]([ExtResource("16_cash1"), ExtResource("17_dipl1"), ExtResource("18_frm01"), ExtResource("19_idb001"), ExtResource("20_isaw01"), ExtResource("21_kwek01"), ExtResource("22_lily01"), ExtResource("23_rose01"), ExtResource("24_sunf01")])
 green_weight = 0.3

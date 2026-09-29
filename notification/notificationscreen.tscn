@@ -53,6 +53,18 @@ expand_margin_top = 3.0
 expand_margin_right = 3.0
 expand_margin_bottom = 3.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_readhover"]
+bg_color = Color(0.8, 1, 0.78, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
 [node name="NotificationScreen" type="Control" unique_id=1069354861]
 layout_mode = 3
 anchors_preset = 15
@@ -231,6 +243,9 @@ theme_override_colors/font_hover_color = Color(0.39719033, 0.49682605, 0.1849323
 theme_override_fonts/font = ExtResource("6_l3ck7")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_nbe4v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_readhover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nbe4v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_readhover")
 text = "Read in Full Screen"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

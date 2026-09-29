@@ -47,25 +47,25 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_w1green"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 900, 850, 0, 0, 0, 0, 130, 850)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 850, 0, 0, 0, 0, 270, 850)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_w2main"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 900, 810, 0, 0, 0, 0, 130, 810)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 810, 0, 0, 0, 0, 270, 810)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_w2green"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 850, 860, 0, 0, 0, 0, 180, 860)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 860, 0, 0, 0, 0, 270, 860)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_w3main"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 950, 820, 0, 0, 0, 0, 90, 820)
+"points": PackedVector2Array(0, 0, 0, 0, 755, 820, 0, 0, 0, 0, 270, 820)
 }
 point_count = 2
 

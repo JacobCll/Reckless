@@ -20,14 +20,15 @@ var open_settings_on_main_menu := false # reopen the settings overlay when the m
 # every item_id the game knows about, with the amount owned when starting fresh
 const DEFAULT_INVENTORY := {
 	"powerup_shields": 0,
-	"powerup_no_green": 0,
+	"powerup_less_green": 0,
 	"powerup_double_gems": 0
 }
 
 # item_ids that have been renamed, as {old_id: current_id}, so saves written
 # before the rename keep the items the player paid for
 const RENAMED_ITEM_IDS := {
-	"powerup_double_orbs": "powerup_double_gems"
+	"powerup_double_orbs": "powerup_double_gems",
+	"powerup_no_green": "powerup_less_green"
 }
 
 # dictionary of {item_id: amount owned}
@@ -47,10 +48,10 @@ var item_info := {
 		"description": "Higher chance of double gem drops",
 		"texture": "res://buttons/powerups-buttons/poweup_double_orbs.png"
 	},
-	"powerup_no_green": {
-		"display_name": "No Green!",
+	"powerup_less_green": {
+		"display_name": "Less Green",
 		"cost": 1000,
-		"description": "Eliminate the chance of green entities spawning",
+		"description": "Fewer green entities spawn for the whole level",
 		"texture": "res://buttons/powerups-buttons/powerup_ nogreen.png"
 	}
 }
@@ -77,6 +78,11 @@ func unlock_level(level_completed: int) -> void:
 	if next_level > highest_unlocked_level and next_level <= MAX_UNLOCKABLE_LEVEL:
 		highest_unlocked_level = next_level
 		save_data()
+
+# level 1 is played without powerups while its step tutorial is enabled, since the
+# scripted tutorial steps expect the spawners as configured
+func level_allows_powerups(level: int) -> bool:
+	return not (level == 1 and level_1_step_tutorial_enabled)
 
 func save_data() -> void:
 	var data := {
