@@ -8,6 +8,7 @@ var master_volume := 1.0
 var music_volume := 1.0
 var sfx_volume := 1.0
 var main_menu_music_muted := false
+var intro_cutscene_enabled := true # play the intro cutscene when the game boots
 
 func _ready():
 	load_settings()
@@ -18,7 +19,8 @@ func save():
 		"master_volume": master_volume,
 		"music_volume": music_volume,
 		"sfx_volume": sfx_volume,
-		"main_menu_music_muted": main_menu_music_muted
+		"main_menu_music_muted": main_menu_music_muted,
+		"intro_cutscene_enabled": intro_cutscene_enabled
 	}
 
 	var file = FileAccess.open(SETTINGS_SAVE_FILE, FileAccess.WRITE)
@@ -38,6 +40,7 @@ func load_settings():
 	music_volume = data.get("music_volume", 1.0)
 	sfx_volume = data.get("sfx_volume", 1.0)
 	main_menu_music_muted = data.get("main_menu_music_muted", false)
+	intro_cutscene_enabled = data.get("intro_cutscene_enabled", true)
 
 func set_main_menu_music_muted(muted: bool) -> void:
 	if main_menu_music_muted == muted:

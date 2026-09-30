@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Reckless"
-run/main_scene="uid://duogth2i1fmrf"
+run/main_scene="res://cutscene/intro_cutscene.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [audio]

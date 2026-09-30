@@ -549,6 +549,7 @@ stretch_mode = 5
 [node name="SettingsMenu" parent="." unique_id=144426586 instance=ExtResource("5_1txf7")]
 visible = false
 show_tutorial_button = false
+show_watch_cutscene_button = false
 
 [node name="PowerupModal" parent="." unique_id=1873402951 instance=ExtResource("29_powerup_modal")]
 

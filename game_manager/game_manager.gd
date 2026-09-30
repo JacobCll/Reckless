@@ -14,7 +14,6 @@ var level_1_step_tutorial_enabled := true
 var from_level := 0 # 0 is default (none)
 var selected_powerup := ""
 var selected_notification := ""
-var show_cutscene := true
 var open_settings_on_main_menu := false # reopen the settings overlay when the main menu loads
 
 # every item_id the game knows about, with the amount owned when starting fresh

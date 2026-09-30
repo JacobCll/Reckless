@@ -14,7 +14,6 @@ extends Control
 @onready var reckless_logo: TextureRect = $RecklessLogo
 @onready var button_container: HBoxContainer = $ButtonContainer
 
-@onready var cutscene = $CanvasLayer/Cutscene
 @onready var flare_cyan: CPUParticles2D = $RecklessLogo/LogoFlare/FlareCyan
 @onready var flare_yellow: CPUParticles2D = $RecklessLogo/LogoFlare/FlareYellow
 
@@ -28,11 +27,6 @@ func _ready() -> void:
 	AudioManager.play_music(music)
 	MouseManager.show_mouse_trail()
 	AudioManager.disable_mouse_sfx()
-
-	if GameManager.show_cutscene:
-		cutscene.show()
-	else:
-		cutscene.hide()
 
 	_background_base_position = background.position
 	_logo_base_position = reckless_logo.position
@@ -74,6 +68,3 @@ func _on_tutorial_button_pressed() -> void:
 
 func _on_notification_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://notification/notificationscreen.tscn")
-
-func _on_cutscene_continue_button_pressed() -> void:
-	cutscene.hide()

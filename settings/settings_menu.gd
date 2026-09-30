@@ -5,8 +5,11 @@ extends CanvasLayer
 @onready var sfx_slider = $Control/VBoxContainer/SfxSlider
 @onready var tutorial_toggle = $Control/VBoxContainer/TutorialToggleContainer/TutorialToggle
 @onready var tutorial_button = $Control/TutorialButton
+@onready var cutscene_toggle = $Control/VBoxContainer/CutsceneToggleContainer/CutsceneToggle
+@onready var watch_cutscene_button = $Control/VBoxContainer/CutsceneToggleContainer/WatchCutsceneButton
 
 @export var show_tutorial_button := true
+@export var show_watch_cutscene_button := true
 
 func _ready():
 	master_slider.value = Settings.master_volume
@@ -14,6 +17,8 @@ func _ready():
 	sfx_slider.value = Settings.sfx_volume
 	tutorial_toggle.button_pressed = GameManager.level_1_step_tutorial_enabled
 	tutorial_button.visible = show_tutorial_button
+	cutscene_toggle.button_pressed = Settings.intro_cutscene_enabled
+	watch_cutscene_button.visible = show_watch_cutscene_button
 
 	Settings.apply_settings()
 
@@ -22,6 +27,16 @@ func _ready():
 func _on_tutorial_toggle_toggled(pressed: bool) -> void:
 	GameManager.level_1_step_tutorial_enabled = pressed
 	GameManager.save_data()
+
+func _on_cutscene_toggle_toggled(pressed: bool) -> void:
+	Settings.intro_cutscene_enabled = pressed
+	Settings.save()
+
+func _on_watch_cutscene_button_pressed() -> void:
+	Settings.save()
+	# come back to this overlay once the cutscene is over
+	GameManager.open_settings_on_main_menu = true
+	IntroCutscene.watch(get_tree())
 
 func _on_music_slider_value_changed(value: float) -> void:
 	Settings.music_volume = value

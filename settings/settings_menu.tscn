@@ -10,12 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://dg3xwpi2s060e" path="res://buttons/navigation_buttons/Button_Tutorial.png" id="7_r82a5"]
 [ext_resource type="PackedScene" uid="uid://rp4f8mgfom0j" path="res://buttons/main_menu_buttons/music_toggle_button.tscn" id="8_music_toggle"]
 [ext_resource type="Texture2D" uid="uid://cticpbplpxyo4" path="res://backgrounds/overlay_backgrounds/Overlay_Setting.png" id="9_overlay"]
-[ext_resource type="Texture2D" path="res://settings/toggle_on.svg" id="11_toggle_on"]
-[ext_resource type="Texture2D" path="res://settings/toggle_off.svg" id="12_toggle_off"]
-[ext_resource type="Script" uid="uid://dverv7qfwk188" path="res://settings/tutorial_toggle.gd" id="13_toggle_script"]
-[ext_resource type="Texture2D" path="res://settings/toggle_on_hover.svg" id="14_toggle_on_hover"]
-[ext_resource type="Texture2D" path="res://settings/toggle_off_hover.svg" id="15_toggle_off_hover"]
 [ext_resource type="Texture2D" uid="uid://dccbvx5vwe7ui" path="res://backgrounds/overlay_backgrounds/Overlay_Settings_Text.png" id="10_overlay_text"]
+[ext_resource type="Texture2D" uid="uid://cwuy11raaadf6" path="res://settings/toggle_on.svg" id="11_toggle_on"]
+[ext_resource type="Texture2D" uid="uid://s3odn4r3qx28" path="res://settings/toggle_off.svg" id="12_toggle_off"]
+[ext_resource type="Script" uid="uid://dverv7qfwk188" path="res://settings/tutorial_toggle.gd" id="13_toggle_script"]
+[ext_resource type="Texture2D" uid="uid://bywh3l5nhfo4s" path="res://settings/toggle_on_hover.svg" id="14_toggle_on_hover"]
+[ext_resource type="Texture2D" uid="uid://pubgnw38q38i" path="res://settings/toggle_off_hover.svg" id="15_toggle_off_hover"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_76kmu"]
 texture = ExtResource("9_overlay")
@@ -55,6 +55,54 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_watch"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
+bg_color = Color(0.9, 0.82, 0.66, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_watch_pressed"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
+bg_color = Color(0.78, 0.7, 0.55, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_watch_hover"]
+content_margin_left = 14.0
+content_margin_top = 2.0
+content_margin_right = 14.0
+content_margin_bottom = 2.0
+bg_color = Color(0.96, 0.9, 0.76, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="SettingsMenu" type="CanvasLayer" unique_id=144426586]
 process_mode = 3
 script = ExtResource("1_k814s")
@@ -79,6 +127,7 @@ offset_right = -128.0
 offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -6.2831855
 theme_override_styles/panel = SubResource("StyleBoxTexture_76kmu")
 
 [node name="Panel" type="Panel" parent="Control" unique_id=972636248]
@@ -146,6 +195,7 @@ text = "Master"
 [node name="MasterSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=323228197]
 layout_mode = 2
 size_flags_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/slider = SubResource("StyleBoxFlat_7fpik")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lakpe")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_grabber_hl")
@@ -163,6 +213,7 @@ text = "Music"
 [node name="MusicSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=1378049898]
 layout_mode = 2
 size_flags_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/slider = SubResource("StyleBoxFlat_7fpik")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lakpe")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_grabber_hl")
@@ -180,6 +231,7 @@ text = "SFX"
 [node name="SfxSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=150762281]
 layout_mode = 2
 size_flags_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/slider = SubResource("StyleBoxFlat_7fpik")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lakpe")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_grabber_hl")
@@ -229,6 +281,46 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 10
 
+[node name="CutsceneToggleContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1604314545]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CutsceneToggleLabel" type="Label" parent="Control/VBoxContainer/CutsceneToggleContainer" unique_id=1761613270]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
+theme_override_fonts/font = ExtResource("2_oy4mk")
+theme_override_font_sizes/font_size = 24
+text = "Intro Cutscene"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WatchCutsceneButton" type="Button" parent="Control/VBoxContainer/CutsceneToggleContainer" unique_id=23020431]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
+theme_override_colors/font_pressed_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
+theme_override_colors/font_hover_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
+theme_override_fonts/font = ExtResource("2_oy4mk")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_watch")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_watch_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_watch_hover")
+text = "Watch"
+
+[node name="CutsceneToggle" type="CheckButton" parent="Control/VBoxContainer/CutsceneToggleContainer" unique_id=1912493859]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_icons/checked = ExtResource("11_toggle_on")
+theme_override_icons/unchecked = ExtResource("12_toggle_off")
+script = ExtResource("13_toggle_script")
+checked_hover_icon = ExtResource("14_toggle_on_hover")
+unchecked_hover_icon = ExtResource("15_toggle_off_hover")
+
 [node name="TutorialButton" type="TextureButton" parent="Control" unique_id=462141618]
 layout_mode = 1
 anchors_preset = -1
@@ -252,4 +344,6 @@ stretch_mode = 5
 [connection signal="value_changed" from="Control/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Control/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="toggled" from="Control/VBoxContainer/TutorialToggleContainer/TutorialToggle" to="." method="_on_tutorial_toggle_toggled"]
+[connection signal="pressed" from="Control/VBoxContainer/CutsceneToggleContainer/WatchCutsceneButton" to="." method="_on_watch_cutscene_button_pressed"]
+[connection signal="toggled" from="Control/VBoxContainer/CutsceneToggleContainer/CutsceneToggle" to="." method="_on_cutscene_toggle_toggled"]
 [connection signal="pressed" from="Control/TutorialButton" to="." method="_on_tutorial_button_pressed"]

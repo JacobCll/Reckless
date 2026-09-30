@@ -16,9 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dsw22r1xdb8fe" path="res://buttons/main_menu_buttons/Button_Notification_Hover.png" id="13_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://61wgqf8kdy23" path="res://buttons/main_menu_buttons/Button_Notification_Active.png" id="14_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://bi0k45cbanc2t" path="res://buttons/main_menu_buttons/Button_Notification.png" id="15_a8gd2"]
-[ext_resource type="Texture2D" uid="uid://qvwhav3fftnj" path="res://buttons/navigation_buttons/Button_Continue.png" id="18_continue"]
-[ext_resource type="Texture2D" uid="uid://sk2h50y01go4" path="res://buttons/navigation_buttons/Button_Continue_Active.png" id="19_continue_active"]
-[ext_resource type="Texture2D" uid="uid://dbr6aaf04akl5" path="res://buttons/navigation_buttons/Button_Continue_Hover.png" id="20_continue_hover"]
 [ext_resource type="PackedScene" uid="uid://rp4f8mgfom0j" path="res://buttons/main_menu_buttons/music_toggle_button.tscn" id="21_music_toggle"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7b55j"]
@@ -30,8 +27,6 @@ blend_mode = 1
 [sub_resource type="Gradient" id="Gradient_flare_twinkle"]
 offsets = PackedFloat32Array(0, 0.4, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b55j"]
 
 [node name="MainMenu" type="Control" unique_id=184496763]
 z_index = -1
@@ -180,54 +175,7 @@ texture_hover = ExtResource("15_a8gd2")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1774330237]
-layer = 999
-visible = false
-
-[node name="Cutscene" type="Control" parent="CanvasLayer" unique_id=446883537]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer/Cutscene" unique_id=153181908]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-autoplay = true
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Cutscene" unique_id=2066843295]
-modulate = Color(0.67597353, 0.67080903, 0.656766, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_right = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7b55j")
-
-[node name="CutsceneContinueButton" type="TextureButton" parent="CanvasLayer/Cutscene" unique_id=1255984940]
-layout_mode = 0
-offset_left = 794.0
-offset_top = 670.0
-offset_right = 970.0
-offset_bottom = 723.0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("18_continue")
-texture_pressed = ExtResource("19_continue_active")
-texture_hover = ExtResource("20_continue_hover")
-ignore_texture_size = true
-stretch_mode = 5
-
 [connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="NotificationButton" to="." method="_on_notification_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Cutscene/CutsceneContinueButton" to="." method="_on_cutscene_continue_button_pressed"]
