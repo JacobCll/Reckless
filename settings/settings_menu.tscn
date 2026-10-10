@@ -287,17 +287,16 @@ theme_override_constants/separation = 12
 
 [node name="CutsceneToggleLabel" type="Label" parent="Control/VBoxContainer/CutsceneToggleContainer" unique_id=1761613270]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
 theme_override_fonts/font = ExtResource("2_oy4mk")
 theme_override_font_sizes/font_size = 24
 text = "Intro Cutscene"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WatchCutsceneButton" type="Button" parent="Control/VBoxContainer/CutsceneToggleContainer" unique_id=23020431]
 layout_mode = 2
-size_flags_horizontal = 10
 size_flags_vertical = 4
 focus_mode = 0
 mouse_default_cursor_shape = 2

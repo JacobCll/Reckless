@@ -15,12 +15,10 @@ const NEXT_SCENE_PATH := "res://scenes/main_menu.tscn"
 @onready var video_frame: AspectRatioContainer = $VideoFrame
 @onready var video_player: VideoStreamPlayer = $VideoFrame/VideoStreamPlayer
 @onready var skip_button: TextureButton = $SkipButton
-@onready var start_prompt: Label = $StartPrompt
 @onready var fade: ColorRect = $Fade
 
 static var _replaying := false
 
-var _waiting_for_start := false
 var _finished := false
 
 # Replays the cutscene on request (e.g. from the settings menu), even while the
@@ -44,27 +42,13 @@ func _ready() -> void:
 	AudioManager.stop_music()
 	MouseManager.hide_mouse_trail()
 	video_player.stream = load(VIDEO_PATH)
-
-	# browsers keep audio muted until the player interacts with the page,
-	# so on web wait for a click first or the video would play silently.
-	# a replay was started by a click, so audio is already allowed
-	if OS.has_feature("web") and not replaying:
-		_waiting_for_start = true
-		start_prompt.show()
-	else:
-		_play()
+	_play()
 
 func _input(event: InputEvent) -> void:
 	if _finished or not event.is_pressed() or event.is_echo():
 		return
 
-	if _waiting_for_start:
-		if event is InputEventMouseButton or event is InputEventKey or event is InputEventScreenTouch:
-			get_viewport().set_input_as_handled()
-			_waiting_for_start = false
-			start_prompt.hide()
-			_play()
-	elif event.is_action("ui_cancel") or event.is_action("ui_accept") or event.is_action("Pause"):
+	if event.is_action("ui_cancel") or event.is_action("ui_accept") or event.is_action("Pause"):
 		get_viewport().set_input_as_handled()
 		_finish()
 

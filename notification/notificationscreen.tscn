@@ -53,6 +53,20 @@ expand_margin_top = 3.0
 expand_margin_right = 3.0
 expand_margin_bottom = 3.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_readpressed"]
+bg_color = Color(0.43, 0.78, 0.4, 1)
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0.6313726, 1, 0.6, 0.55)
+shadow_size = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_readhover"]
 bg_color = Color(0.8, 1, 0.78, 1)
 border_blend = true
@@ -138,14 +152,6 @@ offset_top = 16.0
 offset_right = 261.0
 offset_bottom = 482.0
 
-[node name="Message2" parent="MessageSelectContainer/MessageSelect/VBoxContainer" unique_id=1731157046 instance=ExtResource("6_sjudy")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 27
-text = "New Update!"
-subject_title = "New Update! - Sample Title"
-date = "June 26, 2026"
-time = "10:52 AM"
-
 [node name="Message1" parent="MessageSelectContainer/MessageSelect/VBoxContainer" unique_id=1756597523 instance=ExtResource("6_sjudy")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
@@ -174,34 +180,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_sjudy")
 
-[node name="Message2Content" type="RichTextLabel" parent="MessageContentContainer/MessageContentPanel" unique_id=1354752158]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = 19.0
-offset_right = -15.0
-offset_bottom = -61.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_msgcontent_scroll")
-theme_override_colors/default_color = Color(0.6313726, 1, 0.6, 1)
-theme_override_font_sizes/normal_font_size = 16
-text = "Placeholder for text for messages. 
-
-For Message 2 Content
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis porttitor auctor. Aliquam ornare fermentum feugiat. Aenean ornare consectetur consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat quis quam nec viverra. Curabitur mattis mi sit amet erat pulvinar tincidunt. Aenean molestie mi felis, condimentum ullamcorper risus laoreet eu. Phasellus tincidunt risus magna, sollicitudin semper nibh maximus et. Praesent efficitur tortor sed laoreet laoreet. Aliquam in lorem nisi.
-
-Nulla sed lacinia massa. Proin quis mattis enim. Etiam interdum velit vitae nisi dapibus rutrum. Vestibulum quis enim blandit, euismod lacus quis, ullamcorper dolor. Nam eget malesuada nisl. Duis feugiat sed sem et congue. Vivamus interdum ultricies mi in mollis.
-
-Duis eleifend quis ante varius auctor. Duis volutpat sollicitudin quam, ac eleifend ex vestibulum eu. Pellentesque nec nunc blandit, pharetra dolor vitae, vulputate ante. Suspendisse eros ex, auctor eu tempus vel, rutrum vel leo. Morbi accumsan magna in dapibus sollicitudin. Vivamus posuere venenatis posuere. Nam eleifend sit amet ex quis posuere. Praesent suscipit magna in est cursus, laoreet hendrerit ligula ullamcorper. Quisque sollicitudin commodo rutrum. Vestibulum maximus ultricies urna et posuere. Sed sit amet erat nunc. Mauris eu lacinia mi. Mauris a nulla sit amet ipsum venenatis suscipit. Duis nec diam placerat, blandit arcu eu, finibus erat.
-
-Etiam id iaculis tellus, nec congue mauris. Fusce turpis quam, iaculis vitae facilisis non, pretium nec magna. Aliquam auctor varius nibh, in cursus eros rhoncus vehicula. Donec dignissim ipsum nec massa placerat, at sagittis lectus consequat. Pellentesque auctor quam a ipsum tincidunt, ultricies ullamcorper erat tempor. Aliquam non tincidunt lectus. Cras aliquam dui porta metus vestibulum, a auctor magna tincidunt. In gravida interdum nibh, vel luctus lorem.
-
-Phasellus cursus scelerisque tellus. Vivamus in placerat nunc. Phasellus libero justo, tincidunt nec condimentum a, ornare non risus. Proin imperdiet, tortor eget ornare porta, ligula nulla finibus dui, in venenatis elit dolor at nunc. Vestibulum mattis urna ut ultrices pharetra. Proin convallis sem ultrices purus hendrerit finibus. Duis dui orci, rutrum et molestie nec, pulvinar quis mi. Nulla aliquam nisi non purus feugiat ornare. Nulla at efficitur lacus."
-
 [node name="Message1Content" type="RichTextLabel" parent="MessageContentContainer/MessageContentPanel" unique_id=100115762]
 visible = false
 layout_mode = 1
@@ -217,17 +195,21 @@ grow_vertical = 2
 theme = SubResource("Theme_msgcontent_scroll")
 theme_override_colors/default_color = Color(0.6313726, 1, 0.6, 1)
 theme_override_font_sizes/normal_font_size = 16
-text = "Placeholder for text for messages. 
+text = "Welcome to Reckless!
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis porttitor auctor. Aliquam ornare fermentum feugiat. Aenean ornare consectetur consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat quis quam nec viverra. Curabitur mattis mi sit amet erat pulvinar tincidunt. Aenean molestie mi felis, condimentum ullamcorper risus laoreet eu. Phasellus tincidunt risus magna, sollicitudin semper nibh maximus et. Praesent efficitur tortor sed laoreet laoreet. Aliquam in lorem nisi.
+Things are about to start flying, and it's up to you to handle them.
 
-Nulla sed lacinia massa. Proin quis mattis enim. Etiam interdum velit vitae nisi dapibus rutrum. Vestibulum quis enim blandit, euismod lacus quis, ullamcorper dolor. Nam eget malesuada nisl. Duis feugiat sed sem et congue. Vivamus interdum ultricies mi in mollis.
+BLUE items: hold left click and swipe across them to slash.
+RED items: click them to smash.
+GREEN items: leave them alone! Hitting one costs you a heart.
 
-Duis eleifend quis ante varius auctor. Duis volutpat sollicitudin quam, ac eleifend ex vestibulum eu. Pellentesque nec nunc blandit, pharetra dolor vitae, vulputate ante. Suspendisse eros ex, auctor eu tempus vel, rutrum vel leo. Morbi accumsan magna in dapibus sollicitudin. Vivamus posuere venenatis posuere. Nam eleifend sit amet ex quis posuere. Praesent suscipit magna in est cursus, laoreet hendrerit ligula ullamcorper. Quisque sollicitudin commodo rutrum. Vestibulum maximus ultricies urna et posuere. Sed sit amet erat nunc. Mauris eu lacinia mi. Mauris a nulla sit amet ipsum venenatis suscipit. Duis nec diam placerat, blandit arcu eu, finibus erat.
+Don't let blue or red items fall off the screen either, or you'll lose a heart. Clear every wave to finish a level and unlock the next one.
 
-Etiam id iaculis tellus, nec congue mauris. Fusce turpis quam, iaculis vitae facilisis non, pretium nec magna. Aliquam auctor varius nibh, in cursus eros rhoncus vehicula. Donec dignissim ipsum nec massa placerat, at sagittis lectus consequat. Pellentesque auctor quam a ipsum tincidunt, ultricies ullamcorper erat tempor. Aliquam non tincidunt lectus. Cras aliquam dui porta metus vestibulum, a auctor magna tincidunt. In gravida interdum nibh, vel luctus lorem.
+Every blue and red item you clear earns gems. Spend them at the Hiraya Shop on powerups like Shields and Double Gems, then pick one before you start a level.
 
-Phasellus cursus scelerisque tellus. Vivamus in placerat nunc. Phasellus libero justo, tincidunt nec condimentum a, ornare non risus. Proin imperdiet, tortor eget ornare porta, ligula nulla finibus dui, in venenatis elit dolor at nunc. Vestibulum mattis urna ut ultrices pharetra. Proin convallis sem ultrices purus hendrerit finibus. Duis dui orci, rutrum et molestie nec, pulvinar quis mi. Nulla aliquam nisi non purus feugiat ornare. Nulla at efficitur lacus."
+New here? Open Settings and press Tutorial to practice first.
+
+Good luck!"
 
 [node name="ReadFullScreenButton" type="Button" parent="MessageContentContainer/MessageContentPanel" unique_id=2067604156]
 layout_mode = 0
@@ -235,6 +217,7 @@ offset_left = 408.0
 offset_top = 453.0
 offset_right = 552.0
 offset_bottom = 484.0
+focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.22081777, 0.23279801, 0.15693793, 1)
 theme_override_colors/font_focus_color = Color(0.13755056, 0.13755059, 0.13755101, 1)
@@ -243,8 +226,8 @@ theme_override_colors/font_hover_color = Color(0.39719033, 0.49682605, 0.1849323
 theme_override_fonts/font = ExtResource("6_l3ck7")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_nbe4v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_readpressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_readhover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_nbe4v")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_readhover")
 text = "Read in Full Screen"
 

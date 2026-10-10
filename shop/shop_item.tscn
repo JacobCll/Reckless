@@ -12,6 +12,22 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mrnko"]
 texture = ExtResource("9_overlay")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tag"]
+content_margin_left = 8.0
+content_margin_top = 1.0
+content_margin_right = 8.0
+content_margin_bottom = 1.0
+bg_color = Color(0.96, 0.91, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.071870394, 0.049564317, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="ShopItem" type="Panel" unique_id=145953330]
 custom_minimum_size = Vector2(478, 208)
 offset_right = 584.0
@@ -63,13 +79,16 @@ anchor_left = 0.91400003
 anchor_top = 0.82900006
 anchor_right = 0.91400003
 anchor_bottom = 0.82900006
-offset_left = -85.776
-offset_top = -10.432007
-offset_right = -14.776001
-offset_bottom = 9.567993
+offset_left = -50.276
+offset_top = -0.432007
+offset_right = -50.276
+offset_bottom = -0.432007
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.071870394, 0.049564317, 0, 1)
 theme_override_fonts/font = ExtResource("3_u3fxv")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_tag")
 text = "Owned: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -81,13 +100,16 @@ anchor_left = 0.952
 anchor_top = 0.873
 anchor_right = 0.952
 anchor_bottom = 0.873
-offset_left = -228.96802
-offset_top = -20.584
-offset_right = -176.96802
-offset_bottom = 1.4160004
+offset_left = -202.96802
+offset_top = -9.584
+offset_right = -202.96802
+offset_bottom = -9.584
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.071870394, 0.049564317, 0, 1)
 theme_override_fonts/font = ExtResource("3_u3fxv")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_tag")
 text = "0 gems"
 horizontal_alignment = 1
 vertical_alignment = 1

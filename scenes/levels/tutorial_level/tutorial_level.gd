@@ -113,11 +113,6 @@ func _on_tutorial_button_pressed():
 func _on_level_start() -> void:
 	show_page()
 
-# override - the tutorial is launched from the settings overlay, so go back to it
-func _on_main_menu_button_pressed() -> void:
-	GameManager.open_settings_on_main_menu = true
-	super()
-
 func next_step():
 	slashed_count = 0
 	smashed_count = 0
@@ -246,4 +241,4 @@ func _handle_tutorial_complete():
 	green_spawner.stop()
 	all_spawner.stop()
 	
-	tutorial_body_text.text = "Congratulations! You have completed the tutorial level!"
+	tutorial_body_text.text = "Congratulations! You have completed the tutorial level! Let's go back to the main menu and try out real levels this time."

@@ -6,6 +6,7 @@ const ENTITY_HIGHLIGHT_SIZE := Vector2(160, 160)
 const EXPLANATION_BOX_SIZE := Vector2(360, 140)
 const BOX_MARGIN := 16.0
 const ENTITY_RISE_DELAY := 0.45
+const EXPLANATION_BG := preload("res://backgrounds/overlay_backgrounds/Overlay_TutorialLevel.png")
 
 signal tutorial_click_advanced
 
@@ -203,6 +204,12 @@ func _build_tutorial_overlay_nodes() -> void:
 	_explanation_panel = Panel.new()
 	_explanation_panel.name = "ExplanationPanel"
 	_explanation_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# same parchment as the tutorial level's modals; linear filtering keeps the
+	# large texture's outline intact when it's scaled down to the small box
+	var panel_style := StyleBoxTexture.new()
+	panel_style.texture = EXPLANATION_BG
+	_explanation_panel.add_theme_stylebox_override("panel", panel_style)
+	_explanation_panel.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	_tutorial_overlay.add_child(_explanation_panel)
 
 	_explanation_label = Label.new()
@@ -211,7 +218,7 @@ func _build_tutorial_overlay_nodes() -> void:
 	_explanation_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_explanation_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	_explanation_label.add_theme_font_size_override("font_size", 22)
-	_explanation_label.add_theme_color_override("font_color", Color.WHITE)
+	_explanation_label.add_theme_color_override("font_color", Color(0.15620124, 0.16530883, 0.10751491))
 	_explanation_label.add_theme_font_override("font", preload("res://fonts/Movery.ttf"))
 	_explanation_label.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_explanation_label.offset_left = 16
