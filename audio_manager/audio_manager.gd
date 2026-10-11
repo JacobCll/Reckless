@@ -12,8 +12,13 @@ var button_click_sfx := preload("res://sfx/button_press.wav")
 func _ready() -> void:
 	get_tree().node_added.connect(_on_node_added)
 
+	# the boot scene (intro cutscene) enters the tree before this autoload is
+	# ready, so its buttons were never seen by node_added
+	for node in get_tree().root.find_children("*", "BaseButton", true, false):
+		_on_node_added(node)
+
 func _on_node_added(node: Node) -> void:
-	if node is BaseButton:
+	if node is BaseButton and not node.pressed.is_connected(play_button_click):
 		node.pressed.connect(play_button_click)
 
 func play_button_click() -> void:

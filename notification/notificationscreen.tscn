@@ -120,7 +120,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 59.0
 offset_top = 83.0
-offset_right = 609.0
+offset_right = 553.99994
 offset_bottom = 285.0
 scale = Vector2(0.4, 0.4)
 mouse_default_cursor_shape = 2
@@ -149,13 +149,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_l3ck7")
 layout_mode = 0
 offset_left = 20.0
 offset_top = 16.0
-offset_right = 261.0
+offset_right = 259.0
 offset_bottom = 482.0
+theme_override_constants/separation = 16
 
 [node name="Message1" parent="MessageSelectContainer/MessageSelect/VBoxContainer" unique_id=1756597523 instance=ExtResource("6_sjudy")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
 text = "Welcome, Players!"
+underline = 2
 subject_title = "Welcome, Players!"
 date = "June 25, 2026"
 time = "9:00 PM"
