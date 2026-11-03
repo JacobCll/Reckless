@@ -46,6 +46,8 @@
 [ext_resource type="Texture2D" uid="uid://bdo7mvl714ydv" path="res://buttons/new_level_buttons/Button_Level10_Hover.png" id="47_a4ij0"]
 [ext_resource type="Texture2D" uid="uid://c2uspkq55cpi4" path="res://buttons/new_level_buttons/Button_Level10_Locked.png" id="48_edey8"]
 [ext_resource type="PackedScene" uid="uid://rp4f8mgfom0j" path="res://buttons/main_menu_buttons/music_toggle_button.tscn" id="56_music_toggle"]
+[ext_resource type="Script" uid="uid://ehhpmmj4ai2" path="res://scenes/level_menu/arrow_button.gd" id="57_arrow"]
+[ext_resource type="FontFile" uid="uid://4l6rcccjpvtb" path="res://fonts/Movery.ttf" id="58_font"]
 
 [node name="LevelMenu" type="Control" unique_id=1795282986]
 layout_mode = 3
@@ -201,6 +203,59 @@ texture_disabled = ExtResource("48_edey8")
 level_path = "res://scenes/levels/levels/level_10/level_10.tscn"
 level_number = 10
 
+[node name="ToBeContinuedPage" type="Control" parent="." unique_id=1423871501]
+visible = false
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.58900005
+anchor_right = 0.5
+anchor_bottom = 0.58900005
+offset_left = -391.0
+offset_top = -170.35205
+offset_right = 409.0
+offset_bottom = 109.64795
+
+[node name="Text" type="Label" parent="ToBeContinuedPage" unique_id=1423871502]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.04395192, 0.043951936, 0.0439519, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_fonts/font = ExtResource("58_font")
+theme_override_font_sizes/font_size = 64
+text = "More levels
+to be continued..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LeftArrow" type="Button" parent="." unique_id=1423871503]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 387.0
+offset_right = 88.0
+offset_bottom = 457.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+script = ExtResource("57_arrow")
+points_left = true
+
+[node name="RightArrow" type="Button" parent="." unique_id=1423871504]
+visible = false
+layout_mode = 0
+offset_left = 952.0
+offset_top = 386.0
+offset_right = 1002.0
+offset_bottom = 456.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+script = ExtResource("57_arrow")
+
 [node name="MusicToggleButton" parent="." unique_id=1350925578 instance=ExtResource("56_music_toggle")]
 layout_mode = 0
 offset_left = 968.0
@@ -212,3 +267,5 @@ scale = Vector2(0.5302761, 0.5353836)
 [node name="PowerupModal" parent="." unique_id=1064702113 instance=ExtResource("12_modal")]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="LeftArrow" to="." method="_on_left_arrow_pressed"]
+[connection signal="pressed" from="RightArrow" to="." method="_on_right_arrow_pressed"]

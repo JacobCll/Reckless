@@ -7,6 +7,7 @@ var current_scene := "main_menu"
 var user_gems := 0 # user currency
 var highest_unlocked_level := 1 # highest level the player has unlocked
 var MAX_UNLOCKABLE_LEVEL := 10 # max level that can be unlocked
+var final_level_completed := false # player has beaten MAX_UNLOCKABLE_LEVEL
 var level_1_tutorial_seen := false
 var level_1_step_tutorial_enabled := true
 
@@ -63,6 +64,7 @@ func _ready():
 func reset():
 	user_gems = 0
 	highest_unlocked_level = 1
+	final_level_completed = false
 	inventory = DEFAULT_INVENTORY.duplicate()
 	level_1_tutorial_seen = false
 	level_1_step_tutorial_enabled = true
@@ -78,6 +80,10 @@ func unlock_level(level_completed: int) -> void:
 		highest_unlocked_level = next_level
 		save_data()
 
+	if level_completed >= MAX_UNLOCKABLE_LEVEL and not final_level_completed:
+		final_level_completed = true
+		save_data()
+
 # level 1 is played without powerups while its step tutorial is enabled, since the
 # scripted tutorial steps expect the spawners as configured
 func level_allows_powerups(level: int) -> bool:
@@ -86,6 +92,7 @@ func level_allows_powerups(level: int) -> bool:
 func save_data() -> void:
 	var data := {
 		"highest_unlocked_level": highest_unlocked_level,
+		"final_level_completed": final_level_completed,
 		"user_gems": user_gems,
 		"inventory": inventory,
 		"level_1_tutorial_seen": level_1_tutorial_seen,
@@ -106,6 +113,7 @@ func load_data() -> void:
 		return
 
 	highest_unlocked_level = saved_data.get("highest_unlocked_level", 1)
+	final_level_completed = saved_data.get("final_level_completed", false)
 	# "user_orbs" is the pre-rename name for the currency
 	user_gems = saved_data.get("user_gems", saved_data.get("user_orbs", 0))
 	inventory = _migrated_inventory(saved_data.get("inventory", {}))
