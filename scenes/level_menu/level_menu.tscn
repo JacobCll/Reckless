@@ -233,6 +233,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="LeftArrow" type="Button" parent="." unique_id=1423871503]
+visible = false
 layout_mode = 0
 offset_left = 38.0
 offset_top = 387.0
