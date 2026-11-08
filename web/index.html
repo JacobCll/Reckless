@@ -167,38 +167,61 @@ const engine = new Engine(GODOT_CONFIG);
 		threads: GODOT_THREADS_ENABLED,
 	});
 
-	if (missing.length !== 0) {
-		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
-			let serviceWorkerRegistrationPromise;
-			try {
-				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
-			} catch (err) {
-				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
+	// GitHub Pages can't send the COOP/COEP headers that threads need, so a
+	// service worker adds them. It only takes effect once it is *active* and
+	// the page has been reloaded through it. Counts automatic reloads in this
+	// tab so a broken setup can't loop forever.
+	const RELOAD_KEY = 'reckless-coi-reloads';
+	function getReloadCount() {
+		try {
+			return Number(sessionStorage.getItem(RELOAD_KEY)) || 0;
+		} catch (err) {
+			return 0;
+		}
+	}
+	function setReloadCount(count) {
+		try {
+			if (count > 0) {
+				sessionStorage.setItem(RELOAD_KEY, String(count));
+			} else {
+				sessionStorage.removeItem(RELOAD_KEY);
 			}
-			// There's a chance that installing the service worker would fix the issue
+		} catch (err) {
+			// storage blocked: worst case the reload guard doesn't apply
+		}
+	}
+
+	if (missing.length !== 0) {
+		const reloads = getReloadCount();
+		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator && reloads < 2) {
+			// show the splash with an indeterminate bar instead of a black page
+			setStatusMode('progress');
+
+			// register() resolves as soon as the worker is registered, before it
+			// has installed and activated. Reloading then loads the page without
+			// the worker (still no headers), which used to leave a black screen.
+			// `ready` waits for an active worker. Registering again when one
+			// already exists is harmless and just returns it.
 			Promise.race([
-				serviceWorkerRegistrationPromise.then((registration) => {
-					if (registration != null) {
-						return Promise.reject(new Error('Service worker already exists.'));
-					}
-					return registration;
-				}).then(() => engine.installServiceWorker()),
-				// For some reason, `getRegistration()` can stall
-				new Promise((resolve) => {
-					setTimeout(() => resolve(), 2000);
+				engine.installServiceWorker().then(() => navigator.serviceWorker.ready),
+				new Promise((resolve, reject) => {
+					setTimeout(() => reject(new Error('Timed out waiting for the service worker.')), 15000);
 				}),
 			]).then(() => {
-				// Reload if there was no error.
+				setReloadCount(reloads + 1);
 				window.location.reload();
 			}).catch((err) => {
 				console.error('Error while registering service worker:', err);
+				displayFailureNotice('The game could not finish setting up.\nPlease refresh the page.');
 			});
 		} else {
+			setReloadCount(0);
 			// Display the message as usual
 			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
 			displayFailureNotice(missingMsg + missing.join('\n'));
 		}
 	} else {
+		setReloadCount(0);
 		setStatusMode('progress');
 		engine.startGame({
 			'onProgress': function (current, total) {
