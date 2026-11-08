@@ -103,7 +103,7 @@ waves = [NodePath("../Waves/Wave1"), NodePath("../Waves/Wave2"), NodePath("../Wa
 [node name="Wave1" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="0" unique_id=1972401461]
 script = ExtResource("4_yuhpf")
 wave_number = 1
-kill_requirement = 30
+kill_requirement = 15
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="SideSpawner" parent="Waves/Wave1" index="0" unique_id=540578691 instance=ExtResource("5_xx7qf")]
@@ -139,7 +139,7 @@ curve = SubResource("Curve2D_l10w1greenspawner")
 [node name="Wave2" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="1" unique_id=474003545]
 script = ExtResource("4_yuhpf")
 wave_number = 2
-kill_requirement = 20
+kill_requirement = 15
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="BlueBurstSpawner" parent="Waves/Wave2" index="0" unique_id=924447782 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]
@@ -228,7 +228,7 @@ curve = SubResource("Curve2D_l10w3greenspawner")
 [node name="Wave4" type="Node" parent="Waves" parent_id_path=PackedInt32Array(1732898637) index="3" unique_id=1614355301]
 script = ExtResource("4_yuhpf")
 wave_number = 4
-kill_requirement = 30
+kill_requirement = 20
 metadata/_custom_type_script = "uid://dxcjb187qfvfc"
 
 [node name="MainSpawner" parent="Waves/Wave4" index="0" unique_id=1412750114 node_paths=PackedStringArray("path") instance=ExtResource("5_xx7qf")]

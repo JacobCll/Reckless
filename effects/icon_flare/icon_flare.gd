@@ -9,6 +9,7 @@ extends Node2D
 
 # Shared across scenes so the flare's soft glow dot is only ever rasterized once.
 static var _flare_texture: ImageTexture
+static var _star_texture: ImageTexture
 
 var _emitters: Array[CPUParticles2D] = []
 
@@ -48,3 +49,25 @@ static func get_flare_texture() -> ImageTexture:
 
 	_flare_texture = ImageTexture.create_from_image(image)
 	return _flare_texture
+
+## Four-point star glint, for sharper sparkles on gems and highlights.
+static func get_star_texture() -> ImageTexture:
+	if _star_texture:
+		return _star_texture
+
+	const SIZE := 32
+	var image := Image.create(SIZE, SIZE, false, Image.FORMAT_RGBA8)
+	var center := Vector2(SIZE, SIZE) / 2.0
+	var radius := SIZE / 2.0
+	for x in SIZE:
+		for y in SIZE:
+			var d := (Vector2(x + 0.5, y + 0.5) - center) / radius
+			# Thin rays along each axis that taper toward the tips, plus a soft core.
+			var ray_h := clampf(1.0 - absf(d.x), 0.0, 1.0) * clampf(1.0 - absf(d.y) * 8.0, 0.0, 1.0)
+			var ray_v := clampf(1.0 - absf(d.y), 0.0, 1.0) * clampf(1.0 - absf(d.x) * 8.0, 0.0, 1.0)
+			var core := clampf(1.0 - d.length() * 3.0, 0.0, 1.0)
+			var alpha := maxf(maxf(ray_h, ray_v), core)
+			image.set_pixel(x, y, Color(1.0, 1.0, 1.0, alpha * alpha))
+
+	_star_texture = ImageTexture.create_from_image(image)
+	return _star_texture

@@ -9,7 +9,7 @@ extends Node
 @export var shop_item_scene: PackedScene
 @export var shop_music: AudioStream
 var buy_sfx := preload("res://sfx/shop_sfx/Buy_1.mp3")
-var insufficient_funds_sfx := preload("res://sfx/entity_sfx/despawned/despawned_sfx.wav")
+var insufficient_funds_sfx := preload("res://sfx/shop_sfx/NoMoney2.mp3")
 
 # items to sell
 var items := {

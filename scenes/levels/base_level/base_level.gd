@@ -116,8 +116,6 @@ var _emoji_index := 0
 @onready var win_screen = $CanvasLayer/WinLevelScreen
 @onready var win_score_text = $CanvasLayer/WinLevelScreen/ScoreText
 @onready var next_level_button = $CanvasLayer/WinLevelScreen/HBoxContainer/NextLevelButton
-@onready var to_be_continued_screen = $CanvasLayer/ToBeContinuedScreen
-@onready var to_be_continued_score_text = $CanvasLayer/ToBeContinuedScreen/CenterContainer/VBoxContainer/ScoreText
 @onready var settings_menu = $SettingsMenu
 @onready var powerup_modal: PowerupModal = $PowerupModal
 @onready var progress_bar = $CanvasLayer/HUD/LevelProgressBar
@@ -249,9 +247,8 @@ func _setup_ui() -> void:
 	pause_screen.hide()
 	gameover_screen.hide()
 	win_screen.hide()
-	to_be_continued_screen.hide()
 	hud.hide()
-
+	
 	countdown_label.show()
 	_update_hearts_ui()
 	_update_shields_ui()
@@ -479,17 +476,15 @@ func _on_all_waves_completed() -> void:
 
 	await get_tree().create_timer(win_screen_delay).timeout
 
-	_play_victory_sfx()
-
-	# beating the last level shows a thank-you message instead of the win screen
-	if LEVEL_NUMBER == GameManager.MAX_UNLOCKABLE_LEVEL:
-		to_be_continued_score_text.text = "Score: %d" % score
-		to_be_continued_screen.show()
-		return
-
 	win_score_text.text = "Score: %d" % score
 	win_screen.show()
-	next_level_button.show()
+	_play_victory_sfx()
+
+	# show next level button if there is a next level
+	if LEVEL_NUMBER < GameManager.MAX_UNLOCKABLE_LEVEL:
+		next_level_button.show()
+	else:
+		next_level_button.hide()
 
 # =========================================================
 # LIVES / HEARTS / SHIELDS

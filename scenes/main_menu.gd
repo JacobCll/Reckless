@@ -16,6 +16,8 @@ extends Control
 
 @onready var flare_cyan: CPUParticles2D = $RecklessLogo/LogoFlare/FlareCyan
 @onready var flare_yellow: CPUParticles2D = $RecklessLogo/LogoFlare/FlareYellow
+@onready var gem_sparkle: CPUParticles2D = $RecklessLogo/LogoFlare/GemSparkle
+@onready var gem_glint: CPUParticles2D = $RecklessLogo/LogoFlare/GemGlint
 
 var _background_base_position: Vector2
 var _logo_base_position: Vector2
@@ -35,6 +37,8 @@ func _ready() -> void:
 	var flare_texture := IconFlare.get_flare_texture()
 	flare_cyan.texture = flare_texture
 	flare_yellow.texture = flare_texture
+	gem_sparkle.texture = flare_texture
+	gem_glint.texture = IconFlare.get_star_texture()
 
 	if GameManager.open_settings_on_main_menu:
 		GameManager.open_settings_on_main_menu = false
