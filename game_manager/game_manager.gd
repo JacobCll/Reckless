@@ -16,6 +16,7 @@ var from_level := 0 # 0 is default (none)
 var selected_powerup := ""
 var selected_notification := ""
 var open_settings_on_main_menu := false # reopen the settings overlay when the main menu loads
+var unlock_all_levels := true # debug: every level is playable regardless of save progress
 
 # every item_id the game knows about, with the amount owned when starting fresh
 const DEFAULT_INVENTORY := {
@@ -71,7 +72,7 @@ func reset():
 	save_data()
 
 func is_level_unlocked(level: int) -> bool:
-	return level <= highest_unlocked_level
+	return unlock_all_levels or level <= highest_unlocked_level
 
 func unlock_level(level_completed: int) -> void:
 	var next_level := level_completed + 1
